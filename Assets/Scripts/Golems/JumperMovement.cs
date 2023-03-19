@@ -7,8 +7,6 @@ public class JumperMovement : MonoBehaviour
 
     [SerializeField] private LayerMask _groundLayers;
     [SerializeField] private float _minJumpForce, _maxJumpForce, _minJumpTime, _maxJumpTime, _gravityForce;
-    [SerializeField] private Transform _groundCheck;
-
 
     private Rigidbody2D _rb;
     private Vector2 _gravity;
