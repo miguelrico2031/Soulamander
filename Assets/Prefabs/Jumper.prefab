@@ -102,12 +102,11 @@ MonoBehaviour:
   _groundLayers:
     serializedVersion: 2
     m_Bits: 64
-  _minJumpForce: 10
+  _minJumpForce: 12.5
   _maxJumpForce: 25
   _minJumpTime: 0.1
   _maxJumpTime: 1
   _gravityForce: 4
-  _groundCheck: {fileID: 0}
 --- !u!50 &7537533552205766744
 Rigidbody2D:
   serializedVersion: 4

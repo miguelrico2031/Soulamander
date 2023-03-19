@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumperMovement : MonoBehaviour
+public class Jumper : Golem
 {
-
     [SerializeField] private LayerMask _groundLayers;
     [SerializeField] private float _minJumpForce, _maxJumpForce, _minJumpTime, _maxJumpTime, _gravityForce;
 
-    private Rigidbody2D _rb;
+
     private Vector2 _gravity;
 
     private float _horizontalInput, _nextHorizontalInput;
@@ -22,14 +21,16 @@ public class JumperMovement : MonoBehaviour
     
 
 
-    private void Awake()
+    protected override void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        base.Awake();
+
         _gravity = _gravityForce * 9.81f * Vector2.down;
     }
 
     private void Update()
     {
+        if (State != GolemState.Enabled) return;
 
         if (Input.GetButtonDown("Jump") && _isGrounded) _isHoldingJumpButton = true;
 
@@ -61,8 +62,9 @@ public class JumperMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isGrounded) return;
-        _rb.velocity += _gravity * Time.fixedDeltaTime;
+        if (State != GolemState.Enabled) return;
+
+        if (!_isGrounded) _rb.velocity += _gravity * Time.fixedDeltaTime;
     }
 
     private void Jump()
@@ -88,6 +90,8 @@ public class JumperMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (State != GolemState.Enabled) return;
+
         if ((_groundLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
 
         if(collision.contacts[0].normal.y >= 0f)
@@ -97,20 +101,4 @@ public class JumperMovement : MonoBehaviour
             _rb.SetRotation(Vector2.SignedAngle(transform.up, collision.contacts[0].normal));
         }
     }
-
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if ((_groundLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
-    //    if (collision.contacts.Length > 0f && collision.contacts[0].normal.y >= 0f)
-    //    {
-    //        ContactFilter2D filter = new ContactFilter2D();
-    //        filter.SetLayerMask(_groundLayers);
-    //        List<Collider2D> contacts = new List<Collider2D>();
-    //        _rb.OverlapCollider(filter, contacts);
-    //        foreach (var contact in contacts) if (contact.gameObject != this) return;
-
-    //        _isGrounded = false;
-    //        _rb.gravityScale = _defaultGravity;
-    //    }
-    //}
 }
