@@ -13,6 +13,7 @@ public class Golem1Movement : MonoBehaviour
 
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpingForce;
+    [SerializeField] private float _holdDiff;
     [SerializeField] private float _groundCheckOffset;
     [SerializeField] private float _inputBufferTime;
     [SerializeField] private float _coyoteTime;
@@ -58,6 +59,10 @@ public class Golem1Movement : MonoBehaviour
                 }
             }         
         }
+        if (Input.GetKeyUp(KeyCode.Space) && _rb.velocity.y > 0f)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _holdDiff);
+        }
 
         Flip();
     }
@@ -75,16 +80,25 @@ public class Golem1Movement : MonoBehaviour
 
     private bool RayCastHitGround()
     {
-        RaycastHit2D raycastHit = Physics2D.Raycast(_collider.bounds.center, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
-        if (raycastHit.collider != null)
+        RaycastHit2D[] raycastHit = new RaycastHit2D[3];
+
+        raycastHit[0] = Physics2D.Raycast(_collider.bounds.center, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
+        Debug.DrawRay(_collider.bounds.center, Vector2.down * (_collider.bounds.extents.y + _groundCheckOffset));
+
+        raycastHit[1] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x + _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
+        Debug.DrawRay(new Vector2(_collider.bounds.center.x + _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down * (_collider.bounds.extents.y + _groundCheckOffset));
+
+        raycastHit[2] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
+        Debug.DrawRay(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down * (_collider.bounds.extents.y + _groundCheckOffset));
+
+        foreach (var hit in raycastHit)
         {
-            return true;
+            if (hit.collider != null)
+            {
+                return true;
+            }
         }
-        else
-        {
-            
-            return false;
-        }
+        return false;
     }
     
     private void Flip()
