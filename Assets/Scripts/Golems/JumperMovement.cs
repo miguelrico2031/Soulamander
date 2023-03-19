@@ -85,7 +85,6 @@ public class JumperMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject);
         if ((_groundLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
 
         if(collision.contacts[0].normal.y >= 0f)
