@@ -83,13 +83,10 @@ public class Golem1Movement : MonoBehaviour
         RaycastHit2D[] raycastHit = new RaycastHit2D[3];
 
         raycastHit[0] = Physics2D.Raycast(_collider.bounds.center, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
-        Debug.DrawRay(_collider.bounds.center, Vector2.down * (_collider.bounds.extents.y + _groundCheckOffset));
 
         raycastHit[1] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x + _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
-        Debug.DrawRay(new Vector2(_collider.bounds.center.x + _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down * (_collider.bounds.extents.y + _groundCheckOffset));
 
         raycastHit[2] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
-        Debug.DrawRay(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down * (_collider.bounds.extents.y + _groundCheckOffset));
 
         foreach (var hit in raycastHit)
         {
@@ -101,6 +98,7 @@ public class Golem1Movement : MonoBehaviour
         return false;
     }
     
+    //mover a otro script:
     private void Flip()
     {
         if (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f)
