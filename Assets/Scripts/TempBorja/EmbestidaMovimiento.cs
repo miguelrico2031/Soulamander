@@ -75,22 +75,19 @@ public class EmbestidaMovimiento : MonoBehaviour
 
             if (RayCastHitWall(_wallLayer) != null)
             {
-                speed = 0;
-                _isAtMaxSpeed = false;
-                _isRunning = false;
+                StopRunning();
             }
             else if (RayCastHitWall(_destructibleLayer) != null)
             {
                 if (_isAtMaxSpeed)
                 {
-                    RayCastHitWall(_destructibleLayer).gameObject.SetActive(false);
+
+                    RayCastHitWall(_destructibleLayer).GetComponent<DestructibleObject>().DestroyObstacle(gameObject);
                     _rb.velocity = new Vector2(speed * _direction, _rb.velocity.y);
                 }
                 else
                 {
-                    speed = 0;
-                    _isAtMaxSpeed = false;
-                    _isRunning = false;
+                    StopRunning();
                 }                              
             }
             else if (RayCastHitWall(_pushableLayer) != null)
@@ -103,9 +100,7 @@ public class EmbestidaMovimiento : MonoBehaviour
                 }
                 else
                 {
-                    speed = 0;
-                    _isAtMaxSpeed = false;
-                    _isRunning = false;
+                    StopRunning();
                 }               
                 
             }
@@ -115,6 +110,13 @@ public class EmbestidaMovimiento : MonoBehaviour
             }           
         } 
         
+    }
+
+    public void StopRunning()
+    {
+        speed = 0;
+        _isAtMaxSpeed = false;
+        _isRunning = false;
     }
 
     private GameObject RayCastHitWall(LayerMask layer)

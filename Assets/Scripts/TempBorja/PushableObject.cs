@@ -8,8 +8,9 @@ public class PushableObject : MonoBehaviour
     [SerializeField] private float _gravityForce;
     [SerializeField] private Rigidbody2D _rb;
 
-    private bool _isGrounded;
-    public bool HasHitWall;
+    [HideInInspector] public bool HasHitWall;
+
+    private bool _isGrounded;   
 
     private void FixedUpdate()
     {
