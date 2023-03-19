@@ -107,6 +107,7 @@ MonoBehaviour:
   _maxJumpForce: 25
   _minJumpTime: 0.1
   _maxJumpTime: 1
+  _gravityForce: 4
   _groundCheck: {fileID: 7537533552853732196}
 --- !u!50 &7537533552205766744
 Rigidbody2D:
@@ -118,12 +119,12 @@ Rigidbody2D:
   m_GameObject: {fileID: 7537533552205766756}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 1b90dad4fcce9864086d6b946572abf4, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1

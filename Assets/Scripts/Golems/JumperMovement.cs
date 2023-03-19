@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class JumperMovement : MonoBehaviour
 {
+
     [SerializeField] private LayerMask _groundLayers;
     [SerializeField] private float _minJumpForce, _maxJumpForce, _minJumpTime, _maxJumpTime, _gravityForce;
     [SerializeField] private Transform _groundCheck;
 
+
     private Rigidbody2D _rb;
+    private Vector2 _gravity;
+
     private float _horizontalInput, _nextHorizontalInput;
-    private float _holdingJumpButtonTime = 0f;
-
-
-    private bool _isGrounded = false;
-    private bool _isHoldingJumpButton = false;
     private bool _isDelayingHorizontalInput = false;
-
     private float _horizontalDelayTimer = 0f;
 
-    private Vector2 _gravity;
+    private bool _isHoldingJumpButton = false;
+    private float _holdingJumpButtonTime = 0f;
+
+    private bool _isGrounded = false;
+    
+
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _gravity = Vector2.down * 9.81f * _gravityForce;
+        _gravity = _gravityForce * 9.81f * Vector2.down;
     }
 
     private void Update()
@@ -69,6 +72,8 @@ public class JumperMovement : MonoBehaviour
         _isGrounded = false;
         _isHoldingJumpButton = false;
 
+        _rb.SetRotation(0f);
+
         //(valor de x - a) / (b - a)
         float jumpForceFactor = _holdingJumpButtonTime <= _minJumpTime ? 0f : (_holdingJumpButtonTime - _minJumpTime) / (_maxJumpTime - _minJumpTime);
 
@@ -91,6 +96,7 @@ public class JumperMovement : MonoBehaviour
         {
             _isGrounded = true;
             _rb.velocity = new Vector2(0f, 0f);
+            _rb.SetRotation(Vector2.SignedAngle(transform.up, collision.contacts[0].normal));
         }
     }
 
