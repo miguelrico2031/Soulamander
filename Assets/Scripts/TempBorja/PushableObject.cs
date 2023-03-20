@@ -12,17 +12,20 @@ public class PushableObject : MonoBehaviour
 
     [HideInInspector] public bool HasHitWall;
 
-    private bool _isGrounded;   
+    private bool _isGrounded;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (_isGrounded)
         {
             if (!RayCastHitGround())
             {
                 _isGrounded = false;
-            }            
+            }
         }
+    }
+    private void FixedUpdate()
+    {       
         if (!_isGrounded) _rb.velocity = new Vector2(_rb.velocity.x, (_rb.velocity.y + _gravityForce * -9.81f * Time.fixedDeltaTime));
     }
 

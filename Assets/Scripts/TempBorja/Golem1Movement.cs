@@ -15,12 +15,13 @@ public class Golem1Movement : MonoBehaviour
     [SerializeField] private float _jumpingForce;
     [SerializeField] private float _holdDiff;
     [SerializeField] private float _groundCheckOffset;
+    [SerializeField] private float _groundCheckDistance;
     [SerializeField] private float _inputBufferTime;
     [SerializeField] private float _coyoteTime;
 
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private BoxCollider2D _collider;
-    [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private LayerMask _jumpableLayers;
     private void Start()
     {
         _keyQueue = new Queue<KeyCode>();
@@ -82,15 +83,18 @@ public class Golem1Movement : MonoBehaviour
     {
         RaycastHit2D[] raycastHit = new RaycastHit2D[3];
 
-        raycastHit[0] = Physics2D.Raycast(_collider.bounds.center, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
+        raycastHit[0] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x, _collider.bounds.center.y - _collider.bounds.extents.y - _groundCheckOffset), Vector2.down, _groundCheckDistance, _jumpableLayers);
+        Debug.DrawRay(new Vector2(_collider.bounds.center.x, _collider.bounds.center.y - _collider.bounds.extents.y - _groundCheckOffset), Vector2.down * _groundCheckOffset);
 
-        raycastHit[1] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x + _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
+        raycastHit[1] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x + _collider.bounds.extents.x, _collider.bounds.center.y - _collider.bounds.extents.y - _groundCheckOffset), Vector2.down, _groundCheckDistance, _jumpableLayers);
+        Debug.DrawRay(new Vector2(_collider.bounds.center.x + _collider.bounds.extents.x, _collider.bounds.center.y - _collider.bounds.extents.y - _groundCheckOffset), Vector2.down * _groundCheckOffset);
 
-        raycastHit[2] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
+        raycastHit[2] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x, _collider.bounds.center.y - _collider.bounds.extents.y - _groundCheckOffset), Vector2.down, _groundCheckDistance, _jumpableLayers);
+        Debug.DrawRay(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x, _collider.bounds.center.y - _collider.bounds.extents.y - _groundCheckOffset), Vector2.down * _groundCheckOffset);
 
         foreach (var hit in raycastHit)
         {
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.transform.gameObject != transform.gameObject)
             {
                 return true;
             }

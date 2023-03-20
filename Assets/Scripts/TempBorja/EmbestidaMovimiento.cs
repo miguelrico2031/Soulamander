@@ -51,7 +51,7 @@ public class EmbestidaMovimiento : MonoBehaviour
 
         if (_isAtMaxSpeed)
         {
-            Debug.Log("vel max");
+           // Debug.Log("vel max");
         }
 
         
