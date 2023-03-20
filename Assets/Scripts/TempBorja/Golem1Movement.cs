@@ -8,8 +8,10 @@ public class Golem1Movement : MonoBehaviour
     private float _horizontal;
     private bool _isFacingRight;
     private float _flightTime;
-    private Queue<KeyCode> _keyQueue;
-    private bool _isGrounded; 
+    private bool _isGrounded;
+
+    //private Queue<KeyCode> _buttonQueue;
+    private Queue<ButtonToQueue> _buttonQueue;
 
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpingForce;
@@ -21,9 +23,21 @@ public class Golem1Movement : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private LayerMask _groundLayer;
-    private void Start()
+
+    private Vector3[] _groundCheckPoints;
+
+    private void Awake()
     {
-        _keyQueue = new Queue<KeyCode>();
+        //_buttonQueue = new Queue<KeyCode>();
+        _buttonQueue = new Queue<ButtonToQueue>();
+
+        _groundCheckPoints = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.right * _collider.bounds.extents.x,
+            Vector3.left * _collider.bounds.extents.x
+
+        };
     }
     private void Update()
     {
@@ -32,44 +46,39 @@ public class Golem1Movement : MonoBehaviour
         if (RayCastHitGround())
         {
             _flightTime = 0f;
-            if (_rb.velocity.y <= 0)
-            {
-                _isGrounded = true;
-            }
-            
+            if (_rb.velocity.y <= 0) _isGrounded = true;
         }
-        else
+        else _flightTime += Time.deltaTime;
+
+        
+        //if (Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetButtonDown("Jump"))
         {
-            _flightTime += Time.deltaTime;
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _keyQueue.Enqueue(KeyCode.Space);
-            Invoke("ClearKeyInQueue", _inputBufferTime);         
+            _buttonQueue.Enqueue(ButtonToQueue.Jump);
+            Invoke(nameof(ClearKeyInQueue), _inputBufferTime);         
         }
         if (_flightTime < _coyoteTime && _isGrounded)
         {
-            if (_keyQueue.Count > 0)
+            if (_buttonQueue.Count > 0)
             {
-                if (_keyQueue.Peek() == KeyCode.Space)
+                if (_buttonQueue.Peek() == ButtonToQueue.Jump)
                 {
                     _rb.velocity = new Vector2(_rb.velocity.x, _jumpingForce);
                     _isGrounded = false;
-                    _keyQueue.Dequeue();
+                    _buttonQueue.Dequeue();
                 }
             }         
         }
-        if (Input.GetKeyUp(KeyCode.Space) && _rb.velocity.y > 0f)
-        {
+        if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0f)
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _holdDiff);
-        }
+        
 
         Flip();
     }
 
     private void ClearKeyInQueue()
     {
-        if (_keyQueue.Count > 0) _keyQueue.Dequeue();
+        if (_buttonQueue.Count > 0) _buttonQueue.Dequeue();
     }
 
 
@@ -80,21 +89,12 @@ public class Golem1Movement : MonoBehaviour
 
     private bool RayCastHitGround()
     {
-        RaycastHit2D[] raycastHit = new RaycastHit2D[3];
-
-        raycastHit[0] = Physics2D.Raycast(_collider.bounds.center, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
-
-        raycastHit[1] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x + _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
-
-        raycastHit[2] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x, _collider.bounds.center.y), Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
-
-        foreach (var hit in raycastHit)
+        foreach(var v in _groundCheckPoints)
         {
-            if (hit.collider != null)
-            {
+            if (Physics2D.Raycast(_collider.bounds.center + v, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer).collider)
                 return true;
-            }
         }
+
         return false;
     }
     
@@ -110,4 +110,9 @@ public class Golem1Movement : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+}
+
+public enum ButtonToQueue
+{
+    Jump
 }
