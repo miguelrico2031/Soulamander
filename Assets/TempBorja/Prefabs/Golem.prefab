@@ -110,7 +110,7 @@ MonoBehaviour:
   _collider: {fileID: 2376631464686957809}
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
 --- !u!50 &2376631464686957813
 Rigidbody2D:
   serializedVersion: 4

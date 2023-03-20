@@ -113,10 +113,10 @@ MonoBehaviour:
     m_Bits: 8
   _destructibleLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8192
   _pushableLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16384
 --- !u!50 &5470204669822148245
 Rigidbody2D:
   serializedVersion: 4

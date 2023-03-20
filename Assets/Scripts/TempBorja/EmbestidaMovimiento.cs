@@ -10,8 +10,9 @@ public class EmbestidaMovimiento : MonoBehaviour
     private bool _isFacingRight;
     private bool _isRunning;
     private bool _isAtMaxSpeed;
-    private float _runTime;
-    private float speed;
+    private float _speed;
+    private float _horizontalInput;
+    private bool _isPushing = false;
 
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _initialSpeed;
@@ -22,104 +23,67 @@ public class EmbestidaMovimiento : MonoBehaviour
 
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private BoxCollider2D _collider;
-    [SerializeField] private LayerMask _wallLayer;
+    [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _destructibleLayer;
     [SerializeField] private LayerMask _pushableLayer;
+
+
+    private void Awake()
+    {
+        _direction = transform.localScale.x > 0 ? -1 : 1;
+    }
 
     private void Update()
     {
         if (!_isRunning)
         {
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            if (horizontal != 0) { _direction = horizontal; }
+            _horizontalInput = Input.GetAxisRaw("Horizontal");
+            if (_horizontalInput != 0) _direction = _horizontalInput;
         }      
 
-        if (_isRunning)
-        {
-            _runTime += Time.deltaTime;
-        }
-        else if(!_isRunning)
-        {
-            _runTime = 0;
-        }
+        // _runTime = _isRunning ? _runTime + Time.deltaTime : 0f;
 
-        if (Input.GetKeyDown(KeyCode.Space) && !_isRunning)
+        if (Input.GetButtonDown("Jump") && !_isRunning)
         {
             _isRunning = true;
-            speed = _initialSpeed;
+            _speed = _initialSpeed;
         }
 
-        if (_isAtMaxSpeed)
-        {
-            Debug.Log("vel max");
-        }
+        if (_isAtMaxSpeed) Debug.Log("vel max");
 
-        
         Flip();
     }
 
 
     private void FixedUpdate()
     {
-        if (_isRunning) 
-        {           
-            if (speed < _maxSpeed)
-            {
-                _isAtMaxSpeed = false;
-                speed = Mathf.Clamp((speed + (_acceleration * Time.fixedDeltaTime)), -_maxSpeed, _maxSpeed);
-            }
-            else
-            {
-                _isAtMaxSpeed = true;
-            }
+        if (!_isRunning) return;
 
-            if (RayCastHitWall(_wallLayer) != null)
-            {
-                StopRunning();
-            }
-            else if (RayCastHitWall(_destructibleLayer) != null)
-            {
-                if (_isAtMaxSpeed)
-                {
+        if (_speed < _maxSpeed)
+        {
+            _isAtMaxSpeed = false;
+            _speed += _acceleration * Time.fixedDeltaTime;
+        }
+        else
+        {
+            _isAtMaxSpeed = true;
+            _speed = _maxSpeed;
+        }
 
-                    RayCastHitWall(_destructibleLayer).GetComponent<DestructibleObject>().DestroyObstacle(gameObject);
-                    _rb.velocity = new Vector2(speed * _direction, _rb.velocity.y);
-                }
-                else
-                {
-                    StopRunning();
-                }                              
-            }
-            else if (RayCastHitWall(_pushableLayer) != null)
-            {
-                GameObject r = RayCastHitWall(_pushableLayer);
-                if (!r.GetComponent<PushableObject>().HasHitWall)
-                {
-                    r.GetComponent<Rigidbody2D>().velocity = new Vector2(_pushSpeed * _direction, _rb.velocity.y);
-                    _rb.velocity = new Vector2(_pushSpeed * _direction, _rb.velocity.y);
-                }
-                else
-                {
-                    StopRunning();
-                }               
-                
-            }
-            else
-            {
-                _rb.velocity = new Vector2(speed * _direction, _rb.velocity.y);
-            }           
-        } 
+
+        _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
+    } 
         
-    }
+    
 
     public void StopRunning()
     {
-        speed = 0;
+        _speed = 0;
         _isAtMaxSpeed = false;
         _isRunning = false;
     }
 
-    private GameObject RayCastHitWall(LayerMask layer)
+    /*private GameObject RayCastHitWall(LayerMask layer)
     {
         float dirFlipper;
         if (_isFacingRight)
@@ -149,19 +113,66 @@ public class EmbestidaMovimiento : MonoBehaviour
             }
         }
         return null;
-    }
+    }*/
 
 
-    //mover a otro script:
     private void Flip()
     {
         if (_isFacingRight && _direction < 0f || !_isFacingRight && _direction > 0f)
         {
             _isFacingRight = !_isFacingRight;
 
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if ((_groundLayer.value & (1 << collision.gameObject.layer)) > 0)
+        {
+            if (Mathf.Abs(collision.contacts[0].normal.x) == 1f) StopRunning();
+            return;
+        }
+
+        if ((_destructibleLayer.value & (1 << collision.gameObject.layer)) > 0)
+        {
+            if (Mathf.Abs(collision.contacts[0].normal.x) != 1f) return;
+
+                if (_isAtMaxSpeed) collision.gameObject.GetComponent<DestructibleObject>().DestroyObstacle(gameObject);
+            
+            else StopRunning();
+            
+            return;
+        }
+
+        if ((_pushableLayer.value & (1 << collision.gameObject.layer)) > 0)
+        {
+            if (Mathf.Abs(collision.contacts[0].normal.x) != 1f) return;
+
+            if (!collision.gameObject.GetComponent<PushableObject>().HasHitWall)
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(_pushSpeed * _direction, _rb.velocity.y);
+                _isPushing = true;
+            }
+            else
+            {
+                _isPushing = false;
+                StopRunning();
+            }
+            
+            return;
+        }
+
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if ((_pushableLayer.value & (1 << collision.gameObject.layer)) > 0)
+        {
+            _isPushing = false;
+            return;
         }
     }
 }

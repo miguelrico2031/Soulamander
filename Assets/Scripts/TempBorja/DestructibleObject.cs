@@ -11,12 +11,12 @@ public class DestructibleObject : MonoBehaviour
         {
             //particulas y eso
             golem.GetComponent<EmbestidaMovimiento>().StopRunning();
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         else
         {
             //particulas y eso
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7315575798428542921}
   - component: {fileID: 7315575798428542926}
   - component: {fileID: 7315575798428542923}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: ObjetoDestructibleStopsGolem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
