@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpiritMovement : MonoBehaviour
 {
+    public bool CanMove = true;
+
     [SerializeField] private float _moveSpeed;
 
     private Rigidbody2D _rb;
@@ -18,6 +20,7 @@ public class SpiritMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!CanMove) return;
         _moveInput.x = Input.GetAxisRaw("Horizontal");
         _moveInput.y = Input.GetAxisRaw("Vertical");
 
@@ -26,6 +29,7 @@ public class SpiritMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!CanMove) return;
         if(_isPressingMove) _rb.MovePosition(_rb.position + _moveInput.normalized * _moveSpeed * Time.fixedDeltaTime);
     }
 }

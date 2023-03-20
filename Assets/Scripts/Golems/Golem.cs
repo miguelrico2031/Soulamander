@@ -4,20 +4,23 @@ using UnityEngine;
 
 public abstract class Golem : MonoBehaviour
 {
-    [SerializeField]
     public GolemState State
     { 
         get { return _state; }
-        set { ChangeState(value); }
+        private set { ChangeState(value); }
     }
 
+    [SerializeField] private GolemState _state;
+
     protected Rigidbody2D _rb;
-    private GolemState _state;
+    protected Collider2D _collider;
 
     protected virtual void Awake()
     {
-        State = GolemState.Disabled;
         _rb = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
+
+        State = GolemState.Enabled;
     }
 
     private void ChangeState(GolemState newState)
@@ -26,19 +29,27 @@ public abstract class Golem : MonoBehaviour
         switch(newState)
         {
             case GolemState.Disabled:
-
+                _rb.isKinematic = true;
+                _collider.enabled = false;
                 break;
 
             case GolemState.Enabled:
-
+                _rb.isKinematic = false;
+                _collider.enabled = true;
                 break;
 
             case GolemState.Available:
-
+                _rb.isKinematic = true;
+                _collider.enabled = true;
                 break;
         }
 
         _state = newState;
+    }
+
+    public void EnterGolem()
+    {
+        State = GolemState.Enabled;
     }
 }
 

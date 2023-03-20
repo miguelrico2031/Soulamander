@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SpiritDim : MonoBehaviour
 {
+    public bool IsFading = true;
+
+    [SerializeField] private Transform _sprite;
     [SerializeField] private float _attenuationDuration;
 
     private Vector3 _scaleDecrement;
@@ -16,7 +19,9 @@ public class SpiritDim : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(transform.localScale.x > 0f) transform.localScale -= _scaleDecrement;
+        if (!IsFading) return;
+
+        if(_sprite.localScale.x > 0f) _sprite.localScale -= _scaleDecrement;
 
     }
 }
