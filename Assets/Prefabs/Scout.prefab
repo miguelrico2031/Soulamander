@@ -101,12 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d85654b71734d848a6385b974301855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanBeLaunched: 1
   _state: 0
   _speed: 2.5
   _jumpingForce: 10
   _holdDiff: 0.5
-  _groundCheckOffset: 0.1
-  _groundCheckDistance: 0
+  _groundCheckOffset: 0.05
   _inputBufferTime: 0.1
   _coyoteTime: 0.1
   _groundLayer:

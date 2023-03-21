@@ -16,7 +16,6 @@ public class Scout : Golem
     [SerializeField] private float _jumpingForce;
     [SerializeField] private float _holdDiff;
     [SerializeField] private float _groundCheckOffset;
-    [SerializeField] private float _groundCheckDistance;
     [SerializeField] private float _inputBufferTime;
     [SerializeField] private float _coyoteTime;
 
@@ -40,6 +39,7 @@ public class Scout : Golem
     }
     private void Update()
     {
+        if (State == GolemState.BeingLaunched && RayCastHitGround()) State = GolemState.Enabled;
         if (State != GolemState.Enabled) return;
 
         _horizontal = Input.GetAxisRaw("Horizontal");    

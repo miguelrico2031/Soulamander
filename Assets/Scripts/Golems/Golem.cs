@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Golem : MonoBehaviour
 {
+    public bool CanBeLaunched; //este bool es para idicar si este tipo de golem se pueda lanzar, por ejemplo el jumper no se podra lanazar
+
     public GolemState State
     { 
         get { return _state; }
@@ -42,6 +44,10 @@ public abstract class Golem : MonoBehaviour
                 _rb.isKinematic = true;
                 _collider.enabled = true;
                 break;
+            case GolemState.BeingLaunched:
+                _rb.isKinematic = false;
+                _collider.enabled = true;
+                break;
         }
 
         _state = newState;
@@ -55,5 +61,5 @@ public abstract class Golem : MonoBehaviour
 
 public enum GolemState
 {
-    Disabled, Enabled, Available
+    Disabled, Enabled, Available, BeingLaunched
 }

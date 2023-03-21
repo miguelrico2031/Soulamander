@@ -18,21 +18,31 @@ public class Rammer : Golem
     [SerializeField] private float _acceleration;
     [SerializeField] private float _wallCheckOffsetY;
     [SerializeField] private float _wallCheckOffsetX;
+    [SerializeField] private float _groundCheckOffset;
 
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _destructibleLayer;
     [SerializeField] private LayerMask _pushableLayer;
 
+    private Vector3[] _groundCheckPoints;
 
     protected override void Awake()
     {
         base.Awake();
 
         _direction = transform.localScale.x > 0 ? -1 : 1;
+
+        _groundCheckPoints = new Vector3[]
+       {
+            Vector3.zero,
+            Vector3.right * _collider.bounds.extents.x,
+            Vector3.left * _collider.bounds.extents.x
+       };
     }
 
     private void Update()
     {
+        if (State == GolemState.BeingLaunched && RayCastHitGround()) State = GolemState.Enabled;
         if (State != GolemState.Enabled) return;
 
         if (!_isRunning)
@@ -91,6 +101,17 @@ public class Rammer : Golem
 
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
+    }
+
+    private bool RayCastHitGround()
+    {
+        foreach (var v in _groundCheckPoints)
+        {
+            if (Physics2D.Raycast(_collider.bounds.center + v, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer).collider)
+                return true;
+        }
+
+        return false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
