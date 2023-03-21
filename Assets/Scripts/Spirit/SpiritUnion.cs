@@ -4,31 +4,59 @@ using UnityEngine;
 
 public class SpiritUnion : MonoBehaviour
 {
-    public bool CheckGolems = true;
+    public SpiritState State
+    {
+        get { return _state; }
+        private set { ChangeState(value); }
+    }
+
 
     [SerializeField] private float _unionRadius;
     [SerializeField] private LayerMask _golemLayers;
 
+    private SpiritState _state;
     private List<Golem> _golemsInArea;
-    private Golem _nearestGolem;
+    private Golem _nearestGolem, _golemInPossession;
+    private SpiritMovement _spiritMovement;
+    private SpiritDim _spiritDim;
+    private SpriteRenderer _spriteRenderer;
+    private Collider2D _collider;
+    private Rigidbody2D _rb;
 
     private void Awake()
     {
         _golemsInArea = new List<Golem>();
+        _spiritMovement = GetComponentInParent<SpiritMovement>();
+        _spiritDim = GetComponentInParent<SpiritDim>();
+        _spriteRenderer = transform.parent.GetComponentInChildren<SpriteRenderer>();
+        _collider = transform.parent.GetComponent<Collider2D>();
+        _rb = transform.parent.GetComponent<Rigidbody2D>();
+
+        State = SpiritState.Roaming;
     }
 
     private void FixedUpdate()
     {
-        if(_golemsInArea.Count >= 2)
+        if (State == SpiritState.Roaming && _golemsInArea.Count >= 2) RecalcNearestGolem();
+
+        else if (State == SpiritState.Possessing) _rb.MovePosition(_golemInPossession.transform.position);
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Interact"))
         {
-            RecalcNearestGolem();
+            if(State == SpiritState.Roaming) PossessNearestGolem();
+            
+
+            else if(State == SpiritState.Possessing) ExitGolem();
+            
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-        if (!CheckGolems) return;
+        if (State != SpiritState.Roaming) return;
         if ((_golemLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
         
 
@@ -39,11 +67,32 @@ public class SpiritUnion : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!CheckGolems) return;
+        if (State != SpiritState.Roaming) return;
         if ((_golemLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
 
         Golem golem = collision.GetComponentInParent<Golem>();
         RemoveGolem(golem);
+    }
+
+    private void ChangeState(SpiritState newState)
+    {
+        switch(newState)
+        {
+            case SpiritState.Roaming:
+                _spiritMovement.CanMove = true;
+                _spiritDim.IsFading = true;
+                _spriteRenderer.enabled = true;
+                _collider.enabled = true;
+                break;
+            case SpiritState.Possessing:
+                _spiritMovement.CanMove = false;
+                _spiritDim.IsFading = false;
+                _spriteRenderer.enabled = false;
+                _collider.enabled = false;
+                break;
+        }
+
+        _state = newState;
     }
 
     private void AddGolem(Golem golem)
@@ -102,4 +151,32 @@ public class SpiritUnion : MonoBehaviour
         }
         _nearestGolem.GetComponent<SpriteRenderer>().color = Color.red;
     }
+
+    private void PossessNearestGolem()
+    {
+        if (!_nearestGolem || State != SpiritState.Roaming) return;
+
+        _golemInPossession = _nearestGolem;
+
+        State = SpiritState.Possessing;
+        _golemInPossession.State = GolemState.Enabled;
+        _golemInPossession.GetComponent<SpriteRenderer>().color = Color.blue;
+        
+
+    }
+
+    private void ExitGolem()
+    {
+        if (State != SpiritState.Possessing) return;
+
+        State = SpiritState.Roaming;
+        _golemInPossession.State = GolemState.Available;
+        _golemInPossession.GetComponent<SpriteRenderer>().color = Color.red;
+        _golemInPossession = null;
+    }
+}
+
+public enum SpiritState
+{
+    Roaming, Possessing
 }
