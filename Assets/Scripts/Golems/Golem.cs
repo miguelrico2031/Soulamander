@@ -7,7 +7,7 @@ public abstract class Golem : MonoBehaviour
     public GolemState State
     { 
         get { return _state; }
-        private set { ChangeState(value); }
+        set { ChangeState(value); }
     }
 
     [SerializeField] private GolemState _state;
@@ -20,7 +20,7 @@ public abstract class Golem : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
 
-        State = GolemState.Enabled;
+        State = GolemState.Disabled;
     }
 
     private void ChangeState(GolemState newState)

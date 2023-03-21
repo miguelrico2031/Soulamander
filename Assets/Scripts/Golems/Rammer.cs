@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
-public class EmbestidaMovimiento : MonoBehaviour
+public class Rammer : Golem
 {
     private float _direction;
     private bool _isFacingRight;
@@ -21,20 +19,22 @@ public class EmbestidaMovimiento : MonoBehaviour
     [SerializeField] private float _wallCheckOffsetY;
     [SerializeField] private float _wallCheckOffsetX;
 
-    [SerializeField] private Rigidbody2D _rb;
-    [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _destructibleLayer;
     [SerializeField] private LayerMask _pushableLayer;
 
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _direction = transform.localScale.x > 0 ? -1 : 1;
     }
 
     private void Update()
     {
+        if (State != GolemState.Enabled) return;
+
         if (!_isRunning)
         {
             _horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -49,7 +49,7 @@ public class EmbestidaMovimiento : MonoBehaviour
             _speed = _initialSpeed;
         }
 
-        if (_isAtMaxSpeed) Debug.Log("vel max");
+        //if (_isAtMaxSpeed) Debug.Log("vel max");
 
         Flip();
     }
@@ -57,6 +57,7 @@ public class EmbestidaMovimiento : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (State != GolemState.Enabled) return;
         if (!_isRunning) return;
 
         if (_speed < _maxSpeed)
@@ -70,7 +71,6 @@ public class EmbestidaMovimiento : MonoBehaviour
             _speed = _maxSpeed;
         }
 
-
         _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
     } 
         
@@ -82,39 +82,6 @@ public class EmbestidaMovimiento : MonoBehaviour
         _isAtMaxSpeed = false;
         _isRunning = false;
     }
-
-    /*private GameObject RayCastHitWall(LayerMask layer)
-    {
-        float dirFlipper;
-        if (_isFacingRight)
-        {
-            dirFlipper = 1;
-        }
-        else
-        {
-            dirFlipper = -1;
-        }
-        RaycastHit2D[] raycastHit = new RaycastHit2D[3];
-
-        raycastHit[0] = Physics2D.Raycast(_collider.bounds.center, dirFlipper * Vector2.right, _collider.bounds.extents.x + _wallCheckOffsetX, layer);
-        Debug.DrawRay(_collider.bounds.center, dirFlipper * Vector2.right * (_collider.bounds.extents.x + _wallCheckOffsetX));
-
-        raycastHit[1] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x, _collider.bounds.center.y + _collider.bounds.extents.y  - _wallCheckOffsetY), dirFlipper * Vector2.right, _collider.bounds.extents.y + _wallCheckOffsetX, layer);
-        Debug.DrawRay(new Vector2(_collider.bounds.center.x, _collider.bounds.center.y + _collider.bounds.extents.y  - _wallCheckOffsetY), dirFlipper * Vector2.right * (_collider.bounds.extents.x + _wallCheckOffsetX));
-
-        raycastHit[2] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x, _collider.bounds.center.y - _collider.bounds.extents.y  + _wallCheckOffsetY), dirFlipper * Vector2.right, _collider.bounds.extents.y + _wallCheckOffsetX, layer);
-        Debug.DrawRay(new Vector2(_collider.bounds.center.x, _collider.bounds.center.y - _collider.bounds.extents.y  + _wallCheckOffsetY), dirFlipper * Vector2.right * (_collider.bounds.extents.x + _wallCheckOffsetX));
-
-        foreach (var hit in raycastHit)
-        {
-            if (hit.collider != null)
-            {
-                return hit.transform.gameObject;   
-            }
-        }
-        return null;
-    }*/
-
 
     private void Flip()
     {
@@ -139,7 +106,7 @@ public class EmbestidaMovimiento : MonoBehaviour
         {
             if (Mathf.Abs(collision.contacts[0].normal.x) != 1f) return;
 
-                if (_isAtMaxSpeed) collision.gameObject.GetComponent<DestructibleObject>().DestroyObstacle(gameObject);
+                if (_isAtMaxSpeed) collision.gameObject.GetComponent<DestructibleObject>().DestroyObstacle(this);
             
             else StopRunning();
             
@@ -159,12 +126,9 @@ public class EmbestidaMovimiento : MonoBehaviour
             {
                 _isPushing = false;
                 StopRunning();
-            }
-            
+            }   
             return;
         }
-
-
     }
 
     private void OnCollisionExit2D(Collision2D collision)

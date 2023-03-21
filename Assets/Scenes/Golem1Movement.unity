@@ -2088,10 +2088,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem
       objectReference: {fileID: 0}
-    - target: {fileID: 2376631464686957815, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
 --- !u!1001 &5470204669246555127
@@ -2145,17 +2141,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5470204669822148244, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
-      propertyPath: _groundLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 5470204669822148247, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
       propertyPath: m_Name
       value: GolemEmbestida
-      objectReference: {fileID: 0}
-    - target: {fileID: 5470204669822148247, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}

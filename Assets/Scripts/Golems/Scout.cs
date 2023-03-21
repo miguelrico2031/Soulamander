@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Profiling;
 using UnityEngine;
 
-public class Golem1Movement : MonoBehaviour
+public class Scout : Golem
 {
     private float _horizontal;
     private bool _isFacingRight;
@@ -20,14 +19,14 @@ public class Golem1Movement : MonoBehaviour
     [SerializeField] private float _inputBufferTime;
     [SerializeField] private float _coyoteTime;
 
-    [SerializeField] private Rigidbody2D _rb;
-    [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private LayerMask _groundLayer;
 
     private Vector3[] _groundCheckPoints;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         //_buttonQueue = new Queue<KeyCode>();
         _buttonQueue = new Queue<ButtonToQueue>();
 
@@ -36,11 +35,12 @@ public class Golem1Movement : MonoBehaviour
             Vector3.zero,
             Vector3.right * _collider.bounds.extents.x,
             Vector3.left * _collider.bounds.extents.x
-
         };
     }
     private void Update()
     {
+        if (State != GolemState.Enabled) return;
+
         _horizontal = Input.GetAxisRaw("Horizontal");    
 
         if (RayCastHitGround())
@@ -76,15 +76,16 @@ public class Golem1Movement : MonoBehaviour
         Flip();
     }
 
+    private void FixedUpdate()
+    {
+        if (State != GolemState.Enabled) return;
+
+        _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
+    }
+
     private void ClearKeyInQueue()
     {
         if (_buttonQueue.Count > 0) _buttonQueue.Dequeue();
-    }
-
-
-    private void FixedUpdate()
-    {
-        _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
     }
 
     private bool RayCastHitGround()
