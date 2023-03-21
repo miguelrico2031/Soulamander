@@ -8,9 +8,16 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
+  - Ground
+  - Spirit
+  - 
+  - Golem
+  - 
+  - Golem Union
+  - Spirit Union
   - Destructible
   - Pushable
   - Golem
@@ -30,14 +37,19 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3723048405
+    locked: 0
+  - name: Foreground
+    uniqueID: 2858455707
+    locked: 0
+  - name: Golem
+    uniqueID: 547781581
+    locked: 0
+  - name: Spirit
+    uniqueID: 788630953
     locked: 0
