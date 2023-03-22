@@ -20,7 +20,7 @@ TagManager:
   - Spirit Union
   - Destructible
   - Pushable
-  - Golem
+  - 
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Golem
     uniqueID: 547781581
+    locked: 0
+  - name: InFront
+    uniqueID: 2407462023
     locked: 0
   - name: Spirit
     uniqueID: 788630953

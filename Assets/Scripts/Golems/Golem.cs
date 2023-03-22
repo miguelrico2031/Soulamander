@@ -20,10 +20,13 @@ public abstract class Golem : MonoBehaviour
     protected virtual void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<Collider2D>();
-
-        State = GolemState.Disabled;
+        _collider = GetComponent<Collider2D>();      
     }
+
+    protected virtual void Start()
+    {
+        State = GolemState.Disabled;
+    }        
 
     private void ChangeState(GolemState newState)
     {

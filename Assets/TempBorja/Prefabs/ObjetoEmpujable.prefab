@@ -101,11 +101,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   _gravityForce: 4
   _rb: {fileID: 1968426916971132991}
-  _collider: {fileID: 0}
-  _groundCheckOffset: 0
+  _collider: {fileID: 1968426916971132988}
+  _groundCheckOffset: 0.05
   HasHitWall: 0
 --- !u!61 &1968426916971132988
 BoxCollider2D:

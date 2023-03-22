@@ -32,7 +32,7 @@ public class Scout : Golem
 
         _groundCheckPoints = new Vector3[]
         {
-            Vector3.zero,
+            Vector3.zero,            
             Vector3.right * _collider.bounds.extents.x,
             Vector3.left * _collider.bounds.extents.x
         };
@@ -47,7 +47,7 @@ public class Scout : Golem
         if (RayCastHitGround())
         {
             _flightTime = 0f;
-            if (_rb.velocity.y <= 0) _isGrounded = true;
+            if (_rb.velocity.y <= 0.1f) _isGrounded = true;
         }
         else _flightTime += Time.deltaTime;
 

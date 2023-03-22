@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Rammer : Golem
@@ -42,7 +43,12 @@ public class Rammer : Golem
 
     private void Update()
     {
-        if (State == GolemState.BeingLaunched && RayCastHitGround()) State = GolemState.Enabled;
+        if (State == GolemState.BeingLaunched && _isRunning) StopRunning();
+        if (State == GolemState.BeingLaunched && RayCastHitGround())
+        {
+            State = GolemState.Enabled;
+            _rb.velocity = Vector3.zero;
+        }
         if (State != GolemState.Enabled) return;
 
         if (!_isRunning)
@@ -69,6 +75,7 @@ public class Rammer : Golem
     {
         if (State != GolemState.Enabled) return;
         if (!_isRunning) return;
+        if (RayCastHitWall(_groundLayer)) StopRunning();
 
         if (_speed < _maxSpeed)
         {
@@ -82,6 +89,7 @@ public class Rammer : Golem
         }
 
         _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
+
     } 
         
     
@@ -117,12 +125,6 @@ public class Rammer : Golem
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if ((_groundLayer.value & (1 << collision.gameObject.layer)) > 0)
-        {
-            if (Mathf.Abs(collision.contacts[0].normal.x) == 1f) StopRunning();
-            return;
-        }
-
         if ((_destructibleLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
             if (Mathf.Abs(collision.contacts[0].normal.x) != 1f) return;
@@ -136,10 +138,12 @@ public class Rammer : Golem
 
         if ((_pushableLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
+            
             if (Mathf.Abs(collision.contacts[0].normal.x) != 1f) return;
-
+            
             if (!collision.gameObject.GetComponent<PushableObject>().HasHitWall)
             {
+                Debug.Log("entra");
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(_pushSpeed * _direction, _rb.velocity.y);
                 _isPushing = true;
             }
@@ -150,6 +154,35 @@ public class Rammer : Golem
             }   
             return;
         }
+    }
+
+    private bool RayCastHitWall(LayerMask layer)
+    {
+        float dirFlipper;
+        if (_isFacingRight)
+        {
+            dirFlipper = 1;
+        }
+        else
+        {
+            dirFlipper = -1;
+        }
+        RaycastHit2D[] raycastHit = new RaycastHit2D[3];
+
+        raycastHit[0] = Physics2D.Raycast(_collider.bounds.center, dirFlipper * Vector2.right, _collider.bounds.extents.x + _wallCheckOffsetX, layer);
+
+        raycastHit[1] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x, _collider.bounds.center.y + _collider.bounds.extents.y  - _wallCheckOffsetY), dirFlipper * Vector2.right, _collider.bounds.extents.y + _wallCheckOffsetX, layer);
+
+        raycastHit[2] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x, _collider.bounds.center.y - _collider.bounds.extents.y  + _wallCheckOffsetY), dirFlipper * Vector2.right, _collider.bounds.extents.y + _wallCheckOffsetX, layer);
+
+        foreach (var hit in raycastHit)
+        {
+            if (hit.collider != null)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void OnCollisionExit2D(Collision2D collision)

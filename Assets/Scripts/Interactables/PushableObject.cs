@@ -35,15 +35,18 @@ public class PushableObject : MonoBehaviour
 
         if (collision.contacts[0].normal.y > 0f)
         {
+            
             _isGrounded = true;
             _rb.velocity = new Vector2(0f, 0f);
         }
-        if (collision.contacts[0].normal.x != 0f)
+        if (Mathf.Abs(collision.contacts[0].normal.x) == 1f)
         {
             HasHitWall = true;
+            Debug.Log("choque");
             _rb.velocity = new Vector2(0f, 0f);
         }
     }
+
 
     private bool RayCastHitGround()
     {
