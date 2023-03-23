@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpiritDim : MonoBehaviour
 {
@@ -9,10 +10,8 @@ public class SpiritDim : MonoBehaviour
         get { return _isFading;  }
         set
         {
-            if(value != _isFading)
-            {
-                _sprite.localScale = _initialScale;
-            }
+            if(value != _isFading) _sprite.localScale = _initialScale;
+            
             _isFading = value;
         }
     }
@@ -36,6 +35,9 @@ public class SpiritDim : MonoBehaviour
         if (!IsFading) return;
 
         if(_sprite.localScale.x > 0f) _sprite.localScale -= _scaleDecrement;
-
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
