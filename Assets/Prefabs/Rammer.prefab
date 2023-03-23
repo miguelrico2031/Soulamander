@@ -109,11 +109,11 @@ MonoBehaviour:
   _pushSpeed: 2
   _acceleration: 10
   _wallCheckOffsetY: 0.15
-  _wallCheckOffsetX: 0.05
+  _wallCheckOffsetX: 0.01
   _groundCheckOffset: 0.05
   _interactableLayers:
     serializedVersion: 2
-    m_Bits: 24896
+    m_Bits: 24640
   _groundLayer:
     serializedVersion: 2
     m_Bits: 320
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 952466472578649182}
   - component: {fileID: 5961098961459000853}
   - component: {fileID: 8060860845374765562}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: TopCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

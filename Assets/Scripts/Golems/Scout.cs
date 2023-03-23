@@ -40,6 +40,11 @@ public class Scout : Golem
     private void Update()
     {
         if (State == GolemState.BeingLaunched && RayCastHitGround()) State = GolemState.Enabled;
+        if (State == GolemState.Available && RayCastHitGround())
+        {
+            _rb.isKinematic = true;
+            _rb.velocity = Vector2.zero;
+        }
         if (State != GolemState.Enabled) return;
 
         _horizontal = Input.GetAxisRaw("Horizontal");    

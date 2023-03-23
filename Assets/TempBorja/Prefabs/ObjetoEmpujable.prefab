@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0259905, y: 0.024823487}
+  m_Size: {x: 0.9988395, y: 0.024823487}
   m_EdgeRadius: 0
 --- !u!50 &280697595
 Rigidbody2D:
@@ -180,14 +180,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0bc2c542077704b8c36a268c737ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactableLayers:
+    serializedVersion: 2
+    m_Bits: 576
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _golemLayer:
+    serializedVersion: 2
+    m_Bits: 512
   _rb: {fileID: 1968426916971132991}
   _collider: {fileID: 1968426916971132988}
   _groundCheckOffset: 0.05
-  _topCollider: {fileID: 280697593}
-  _topColliderPos: {fileID: 0}
   HasHitWall: 0
 --- !u!61 &1968426916971132988
 BoxCollider2D:

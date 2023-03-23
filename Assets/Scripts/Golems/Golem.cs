@@ -44,7 +44,7 @@ public abstract class Golem : MonoBehaviour
                 break;
 
             case GolemState.Available:
-                _rb.isKinematic = true;
+                //_rb.isKinematic = true;  voy a dejar que cada golem active su isKinematic a su tiempo
                 _collider.enabled = true;
                 break;
             case GolemState.BeingLaunched:
