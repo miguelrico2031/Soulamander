@@ -863,6 +863,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 681519905581774404, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
+      propertyPath: _attenuationDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 681519905581774414, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
       propertyPath: m_Name
       value: Spirit
