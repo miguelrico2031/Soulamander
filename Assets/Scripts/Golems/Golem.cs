@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Golem : MonoBehaviour
 {
+    public bool CanBeLaunched; //este bool es para idicar si este tipo de golem se pueda lanzar, por ejemplo el jumper no se podra lanazar
+
     public GolemState State
     { 
         get { return _state; }
@@ -18,10 +20,13 @@ public abstract class Golem : MonoBehaviour
     protected virtual void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<Collider2D>();
-
-        State = GolemState.Disabled;
+        _collider = GetComponent<Collider2D>();      
     }
+
+    protected virtual void Start()
+    {
+        State = GolemState.Disabled;
+    }        
 
     private void ChangeState(GolemState newState)
     {
@@ -39,7 +44,11 @@ public abstract class Golem : MonoBehaviour
                 break;
 
             case GolemState.Available:
-                _rb.isKinematic = true;
+                //_rb.isKinematic = true;  voy a dejar que cada golem active su isKinematic a su tiempo
+                _collider.enabled = true;
+                break;
+            case GolemState.BeingLaunched:
+                _rb.isKinematic = false;
                 _collider.enabled = true;
                 break;
         }
@@ -55,5 +64,5 @@ public abstract class Golem : MonoBehaviour
 
 public enum GolemState
 {
-    Disabled, Enabled, Available
+    Disabled, Enabled, Available, BeingLaunched
 }

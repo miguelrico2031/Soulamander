@@ -30,8 +30,13 @@ public class Jumper : Golem
 
     private void Update()
     {
+        if (State == GolemState.Available && _isGrounded)
+        {
+            _rb.isKinematic = true;
+            _rb.velocity = Vector2.zero;
+        }
         if (State != GolemState.Enabled) return;
-
+        Debug.Log("entra");
         if (Input.GetButtonDown("Jump") && _isGrounded) _isHoldingJumpButton = true;
 
         if (Input.GetButtonUp("Jump") && _isGrounded) Jump();
@@ -62,13 +67,14 @@ public class Jumper : Golem
 
     private void FixedUpdate()
     {
-        if (State != GolemState.Enabled) return;
+        if (State != GolemState.Enabled && State != GolemState.Available) return;
 
         if (!_isGrounded) _rb.velocity += _gravity * Time.fixedDeltaTime;
     }
 
     private void Jump()
     {
+       
         _isGrounded = false;
         _isHoldingJumpButton = false;
 

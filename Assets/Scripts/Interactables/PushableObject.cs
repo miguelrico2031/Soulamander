@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PushableObject : MonoBehaviour
 {
+    [SerializeField] private LayerMask _interactableLayers;
     [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private float _gravityForce;
+    [SerializeField] private LayerMask _golemLayer;
+    //[SerializeField] private float _gravityForce;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private float _groundCheckOffset;
@@ -14,34 +16,37 @@ public class PushableObject : MonoBehaviour
 
     private bool _isGrounded;
 
-    private void Update()
+    
+    private void FixedUpdate()
     {
-        if (_isGrounded)
+        GameObject rayHit = RayCastHitWall(_interactableLayers);
+        if (rayHit != null)
         {
-            if (!RayCastHitGround())
+            if ((_groundLayer.value & (1 << rayHit.layer)) > 0)
             {
-                _isGrounded = false;
+                HasHitWall = true;
+                _rb.velocity = new Vector2(0f, 0f);
+            }
+
+            if ((_golemLayer.value & (1 << rayHit.layer)) > 0)
+            {
+                if (rayHit.TryGetComponent<Rammer>(out Rammer doNotUse))
+                {
+                    _rb.isKinematic = false;
+                }
+                else
+                {
+                    _rb.isKinematic = true;
+                }
             }
         }
-    }
-    private void FixedUpdate()
-    {       
-        if (!_isGrounded) _rb.velocity = new Vector2(_rb.velocity.x, (_rb.velocity.y + _gravityForce * -9.81f * Time.fixedDeltaTime));
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if ((_groundLayer.value & (1 << collision.gameObject.layer)) <= 0) return;
-
-        if (collision.contacts[0].normal.y > 0f)
+        
+        if (HasHitWall)
         {
-            _isGrounded = true;
-            _rb.velocity = new Vector2(0f, 0f);
-        }
-        if (collision.contacts[0].normal.x != 0f)
-        {
-            HasHitWall = true;
-            _rb.velocity = new Vector2(0f, 0f);
+            if (RayCastHitGround())
+            {
+                _rb.isKinematic = true;
+            }
         }
     }
 
@@ -63,5 +68,24 @@ public class PushableObject : MonoBehaviour
             }
         }
         return false;
+    }
+    private GameObject RayCastHitWall(LayerMask layer)
+    {
+        RaycastHit2D[] raycastHit = new RaycastHit2D[3];
+
+        raycastHit[0] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x - _groundCheckOffset, _collider.bounds.center.y), Vector2.right, 2 * _collider.bounds.extents.x + 2 * _groundCheckOffset, layer);
+
+        raycastHit[1] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x - _groundCheckOffset, _collider.bounds.center.y + _collider.bounds.extents.y), Vector2.right, 2 * _collider.bounds.extents.x + 2 * _groundCheckOffset, layer);
+
+        raycastHit[2] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x - _collider.bounds.extents.x - _groundCheckOffset, _collider.bounds.center.y - _collider.bounds.extents.y), Vector2.right, 2 * _collider.bounds.extents.x + 2 * _groundCheckOffset, layer);
+
+        foreach (var hit in raycastHit)
+        {
+            if (hit.collider != null)
+            {
+                return hit.collider.gameObject;
+            }
+        }
+        return null;
     }
 }

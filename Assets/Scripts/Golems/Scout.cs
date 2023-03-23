@@ -16,7 +16,6 @@ public class Scout : Golem
     [SerializeField] private float _jumpingForce;
     [SerializeField] private float _holdDiff;
     [SerializeField] private float _groundCheckOffset;
-    [SerializeField] private float _groundCheckDistance;
     [SerializeField] private float _inputBufferTime;
     [SerializeField] private float _coyoteTime;
 
@@ -33,13 +32,19 @@ public class Scout : Golem
 
         _groundCheckPoints = new Vector3[]
         {
-            Vector3.zero,
+            Vector3.zero,            
             Vector3.right * _collider.bounds.extents.x,
             Vector3.left * _collider.bounds.extents.x
         };
     }
     private void Update()
     {
+        if (State == GolemState.BeingLaunched && RayCastHitGround()) State = GolemState.Enabled;
+        if (State == GolemState.Available && RayCastHitGround())
+        {
+            _rb.isKinematic = true;
+            _rb.velocity = Vector2.zero;
+        }
         if (State != GolemState.Enabled) return;
 
         _horizontal = Input.GetAxisRaw("Horizontal");    
@@ -47,7 +52,7 @@ public class Scout : Golem
         if (RayCastHitGround())
         {
             _flightTime = 0f;
-            if (_rb.velocity.y <= 0) _isGrounded = true;
+            if (_rb.velocity.y <= 0.1f) _isGrounded = true;
         }
         else _flightTime += Time.deltaTime;
 
@@ -93,6 +98,7 @@ public class Scout : Golem
     {
         foreach(var v in _groundCheckPoints)
         {
+            Debug.DrawRay(_collider.bounds.center + v, Vector2.down * (_collider.bounds.extents.y + _groundCheckOffset));
             if (Physics2D.Raycast(_collider.bounds.center + v, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer).collider)
                 return true;
         }
