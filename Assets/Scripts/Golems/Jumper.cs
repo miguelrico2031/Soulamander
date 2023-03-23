@@ -36,7 +36,7 @@ public class Jumper : Golem
             _rb.velocity = Vector2.zero;
         }
         if (State != GolemState.Enabled) return;
-        Debug.Log("entra");
+
         if (Input.GetButtonDown("Jump") && _isGrounded) _isHoldingJumpButton = true;
 
         if (Input.GetButtonUp("Jump") && _isGrounded) Jump();
@@ -96,7 +96,7 @@ public class Jumper : Golem
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (State != GolemState.Enabled) return;
+        if (State != GolemState.Enabled && State != GolemState.Available) return;
 
         if ((_groundLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
 

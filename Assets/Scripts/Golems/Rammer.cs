@@ -81,7 +81,7 @@ public class Rammer : Golem
     private void FixedUpdate()
     {
 
-        if (State != GolemState.Enabled && State == GolemState.Available) return;
+        if (State != GolemState.Enabled && State != GolemState.Available) return;
         if (!_isRunning) return;
 
         if (_speed < _maxSpeed)

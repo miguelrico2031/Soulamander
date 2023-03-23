@@ -126,7 +126,7 @@ public class SpiritUnion : MonoBehaviour
         if (_golemsInArea.Count == 1)
         {
             _nearestGolem = _golemsInArea[0];
-            _nearestGolem.GetComponent<SpriteRenderer>().color = Color.red;
+            _nearestGolem.GetComponent<SpriteRenderer>().color = Color.yellow;
             return;
         }
 
@@ -149,7 +149,7 @@ public class SpiritUnion : MonoBehaviour
                 currentDistance = distance;
             }
         }
-        _nearestGolem.GetComponent<SpriteRenderer>().color = Color.red;
+        _nearestGolem.GetComponent<SpriteRenderer>().color = Color.yellow;
     }
 
     private void PossessNearestGolem()
@@ -171,7 +171,7 @@ public class SpiritUnion : MonoBehaviour
 
         State = SpiritState.Roaming;
         _golemInPossession.State = GolemState.Available;
-        _golemInPossession.GetComponent<SpriteRenderer>().color = Color.red;
+        _golemInPossession.GetComponent<SpriteRenderer>().color = Color.yellow;
         _golemInPossession = null;
     }
 }
