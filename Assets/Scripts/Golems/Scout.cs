@@ -93,6 +93,7 @@ public class Scout : Golem
     {
         foreach(var v in _groundCheckPoints)
         {
+            Debug.DrawRay(_collider.bounds.center + v, Vector2.down * (_collider.bounds.extents.y + _groundCheckOffset));
             if (Physics2D.Raycast(_collider.bounds.center + v, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer).collider)
                 return true;
         }

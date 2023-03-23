@@ -21,9 +21,10 @@ public class Rammer : Golem
     [SerializeField] private float _wallCheckOffsetX;
     [SerializeField] private float _groundCheckOffset;
 
+    [SerializeField] private LayerMask _interactableLayers;
     [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private LayerMask _destructibleLayer;
     [SerializeField] private LayerMask _pushableLayer;
+    [SerializeField] private LayerMask _destructibleLayer;
 
     private Vector3[] _groundCheckPoints;
 
@@ -73,9 +74,9 @@ public class Rammer : Golem
 
     private void FixedUpdate()
     {
+
         if (State != GolemState.Enabled) return;
         if (!_isRunning) return;
-        if (RayCastHitWall(_groundLayer)) StopRunning();
 
         if (_speed < _maxSpeed)
         {
@@ -88,8 +89,37 @@ public class Rammer : Golem
             _speed = _maxSpeed;
         }
 
-        _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
+        GameObject rayHit = RayCastHit(_interactableLayers);
 
+        if (rayHit != null)
+        {
+            if ((_groundLayer.value & (1 << rayHit.layer)) > 0)
+            {                
+                StopRunning();
+            }
+            else if ((_pushableLayer.value & (1 << rayHit.layer)) > 0)
+            {
+                if (!rayHit.GetComponent<PushableObject>().HasHitWall)
+                {
+                    _isPushing = true;
+                }
+                else
+                {
+                    _isPushing = false;
+                    StopRunning();
+                }
+            }
+            else if ((_destructibleLayer.value & (1 << rayHit.layer)) > 0)
+            {
+                if (_isAtMaxSpeed)
+                {
+                    rayHit.GetComponent<DestructibleObject>().DestroyObstacle(this);
+                }
+                else StopRunning();
+            }
+        }
+
+        _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
     } 
         
     
@@ -121,7 +151,7 @@ public class Rammer : Golem
 
         return false;
     }
-
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -135,16 +165,16 @@ public class Rammer : Golem
             
             return;
         }
-
+        
         if ((_pushableLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
-            
-            if (Mathf.Abs(collision.contacts[0].normal.x) != 1f) return;
-            
+            Debug.Log("entra " + collision.gameObject.GetComponent<PushableObject>().HasHitWall);
+            //if (Mathf.Abs(collision.contacts[0].normal.x) != 1f) return;
+
             if (!collision.gameObject.GetComponent<PushableObject>().HasHitWall)
             {
-                Debug.Log("entra");
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(_pushSpeed * _direction, _rb.velocity.y);
+                
+                //collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(_pushSpeed * _direction, _rb.velocity.y);
                 _isPushing = true;
             }
             else
@@ -154,9 +184,10 @@ public class Rammer : Golem
             }   
             return;
         }
+        
     }
-
-    private bool RayCastHitWall(LayerMask layer)
+       */
+    private GameObject RayCastHit(LayerMask layer)
     {
         float dirFlipper;
         if (_isFacingRight)
@@ -179,12 +210,14 @@ public class Rammer : Golem
         {
             if (hit.collider != null)
             {
-                return true;
+                //Debug.Log(hit.collider.transform.gameObject + " : " +  hit.collider.transform.gameObject.layer);
+                return hit.collider.transform.gameObject;
             }
         }
-        return false;
+        return null;
     }
 
+    /*
     private void OnCollisionExit2D(Collision2D collision)
     {
         if ((_pushableLayer.value & (1 << collision.gameObject.layer)) > 0)
@@ -193,4 +226,5 @@ public class Rammer : Golem
             return;
         }
     }
+    */
 }
