@@ -464,6 +464,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scout (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3687258481788872798, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920695023929369603, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
 --- !u!1 &788573639
