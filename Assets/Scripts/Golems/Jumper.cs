@@ -38,10 +38,14 @@ public class Jumper : Golem
 
     private void Update()
     {
-        if (State == GolemState.Available && _isGrounded)
+        if (State == GolemState.Available)
         {
-            _rb.isKinematic = true;
-            _rb.velocity = Vector2.zero;
+            if (_isGrounded)
+            {
+                _rb.isKinematic = true;
+                _rb.velocity = Vector2.zero;
+            }
+            else _rb.isKinematic = false;
         }
         if (State != GolemState.Enabled) return;
 
@@ -116,7 +120,7 @@ public class Jumper : Golem
         if(collision.contacts[0].normal.y >= 0f)
         {
             _isGrounded = true;
-            _rb.velocity = new Vector2(0f, 0f);
+            _rb.velocity = Vector2.zero;
             float angle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
             
 

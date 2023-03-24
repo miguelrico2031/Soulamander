@@ -24,6 +24,7 @@ public class SpiritUnion : MonoBehaviour
     private Rigidbody2D _rb;
     private Transform _target;
     private int _golemIndex = 0;
+    private Vector2 _driectionToTarget;
 
     private void Awake()
     {
@@ -47,6 +48,8 @@ public class SpiritUnion : MonoBehaviour
 
         else if (State == SpiritState.Traveling)
         {
+            _driectionToTarget = (_target.position - transform.position).normalized;
+            _rb.velocity = _driectionToTarget * _travelingSpeed;
             if (Vector2.Distance(transform.position, _target.position) < 0.2f) StartPossession();
         }
     }

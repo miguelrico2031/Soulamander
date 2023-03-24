@@ -71,6 +71,7 @@ public abstract class Golem : MonoBehaviour
 
     protected void TryToStickToGolem()
     {
+        return;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.65f, _groundGolemLayer);
         if (colliders.Length > 0)
         {

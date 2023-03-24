@@ -45,7 +45,7 @@ public class Scout : Golem
             if(RayCastHitGround())
             {
                 if (!_rb.isKinematic) TryToStickToGolem();
-                _rb.isKinematic = true;
+                //_rb.isKinematic = true;
                 _rb.velocity = Vector2.zero;
             }
             else
