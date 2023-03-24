@@ -18,14 +18,22 @@ public class Jumper : Golem
     private float _holdingJumpButtonTime = 0f;
 
     private bool _isGrounded = false;
-    
 
+    private Transform _northCollider, _westCollider, _eastCollider;
 
     protected override void Awake()
     {
         base.Awake();
 
         _gravity = _gravityForce * 9.81f * Vector2.down;
+
+        _northCollider = transform.GetChild(1);
+        _westCollider = transform.GetChild(2);
+        _eastCollider = transform.GetChild(3);
+
+        _northCollider.gameObject.SetActive(false);
+        _westCollider.gameObject.SetActive(false);
+        _eastCollider.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -79,6 +87,10 @@ public class Jumper : Golem
         _isHoldingJumpButton = false;
 
         _rb.SetRotation(0f);
+        _northCollider.gameObject.SetActive(true);
+        _westCollider.gameObject.SetActive(false);
+        _eastCollider.gameObject.SetActive(false);
+        //_topCollider = _northCollider.gameObject;
 
         //(valor de x - a) / (b - a)
         float jumpForceFactor = _holdingJumpButtonTime <= _minJumpTime ? 0f : (_holdingJumpButtonTime - _minJumpTime) / (_maxJumpTime - _minJumpTime);
@@ -93,18 +105,45 @@ public class Jumper : Golem
 
         _holdingJumpButtonTime = 0f;
     }
-
+        
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (State != GolemState.Enabled && State != GolemState.Available) return;
 
         if ((_groundLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
+        if (collision.transform.parent == transform) return;
 
         if(collision.contacts[0].normal.y >= 0f)
         {
             _isGrounded = true;
             _rb.velocity = new Vector2(0f, 0f);
-            _rb.SetRotation(Vector2.SignedAngle(transform.up, collision.contacts[0].normal));
+            float angle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
+            
+
+            if(Mathf.Abs(angle) < 10f)
+            {
+                _northCollider.gameObject.SetActive(true);
+                _westCollider.gameObject.SetActive(false);
+                _eastCollider.gameObject.SetActive(false);
+                //_topCollider = _northCollider.gameObject;
+            }
+            else if(angle < 0f)
+            {
+                _northCollider.gameObject.SetActive(false);
+                _westCollider.gameObject.SetActive(true);
+                _eastCollider.gameObject.SetActive(false);
+                //_topCollider = _westCollider.gameObject;
+            }
+            else
+            {
+                _northCollider.gameObject.SetActive(false);
+                _westCollider.gameObject.SetActive(false);
+                _eastCollider.gameObject.SetActive(true);
+                //_topCollider = _eastCollider.gameObject;
+            }
+
+            _rb.SetRotation(angle);
+
         }
     }
 }
