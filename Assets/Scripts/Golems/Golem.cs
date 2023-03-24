@@ -15,7 +15,7 @@ public abstract class Golem : MonoBehaviour
     [SerializeField] protected GameObject _topCollider;
 
     private GolemState _state;
-    private LayerMask _groundGolemLayer;
+    protected LayerMask _groundGolemLayer;
     protected Rigidbody2D _rb;
     protected Collider2D _collider;
     
@@ -54,9 +54,8 @@ public abstract class Golem : MonoBehaviour
             case GolemState.Available:
                 //_rb.isKinematic = true;  voy a dejar que cada golem active su isKinematic a su tiempo
                 _collider.enabled = true;
-                
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.65f, _groundGolemLayer);
-                if (colliders.Length > 0) transform.SetParent(colliders[0].transform);
+
+                TryToStickToGolem();
 
                 if (_topCollider) _topCollider.SetActive(true);
                 break;
@@ -68,6 +67,22 @@ public abstract class Golem : MonoBehaviour
         }
 
         _state = newState;
+    }
+
+    protected void TryToStickToGolem()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.65f, _groundGolemLayer);
+        if (colliders.Length > 0)
+        {
+            foreach (var col in colliders)
+            {
+                if (col.transform.parent == transform) continue;
+                if (col.transform.parent.TryGetComponent<Jumper>(out var c)) continue;
+
+                transform.SetParent(col.transform);
+                break;
+            }
+        }
     }
 
     public void EnterGolem()

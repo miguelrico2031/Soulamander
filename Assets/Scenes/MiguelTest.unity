@@ -981,6 +981,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7537533552205766751, guid: 41a05b0fbdb767a4d8a0a2d65aaa5b78, type: 3}
+      propertyPath: _topCollider
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7537533552205766756, guid: 41a05b0fbdb767a4d8a0a2d65aaa5b78, type: 3}
       propertyPath: m_Name
       value: Jumper
