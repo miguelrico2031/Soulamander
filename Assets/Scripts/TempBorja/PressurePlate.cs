@@ -20,7 +20,6 @@ public class PressurePlate : MonoBehaviour
         {
             if (!_listenersActive)
             {
-                Debug.Log("puertas abiertas");
                 foreach (var listener in _listeners)
                 {
                     listener.GetComponent<PreassureListener>().OnPlatePressed();
@@ -45,7 +44,6 @@ public class PressurePlate : MonoBehaviour
             }
             else if (_timeElapsed >= _timer && _listenersActive)
             {
-                Debug.Log("puertas cerradas");
                 foreach (var listener in _listeners)
                 {
                     listener.GetComponent<PreassureListener>().OnTimerEnd();
