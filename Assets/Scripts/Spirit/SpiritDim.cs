@@ -10,7 +10,7 @@ public class SpiritDim : MonoBehaviour
         get { return _isFading;  }
         set
         {
-            if(value != _isFading) _sprite.localScale = _initialScale;
+            if(!_isFading && value) _sprite.localScale = _initialScale;
             
             _isFading = value;
         }

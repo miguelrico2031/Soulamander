@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanBeLaunched: 1
   _state: 0
+  _topCollider: {fileID: 8632636431480622515}
   _speed: 3
   _jumpingForce: 12
   _holdDiff: 0.5
@@ -256,7 +257,7 @@ GameObject:
   - component: {fileID: 8920695023929369603}
   - component: {fileID: 3687258481788872798}
   - component: {fileID: 983030170402674972}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: TopCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +316,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 27511
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
