@@ -19,7 +19,7 @@ public class Goal : MonoBehaviour
         if (collision.gameObject.GetComponent<Golem>().State != GolemState.Enabled) return;
         if (OnGoalReached == null) return;
         OnGoalReached(this, EventArgs.Empty);
-        StartCoroutine(nameof(WaitBeforeSceneChange));
+        StartCoroutine(WaitBeforeSceneChange());
     }
 
     IEnumerator WaitBeforeSceneChange()
