@@ -7,7 +7,7 @@ public class Scout : Golem
     private float _horizontal;
     private bool _isFacingRight;
     private float _flightTime;
-    private bool _isGrounded;
+    private bool _isGrounded, _grounded; //el ultimo es nuevo y sirve para ahorrar llamar varias veces a RaycastHitGround
 
     //private Queue<KeyCode> _buttonQueue;
     private Queue<ButtonToQueue> _buttonQueue;
@@ -39,16 +39,18 @@ public class Scout : Golem
     }
     private void Update()
     {
-        if (State == GolemState.BeingLaunched && RayCastHitGround()) State = GolemState.Enabled;
+        _grounded = RayCastHitGround();
+        if (State == GolemState.BeingLaunched && _grounded) State = GolemState.Enabled;
         if (State == GolemState.Available)
         {
-            if(RayCastHitGround())
+            if(_grounded)
             {
                 if (!_rb.isKinematic) TryToStickToGolem();
-                //_rb.isKinematic = true;
+
+                _rb.isKinematic = true;
                 _rb.velocity = Vector2.zero;
             }
-            else
+            else if(!transform.parent)
             {
                 _rb.isKinematic = false;
             }
@@ -59,7 +61,7 @@ public class Scout : Golem
 
         _horizontal = Input.GetAxisRaw("Horizontal");    
 
-        if (RayCastHitGround())
+        if (_grounded)
         {
             _flightTime = 0f;
             if (_rb.velocity.y <= 0.1f) _isGrounded = true;

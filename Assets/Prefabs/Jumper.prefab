@@ -200,6 +200,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &3110612440311249969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8677876019946579692}
+  m_Layer: 9
+  m_Name: Feet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8677876019946579692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3110612440311249969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7537533552205766746}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6257706819825186741
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +367,7 @@ Transform:
   - {fileID: 6905104449005167814}
   - {fileID: 1376310277341103576}
   - {fileID: 3895177150181947631}
+  - {fileID: 8677876019946579692}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -404,7 +436,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanBeLaunched: 0
-  _topCollider: {fileID: 1922880166546219213}
+  _topCollider: {fileID: 0}
+  _feet: {fileID: 8677876019946579692}
+  _collider: {fileID: 7537533552205766745}
+  _extendedCollider: {fileID: 0}
   _groundLayers:
     serializedVersion: 2
     m_Bits: 320
