@@ -8,21 +8,7 @@ public abstract class Golem : MonoBehaviour
     public bool IsCarryingGolem
     {
         get { return _isCarryingGolem; }
-        set
-        {
-            if (State != GolemState.Available || !_extendedCollider) return;
-            if(value && !_isCarryingGolem)
-            {
-                _topCollider.SetActive(false);
-                _extendedCollider.enabled = true;
-            }
-            else if(!value && _isCarryingGolem)
-            {
-                _extendedCollider.enabled = false;
-                _topCollider.SetActive(true);
-            }
-            _isCarryingGolem = value;
-        }
+        set{ ToggleCarryGolem(value);  }
     }
 
     public GolemState State
@@ -101,6 +87,22 @@ public abstract class Golem : MonoBehaviour
         }
 
         _state = newState;
+    }
+
+    protected virtual void ToggleCarryGolem(bool newState)
+    {
+        if (State != GolemState.Available || !_extendedCollider) return;
+        if (newState && !_isCarryingGolem)
+        {
+            _topCollider.SetActive(false);
+            _extendedCollider.enabled = true;
+        }
+        else if (!newState && _isCarryingGolem)
+        {
+            _extendedCollider.enabled = false;
+            _topCollider.SetActive(true);
+        }
+        _isCarryingGolem = newState;
     }
 
     protected void TryToStickToGolem()

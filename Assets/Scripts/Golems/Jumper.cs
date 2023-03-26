@@ -150,4 +150,15 @@ public class Jumper : Golem
 
         }
     }
+
+    protected override void ToggleCarryGolem(bool newState)
+    {
+        base.ToggleCarryGolem(newState);
+
+        //if(State != GolemState.Available) return;
+
+        //_northCollider.gameObject.SetActive(false);
+        //_westCollider.gameObject.SetActive(false);
+        //_eastCollider.gameObject.SetActive(false);
+    }
 }
