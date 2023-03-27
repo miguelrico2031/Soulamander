@@ -21,6 +21,9 @@ public class Jumper : Golem
 
     private Transform _northCollider, _westCollider, _eastCollider;
 
+    private Collider2D _grapplingCollider = null;
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -34,6 +37,7 @@ public class Jumper : Golem
         _northCollider.gameObject.SetActive(false);
         _westCollider.gameObject.SetActive(false);
         _eastCollider.gameObject.SetActive(false);
+
     }
 
     private void Update()
@@ -45,7 +49,7 @@ public class Jumper : Golem
                 _rb.isKinematic = true;
                 _rb.velocity = Vector2.zero;
             }
-            else _rb.isKinematic = false;
+            else if(transform.parent == null) _rb.isKinematic = false;
         }
         if (State != GolemState.Enabled) return;
 
@@ -81,7 +85,7 @@ public class Jumper : Golem
     {
         if (State != GolemState.Enabled && State != GolemState.Available) return;
 
-        if (!_isGrounded) _rb.velocity += _gravity * Time.fixedDeltaTime;
+        if (!_isGrounded && transform.parent == null) _rb.velocity += _gravity * Time.fixedDeltaTime;
     }
 
     private void Jump()
@@ -122,7 +126,14 @@ public class Jumper : Golem
             _isGrounded = true;
             _rb.velocity = Vector2.zero;
             float angle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
-            
+
+            _grapplingCollider = collision.collider;
+
+            if((_groundGolemLayer.value & (1 << _grapplingCollider.gameObject.layer)) > 0)
+            {
+                angle = 0f;
+                _rb.MovePosition((Vector2)_grapplingCollider.transform.position + Vector2.up * 0.2f);
+            }
 
             if(Mathf.Abs(angle) < 10f)
             {
@@ -150,6 +161,36 @@ public class Jumper : Golem
 
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (State != GolemState.Enabled && State != GolemState.Available) return;
+        if (_grapplingCollider != collision.collider) return;
+        if (transform.parent != null) return;
+
+
+        _grapplingCollider = null;
+        _isGrounded = false;
+        _rb.SetRotation(0f);
+        _northCollider.gameObject.SetActive(true);
+        _westCollider.gameObject.SetActive(false);
+        _eastCollider.gameObject.SetActive(false);
+    }
+
+    //private void GroundCheck()
+    //{
+    //    if(!_isGrounded) return;
+
+    //    _groundCollision = Physics2D.OverlapCircle(_feet.position, 0.1f, _groundLayers);
+    //    if (!_groundCollision)
+    //    {
+    //        _isGrounded = false;
+    //        _rb.SetRotation(0f);
+    //        _northCollider.gameObject.SetActive(true);
+    //        _westCollider.gameObject.SetActive(false);
+    //        _eastCollider.gameObject.SetActive(false);
+    //    }
+    //}
 
     protected override void ToggleCarryGolem(bool newState)
     {

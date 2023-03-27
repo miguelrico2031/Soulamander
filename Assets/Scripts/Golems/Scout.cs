@@ -7,7 +7,7 @@ public class Scout : Golem
     private float _horizontal;
     private bool _isFacingRight;
     private float _flightTime;
-    private bool _isGrounded, _grounded; //el ultimo es nuevo y sirve para ahorrar llamar varias veces a RaycastHitGround
+    private bool _isGroundedForJump, _grounded; //el ultimo es nuevo y sirve para ahorrar llamar varias veces a RaycastHitGround
 
     //private Queue<KeyCode> _buttonQueue;
     private Queue<ButtonToQueue> _buttonQueue;
@@ -64,7 +64,7 @@ public class Scout : Golem
         if (_grounded)
         {
             _flightTime = 0f;
-            if (_rb.velocity.y <= 0.1f) _isGrounded = true;
+            if (_rb.velocity.y <= 0.1f) _isGroundedForJump = true;
         }
         else _flightTime += Time.deltaTime;
 
@@ -75,14 +75,14 @@ public class Scout : Golem
             _buttonQueue.Enqueue(ButtonToQueue.Jump);
             Invoke(nameof(ClearKeyInQueue), _inputBufferTime);         
         }
-        if (_flightTime < _coyoteTime && _isGrounded)
+        if (_flightTime < _coyoteTime && _isGroundedForJump)
         {
             if (_buttonQueue.Count > 0)
             {
                 if (_buttonQueue.Peek() == ButtonToQueue.Jump)
                 {
                     _rb.velocity = new Vector2(_rb.velocity.x, _jumpingForce);
-                    _isGrounded = false;
+                    _isGroundedForJump = false;
                     _buttonQueue.Dequeue();
                 }
             }         
