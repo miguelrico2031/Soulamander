@@ -74,9 +74,9 @@ public class CameraController : MonoBehaviour
         {
             if (_camera.orthographicSize > _startingSize)
             {
-                _camera.orthographicSize = Mathf.Clamp((_camera.orthographicSize - _zoomSpeed * 1.5f * Time.deltaTime), 0, _cameraSize);
+                _camera.orthographicSize = Mathf.Clamp((_camera.orthographicSize - _zoomSpeed * Time.deltaTime), 0, _cameraSize);
             }
-            MoveCamera(_goalPos, _cameraToStaticPosSpeed * 1.5f, true, false);
+            MoveCamera(_goalPos, _cameraToStaticPosSpeed, true, false);
         }        
     }
 

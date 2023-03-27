@@ -6,6 +6,7 @@ public class PressurePlate : MonoBehaviour
 {
     [SerializeField] List<GameObject> _listeners;
     [SerializeField] float _timer;
+    [SerializeField] bool _usesTimer;
 
     [SerializeField] private LayerMask _golemLayer;
     [SerializeField] private BoxCollider2D _collider;   
@@ -34,22 +35,36 @@ public class PressurePlate : MonoBehaviour
         }
         else
         {
-            if (_timeElapsed < _timer && _listenersActive)
+            if (_usesTimer)
             {
-                _timeElapsed += Time.deltaTime;
-                foreach (var listener in _listeners)
+                if (_timeElapsed < _timer && _listenersActive)
                 {
-                    listener.GetComponent<PreassureListener>().OnPlateUnpressed();
+                    _timeElapsed += Time.deltaTime;
+                    foreach (var listener in _listeners)
+                    {
+                        listener.GetComponent<PreassureListener>().OnPlateUnpressed();
+                    }
+                }
+                else if (_timeElapsed >= _timer && _listenersActive)
+                {
+                    foreach (var listener in _listeners)
+                    {
+                        listener.GetComponent<PreassureListener>().OnTimerEnd();
+                    }
+                    _listenersActive = false;
                 }
             }
-            else if (_timeElapsed >= _timer && _listenersActive)
+            else
             {
-                foreach (var listener in _listeners)
+                if (_listenersActive)
                 {
-                    listener.GetComponent<PreassureListener>().OnTimerEnd();
-                }
-                _listenersActive = false;
-            }
+                    foreach (var listener in _listeners)
+                    {
+                        listener.GetComponent<PreassureListener>().OnPlateUnpressed();
+                    }
+                    _listenersActive = false;
+                }               
+            }            
         }       
     }
 
