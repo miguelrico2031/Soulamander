@@ -9,7 +9,6 @@ public class Scout : Golem
     private float _flightTime;
     private bool _isGroundedForJump, _grounded; //el ultimo es nuevo y sirve para ahorrar llamar varias veces a RaycastHitGround
 
-    //private Queue<KeyCode> _buttonQueue;
     private Queue<ButtonToQueue> _buttonQueue;
 
     [SerializeField] private float _speed;
@@ -22,12 +21,16 @@ public class Scout : Golem
     [SerializeField] private LayerMask _groundLayer;
 
     private Vector3[] _groundCheckPoints;
+    private RaycastHit2D _hit;
+
+    private bool _lerpingToGolem = false;
+    private float _lerpTime = 0f;
+    Vector2 _lerpTarget;
 
     protected override void Awake()
     {
         base.Awake();
 
-        //_buttonQueue = new Queue<KeyCode>();
         _buttonQueue = new Queue<ButtonToQueue>();
 
         _groundCheckPoints = new Vector3[]
@@ -68,8 +71,6 @@ public class Scout : Golem
         }
         else _flightTime += Time.deltaTime;
 
-        
-        //if (Input.GetKeyDown(KeyCode.Space))
         if(Input.GetButtonDown("Jump"))
         {
             _buttonQueue.Enqueue(ButtonToQueue.Jump);
@@ -96,6 +97,19 @@ public class Scout : Golem
 
     private void FixedUpdate()
     {
+        
+
+        if (State != GolemState.Disabled &&_lerpingToGolem)
+        {
+            transform.position = Vector2.Lerp(transform.position, _lerpTarget, _lerpTime);
+            _lerpTime += Time.fixedDeltaTime * 10f;
+
+            if (Vector2.Distance(transform.position, _lerpTarget) > 0.02f) return;
+
+            _lerpTime = 0f;
+            _lerpingToGolem = false;
+        }
+
         if (State != GolemState.Enabled) return;
 
         _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
@@ -108,16 +122,40 @@ public class Scout : Golem
 
     private bool RayCastHitGround()
     {
-        foreach(var v in _groundCheckPoints)
+        foreach (var v in _groundCheckPoints)
         {
-            Debug.DrawRay(_collider.bounds.center + v, Vector2.down * (_collider.bounds.extents.y + _groundCheckOffset));
-            if (Physics2D.Raycast(_collider.bounds.center + v, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer).collider)
-                return true;
+            _hit = Physics2D.Raycast(_collider.bounds.center + v, Vector2.down, _collider.bounds.extents.y + _groundCheckOffset, _groundLayer);
+            if (_hit.collider) return true;
         }
-
         return false;
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (State != GolemState.Enabled && State != GolemState.Available) return;
+    //    if (collision.transform.parent == transform) return;
+    //    if (_grounded) return;
+    //    if ((_rb.velocity.y > 0f)) return;
+
+    //    if (collision.contacts[0].normal.y >= 0f && (_groundGolemLayer.value & (1 << collision.collider.gameObject.layer)) > 0)
+    //    {
+    //        _lerpTime = 0f;
+    //        _lerpingToGolem = true;
+    //        _lerpTarget = (Vector2)collision.collider.transform.position + Vector2.up * 0.2f;
+    //    }
+    //}
     
+
+    protected override void StickToGolem(Golem golemToStick)
+    {
+        base.StickToGolem(golemToStick);
+
+        _lerpTime = 0f;
+        _lerpingToGolem = true;
+        //_lerpTarget = (Vector2)golemToStick.TopCollider.transform.position + Vector2.up * 0.7f;
+        _lerpTarget = new Vector2(golemToStick.TopCollider.transform.position.x, transform.position.y);
+    }
+
     //mover a otro script:
     private void Flip()
     {

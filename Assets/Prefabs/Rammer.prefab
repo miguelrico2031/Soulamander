@@ -103,8 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanBeLaunched: 1
-  _state: 0
-  _topCollider: {fileID: 5841691247596105075}
+  TopCollider: {fileID: 5841691247596105075}
+  _feet: {fileID: 0}
+  _collider: {fileID: 5470204669822148246}
+  _extendedCollider: {fileID: 0}
   _maxSpeed: 10
   _initialSpeed: 2
   _pushSpeed: 2

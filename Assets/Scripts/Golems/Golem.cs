@@ -17,7 +17,7 @@ public abstract class Golem : MonoBehaviour
         set { ChangeState(value); }
     }
 
-    [SerializeField] protected GameObject _topCollider;
+    [SerializeField] public GameObject TopCollider;
     [SerializeField] protected Transform _feet;
     [SerializeField] protected Collider2D _collider;
     [SerializeField] protected Collider2D _extendedCollider;
@@ -52,26 +52,26 @@ public abstract class Golem : MonoBehaviour
                 _rb.isKinematic = true;
                 _collider.enabled = false;
                 if(_extendedCollider) _extendedCollider.enabled = false;
-                if (_topCollider) _topCollider.SetActive(false);
+                if (TopCollider) TopCollider.SetActive(false);
                 break;
 
             case GolemState.Enabled:
                 _rb.isKinematic = false;
                 _collider.enabled = true;
                 if (_extendedCollider) _extendedCollider.enabled = IsCarryingGolem;
-                if (_topCollider && !IsCarryingGolem) _topCollider.SetActive(true);
-                else if(_topCollider) _topCollider.SetActive(false);
+                if (TopCollider && !IsCarryingGolem) TopCollider.SetActive(true);
+                else if(TopCollider) TopCollider.SetActive(false);
                 if (transform.parent != null) EndStickToGolem();
                 break;
 
             case GolemState.Available:
                 //_rb.isKinematic = true;  voy a dejar que cada golem active su isKinematic a su tiempo
                 _collider.enabled = true;
-                if (_topCollider) _topCollider.SetActive(true);
+                if (TopCollider) TopCollider.SetActive(true);
                 if (_extendedCollider)
                 {
                     _extendedCollider.enabled = IsCarryingGolem;
-                    if (_topCollider) _topCollider.SetActive(!IsCarryingGolem);
+                    if (TopCollider) TopCollider.SetActive(!IsCarryingGolem);
                 }
                 
 
@@ -94,13 +94,13 @@ public abstract class Golem : MonoBehaviour
         if (State != GolemState.Available || !_extendedCollider) return;
         if (newState && !_isCarryingGolem)
         {
-            _topCollider.SetActive(false);
+            TopCollider.SetActive(false);
             _extendedCollider.enabled = true;
         }
         else if (!newState && _isCarryingGolem)
         {
             _extendedCollider.enabled = false;
-            _topCollider.SetActive(true);
+            TopCollider.SetActive(true);
         }
         _isCarryingGolem = newState;
     }
@@ -115,6 +115,7 @@ public abstract class Golem : MonoBehaviour
             {
                 if (col.transform.parent == transform) continue;
                 if (col.transform.parent.TryGetComponent<Jumper>(out var c)) continue;
+                if(col.transform.parent.parent != null || IsCarryingGolem) continue;
 
                 StickToGolem(col.transform.parent.GetComponent<Golem>());
                 break;
@@ -122,16 +123,18 @@ public abstract class Golem : MonoBehaviour
         }
     }
 
-    protected void StickToGolem(Golem golemToStick)
+    protected virtual void StickToGolem(Golem golemToStick)
     {
         _rb.isKinematic = true;
         _collider.enabled = false;
+
+        
 
         transform.SetParent(golemToStick.transform);
         golemToStick.IsCarryingGolem = true;
     }
 
-    protected void EndStickToGolem()
+    protected virtual void EndStickToGolem()
     {
         transform.parent.GetComponent<Golem>().IsCarryingGolem = false;
         transform.parent = null;

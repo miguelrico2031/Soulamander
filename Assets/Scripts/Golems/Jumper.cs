@@ -23,6 +23,12 @@ public class Jumper : Golem
 
     private Collider2D _grapplingCollider = null;
 
+    private bool _lerpingToGolem = false;
+    private float _lerpTime = 0f;
+    Vector2 _lerpTarget;
+
+    private float _collisionAngle;
+
 
     protected override void Awake()
     {
@@ -85,7 +91,22 @@ public class Jumper : Golem
     {
         if (State != GolemState.Enabled && State != GolemState.Available) return;
 
+        if(_lerpingToGolem)
+        {
+            transform.position = Vector2.Lerp(transform.position, _lerpTarget, _lerpTime);
+            _lerpTime += Time.fixedDeltaTime * 10f;
+
+            if (Vector2.Distance(transform.position, _lerpTarget) > 0.1f) return;
+
+            _lerpTime = 0f;
+            _lerpingToGolem = false;
+            _northCollider.gameObject.SetActive(true);
+            _westCollider.gameObject.SetActive(false);
+            _eastCollider.gameObject.SetActive(false);
+        }
+
         if (!_isGrounded && transform.parent == null) _rb.velocity += _gravity * Time.fixedDeltaTime;
+
     }
 
     private void Jump()
@@ -98,7 +119,6 @@ public class Jumper : Golem
         _northCollider.gameObject.SetActive(true);
         _westCollider.gameObject.SetActive(false);
         _eastCollider.gameObject.SetActive(false);
-        //_topCollider = _northCollider.gameObject;
 
         //(valor de x - a) / (b - a)
         float jumpForceFactor = _holdingJumpButtonTime <= _minJumpTime ? 0f : (_holdingJumpButtonTime - _minJumpTime) / (_maxJumpTime - _minJumpTime);
@@ -125,39 +145,38 @@ public class Jumper : Golem
         {
             _isGrounded = true;
             _rb.velocity = Vector2.zero;
-            float angle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
+            _collisionAngle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
 
             _grapplingCollider = collision.collider;
 
-            if((_groundGolemLayer.value & (1 << _grapplingCollider.gameObject.layer)) > 0)
+            if ((_groundGolemLayer.value & (1 << _grapplingCollider.gameObject.layer)) > 0)
             {
-                angle = 0f;
-                _rb.MovePosition((Vector2)_grapplingCollider.transform.position + Vector2.up * 0.2f);
+                _lerpTime = 0f;
+                _lerpingToGolem = true;
+                _lerpTarget = (Vector2)_grapplingCollider.transform.position + Vector2.up * 0.2f;
+                return;
             }
 
-            if(Mathf.Abs(angle) < 10f)
+            if (Mathf.Abs(_collisionAngle) < 10f)
             {
                 _northCollider.gameObject.SetActive(true);
                 _westCollider.gameObject.SetActive(false);
                 _eastCollider.gameObject.SetActive(false);
-                //_topCollider = _northCollider.gameObject;
             }
-            else if(angle < 0f)
+            else if(_collisionAngle < 0f)
             {
                 _northCollider.gameObject.SetActive(false);
                 _westCollider.gameObject.SetActive(true);
                 _eastCollider.gameObject.SetActive(false);
-                //_topCollider = _westCollider.gameObject;
             }
             else
             {
                 _northCollider.gameObject.SetActive(false);
                 _westCollider.gameObject.SetActive(false);
                 _eastCollider.gameObject.SetActive(true);
-                //_topCollider = _eastCollider.gameObject;
             }
 
-            _rb.SetRotation(angle);
+            _rb.SetRotation(_collisionAngle);
 
         }
     }
@@ -177,19 +196,13 @@ public class Jumper : Golem
         _eastCollider.gameObject.SetActive(false);
     }
 
-    //private void GroundCheck()
+    //protected override void StickToGolem(Golem golemToStick)
     //{
-    //    if(!_isGrounded) return;
+    //    base.StickToGolem(golemToStick);
 
-    //    _groundCollision = Physics2D.OverlapCircle(_feet.position, 0.1f, _groundLayers);
-    //    if (!_groundCollision)
-    //    {
-    //        _isGrounded = false;
-    //        _rb.SetRotation(0f);
-    //        _northCollider.gameObject.SetActive(true);
-    //        _westCollider.gameObject.SetActive(false);
-    //        _eastCollider.gameObject.SetActive(false);
-    //    }
+    //    _lerpTime = 0f;
+    //    _lerpingToGolem = true;
+    //    _lerpTarget = (Vector2)golemToStick.TopCollider.transform.position + Vector2.up * 0.2f;
     //}
 
     protected override void ToggleCarryGolem(bool newState)
