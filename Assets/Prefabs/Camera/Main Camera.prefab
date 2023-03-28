@@ -47,11 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d76acb1f415703488d824487721291d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _followPlayer: 0
+  _followPlayerX: 0
+  _followPlayerY: 0
   _cameraSize: 8
   _startingSize: 2
   _zoomSpeed: 2.5
-  _cameraFollowSmoothSpeed: 2
+  _cameraFollowSmoothSpeed: 3
   _cameraToStaticPosSpeed: 5
   _zOffset: -10
 --- !u!20 &8235022735797843284

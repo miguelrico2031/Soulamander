@@ -200,9 +200,23 @@ public class SpiritUnion : MonoBehaviour
         State = SpiritState.Traveling;
     }
 
+    // Añadido por borja:
+    public void RefreshAvailableGolems() 
+    {
+        _avaliableGolems.Clear();
+        _golemIndex = 0;
+        foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
+        {
+            if (golem.State == GolemState.Enabled)
+            {
+                _avaliableGolems.Add(golem);
+            }
+        }
+    }
+
     private void SwapGolem()
     {
-        if (_avaliableGolems.Count == 0) return;
+        if (_avaliableGolems.Count <= 1) return;
 
         if (State == SpiritState.Possessing) ExitGolem();
 

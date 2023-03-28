@@ -103,8 +103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanBeLaunched: 1
+  _startsEnabled: 0
   _topCollider: {fileID: 8632636431480622515}
-  _speed: 3
+  _speed: 3.5
   _jumpingForce: 12
   _holdDiff: 0.5
   _groundCheckOffset: 0.05

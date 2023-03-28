@@ -14,7 +14,8 @@ public class CameraController : MonoBehaviour
     private Vector3 _goalPos;
 
     [Header("Scene Settings")]
-    [SerializeField] private bool _followPlayer;
+    [SerializeField] private bool _followPlayerX;
+    [SerializeField] private bool _followPlayerY;
     [SerializeField] private float _cameraSize;
 
     [Header("General Settings")]
@@ -37,16 +38,22 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        LateStart();
+    }
+
+    private void LateStart()
+    {
         _sceneIsEnding = false;
 
         GameObject.FindObjectOfType<Goal>().gameObject.GetComponent<Goal>().OnGoalReached += OnRoomEnd;
 
-        if (!_followPlayer) _staticCamPos = transform.position;
+        if (!_followPlayerX && !_followPlayerY) _staticCamPos = transform.position;
         _enabledGolems = new List<GameObject>();
         foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
         {
             if (golem.State == GolemState.Enabled)
             {
+                Debug.Log("hei");
                 _enabledGolems.Add(golem.gameObject);
             }
         }
@@ -67,7 +74,7 @@ public class CameraController : MonoBehaviour
             {
                 _camera.orthographicSize = Mathf.Clamp((_camera.orthographicSize - _zoomSpeed * Time.deltaTime), _cameraSize, 1000);
             }
-            if (_followPlayer) return;
+            if (_followPlayerX || _followPlayerY) return;
             MoveCamera(_staticCamPos, _cameraToStaticPosSpeed, true, false);
         }
         else
@@ -82,9 +89,10 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (!_followPlayer || _sceneIsEnding) return;
+        if (_sceneIsEnding) return;
+        if (!_followPlayerY && !_followPlayerX) return;
 
-        _enabledGolems = new List<GameObject>(); 
+        _enabledGolems = new List<GameObject>();
         foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
         {
             if (golem.State == GolemState.Enabled)
@@ -93,18 +101,28 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        if (_enabledGolems.Count == 0) _targetPlayer = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position;
+        if (_enabledGolems.Count == 0)
+        {
+            if (_followPlayerX) _targetPlayer.x = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.x;
+            if (_followPlayerY) _targetPlayer.y = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.y;
+        }
 
-        if (_enabledGolems.Count == 1) _targetPlayer = _enabledGolems[0].gameObject.transform.position;
+        if (_enabledGolems.Count == 1) 
+        {
+            if (_followPlayerX) _targetPlayer.x = _enabledGolems[0].gameObject.transform.position.x;
+            if (_followPlayerY) _targetPlayer.y = _enabledGolems[0].gameObject.transform.position.y;
+        }
 
         if (_enabledGolems.Count > 1) 
         {
             float x = 0;
+            if (!_followPlayerX) x = transform.position.x;
             float y = 0;
+            if (!_followPlayerY) y = transform.position.y;
             foreach (GameObject golem in _enabledGolems)
             {
-                x += golem.transform.position.x;
-                y += golem.transform.position.y;
+                if (_followPlayerX) x += golem.transform.position.x;
+                if (_followPlayerY) y += golem.transform.position.y;
             }
             _targetPlayer = new Vector3(x, y, 0);
         }
@@ -117,34 +135,45 @@ public class CameraController : MonoBehaviour
         _goalPos = GameObject.FindObjectOfType<Goal>().gameObject.transform.position;
     }
 
-    public void OnEffector(bool changeToFollowPlayer, Vector3 newCamStaticPos, float newCameraSize, float timer)
+    public void OnEffector(bool changeToFollowPlayerX, bool changeToFollowPlayerY, Vector3 newCamStaticPos, float newCameraSize, float timer)
     {
-        bool previousBoolFollowPlayer = _followPlayer;
+        bool previousBoolFollowPlayerX = _followPlayerX;
+        bool previousBoolFollowPlayerY = _followPlayerY;
         Vector3 previousCamStaticPos = _staticCamPos;
         float previousCameraSize = _cameraSize;
 
         _cameraSize = newCameraSize;
-        if (changeToFollowPlayer) _followPlayer = true;
+        if (changeToFollowPlayerX) _followPlayerX = true;
         else
         {
-            _followPlayer = false;
-            _staticCamPos = newCamStaticPos;
+            _followPlayerX = false;
+            if (!changeToFollowPlayerY) _staticCamPos = newCamStaticPos;
+        }
+        if (changeToFollowPlayerY) _followPlayerY = true;
+        else
+        {
+            _followPlayerY = false;
         }
 
         if (timer == 0) return;
-        StartCoroutine(RestorePreviousValues(timer, previousBoolFollowPlayer, previousCamStaticPos, previousCameraSize));
+        StartCoroutine(RestorePreviousValues(timer, previousBoolFollowPlayerX, previousBoolFollowPlayerY, previousCamStaticPos, previousCameraSize));
     }
 
-    IEnumerator RestorePreviousValues(float timer, bool previousBoolFollowPlayer, Vector3 previousCamStaticPos, float previousCameraSize)
+    IEnumerator RestorePreviousValues(float timer, bool previousBoolFollowPlayerX, bool previousBoolFollowPlayerY, Vector3 previousCamStaticPos, float previousCameraSize)
     {
         yield return new WaitForSeconds(timer);
 
         _cameraSize = previousCameraSize;
-        if (previousBoolFollowPlayer) _followPlayer = true;
+        if (previousBoolFollowPlayerX) _followPlayerX = true;
         else
         {
-            _followPlayer = false;
-            _staticCamPos = previousCamStaticPos;
+            _followPlayerX = false;
+            if (!previousBoolFollowPlayerY) _staticCamPos = previousCamStaticPos;
+        }
+        if (previousBoolFollowPlayerY) _followPlayerY = true;
+        else
+        {
+            _followPlayerY = false;
         }
     }
 
