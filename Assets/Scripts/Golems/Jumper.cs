@@ -111,10 +111,16 @@ public class Jumper : Golem
 
     private void Jump()
     {
-       
-        _isGrounded = false;
         _isHoldingJumpButton = false;
 
+        if ((_horizontalInput == -1 && _westCollider.gameObject.activeSelf) 
+            || (_horizontalInput == 1 && _eastCollider.gameObject.activeSelf))
+        {
+            _holdingJumpButtonTime = 0f;
+            return;
+        }
+
+        _isGrounded = false;
         _rb.SetRotation(0f);
         _northCollider.gameObject.SetActive(true);
         _westCollider.gameObject.SetActive(false);
@@ -147,12 +153,6 @@ public class Jumper : Golem
             
             float newAngle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
 
-
-            if(_lastGrapplingCollider && newAngle == _collisionAngle
-                && collision.collider == _lastGrapplingCollider)
-            {
-                _isGrounded = false; return;
-            }
             _rb.velocity = Vector2.zero;
             _collisionAngle = newAngle;
 
