@@ -21,7 +21,7 @@ public class Jumper : Golem
 
     private Transform _northCollider, _westCollider, _eastCollider;
 
-    private Collider2D _grapplingCollider = null;
+    private Collider2D _grapplingCollider = null, _lastGrapplingCollider = null;
 
     private bool _lerpingToGolem = false;
     private float _lerpTime = 0f;
@@ -144,12 +144,23 @@ public class Jumper : Golem
         if(collision.contacts[0].normal.y >= 0f)
         {
             _isGrounded = true;
+            
+            float newAngle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
+
+
+            if(_lastGrapplingCollider && newAngle == _collisionAngle
+                && collision.collider == _lastGrapplingCollider)
+            {
+                _isGrounded = false; return;
+            }
             _rb.velocity = Vector2.zero;
-            _collisionAngle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
+            _collisionAngle = newAngle;
 
             _grapplingCollider = collision.collider;
+            _lastGrapplingCollider = _grapplingCollider;
 
-            if ((_groundGolemLayer.value & (1 << _grapplingCollider.gameObject.layer)) > 0)
+            if (((_groundGolemLayer.value & (1 << _grapplingCollider.gameObject.layer)) > 0)
+                && !_grapplingCollider.transform.parent.TryGetComponent<Jumper>(out var c))
             {
                 _lerpTime = 0f;
                 _lerpingToGolem = true;
@@ -196,23 +207,24 @@ public class Jumper : Golem
         _eastCollider.gameObject.SetActive(false);
     }
 
-    //protected override void StickToGolem(Golem golemToStick)
-    //{
-    //    base.StickToGolem(golemToStick);
+    protected override void NewState()
+    {
+        base.NewState();
 
-    //    _lerpTime = 0f;
-    //    _lerpingToGolem = true;
-    //    _lerpTarget = (Vector2)golemToStick.TopCollider.transform.position + Vector2.up * 0.2f;
-    //}
+        if(State == GolemState.Enabled)
+        {
+            Collider2D col = Physics2D.OverlapCircle(_feet.position, 0.1f, _groundLayers);
+            if(col)
+            {
+                _isGrounded = true;
+
+            }
+        }
+    }
 
     protected override void ToggleCarryGolem(bool newState)
     {
         base.ToggleCarryGolem(newState);
 
-        //if(State != GolemState.Available) return;
-
-        //_northCollider.gameObject.SetActive(false);
-        //_westCollider.gameObject.SetActive(false);
-        //_eastCollider.gameObject.SetActive(false);
     }
 }

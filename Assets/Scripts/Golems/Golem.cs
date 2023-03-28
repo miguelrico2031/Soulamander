@@ -87,6 +87,7 @@ public abstract class Golem : MonoBehaviour
         }
 
         _state = newState;
+        NewState();
     }
 
     protected virtual void ToggleCarryGolem(bool newState)
@@ -143,6 +144,11 @@ public abstract class Golem : MonoBehaviour
     public void EnterGolem()
     {
         State = GolemState.Enabled;
+    }
+
+    protected virtual void NewState()
+    {
+
     }
 }
 

@@ -130,29 +130,12 @@ public class Scout : Golem
         return false;
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (State != GolemState.Enabled && State != GolemState.Available) return;
-    //    if (collision.transform.parent == transform) return;
-    //    if (_grounded) return;
-    //    if ((_rb.velocity.y > 0f)) return;
-
-    //    if (collision.contacts[0].normal.y >= 0f && (_groundGolemLayer.value & (1 << collision.collider.gameObject.layer)) > 0)
-    //    {
-    //        _lerpTime = 0f;
-    //        _lerpingToGolem = true;
-    //        _lerpTarget = (Vector2)collision.collider.transform.position + Vector2.up * 0.2f;
-    //    }
-    //}
-    
-
     protected override void StickToGolem(Golem golemToStick)
     {
         base.StickToGolem(golemToStick);
 
         _lerpTime = 0f;
         _lerpingToGolem = true;
-        //_lerpTarget = (Vector2)golemToStick.TopCollider.transform.position + Vector2.up * 0.7f;
         _lerpTarget = new Vector2(golemToStick.TopCollider.transform.position.x, transform.position.y);
     }
 
