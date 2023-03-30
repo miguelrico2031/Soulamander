@@ -5,8 +5,7 @@ using UnityEngine;
 public abstract class Golem : MonoBehaviour
 {
     public bool CanBeLaunched; //este bool es para idicar si este tipo de golem se pueda lanzar, por ejemplo el jumper no se podra lanazar
-
-    [SerializeField] private bool _startsEnabled;
+    public bool StartsScenePossed;
 
     public GolemState State
     { 
@@ -32,8 +31,7 @@ public abstract class Golem : MonoBehaviour
 
     protected virtual void Start()
     {
-        if(!_startsEnabled) State = GolemState.Disabled;
-        else State = GolemState.Enabled;
+        State = GolemState.Disabled;
     }        
 
     private void ChangeState(GolemState newState)

@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class CameraController : MonoBehaviour
 {
+    //multiplicador segun la distancia
+
     private Camera _camera;
     private Vector3 _targetPlayer;
     private List<GameObject> _enabledGolems;
@@ -16,6 +19,7 @@ public class CameraController : MonoBehaviour
     [Header("Scene Settings")]
     [SerializeField] private bool _followPlayerX;
     [SerializeField] private bool _followPlayerY;
+    [SerializeField] private bool _zoomOutStart;
     [SerializeField] private float _cameraSize;
 
     [Header("General Settings")]
@@ -28,7 +32,7 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         _camera = GetComponent<Camera>();
-        _camera.orthographicSize = _startingSize;
+        if (_zoomOutStart) _camera.orthographicSize = _startingSize;
 
         foreach (CameraController camera in GameObject.FindObjectsOfType<CameraController>())
         {
@@ -46,20 +50,37 @@ public class CameraController : MonoBehaviour
         _sceneIsEnding = false;
 
         GameObject.FindObjectOfType<Goal>().gameObject.GetComponent<Goal>().OnGoalReached += OnRoomEnd;
-
-        if (!_followPlayerX && !_followPlayerY) _staticCamPos = transform.position;
+        _staticCamPos = transform.position;
         _enabledGolems = new List<GameObject>();
         foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
         {
             if (golem.State == GolemState.Enabled)
             {
-                Debug.Log("hei");
                 _enabledGolems.Add(golem.gameObject);
             }
         }
-        if (_enabledGolems.Count == 0) transform.position = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position;
-        else transform.position = _enabledGolems[0].gameObject.transform.position;
+        if (_followPlayerX)
+        {
+            if (_enabledGolems.Count == 0) transform.position = new Vector3(GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.x, transform.position.y, _zOffset);
+            else transform.position = new Vector3(_enabledGolems[0].gameObject.transform.position.x, transform.position.y, _zOffset);           
+        }
+        if (_followPlayerY)
+        {
+            if (_enabledGolems.Count == 0) transform.position = new Vector3(transform.position.x, GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.y, _zOffset);
+            else transform.position = new Vector3(transform.position.x, _enabledGolems[0].gameObject.transform.position.y, _zOffset);
+        }
         transform.position = new Vector3(transform.position.x, transform.position.y, _zOffset);
+        if (!_zoomOutStart)
+        {
+            if (!_followPlayerX && !_followPlayerY) transform.position = _staticCamPos;
+            else
+            {               
+                if (!_followPlayerX) transform.position = new Vector3(_staticCamPos.x, transform.position.y, transform.position.z);
+                if (!_followPlayerY) transform.position = new Vector3(transform.position.x, _staticCamPos.x, transform.position.z);
+            }
+            
+            
+        }
     }
 
     private void Update()
@@ -74,8 +95,8 @@ public class CameraController : MonoBehaviour
             {
                 _camera.orthographicSize = Mathf.Clamp((_camera.orthographicSize - _zoomSpeed * Time.deltaTime), _cameraSize, 1000);
             }
-            if (_followPlayerX || _followPlayerY) return;
-            MoveCamera(_staticCamPos, _cameraToStaticPosSpeed, true, false);
+            if (!_followPlayerX) MoveCameraX(_staticCamPos.x, _cameraToStaticPosSpeed, true, false);
+            if (!_followPlayerY) MoveCameraY(_staticCamPos.y, _cameraToStaticPosSpeed, true, false);
         }
         else
         {
@@ -83,7 +104,8 @@ public class CameraController : MonoBehaviour
             {
                 _camera.orthographicSize = Mathf.Clamp((_camera.orthographicSize - _zoomSpeed * Time.deltaTime), 0, _cameraSize);
             }
-            MoveCamera(_goalPos, _cameraToStaticPosSpeed, true, false);
+            MoveCameraX(_goalPos.x, _cameraToStaticPosSpeed, true, false);
+            MoveCameraY(_goalPos.y, _cameraToStaticPosSpeed, true, false);
         }        
     }
 
@@ -126,7 +148,8 @@ public class CameraController : MonoBehaviour
             }
             _targetPlayer = new Vector3(x, y, 0);
         }
-        MoveCamera(_targetPlayer, _cameraFollowSmoothSpeed, false, true);
+        if (_followPlayerX) MoveCameraX(_targetPlayer.x, _cameraFollowSmoothSpeed, false, true);
+        if (_followPlayerY) MoveCameraY(_targetPlayer.y, _cameraFollowSmoothSpeed, false, true);
     }
 
     private void OnRoomEnd(object sender, EventArgs e)
@@ -143,11 +166,11 @@ public class CameraController : MonoBehaviour
         float previousCameraSize = _cameraSize;
 
         _cameraSize = newCameraSize;
+        _staticCamPos = newCamStaticPos;
         if (changeToFollowPlayerX) _followPlayerX = true;
         else
         {
             _followPlayerX = false;
-            if (!changeToFollowPlayerY) _staticCamPos = newCamStaticPos;
         }
         if (changeToFollowPlayerY) _followPlayerY = true;
         else
@@ -177,21 +200,39 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private void MoveCamera(Vector3 desiredPosition, float speed, bool snapPosition, bool smoothSpeed)
+    private void MoveCameraX(float desiredPositionX, float speed, bool snapPosition, bool smoothSpeed)
     {
-        Vector3 movePosition = Vector3.zero;
-        if (smoothSpeed) movePosition = Vector3.Lerp(transform.position, desiredPosition, speed * Time.deltaTime);
-        else movePosition = Vector3.MoveTowards(transform.position, desiredPosition, speed * Time.deltaTime);
-        movePosition.z = _zOffset;
+
+        float movePositionX = 0;
+        if (smoothSpeed) movePositionX = Mathf.Lerp(transform.position.x, desiredPositionX, speed * Time.deltaTime);
+        else movePositionX = Mathf.MoveTowards(transform.position.x, desiredPositionX, speed * Time.deltaTime); 
         if (!snapPosition)
         {
-            transform.position = movePosition;       
+            transform.position = new Vector3(movePositionX, transform.position.y, _zOffset);       
         }
         else
         {
-            Vector3 dir = desiredPosition - movePosition;
-            if (dir.magnitude > 0.05f) transform.position = movePosition;
-            else transform.position = desiredPosition;
+            float dis = desiredPositionX - movePositionX;
+            if (dis > 0.05f) transform.position = new Vector3(movePositionX, transform.position.y, _zOffset);
+            else transform.position = new Vector3(desiredPositionX, transform.position.y, _zOffset);
         }       
     }
+    private void MoveCameraY(float desiredPositionY, float speed, bool snapPosition, bool smoothSpeed)
+    {
+        Debug.Log(_staticCamPos.y);
+        float movePositionY = 0;
+        if (smoothSpeed) movePositionY = Mathf.Lerp(transform.position.y, desiredPositionY, speed * Time.deltaTime);
+        else movePositionY = Mathf.MoveTowards(transform.position.y, desiredPositionY, speed * Time.deltaTime);
+        if (!snapPosition)
+        {
+            transform.position = new Vector3(transform.position.x, movePositionY, _zOffset);
+        }
+        else
+        {
+            float dis = desiredPositionY - movePositionY;
+            if (dis > 0.05f) transform.position = new Vector3(transform.position.x, movePositionY, _zOffset);
+            else transform.position = new Vector3(transform.position.x, desiredPositionY, _zOffset);
+        }
+    }
+
 }

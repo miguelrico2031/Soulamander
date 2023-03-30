@@ -39,6 +39,16 @@ public class SpiritUnion : MonoBehaviour
 
         State = SpiritState.Roaming;
     }
+    private void Start()
+    {
+        foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
+        {
+            if (golem.StartsScenePossed)
+            {
+                PossessGolem(golem);
+            }
+        }
+    }
 
     private void FixedUpdate()
     {
