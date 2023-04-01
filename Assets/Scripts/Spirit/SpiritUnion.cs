@@ -11,6 +11,7 @@ public class SpiritUnion : MonoBehaviour
         private set { ChangeState(value); }
     }
 
+    public bool CanSwap = true;
 
     [SerializeField] private float _travelingSpeed;
     [SerializeField] private LayerMask _golemLayers;
@@ -26,7 +27,8 @@ public class SpiritUnion : MonoBehaviour
     private Rigidbody2D _rb;
     private Transform _target;
     private int _golemIndex = 0;
-    private Vector2 _driectionToTarget;
+    private Vector2 _directionToTarget;
+    private float _vacuumSpeed;
 
     private void Awake()
     {
@@ -55,20 +57,28 @@ public class SpiritUnion : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (State == SpiritState.Roaming && _golemsInArea.Count >= 2) RecalcNearestGolem();
-
-        else if (State == SpiritState.Possessing) _rb.MovePosition(_golemInPossession.transform.position);
-
-        else if (State == SpiritState.Traveling || State == SpiritState.Vacuum)
+        switch(State)
         {
-            _driectionToTarget = (_target.position - transform.position).normalized;
-            _rb.velocity = _driectionToTarget * _travelingSpeed;
-            if (Vector2.Distance(transform.position, _target.position) < 0.2f)
-            {
-                if(State == SpiritState.Traveling) StartPossession();
+            case SpiritState.Roaming:
+                if (_golemsInArea.Count >= 2) RecalcNearestGolem();
+                break;
 
-                else if(State == SpiritState.Vacuum) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
+            case SpiritState.Possessing:
+                _rb.MovePosition(_golemInPossession.transform.position);
+                break;
+
+            case SpiritState.Traveling:
+                _directionToTarget = (_target.position - transform.position).normalized;
+                _rb.velocity = _directionToTarget * _travelingSpeed;
+                if (Vector2.Distance(transform.position, _target.position) < 0.2f) StartPossession();
+                break;
+
+            case SpiritState.Vacuum:
+                _directionToTarget = (_target.position - transform.position).normalized;
+                _rb.velocity = _directionToTarget * _travelingSpeed;
+                if (Vector2.Distance(transform.position, _target.position) < 0.2f)
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                break;
         }
     }
 
@@ -83,7 +93,7 @@ public class SpiritUnion : MonoBehaviour
             
         }
 
-        if (Input.GetButtonDown("Swap") && State != SpiritState.Traveling && State != SpiritState.Vacuum) SwapGolem();
+        if (Input.GetButtonDown("Swap") && State != SpiritState.Traveling && State != SpiritState.Vacuum && CanSwap) SwapGolem();
 
 
     }
