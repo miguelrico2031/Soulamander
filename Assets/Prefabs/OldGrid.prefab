@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 5665219249304289451}
   - component: {fileID: 8847861244087035442}
   m_Layer: 0
-  m_Name: 'Grid '
+  m_Name: OldGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

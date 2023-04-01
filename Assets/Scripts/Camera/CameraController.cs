@@ -219,7 +219,6 @@ public class CameraController : MonoBehaviour
     }
     private void MoveCameraY(float desiredPositionY, float speed, bool snapPosition, bool smoothSpeed)
     {
-        Debug.Log(_staticCamPos.y);
         float movePositionY = 0;
         if (smoothSpeed) movePositionY = Mathf.Lerp(transform.position.y, desiredPositionY, speed * Time.deltaTime);
         else movePositionY = Mathf.MoveTowards(transform.position.y, desiredPositionY, speed * Time.deltaTime);
