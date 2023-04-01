@@ -216,7 +216,7 @@ MonoBehaviour:
   _groundCheckOffset: 0.05
   _interactableLayers:
     serializedVersion: 2
-    m_Bits: 24640
+    m_Bits: 25152
   _groundLayer:
     serializedVersion: 2
     m_Bits: 320

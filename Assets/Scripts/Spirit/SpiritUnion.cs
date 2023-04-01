@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpiritUnion : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SpiritUnion : MonoBehaviour
         get { return _state; }
         private set { ChangeState(value); }
     }
+
 
     [SerializeField] private float _travelingSpeed;
     [SerializeField] private LayerMask _golemLayers;
@@ -46,6 +48,7 @@ public class SpiritUnion : MonoBehaviour
             if (golem.StartsScenePossed)
             {
                 PossessGolem(golem);
+                return;
             }
         }
     }
@@ -56,11 +59,16 @@ public class SpiritUnion : MonoBehaviour
 
         else if (State == SpiritState.Possessing) _rb.MovePosition(_golemInPossession.transform.position);
 
-        else if (State == SpiritState.Traveling)
+        else if (State == SpiritState.Traveling || State == SpiritState.Vacuum)
         {
             _driectionToTarget = (_target.position - transform.position).normalized;
             _rb.velocity = _driectionToTarget * _travelingSpeed;
-            if (Vector2.Distance(transform.position, _target.position) < 0.2f) StartPossession();
+            if (Vector2.Distance(transform.position, _target.position) < 0.2f)
+            {
+                if(State == SpiritState.Traveling) StartPossession();
+
+                else if(State == SpiritState.Vacuum) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
     }
 
@@ -75,7 +83,7 @@ public class SpiritUnion : MonoBehaviour
             
         }
 
-        if (Input.GetButtonDown("Swap") && State != SpiritState.Traveling) SwapGolem();
+        if (Input.GetButtonDown("Swap") && State != SpiritState.Traveling && State != SpiritState.Vacuum) SwapGolem();
 
 
     }
@@ -114,6 +122,7 @@ public class SpiritUnion : MonoBehaviour
                 break;
 
             case SpiritState.Traveling:
+            case SpiritState.Vacuum:
                 _spiritMovement.CanMove = false;
                 _spiritDim.IsFading = false;
                 _collider.enabled = false;
@@ -210,6 +219,16 @@ public class SpiritUnion : MonoBehaviour
         State = SpiritState.Traveling;
     }
 
+    public void VacuumSpirit(Transform vacuum)
+    {
+        if (State == SpiritState.Possessing) ExitGolem();
+        else if (State != SpiritState.Roaming) State = SpiritState.Roaming;
+
+        _target = vacuum;
+        _rb.velocity = (_target.position - transform.position).normalized * _travelingSpeed;
+        State = SpiritState.Vacuum;
+    }
+
     // Añadido por borja:
     public void RefreshAvailableGolems() 
     {
@@ -255,5 +274,5 @@ public class SpiritUnion : MonoBehaviour
 
 public enum SpiritState
 {
-    Roaming, Possessing, Traveling
+    Roaming, Possessing, Traveling, Vacuum
 }
