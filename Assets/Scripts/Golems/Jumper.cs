@@ -21,6 +21,15 @@ public class Jumper : Golem
 
     private Transform _northCollider, _westCollider, _eastCollider;
 
+    private Collider2D _grapplingCollider = null, _lastGrapplingCollider = null;
+
+    private bool _lerpingToGolem = false;
+    private float _lerpTime = 0f;
+    Vector2 _lerpTarget;
+
+    private float _collisionAngle;
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -34,6 +43,7 @@ public class Jumper : Golem
         _northCollider.gameObject.SetActive(false);
         _westCollider.gameObject.SetActive(false);
         _eastCollider.gameObject.SetActive(false);
+
     }
 
     private void Update()
@@ -45,7 +55,7 @@ public class Jumper : Golem
                 _rb.isKinematic = true;
                 _rb.velocity = Vector2.zero;
             }
-            else _rb.isKinematic = false;
+            else if(transform.parent == null) _rb.isKinematic = false;
         }
         if (State != GolemState.Enabled) return;
 
@@ -81,20 +91,40 @@ public class Jumper : Golem
     {
         if (State != GolemState.Enabled && State != GolemState.Available) return;
 
-        if (!_isGrounded) _rb.velocity += _gravity * Time.fixedDeltaTime;
+        if(_lerpingToGolem)
+        {
+            transform.position = Vector2.Lerp(transform.position, _lerpTarget, _lerpTime);
+            _lerpTime += Time.fixedDeltaTime * 10f;
+
+            if (Vector2.Distance(transform.position, _lerpTarget) > 0.1f) return;
+
+            _lerpTime = 0f;
+            _lerpingToGolem = false;
+            _northCollider.gameObject.SetActive(true);
+            _westCollider.gameObject.SetActive(false);
+            _eastCollider.gameObject.SetActive(false);
+        }
+
+        if (!_isGrounded && transform.parent == null) _rb.velocity += _gravity * Time.fixedDeltaTime;
+
     }
 
     private void Jump()
     {
-       
-        _isGrounded = false;
         _isHoldingJumpButton = false;
 
+        if ((_horizontalInput == -1 && _westCollider.gameObject.activeSelf) 
+            || (_horizontalInput == 1 && _eastCollider.gameObject.activeSelf))
+        {
+            _holdingJumpButtonTime = 0f;
+            return;
+        }
+
+        _isGrounded = false;
         _rb.SetRotation(0f);
         _northCollider.gameObject.SetActive(true);
         _westCollider.gameObject.SetActive(false);
         _eastCollider.gameObject.SetActive(false);
-        //_topCollider = _northCollider.gameObject;
 
         //(valor de x - a) / (b - a)
         float jumpForceFactor = _holdingJumpButtonTime <= _minJumpTime ? 0f : (_holdingJumpButtonTime - _minJumpTime) / (_maxJumpTime - _minJumpTime);
@@ -120,34 +150,81 @@ public class Jumper : Golem
         if(collision.contacts[0].normal.y >= 0f)
         {
             _isGrounded = true;
-            _rb.velocity = Vector2.zero;
-            float angle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
             
+            float newAngle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
 
-            if(Mathf.Abs(angle) < 10f)
+            _rb.velocity = Vector2.zero;
+            _collisionAngle = newAngle;
+
+            _grapplingCollider = collision.collider;
+            _lastGrapplingCollider = _grapplingCollider;
+
+            if (((_groundGolemLayer.value & (1 << _grapplingCollider.gameObject.layer)) > 0)
+                && !_grapplingCollider.transform.parent.TryGetComponent<Jumper>(out var c))
+            {
+                _lerpTime = 0f;
+                _lerpingToGolem = true;
+                _lerpTarget = (Vector2)_grapplingCollider.transform.position + Vector2.up * 0.2f;
+                return;
+            }
+
+            if (Mathf.Abs(_collisionAngle) < 10f)
             {
                 _northCollider.gameObject.SetActive(true);
                 _westCollider.gameObject.SetActive(false);
                 _eastCollider.gameObject.SetActive(false);
-                //_topCollider = _northCollider.gameObject;
             }
-            else if(angle < 0f)
+            else if(_collisionAngle < 0f)
             {
                 _northCollider.gameObject.SetActive(false);
                 _westCollider.gameObject.SetActive(true);
                 _eastCollider.gameObject.SetActive(false);
-                //_topCollider = _westCollider.gameObject;
             }
             else
             {
                 _northCollider.gameObject.SetActive(false);
                 _westCollider.gameObject.SetActive(false);
                 _eastCollider.gameObject.SetActive(true);
-                //_topCollider = _eastCollider.gameObject;
             }
 
-            _rb.SetRotation(angle);
+            _rb.SetRotation(_collisionAngle);
 
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (State != GolemState.Enabled && State != GolemState.Available) return;
+        if (_grapplingCollider != collision.collider) return;
+        if (transform.parent != null) return;
+
+
+        _grapplingCollider = null;
+        _isGrounded = false;
+        _rb.SetRotation(0f);
+        _northCollider.gameObject.SetActive(true);
+        _westCollider.gameObject.SetActive(false);
+        _eastCollider.gameObject.SetActive(false);
+    }
+
+    protected override void NewState()
+    {
+        base.NewState();
+
+        if(State == GolemState.Enabled)
+        {
+            Collider2D col = Physics2D.OverlapCircle(_feet.position, 0.1f, _groundLayers);
+            if(col)
+            {
+                _isGrounded = true;
+
+            }
+        }
+    }
+
+    protected override void ToggleCarryGolem(bool newState)
+    {
+        base.ToggleCarryGolem(newState);
+
     }
 }
