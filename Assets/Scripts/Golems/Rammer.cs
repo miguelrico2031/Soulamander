@@ -26,7 +26,11 @@ public class Rammer : Golem
     [SerializeField] private LayerMask _pushableLayer;
     [SerializeField] private LayerMask _destructibleLayer;
 
+    [SerializeField] private Transform[] _wallCheckPoints;
+
     private Vector3[] _groundCheckPoints;
+
+    Collider2D _wallCheckCollider;
 
     protected override void Awake()
     {
@@ -95,35 +99,7 @@ public class Rammer : Golem
             _speed = _maxSpeed;
         }
 
-        GameObject rayHit = RayCastHit(_interactableLayers);
-
-        if (rayHit != null)
-        {
-            if ((_groundLayer.value & (1 << rayHit.layer)) > 0)
-            {                
-                StopRunning();
-            }
-            else if ((_pushableLayer.value & (1 << rayHit.layer)) > 0)
-            {
-                if (!rayHit.GetComponent<PushableObject>().HasHitWall)
-                {
-                    _isPushing = true;
-                }
-                else
-                {
-                    _isPushing = false;
-                    StopRunning();
-                }
-            }
-            else if ((_destructibleLayer.value & (1 << rayHit.layer)) > 0)
-            {
-                if (_isAtMaxSpeed)
-                {
-                    rayHit.GetComponent<DestructibleObject>().DestroyObstacle(this);
-                }
-                else StopRunning();
-            }
-        }
+        WallCheck();
 
         _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
     } 
@@ -198,44 +174,43 @@ public class Rammer : Golem
         
     }
        */
-    private GameObject RayCastHit(LayerMask layer)
+    private void WallCheck()
     {
-        float dirFlipper;
-        if (_isFacingRight)
+        foreach(var point in _wallCheckPoints)
         {
-            dirFlipper = 1;
-        }
-        else
-        {
-            dirFlipper = -1;
-        }
-        RaycastHit2D[] raycastHit = new RaycastHit2D[3];
+            _wallCheckCollider = Physics2D.Raycast(point.position, _isFacingRight ? Vector2.right : Vector2.left, 0.05f, _interactableLayers).collider;
 
-        raycastHit[0] = Physics2D.Raycast(_collider.bounds.center, dirFlipper * Vector2.right, _collider.bounds.extents.x + _wallCheckOffsetX, layer);
+            if (!_wallCheckCollider) continue;
+            if (_wallCheckCollider.gameObject == gameObject) continue;
 
-        raycastHit[1] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x, _collider.bounds.center.y + _collider.bounds.extents.y  - _wallCheckOffsetY), dirFlipper * Vector2.right, _collider.bounds.extents.y + _wallCheckOffsetX, layer);
-
-        raycastHit[2] = Physics2D.Raycast(new Vector2(_collider.bounds.center.x, _collider.bounds.center.y - _collider.bounds.extents.y  + _wallCheckOffsetY), dirFlipper * Vector2.right, _collider.bounds.extents.y + _wallCheckOffsetX, layer);
-
-        foreach (var hit in raycastHit)
-        {
-            if (hit.collider != null)
+            if ((_groundLayer.value & (1 << _wallCheckCollider.gameObject.layer)) > 0 || _wallCheckCollider.gameObject.layer == gameObject.layer)
             {
-                //Debug.Log(hit.collider.transform.gameObject + " : " +  hit.collider.transform.gameObject.layer);
-                return hit.collider.transform.gameObject;
+                StopRunning();
             }
-        }
-        return null;
-    }
 
-    /*
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if ((_pushableLayer.value & (1 << collision.gameObject.layer)) > 0)
-        {
-            _isPushing = false;
+            else if ((_pushableLayer.value & (1 << _wallCheckCollider.gameObject.layer)) > 0)
+            {
+                if (!_wallCheckCollider.GetComponent<PushableObject>().HasHitWall)
+                {
+                    _isPushing = true;
+                }
+                else
+                {
+                    _isPushing = false;
+                    StopRunning();
+                }
+            }
+            else if ((_destructibleLayer.value & (1 << _wallCheckCollider.gameObject.layer)) > 0)
+            {
+                if (_isAtMaxSpeed)
+                {
+                    _wallCheckCollider.GetComponent<DestructibleObject>().DestroyObstacle(this);
+                }
+                else StopRunning();
+            }
+
             return;
         }
     }
-    */
+
 }
