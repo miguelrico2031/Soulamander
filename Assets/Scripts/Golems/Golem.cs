@@ -6,6 +6,7 @@ public abstract class Golem : MonoBehaviour
 {
     public bool CanBeLaunched; //este bool es para idicar si este tipo de golem se pueda lanzar, por ejemplo el jumper no se podra lanazar
     public bool StartsScenePossed;
+    public bool IsTalking = false;
     public bool IsCarryingGolem
     {
         get { return _isCarryingGolem; }

@@ -20,7 +20,7 @@ TagManager:
   - Spirit Union
   - Destructible
   - Pushable
-  - 
+  - NPC
   - 
   - 
   - 
@@ -56,4 +56,3 @@ TagManager:
   - name: InFront
     uniqueID: 2407462023
     locked: 0
-
