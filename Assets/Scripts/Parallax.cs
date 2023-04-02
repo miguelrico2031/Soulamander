@@ -17,7 +17,6 @@ public class Parallax : MonoBehaviour
 
     private void LateUpdate()
     {
-        Debug.Log("LateUpdate");
         Vector3 deltaMovement = _cameraTranform.position - _lastCameraPosition;
         transform.position = new Vector3(deltaMovement.x * _parallaxMultiplier.x, deltaMovement.y * _parallaxMultiplier.y, deltaMovement.z);
         _lastCameraPosition = _cameraTranform.position;

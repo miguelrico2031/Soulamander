@@ -18,21 +18,16 @@ public class ToggleWall : PreassureListener
 
     public override void OnPlatePressed()
     {
+        _pressurePlatesActive++;
+        if (_pressurePlatesActive != _numberOfPressurePlates) return;
+
         if (_initialStateClosed)
         {
-            _pressurePlatesActive++;
-            if (_pressurePlatesActive == _numberOfPressurePlates)
-            {
-                OpenWall();
-            }
+            OpenWall();
         }
         else
         {
-            _pressurePlatesActive++;
-            if (_pressurePlatesActive == _numberOfPressurePlates)
-            {
-                CloseWall();
-            }
+            CloseWall();
         }
     }
     public override void OnPlateUnpressed()
@@ -50,10 +45,6 @@ public class ToggleWall : PreassureListener
             }            
         }
         _pressurePlatesActive--;
-    }
-
-    public override void OnTimerEnd()
-    {
     }
 
     private void CloseWall()

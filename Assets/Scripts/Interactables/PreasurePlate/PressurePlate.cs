@@ -5,15 +5,12 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     [SerializeField] List<GameObject> _listeners;
-    [SerializeField] float _timer;
-    [SerializeField] bool _usesTimer;
 
     [SerializeField] private LayerMask _golemLayer;
     [SerializeField] private BoxCollider2D _collider;   
 
     private bool _isBeingPressed;
     private bool _listenersActive;
-    private float _timeElapsed;
 
     private void Update()
     {
@@ -26,45 +23,18 @@ public class PressurePlate : MonoBehaviour
                     listener.GetComponent<PreassureListener>().OnPlatePressed();
                 }
                 _listenersActive = true;
-                _timeElapsed = 0;
-            }
-            else
-            {
-                _timeElapsed = 0;
             }
         }
         else
         {
-            if (_usesTimer)
+            if (_listenersActive)
             {
-                if (_timeElapsed < _timer && _listenersActive)
+                foreach (var listener in _listeners)
                 {
-                    _timeElapsed += Time.deltaTime;
-                    foreach (var listener in _listeners)
-                    {
-                        listener.GetComponent<PreassureListener>().OnPlateUnpressed();
-                    }
+                    listener.GetComponent<PreassureListener>().OnPlateUnpressed();
                 }
-                else if (_timeElapsed >= _timer && _listenersActive)
-                {
-                    foreach (var listener in _listeners)
-                    {
-                        listener.GetComponent<PreassureListener>().OnTimerEnd();
-                    }
-                    _listenersActive = false;
-                }
+                _listenersActive = false;
             }
-            else
-            {
-                if (_listenersActive)
-                {
-                    foreach (var listener in _listeners)
-                    {
-                        listener.GetComponent<PreassureListener>().OnPlateUnpressed();
-                    }
-                    _listenersActive = false;
-                }               
-            }            
         }       
     }
 
