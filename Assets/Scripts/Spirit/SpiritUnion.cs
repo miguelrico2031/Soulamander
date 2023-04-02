@@ -13,9 +13,10 @@ public class SpiritUnion : MonoBehaviour
 
     public bool CanSwap = true;
 
-    [SerializeField] private float _travelingSpeed;
+    [SerializeField] private float _travelingSpeed, _vacuumSpeed;
     [SerializeField] private LayerMask _golemLayers;
-    
+    [SerializeField] private Collider2D _golemTrigger, _npcTrigger;
+
 
     private SpiritState _state;
     private List<Golem> _golemsInArea, _avaliableGolems;
@@ -23,12 +24,16 @@ public class SpiritUnion : MonoBehaviour
     private SpiritMovement _spiritMovement;
     private SpiritDim _spiritDim;
     private SpriteRenderer _spriteRenderer;
-    private Collider2D _collider, _trigger;
+    private Collider2D _collider;
     private Rigidbody2D _rb;
     private Transform _target;
     private int _golemIndex = 0;
     private Vector2 _directionToTarget;
-    private float _vacuumSpeed;
+    private int _npcLayer;
+
+    private NPC _npcInArea;
+    private bool _justEndedDialogue = false;
+
 
     private void Awake()
     {
@@ -38,9 +43,9 @@ public class SpiritUnion : MonoBehaviour
         _spiritDim = GetComponentInParent<SpiritDim>();
         _spriteRenderer = transform.parent.GetComponentInChildren<SpriteRenderer>();
         _collider = transform.parent.GetComponent<Collider2D>();
-        _trigger = GetComponent<Collider2D>();
+        _golemTrigger = GetComponent<Collider2D>();
         _rb = transform.parent.GetComponent<Rigidbody2D>();
-
+        _npcLayer = LayerMask.NameToLayer("NPC");
         State = SpiritState.Roaming;
     }
     private void Start()
@@ -69,13 +74,13 @@ public class SpiritUnion : MonoBehaviour
 
             case SpiritState.Traveling:
                 _directionToTarget = (_target.position - transform.position).normalized;
-                _rb.velocity = _directionToTarget * _travelingSpeed;
+                _rb.velocity = _directionToTarget * _travelingSpeed * Time.fixedDeltaTime;
                 if (Vector2.Distance(transform.position, _target.position) < 0.2f) StartPossession();
                 break;
 
             case SpiritState.Vacuum:
                 _directionToTarget = (_target.position - transform.position).normalized;
-                _rb.velocity = _directionToTarget * _travelingSpeed;
+                _rb.velocity = _directionToTarget * _vacuumSpeed * Time.fixedDeltaTime;
                 if (Vector2.Distance(transform.position, _target.position) < 0.2f)
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 break;
@@ -86,37 +91,57 @@ public class SpiritUnion : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact"))
         {
-            if(State == SpiritState.Roaming) PossessNearestGolem();
-            
+            if (!_npcInArea)
+            {
+                if (State == SpiritState.Roaming) PossessNearestGolem();
 
-            else if(State == SpiritState.Possessing) ExitGolem();
-            
+                else if (State == SpiritState.Possessing) ExitGolem();
+            }
+            else TalktoNPC();
         }
 
-        if (Input.GetButtonDown("Swap") && State != SpiritState.Traveling && State != SpiritState.Vacuum && CanSwap) SwapGolem();
+        if (Input.GetButtonDown("Swap") &&
+            State != SpiritState.Traveling && State != SpiritState.Vacuum && CanSwap)
+            SwapGolem();
 
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (State != SpiritState.Roaming) return;
-        if ((_golemLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
+        if (State == SpiritState.Roaming)
+        {
+            if ((_golemLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
+
+            Golem golem = collision.GetComponentInParent<Golem>();
+
+            AddGolem(golem);
+        }
+        else if(State == SpiritState.Possessing)
+        {
+            if (collision.gameObject.layer != _npcLayer) return;
+            _npcInArea = collision.GetComponent<NPC>();
+        }
         
-
-        Golem golem = collision.GetComponentInParent<Golem>();
-
-        AddGolem(golem);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (State != SpiritState.Roaming) return;
-        if ((_golemLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
+        if (State == SpiritState.Roaming)
+        {
+            if ((_golemLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
 
-        Golem golem = collision.GetComponentInParent<Golem>();
-        RemoveGolem(golem);
+            Golem golem = collision.GetComponentInParent<Golem>();
+            RemoveGolem(golem);
+        }
+        else if (State == SpiritState.Possessing)
+        {
+            if (!_npcInArea) return;
+            if (collision.gameObject != _npcInArea.gameObject) return;
+            _npcInArea = null;
+        }
     }
+        
 
     private void ChangeState(SpiritState newState)
     {
@@ -126,7 +151,8 @@ public class SpiritUnion : MonoBehaviour
                 _spiritMovement.CanMove = true;
                 _spiritDim.IsFading = true;
                 _collider.enabled = true;
-                _trigger.enabled = true;
+                _golemTrigger.enabled = true;
+                _npcTrigger.enabled = false;
                 _rb.velocity = Vector2.zero;
                 _spriteRenderer.enabled = true;
                 break;
@@ -136,18 +162,19 @@ public class SpiritUnion : MonoBehaviour
                 _spiritMovement.CanMove = false;
                 _spiritDim.IsFading = false;
                 _collider.enabled = false;
-                _trigger.enabled = false;
+                _golemTrigger.enabled = false;
+                _npcTrigger.enabled = false;
                 break;
 
             case SpiritState.Possessing:
                 _spiritMovement.CanMove = false;
                 _spiritDim.IsFading = false;
                 _collider.enabled = false;
-                _trigger.enabled = false;
+                _golemTrigger.enabled = false;
+                _npcTrigger.enabled = true;
                 _rb.velocity = Vector2.zero;
                 _spriteRenderer.enabled = false;
                 break;
-
         }
 
         _state = newState;
@@ -279,6 +306,30 @@ public class SpiritUnion : MonoBehaviour
         _golemInPossession.State = GolemState.Available;
         _golemInPossession.GetComponent<SpriteRenderer>().color = Color.yellow;
         _golemInPossession = null;
+    }
+
+    private void TalktoNPC()
+    {
+        if (_golemInPossession.IsTalking) return;
+        if(_justEndedDialogue)
+        {
+            _justEndedDialogue = false;
+            return;
+        }
+
+        CanSwap = false;
+        _golemInPossession.IsTalking = true;
+        DialogueUI.Instance.OnDialogueEnd.AddListener(EndTalkToNPC);
+        DialogueUI.Instance.StartDialogue(_npcInArea.GetDialogue());
+
+    }
+
+    public void EndTalkToNPC()
+    {
+        DialogueUI.Instance.OnDialogueEnd.RemoveListener(EndTalkToNPC);
+        CanSwap = true;
+        _golemInPossession.IsTalking = false;
+        _justEndedDialogue = true;
     }
 }
 

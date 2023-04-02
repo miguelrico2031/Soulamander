@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 3131688553094581170}
   - component: {fileID: 5011001031633314911}
   - component: {fileID: 4671513505698408018}
+  - component: {fileID: 7918373064013011267}
   m_Layer: 12
   m_Name: Union
   m_TagString: Untagged
@@ -232,10 +233,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f728f1f26ce269a4680de99279fa1700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _travelingSpeed: 8
+  CanSwap: 1
+  IsInNPCArea: 0
+  _travelingSpeed: 400
+  _vacuumSpeed: 400
   _golemLayers:
     serializedVersion: 2
     m_Bits: 2048
+  _golemTrigger: {fileID: 4671513505698408018}
+  _npcTrigger: {fileID: 7918373064013011267}
 --- !u!50 &5011001031633314911
 Rigidbody2D:
   serializedVersion: 4
@@ -273,3 +279,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3
+--- !u!58 &7918373064013011267
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256624674302752100}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2

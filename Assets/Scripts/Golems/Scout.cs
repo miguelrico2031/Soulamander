@@ -60,7 +60,7 @@ public class Scout : Golem
             
         }
 
-        if (State != GolemState.Enabled) return;
+        if (State != GolemState.Enabled || IsTalking) return;
 
         _horizontal = Input.GetAxisRaw("Horizontal");    
 
@@ -110,7 +110,7 @@ public class Scout : Golem
             _lerpingToGolem = false;
         }
 
-        if (State != GolemState.Enabled) return;
+        if (State != GolemState.Enabled || IsTalking) return;
 
         _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
     }

@@ -114,7 +114,7 @@ public class Jumper : Golem
         _isHoldingJumpButton = false;
 
         if ((_horizontalInput == -1 && _westCollider.gameObject.activeSelf) 
-            || (_horizontalInput == 1 && _eastCollider.gameObject.activeSelf))
+            || (_horizontalInput == 1 && _eastCollider.gameObject.activeSelf) || IsTalking)
         {
             _holdingJumpButtonTime = 0f;
             return;
