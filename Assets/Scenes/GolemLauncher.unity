@@ -275,6 +275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PreassurePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 2477710557717178120, guid: 01c66f5df37bb094691617106196e0fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2477710557717178121, guid: 01c66f5df37bb094691617106196e0fc, type: 3}
       propertyPath: _listeners.Array.size
       value: 2
@@ -2497,6 +2501,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2504964951886904784, guid: 1d255d726637a12408fb813350bf2ecd, type: 3}
+      propertyPath: _boxCastOffset
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 2504964951886904787, guid: 1d255d726637a12408fb813350bf2ecd, type: 3}
       propertyPath: m_Name
       value: MovingPlatform
@@ -2544,6 +2552,14 @@ PrefabInstance:
     - target: {fileID: 2504964951886904791, guid: 1d255d726637a12408fb813350bf2ecd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909938283822259864, guid: 1d255d726637a12408fb813350bf2ecd, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909938283822259864, guid: 1d255d726637a12408fb813350bf2ecd, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d255d726637a12408fb813350bf2ecd, type: 3}
