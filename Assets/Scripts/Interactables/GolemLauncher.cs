@@ -12,8 +12,8 @@ public class GolemLauncher : MonoBehaviour
     [SerializeField] float _initialAngle;
     [SerializeField] float _rotationSpeed;
     [SerializeField] Transform _golemHolder;
-    [SerializeField] float _activationDistance;
     [SerializeField] float _reloadTimer;
+    [SerializeField] LayerMask _golemLayer;
 
     private Vector2 _direction;
     private GameObject _golem;
@@ -54,20 +54,7 @@ public class GolemLauncher : MonoBehaviour
             else
             {
                 _canBeActivated = true;
-            }
-            if (!_canBeActivated) return;      
-            foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
-            {
-                if (golem.State == GolemState.Enabled && golem.CanBeLaunched)
-                {
-                    Vector3 dir = golem.transform.position - transform.position;
-                    if (dir.magnitude <= _activationDistance)
-                    {
-                        GetGolem(golem.gameObject);
-                        _hasGolem = true;
-                    }
-                }
-            }
+            }                 
         }else
         {
             _golem.transform.position = _golemHolder.position;
@@ -84,5 +71,15 @@ public class GolemLauncher : MonoBehaviour
         _direction = transform.up;
 
         transform.rotation = Quaternion.Euler(0, 0, _angle);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!_canBeActivated) return;
+        if ((_golemLayer.value & (1 << collision.gameObject.layer)) <= 0) return;
+        Golem golem = collision.gameObject.GetComponent<Golem>();
+        if (golem.State != GolemState.Enabled && !golem.CanBeLaunched) return;
+        GetGolem(golem.gameObject);
+        _hasGolem = true;
     }
 }
