@@ -55,7 +55,7 @@ public class Jumper : Golem
                 _rb.isKinematic = true;
                 _rb.velocity = Vector2.zero;
             }
-            else if(transform.parent == null) _rb.isKinematic = false;
+            else if(/*transform.parent == null*/ !IsBeingCarried) _rb.isKinematic = false;
         }
         if (State != GolemState.Enabled) return;
 
@@ -105,7 +105,7 @@ public class Jumper : Golem
             _eastCollider.gameObject.SetActive(false);
         }
 
-        if (!_isGrounded && transform.parent == null) _rb.velocity += _gravity * Time.fixedDeltaTime;
+        if (!_isGrounded && /*transform.parent == null*/ !IsBeingCarried) _rb.velocity += _gravity * Time.fixedDeltaTime;
 
     }
 
@@ -196,7 +196,7 @@ public class Jumper : Golem
     {
         if (State != GolemState.Enabled && State != GolemState.Available) return;
         if (_grapplingCollider != collision.collider) return;
-        if (transform.parent != null) return;
+        if (/*transform.parent != null*/ IsBeingCarried) return;
 
 
         _grapplingCollider = null;

@@ -53,7 +53,7 @@ public class Scout : Golem
                 _rb.isKinematic = true;
                 _rb.velocity = Vector2.zero;
             }
-            else if(!transform.parent)
+            else if(/*!transform.parent*/ !IsBeingCarried)
             {
                 _rb.isKinematic = false;
             }
