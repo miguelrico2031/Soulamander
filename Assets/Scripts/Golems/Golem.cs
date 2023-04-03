@@ -30,8 +30,8 @@ public abstract class Golem : MonoBehaviour
     private bool _isCarryingGolem;
     protected LayerMask _groundGolemLayer;
     protected Rigidbody2D _rb;
-    
-    
+
+    protected Animator _animator;
 
     protected virtual void Awake()
     {
@@ -40,6 +40,8 @@ public abstract class Golem : MonoBehaviour
         _groundGolemLayer = LayerMask.GetMask(new string[] { "GroundGolem" });
 
         IsCarryingGolem = false;
+
+        _animator = GetComponent<Animator>();
     }
 
     protected virtual void Start()
@@ -57,6 +59,7 @@ public abstract class Golem : MonoBehaviour
                 _collider.enabled = false;
                 if(_extendedCollider) _extendedCollider.enabled = false;
                 if (TopCollider) TopCollider.SetActive(false);
+                if (_animator) _animator.SetBool("Enabled", false);
                 break;
 
             case GolemState.Enabled:
@@ -66,6 +69,7 @@ public abstract class Golem : MonoBehaviour
                 if (TopCollider && !IsCarryingGolem) TopCollider.SetActive(true);
                 else if(TopCollider) TopCollider.SetActive(false);
                 if (/*transform.parent != null*/ IsBeingCarried) EndStickToGolem();
+                if (_animator) _animator.SetBool("Enabled", true);
                 break;
 
             case GolemState.Available:
@@ -77,16 +81,15 @@ public abstract class Golem : MonoBehaviour
                     _extendedCollider.enabled = IsCarryingGolem;
                     if (TopCollider) TopCollider.SetActive(!IsCarryingGolem);
                 }
-                
-
                 TryToStickToGolem();
+                if (_animator) _animator.SetBool("Enabled", false);
 
-               
                 break;
 
             case GolemState.BeingLaunched:
                 _rb.isKinematic = false;
                 _collider.enabled = true;
+                if (_animator) _animator.SetBool("Enabled", false);
                 break;
         }
 
