@@ -41,11 +41,11 @@ public class Rammer : Golem
         _direction = transform.localScale.x > 0 ? 1 : -1;
 
         _groundCheckPoints = new Vector3[]
-       {
+        {
             Vector3.zero,
             Vector3.right * _collider.bounds.extents.x,
             Vector3.left * _collider.bounds.extents.x
-       };
+        };
     }
 
     private void Update()
