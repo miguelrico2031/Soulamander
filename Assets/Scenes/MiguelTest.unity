@@ -1715,6 +1715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vacuum
       objectReference: {fileID: 0}
+    - target: {fileID: 4435982142685819274, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4435982142685819281, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
       propertyPath: m_RootOrder
       value: 11
