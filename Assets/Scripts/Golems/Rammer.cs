@@ -38,7 +38,7 @@ public class Rammer : Golem
     {
         base.Awake();
 
-        _direction = transform.localScale.x > 0 ? -1 : 1;
+        _direction = transform.localScale.x > 0 ? 1 : -1;
 
         _groundCheckPoints = new Vector3[]
        {
