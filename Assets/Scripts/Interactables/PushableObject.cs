@@ -115,8 +115,6 @@ public class PushableObject : MonoBehaviour
             if (!col) continue;
             if (col.gameObject == gameObject || col.transform.parent == transform) continue;
 
-            Debug.Log(col.gameObject + "con capa: " + col.gameObject.layer);
-
             if ((_groundLayer.value & (1 << col.gameObject.layer)) > 0)
             {
                 HasHitWall = true;

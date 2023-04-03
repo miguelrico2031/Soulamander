@@ -68,7 +68,9 @@ public class GolemLauncher : MonoBehaviour
                     }
                 }
             }
-        }else
+        }
+        
+        else
         {
             _golem.transform.position = _golemHolder.position;
             _golem.transform.rotation = _golemHolder.rotation;
