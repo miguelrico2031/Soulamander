@@ -133,7 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4435982142685819274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 503115d894610564c85b864a6f58bb67, type: 3}
+  m_Script: {fileID: 11500000, guid: e74052ec14c82fa4abba8368a3d0134a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spiritSuckDuration: 2
