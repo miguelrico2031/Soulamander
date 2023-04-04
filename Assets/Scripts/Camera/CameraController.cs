@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
 public class CameraController : MonoBehaviour
@@ -15,6 +16,7 @@ public class CameraController : MonoBehaviour
     private Vector3 _staticCamPos;
     private bool _sceneIsEnding;
     private Vector3 _goalPos;
+    private float minX, maxX, minY, maxY;
 
     [Header("Scene Settings")]
     [SerializeField] private bool _followPlayerX;
@@ -28,9 +30,11 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float _cameraFollowSmoothSpeed;
     [SerializeField] private float _cameraToStaticPosSpeed;
     [SerializeField] private float _zOffset;
+    [SerializeField] private Transform _cameraBounds;
 
     private void Awake()
     {
+        _cameraBounds.GetComponent<SpriteRenderer>().enabled = false;
         _camera = GetComponent<Camera>();
         if (_zoomOutStart) _camera.orthographicSize = _startingSize;
 
@@ -77,10 +81,9 @@ public class CameraController : MonoBehaviour
             {               
                 if (!_followPlayerX) transform.position = new Vector3(_staticCamPos.x, transform.position.y, transform.position.z);
                 if (!_followPlayerY) transform.position = new Vector3(transform.position.x, _staticCamPos.x, transform.position.z);
-            }
-            
-            
+            }         
         }
+        ReloadBounds();
     }
 
     private void Update()
@@ -158,15 +161,18 @@ public class CameraController : MonoBehaviour
         _goalPos = GameObject.FindObjectOfType<Goal>().gameObject.transform.position;
     }
 
-    public void OnEffector(bool changeToFollowPlayerX, bool changeToFollowPlayerY, Vector3 newCamStaticPos, float newCameraSize, float timer)
+    public void OnEffector(bool changeToFollowPlayerX, bool changeToFollowPlayerY, Vector3 newCamStaticPos, float newCameraSize, Transform newCameraBounds, float timer)
     {
         bool previousBoolFollowPlayerX = _followPlayerX;
         bool previousBoolFollowPlayerY = _followPlayerY;
         Vector3 previousCamStaticPos = _staticCamPos;
         float previousCameraSize = _cameraSize;
+        Transform previuousCameraBounds = _cameraBounds;
 
         _cameraSize = newCameraSize;
         _staticCamPos = newCamStaticPos;
+        _cameraBounds = newCameraBounds;
+        ReloadBounds();
         if (changeToFollowPlayerX) _followPlayerX = true;
         else
         {
@@ -176,16 +182,17 @@ public class CameraController : MonoBehaviour
         else
         {
             _followPlayerY = false;
-        }
-
+        }        
         if (timer == 0) return;
-        StartCoroutine(RestorePreviousValues(timer, previousBoolFollowPlayerX, previousBoolFollowPlayerY, previousCamStaticPos, previousCameraSize));
+        StartCoroutine(RestorePreviousValues(timer, previousBoolFollowPlayerX, previousBoolFollowPlayerY, previousCamStaticPos, previuousCameraBounds, previousCameraSize));
     }
 
-    IEnumerator RestorePreviousValues(float timer, bool previousBoolFollowPlayerX, bool previousBoolFollowPlayerY, Vector3 previousCamStaticPos, float previousCameraSize)
+    IEnumerator RestorePreviousValues(float timer, bool previousBoolFollowPlayerX, bool previousBoolFollowPlayerY, Vector3 previousCamStaticPos, Transform previousCameraBounds, float previousCameraSize)
     {
         yield return new WaitForSeconds(timer);
 
+        _cameraBounds = previousCameraBounds;
+        ReloadBounds();
         _cameraSize = previousCameraSize;
         if (previousBoolFollowPlayerX) _followPlayerX = true;
         else
@@ -199,37 +206,52 @@ public class CameraController : MonoBehaviour
             _followPlayerY = false;
         }
     }
+    void ReloadBounds()
+    {
+        minX = _cameraBounds.position.x - _cameraBounds.localScale.x / 2;
+        maxX = _cameraBounds.position.x + _cameraBounds.localScale.x / 2;
+        minY = _cameraBounds.position.y - _cameraBounds.localScale.y / 2;
+        maxY = _cameraBounds.position.y + _cameraBounds.localScale.y / 2;
+    }
 
+    float movePositionX = 0;
+    float movePositionY = 0;
+    float disY = 0;
+    float disX = 0;
     private void MoveCameraX(float desiredPositionX, float speed, bool snapPosition, bool smoothSpeed)
     {
 
-        float movePositionX = 0;
+        movePositionX = 0;
         if (smoothSpeed) movePositionX = Mathf.Lerp(transform.position.x, desiredPositionX, speed * Time.deltaTime);
         else movePositionX = Mathf.MoveTowards(transform.position.x, desiredPositionX, speed * Time.deltaTime); 
         if (!snapPosition)
         {
+            movePositionX = Mathf.Clamp(movePositionX, minX, maxX);
             transform.position = new Vector3(movePositionX, transform.position.y, _zOffset);       
         }
         else
         {
-            float dis = desiredPositionX - movePositionX;
-            if (dis > 0.05f) transform.position = new Vector3(movePositionX, transform.position.y, _zOffset);
+            movePositionX = Mathf.Clamp(movePositionX, minX, maxX);
+            disX = desiredPositionX - movePositionX;
+            if (disX > 0.05f) transform.position = new Vector3(movePositionX, transform.position.y, _zOffset);
             else transform.position = new Vector3(desiredPositionX, transform.position.y, _zOffset);
-        }       
+        }
     }
     private void MoveCameraY(float desiredPositionY, float speed, bool snapPosition, bool smoothSpeed)
     {
-        float movePositionY = 0;
+        movePositionY = 0;
         if (smoothSpeed) movePositionY = Mathf.Lerp(transform.position.y, desiredPositionY, speed * Time.deltaTime);
         else movePositionY = Mathf.MoveTowards(transform.position.y, desiredPositionY, speed * Time.deltaTime);
         if (!snapPosition)
         {
+            movePositionY = Mathf.Clamp(movePositionY, minY, maxY);
             transform.position = new Vector3(transform.position.x, movePositionY, _zOffset);
         }
         else
         {
-            float dis = desiredPositionY - movePositionY;
-            if (dis > 0.05f) transform.position = new Vector3(transform.position.x, movePositionY, _zOffset);
+            movePositionY = Mathf.Clamp(movePositionY, minY, maxY);
+            disY = desiredPositionY - movePositionY;
+            if (disY > 0.05f) transform.position = new Vector3(transform.position.x, movePositionY, _zOffset);
             else transform.position = new Vector3(transform.position.x, desiredPositionY, _zOffset);
         }
     }

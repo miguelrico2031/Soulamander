@@ -14,6 +14,7 @@ public class CameraEffector : MonoBehaviour
     [SerializeField] private bool _changeToFollowPlayerX;
     [SerializeField] private bool _changeToFollowPlayerY;
     [SerializeField] private float _newCameraSize;
+    [SerializeField] private Transform _newCameraBounds;
     [SerializeField] private float _timerBeforeReturnPreviousValues; // si timer == 0 se considera que no hay timer (el cambio se mantiene para siempre)
     [SerializeField] private Transform _newCamStaticPos;
 
@@ -54,6 +55,6 @@ public class CameraEffector : MonoBehaviour
         if (!_isActive) return;
         if (_onlyActivateOnce) _isActive = true;
 
-        _camera.OnEffector(_changeToFollowPlayerX, _changeToFollowPlayerY, _newCamStaticPos.position, _newCameraSize, _timerBeforeReturnPreviousValues + returnValues);
+        _camera.OnEffector(_changeToFollowPlayerX, _changeToFollowPlayerY, _newCamStaticPos.position, _newCameraSize, _newCameraBounds, _timerBeforeReturnPreviousValues + returnValues);
     }
 }
