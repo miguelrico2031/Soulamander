@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Scout : Golem
 {
+    public bool IsFacingRight = true;
+
     private float _horizontal;
-    private bool _isFacingRight;
     private float _flightTime;
     private bool _isGroundedForJump, _grounded; //el ultimo es nuevo y sirve para ahorrar llamar varias veces a RaycastHitGround
 
@@ -113,6 +114,8 @@ public class Scout : Golem
         if (State != GolemState.Enabled || IsTalking) return;
 
         _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
+
+        _animator.SetFloat("Speed", Mathf.Abs(_rb.velocity.x));
     }
 
     private void ClearKeyInQueue()
@@ -142,9 +145,9 @@ public class Scout : Golem
     //mover a otro script:
     private void Flip()
     {
-        if (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f)
+        if (IsFacingRight && _horizontal < 0f || !IsFacingRight && _horizontal > 0f)
         {
-            _isFacingRight = !_isFacingRight;
+            IsFacingRight = !IsFacingRight;
 
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;

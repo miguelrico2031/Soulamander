@@ -109,7 +109,7 @@ public class Rammer : Golem
 
         _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
 
-        _animator.SetFloat("Speed", _rb.velocity.x);
+        _animator.SetFloat("Speed", Mathf.Abs(_rb.velocity.x));
     } 
         
     

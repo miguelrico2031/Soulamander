@@ -32,6 +32,7 @@ public abstract class Golem : MonoBehaviour
     protected Rigidbody2D _rb;
 
     protected Animator _animator;
+    protected SpriteRenderer _renderer;
 
     protected virtual void Awake()
     {
@@ -42,6 +43,7 @@ public abstract class Golem : MonoBehaviour
         IsCarryingGolem = false;
 
         _animator = GetComponent<Animator>();
+        _renderer = GetComponent<SpriteRenderer>();
     }
 
     protected virtual void Start()
@@ -60,6 +62,7 @@ public abstract class Golem : MonoBehaviour
                 if(_extendedCollider) _extendedCollider.enabled = false;
                 if (TopCollider) TopCollider.SetActive(false);
                 if (_animator) _animator.SetBool("Enabled", false);
+                if (_renderer) _renderer.sortingLayerName = "DisabledGolem";
                 break;
 
             case GolemState.Enabled:
@@ -70,6 +73,7 @@ public abstract class Golem : MonoBehaviour
                 else if(TopCollider) TopCollider.SetActive(false);
                 if (/*transform.parent != null*/ IsBeingCarried) EndStickToGolem();
                 if (_animator) _animator.SetBool("Enabled", true);
+                if (_renderer) _renderer.sortingLayerName = "EnabledGolem";
                 break;
 
             case GolemState.Available:
@@ -83,6 +87,7 @@ public abstract class Golem : MonoBehaviour
                 }
                 TryToStickToGolem();
                 if (_animator) _animator.SetBool("Enabled", false);
+                if (_renderer) _renderer.sortingLayerName = "AvailableGolem";
 
                 break;
 
@@ -90,6 +95,7 @@ public abstract class Golem : MonoBehaviour
                 _rb.isKinematic = false;
                 _collider.enabled = true;
                 if (_animator) _animator.SetBool("Enabled", false);
+                if (_renderer) _renderer.sortingLayerName = "AvailableGolem";
                 break;
         }
 

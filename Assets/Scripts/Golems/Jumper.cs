@@ -59,7 +59,13 @@ public class Jumper : Golem
         }
         if (State != GolemState.Enabled) return;
 
-        if (Input.GetButtonDown("Jump") && _isGrounded) _isHoldingJumpButton = true;
+        if (Input.GetButtonDown("Jump") && _isGrounded)
+        {
+            if (!_isHoldingJumpButton) _animator.SetTrigger("Charge");
+            _isHoldingJumpButton = true;
+            
+        }
+        
 
         if (Input.GetButtonUp("Jump") && _isGrounded) Jump();
         else
@@ -96,7 +102,8 @@ public class Jumper : Golem
             transform.position = Vector2.Lerp(transform.position, _lerpTarget, _lerpTime);
             _lerpTime += Time.fixedDeltaTime * 10f;
 
-            if (Vector2.Distance(transform.position, _lerpTarget) > 0.1f) return;
+            if (Vector2.Distance(transform.position, _lerpTarget) > 0.05f) return;
+            //if (Mathf.Abs(transform.position.x - _lerpTarget.x) > 0.05f) return;
 
             _lerpTime = 0f;
             _lerpingToGolem = false;
@@ -117,8 +124,10 @@ public class Jumper : Golem
             || (_horizontalInput == 1 && _eastCollider.gameObject.activeSelf) || IsTalking)
         {
             _holdingJumpButtonTime = 0f;
+            _animator.SetTrigger("CancelJump");
             return;
         }
+
 
         _isGrounded = false;
         _rb.SetRotation(0f);
@@ -138,6 +147,8 @@ public class Jumper : Golem
 
 
         _holdingJumpButtonTime = 0f;
+
+        _animator.SetBool("Jump", true);
     }
         
     private void OnCollisionEnter2D(Collision2D collision)
@@ -164,7 +175,9 @@ public class Jumper : Golem
             {
                 _lerpTime = 0f;
                 _lerpingToGolem = true;
-                _lerpTarget = (Vector2)_grapplingCollider.transform.position + Vector2.up * 0.2f;
+                _lerpTarget = (Vector2)(_grapplingCollider.transform.position + (transform.position - _feet.position) * 0.8f);
+                _animator.SetBool("Jump", false);
+                _animator.SetTrigger("Land");
                 return;
             }
 
@@ -188,6 +201,8 @@ public class Jumper : Golem
             }
 
             _rb.SetRotation(_collisionAngle);
+            _animator.SetBool("Jump", false);
+            _animator.SetTrigger("Land");
 
         }
     }
@@ -205,6 +220,8 @@ public class Jumper : Golem
         _northCollider.gameObject.SetActive(true);
         _westCollider.gameObject.SetActive(false);
         _eastCollider.gameObject.SetActive(false);
+
+        _animator.SetBool("Jump", true);
     }
 
     protected override void NewState()
@@ -219,6 +236,11 @@ public class Jumper : Golem
                 _isGrounded = true;
 
             }
+        }
+
+        else if(State == GolemState.Available)
+        {
+            _animator.SetTrigger("Land");
         }
     }
 
