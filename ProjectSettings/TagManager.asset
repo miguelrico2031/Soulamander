@@ -47,7 +47,13 @@ TagManager:
   - name: Foreground
     uniqueID: 2858455707
     locked: 0
-  - name: Golem
+  - name: DisabledGolem
+    uniqueID: 2540724863
+    locked: 0
+  - name: AvailableGolem
+    uniqueID: 476689249
+    locked: 0
+  - name: EnabledGolem
     uniqueID: 547781581
     locked: 0
   - name: Spirit
