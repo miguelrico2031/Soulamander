@@ -188,9 +188,10 @@ public class Rammer : Golem
     {
         foreach(var point in _wallCheckPoints)
         {
-            _wallCheckCollider = Physics2D.Raycast(point.position, IsFacingRight ? Vector2.right : Vector2.left, 0.05f, _interactableLayers).collider;
-
+            _wallCheckCollider = Physics2D.Raycast(point.position, IsFacingRight ? Vector2.right : Vector2.left, 0.1f, _interactableLayers).collider;
+            Debug.Log("chekeando"); 
             if (!_wallCheckCollider) continue;
+            Debug.Log("colision con " + _wallCheckCollider.gameObject);
             if (_wallCheckCollider.gameObject == gameObject) continue;
 
             if ((_groundLayer.value & (1 << _wallCheckCollider.gameObject.layer)) > 0 || _wallCheckCollider.gameObject.layer == gameObject.layer)
