@@ -31,7 +31,8 @@ public class Rammer : Golem
 
     private Vector3[] _groundCheckPoints;
 
-    private Collider2D _wallCheckCollider;
+    private Collider2D[] _wallCheckColliders;
+    private ContactFilter2D _wallCheckCF;
 
 
     protected override void Awake()
@@ -46,6 +47,8 @@ public class Rammer : Golem
             Vector3.right * _collider.bounds.extents.x,
             Vector3.left * _collider.bounds.extents.x
         };
+
+        _wallCheckCF = new ContactFilter2D() { layerMask = _interactableLayers };
     }
 
     private void Update()
@@ -186,41 +189,47 @@ public class Rammer : Golem
        */
     private void WallCheck()
     {
-        foreach(var point in _wallCheckPoints)
+        foreach (var point in _wallCheckPoints)
         {
-            _wallCheckCollider = Physics2D.Raycast(point.position, IsFacingRight ? Vector2.right : Vector2.left, 0.1f, _interactableLayers).collider;
-            Debug.Log("chekeando"); 
-            if (!_wallCheckCollider) continue;
-            Debug.Log("colision con " + _wallCheckCollider.gameObject);
-            if (_wallCheckCollider.gameObject == gameObject) continue;
+            //_wallCheckCollider = Physics2D.Raycast(point.position, IsFacingRight ? Vector2.right : Vector2.left, 0.1f, _interactableLayers).collider;
+            //_wallCheckCollider = Physics2D.OverlapCircle(point.position, 0.1f, _interactableLayers);
 
-            if ((_groundLayer.value & (1 << _wallCheckCollider.gameObject.layer)) > 0 || _wallCheckCollider.gameObject.layer == gameObject.layer)
-            {
-                StopRunning();
-            }
+            _wallCheckColliders = new Collider2D[5];
+            if (Physics2D.OverlapCircle(point.position, 0.1f, _wallCheckCF, _wallCheckColliders) == 0) continue;
 
-            else if ((_pushableLayer.value & (1 << _wallCheckCollider.gameObject.layer)) > 0)
+            foreach (var col in _wallCheckColliders)
             {
-                if (!_wallCheckCollider.GetComponent<PushableObject>().HasHitWall)
+                if (!col) continue;
+                if (col.gameObject == gameObject) continue;
+
+                if ((_groundLayer.value & (1 << col.gameObject.layer)) > 0 || col.gameObject.layer == gameObject.layer)
                 {
-                    _isPushing = true;
-                }
-                else
-                {
-                    _isPushing = false;
                     StopRunning();
                 }
-            }
-            else if ((_destructibleLayer.value & (1 << _wallCheckCollider.gameObject.layer)) > 0)
-            {
-                if (_isAtMaxSpeed)
-                {
-                    _wallCheckCollider.GetComponent<DestructibleObject>().DestroyObstacle(this);
-                }
-                else StopRunning();
-            }
 
-            return;
+                else if ((_pushableLayer.value & (1 << col.gameObject.layer)) > 0)
+                {
+                    if (!col.GetComponent<PushableObject>().HasHitWall)
+                    {
+                        _isPushing = true;
+                    }
+                    else
+                    {
+                        _isPushing = false;
+                        StopRunning();
+                    }
+                }
+                else if ((_destructibleLayer.value & (1 << col.gameObject.layer)) > 0)
+                {
+                    if (_isAtMaxSpeed)
+                    {
+                        col.GetComponent<DestructibleObject>().DestroyObstacle(this);
+                    }
+                    else StopRunning();
+                }
+
+                return;
+            }
         }
     }
 
