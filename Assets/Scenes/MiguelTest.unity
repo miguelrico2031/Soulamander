@@ -782,6 +782,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5470204669822148243, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 5470204669822148247, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
       propertyPath: m_Name
       value: Rammer
@@ -3963,6 +3967,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spirit
       objectReference: {fileID: 0}
+    - target: {fileID: 3131688553094581170, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
+      propertyPath: _default
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 3131688553094581170, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
+      propertyPath: _outline
+      value: 
+      objectReference: {fileID: 2100000, guid: aa21bb634350eec47ae30642a6bd61bf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
 --- !u!1001 &4435982144483583013
