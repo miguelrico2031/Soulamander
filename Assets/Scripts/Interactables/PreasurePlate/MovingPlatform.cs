@@ -20,6 +20,8 @@ public class MovingPlatform : PreassureListener
     private bool _dirPositive;
     private int _currentWaypoint;
     private int _pressurePlatesActive;
+    private Rigidbody2D _platformRb;
+    
 
     private void Start()
     {
@@ -27,7 +29,7 @@ public class MovingPlatform : PreassureListener
         _platform.transform.position = _waypoints[_initialWaypoint].position;
         _currentWaypoint = _initialWaypoint;
         _dirPositive = _initialDirectionPositive;
-
+        _platformRb = _platform.GetComponent<Rigidbody2D>();
         foreach (Transform t in _waypoints)
         {
             t.gameObject.GetComponent<SpriteRenderer>().enabled = false;
