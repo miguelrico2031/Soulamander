@@ -171,7 +171,7 @@ public class CameraController : MonoBehaviour
 
         _cameraSize = newCameraSize;
         _staticCamPos = newCamStaticPos;
-        _cameraBounds = newCameraBounds;
+        if (newCameraBounds != null) _cameraBounds = newCameraBounds;
         ReloadBounds();
         if (changeToFollowPlayerX) _followPlayerX = true;
         else

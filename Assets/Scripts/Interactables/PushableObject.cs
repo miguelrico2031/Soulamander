@@ -118,7 +118,7 @@ public class PushableObject : MonoBehaviour
             if ((_groundLayer.value & (1 << col.gameObject.layer)) > 0)
             {
                 HasHitWall = true;
-                _rb.velocity = new Vector2(0f, 0f);
+                _rb.velocity = new Vector2(0f, _rb.velocity.y);
             }
 
             else if ((_golemLayer.value & (1 << col.gameObject.layer)) > 0)
