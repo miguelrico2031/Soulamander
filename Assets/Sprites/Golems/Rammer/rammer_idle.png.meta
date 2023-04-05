@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -120,10 +120,10 @@ TextureImporter:
       name: rammer_idle_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 46
-        height: 44
+        x: 0
+        y: 0
+        width: 47
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: rammer_idle_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 1
-        width: 46
-        height: 44
+        x: 47
+        y: 0
+        width: 47
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: rammer_idle_2
       rect:
         serializedVersion: 2
-        x: 95
-        y: 1
-        width: 46
-        height: 44
+        x: 94
+        y: 0
+        width: 47
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: rammer_idle_3
       rect:
         serializedVersion: 2
-        x: 142
-        y: 1
-        width: 46
-        height: 44
+        x: 141
+        y: 0
+        width: 47
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
