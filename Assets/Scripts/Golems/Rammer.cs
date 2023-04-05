@@ -51,6 +51,12 @@ public class Rammer : Golem
         _wallCheckCF = new ContactFilter2D() { layerMask = _interactableLayers };
     }
 
+    private void OnEnable()
+    {
+        _isPushing = false;
+        StopRunning();
+    }
+
     private void Update()
     {
         if (State == GolemState.Available && !_isRunning)
