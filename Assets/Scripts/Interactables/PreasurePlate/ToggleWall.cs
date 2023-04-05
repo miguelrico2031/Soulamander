@@ -14,6 +14,7 @@ public class ToggleWall : PreassureListener
     private void Start()
     {
         _pressurePlatesActive = 0;
+        if (!_initialStateClosed) _wall.SetActive(false);
     }
 
     public override void OnPlatePressed()
