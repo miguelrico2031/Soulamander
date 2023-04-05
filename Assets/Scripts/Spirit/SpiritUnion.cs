@@ -317,7 +317,7 @@ public class SpiritUnion : MonoBehaviour
         State = SpiritState.Roaming;
         _golemInPossession.State = GolemState.Available;
         //_golemInPossession.GetComponent<SpriteRenderer>().color = Color.yellow;
-        _golemInPossession.GetComponent<SpriteRenderer>().material = _outline;
+        
         _golemInPossession = null;
     }
 
