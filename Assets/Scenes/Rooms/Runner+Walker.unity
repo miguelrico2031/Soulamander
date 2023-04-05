@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1968426916971132986, guid: 156612ebb5008e5449a66380b9d3ed16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.11
+      value: 3.56
       objectReference: {fileID: 0}
     - target: {fileID: 1968426916971132986, guid: 156612ebb5008e5449a66380b9d3ed16, type: 3}
       propertyPath: m_LocalPosition.z
@@ -173,6 +173,10 @@ PrefabInstance:
     - target: {fileID: 1968426916971132986, guid: 156612ebb5008e5449a66380b9d3ed16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968426916971132986, guid: 156612ebb5008e5449a66380b9d3ed16, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1968426916971132990, guid: 156612ebb5008e5449a66380b9d3ed16, type: 3}
       propertyPath: m_Name
@@ -1473,7 +1477,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1887505273
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 100
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1822,7 +1826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5470204669822148242, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.49
+      value: -6.297
       objectReference: {fileID: 0}
     - target: {fileID: 5470204669822148242, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3034,7 +3038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376631464686957810, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.47217
+      value: -4.29
       objectReference: {fileID: 0}
     - target: {fileID: 2376631464686957810, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6822,6 +6826,10 @@ PrefabInstance:
     - target: {fileID: 6534079938977524121, guid: 93e6d8d2f51ef9c4cbdc8e2cba7f1f17, type: 3}
       propertyPath: m_Name
       value: ToggleWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534079938977524121, guid: 93e6d8d2f51ef9c4cbdc8e2cba7f1f17, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6534079938977524125, guid: 93e6d8d2f51ef9c4cbdc8e2cba7f1f17, type: 3}
       propertyPath: m_RootOrder

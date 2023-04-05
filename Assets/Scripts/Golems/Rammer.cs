@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Rammer : Golem
 {
+    public bool IsFacingRight = true;
+
     private float _direction;
-    private bool _isFacingRight;
     private bool _isRunning;
     private bool _isAtMaxSpeed;
     private float _speed;
@@ -30,20 +31,24 @@ public class Rammer : Golem
 
     private Vector3[] _groundCheckPoints;
 
-    Collider2D _wallCheckCollider;
+    private Collider2D[] _wallCheckColliders;
+    private ContactFilter2D _wallCheckCF;
+
 
     protected override void Awake()
     {
         base.Awake();
 
-        _direction = transform.localScale.x > 0 ? -1 : 1;
+        _direction = transform.localScale.x > 0 ? 1 : -1;
 
         _groundCheckPoints = new Vector3[]
-       {
+        {
             Vector3.zero,
             Vector3.right * _collider.bounds.extents.x,
             Vector3.left * _collider.bounds.extents.x
-       };
+        };
+
+        _wallCheckCF = new ContactFilter2D() { layerMask = _interactableLayers };
     }
 
     private void Update()
@@ -75,6 +80,7 @@ public class Rammer : Golem
         {
             _isRunning = true;
             _speed = _initialSpeed;
+            _animator.SetBool("Running", true);
         }
 
         //if (_isAtMaxSpeed) Debug.Log("vel max");
@@ -93,16 +99,20 @@ public class Rammer : Golem
         {
             _isAtMaxSpeed = false;
             _speed += _acceleration * Time.fixedDeltaTime;
+            _animator.SetBool("MaxSpeed", false);
         }
         else
         {
             _isAtMaxSpeed = true;
             _speed = _maxSpeed;
+            _animator.SetBool("MaxSpeed", true);
         }
 
         WallCheck();
 
         _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
+
+        _animator.SetFloat("Speed", Mathf.Abs(_rb.velocity.x));
     } 
         
     
@@ -111,19 +121,21 @@ public class Rammer : Golem
     {
         _speed = 0;
         _isAtMaxSpeed = false;
+        _animator.SetBool("MaxSpeed", false);
         _isRunning = false;
         if (State == GolemState.Available)
         {
             _rb.isKinematic = true;
             _rb.velocity = Vector2.zero;
         }
+        _animator.SetBool("Running", false);
     }
 
     private void Flip()
     {
-        if (_isFacingRight && _direction < 0f || !_isFacingRight && _direction > 0f)
+        if (IsFacingRight && _direction < 0f || !IsFacingRight && _direction > 0f)
         {
-            _isFacingRight = !_isFacingRight;
+            IsFacingRight = !IsFacingRight;
 
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
@@ -177,40 +189,47 @@ public class Rammer : Golem
        */
     private void WallCheck()
     {
-        foreach(var point in _wallCheckPoints)
+        foreach (var point in _wallCheckPoints)
         {
-            _wallCheckCollider = Physics2D.Raycast(point.position, _isFacingRight ? Vector2.right : Vector2.left, 0.05f, _interactableLayers).collider;
+            //_wallCheckCollider = Physics2D.Raycast(point.position, IsFacingRight ? Vector2.right : Vector2.left, 0.1f, _interactableLayers).collider;
+            //_wallCheckCollider = Physics2D.OverlapCircle(point.position, 0.1f, _interactableLayers);
 
-            if (!_wallCheckCollider) continue;
-            if (_wallCheckCollider.gameObject == gameObject) continue;
+            _wallCheckColliders = new Collider2D[5];
+            if (Physics2D.OverlapCircle(point.position, 0.1f, _wallCheckCF, _wallCheckColliders) == 0) continue;
 
-            if ((_groundLayer.value & (1 << _wallCheckCollider.gameObject.layer)) > 0 || _wallCheckCollider.gameObject.layer == gameObject.layer)
+            foreach (var col in _wallCheckColliders)
             {
-                StopRunning();
-            }
+                if (!col) continue;
+                if (col.gameObject == gameObject) continue;
 
-            else if ((_pushableLayer.value & (1 << _wallCheckCollider.gameObject.layer)) > 0)
-            {
-                if (!_wallCheckCollider.GetComponent<PushableObject>().HasHitWall)
+                if ((_groundLayer.value & (1 << col.gameObject.layer)) > 0 || col.gameObject.layer == gameObject.layer)
                 {
-                    _isPushing = true;
-                }
-                else
-                {
-                    _isPushing = false;
                     StopRunning();
                 }
-            }
-            else if ((_destructibleLayer.value & (1 << _wallCheckCollider.gameObject.layer)) > 0)
-            {
-                if (_isAtMaxSpeed)
-                {
-                    _wallCheckCollider.GetComponent<DestructibleObject>().DestroyObstacle(this);
-                }
-                else StopRunning();
-            }
 
-            return;
+                else if ((_pushableLayer.value & (1 << col.gameObject.layer)) > 0)
+                {
+                    if (!col.GetComponent<PushableObject>().HasHitWall)
+                    {
+                        _isPushing = true;
+                    }
+                    else
+                    {
+                        _isPushing = false;
+                        StopRunning();
+                    }
+                }
+                else if ((_destructibleLayer.value & (1 << col.gameObject.layer)) > 0)
+                {
+                    if (_isAtMaxSpeed)
+                    {
+                        col.GetComponent<DestructibleObject>().DestroyObstacle(this);
+                    }
+                    else StopRunning();
+                }
+
+                return;
+            }
         }
     }
 
