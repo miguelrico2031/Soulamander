@@ -28,15 +28,15 @@ public class Spike : MonoBehaviour
     private IEnumerator DieAndRespawn(GameObject golemGO)
     {
         Golem golem = golemGO.GetComponent<Golem>();
-        _deathParticlesInstance = Instantiate(_deathParticles, golem.transform.position, _deathParticles.transform.rotation);
-        golem.transform.position = _respawnPoint.position;
-        _spirit.transform.position = _respawnPoint.position;
+        _deathParticlesInstance = Instantiate(_deathParticles, golem.transform.position, _deathParticles.transform.rotation);     
         golemGO.SetActive(false);
         _spirit.SetActive(false);
         yield return new WaitForSeconds(_respawnDelay);
         _spirit.SetActive(true);
         golemGO.SetActive(true);
-        if(golem.State == GolemState.Enabled) golem.State = GolemState.Enabled;
+        golem.transform.position = _respawnPoint.position;
+        _spirit.transform.position = _respawnPoint.position;
+        if (golem.State == GolemState.Enabled) golem.State = GolemState.Enabled;
         else if (golem.State == GolemState.Available) golem.State = GolemState.Available;
 
     }

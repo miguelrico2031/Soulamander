@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class RoomChanger : MonoBehaviour
 {
-    [Header("Instance Settings")]
-    [SerializeField] int _roomID;
     [SerializeField] private GameObject _progressWall;
-
-    [Header("Unity Setup")]
     [SerializeField] private LayerMask _golemLayer;
+
+    private void Start()
+    {
+        _progressWall.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

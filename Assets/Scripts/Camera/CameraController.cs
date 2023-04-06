@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -112,6 +113,7 @@ public class CameraController : MonoBehaviour
         }        
     }
 
+    SpiritMovement s = null;
     void LateUpdate()
     {
         if (_sceneIsEnding) return;
@@ -128,8 +130,12 @@ public class CameraController : MonoBehaviour
 
         if (_enabledGolems.Count == 0)
         {
-            if (_followPlayerX) _targetPlayer.x = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.x;
-            if (_followPlayerY) _targetPlayer.y = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.y;
+            s = FindObjectOfType<SpiritMovement>();
+            if (s != null)
+            {
+                if (_followPlayerX) _targetPlayer.x = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.x;
+                if (_followPlayerY) _targetPlayer.y = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.y;
+            }
         }
 
         if (_enabledGolems.Count == 1) 

@@ -59,11 +59,7 @@ public class Rammer : Golem
 
     private void Update()
     {
-        if (State == GolemState.Available && !_isRunning)
-        {
-            _rb.isKinematic = true;
-            _rb.velocity = Vector2.zero;
-        }
+
 
         if (State == GolemState.BeingLaunched && _isRunning) StopRunning();
         if (State == GolemState.BeingLaunched && RayCastHitGround())
@@ -129,7 +125,7 @@ public class Rammer : Golem
         _isAtMaxSpeed = false;
         _animator.SetBool("MaxSpeed", false);
         _isRunning = false;
-        if (State == GolemState.Available)
+        if (State == GolemState.Available && RayCastHitGround())
         {
             _rb.isKinematic = true;
             _rb.velocity = Vector2.zero;
