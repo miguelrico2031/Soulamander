@@ -158,8 +158,10 @@ public class Jumper : Golem
         if ((_groundLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
         if (collision.transform.parent == transform) return;
 
-        if(collision.contacts[0].normal.y >= 0f)
+        foreach(var contact in collision.contacts)
         {
+            //if(contact.normal.y < 0f) continue;
+            if (((Vector2)transform.position - contact.point).y < 0f) continue;
             _isGrounded = true;
             
             float newAngle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
@@ -204,6 +206,7 @@ public class Jumper : Golem
             _animator.SetBool("Jump", false);
             _animator.SetTrigger("Land");
 
+            return;
         }
     }
 

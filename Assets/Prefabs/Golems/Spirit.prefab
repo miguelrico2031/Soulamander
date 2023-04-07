@@ -238,14 +238,14 @@ MonoBehaviour:
   _vacuumSpeed: 400
   _golemUnionLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   _golemLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   _golemTrigger: {fileID: 4671513505698408018}
   _npcTrigger: {fileID: 7918373064013011267}
-  _default: {fileID: 0}
-  _outline: {fileID: 0}
+  _default: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  _outline: {fileID: 2100000, guid: aa21bb634350eec47ae30642a6bd61bf, type: 2}
 --- !u!50 &5011001031633314911
 Rigidbody2D:
   serializedVersion: 4
