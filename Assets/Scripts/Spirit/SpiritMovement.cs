@@ -21,8 +21,8 @@ public class SpiritMovement : MonoBehaviour
     private void Update()
     {
         if (!CanMove) return;
-        _moveInput.x = Input.GetAxisRaw("Horizontal");
-        _moveInput.y = Input.GetAxisRaw("Vertical");
+        _moveInput.x = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
+        _moveInput.y = Mathf.RoundToInt(Input.GetAxisRaw("Vertical"));
 
         _isPressingMove = _moveInput.x != 0f || _moveInput.y != 0f;
     }

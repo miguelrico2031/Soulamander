@@ -61,23 +61,40 @@ public class Rammer : Golem
 
     private void Update()
     {
-
-
-        if (State == GolemState.BeingLaunched && _isRunning) StopRunning();
-        if (State == GolemState.BeingLaunched && RayCastHitGround())
+        if (State == GolemState.Available && !_isRunning && !_rb.isKinematic)
         {
-            State = GolemState.Enabled;
-            _rb.velocity = Vector3.zero;
+            if(RayCastHitGround())
+            {
+                _rb.isKinematic = true;
+                _rb.velocity = Vector2.zero;
+            }
         }
+
+        if(State == GolemState.BeingLaunched)
+        {
+            if(_isRunning) StopRunning();
+            if(RayCastHitGround())
+            {
+                State = GolemState.Enabled;
+                _rb.velocity = Vector3.zero;
+            }
+        }
+
+        //if (State == GolemState.BeingLaunched && _isRunning) StopRunning();
+        //if (State == GolemState.BeingLaunched && RayCastHitGround())
+        //{
+        //    State = GolemState.Enabled;
+        //    _rb.velocity = Vector3.zero;
+        //}
+
         if (State != GolemState.Enabled) return;
 
         if (!_isRunning)
         {
-            _horizontalInput = Input.GetAxisRaw("Horizontal");
+            _horizontalInput = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
             if (_horizontalInput != 0) _direction = _horizontalInput;
         }
 
-        // _runTime = _isRunning ? _runTime + Time.deltaTime : 0f;
         if (IsTalking) _isRunning = false;
 
         if (Input.GetButtonDown("Jump") && !_isRunning && !IsTalking)
@@ -131,13 +148,14 @@ public class Rammer : Golem
         _isAtMaxSpeed = false;
         _animator.SetBool("MaxSpeed", false);
         _isRunning = false;
+        _animator.SetBool("Running", false);
+
         if (State == GolemState.Available && RayCastHitGround())
-        {
+        { 
             _rb.isKinematic = true;
             _rb.velocity = Vector2.zero;
+            
         }
-
-        _animator.SetBool("Running", false);
     }
 
     private void Flip()
@@ -160,49 +178,10 @@ public class Rammer : Golem
 
         return false;
     }
-    /*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if ((_destructibleLayer.value & (1 << collision.gameObject.layer)) > 0)
-        {
-            if (Mathf.Abs(collision.contacts[0].normal.x) != 1f) return;
-
-                if (_isAtMaxSpeed) collision.gameObject.GetComponent<DestructibleObject>().DestroyObstacle(this);
-            
-            else StopRunning();
-            
-            return;
-        }
-        
-        if ((_pushableLayer.value & (1 << collision.gameObject.layer)) > 0)
-        {
-            Debug.Log("entra " + collision.gameObject.GetComponent<PushableObject>().HasHitWall);
-            //if (Mathf.Abs(collision.contacts[0].normal.x) != 1f) return;
-
-            if (!collision.gameObject.GetComponent<PushableObject>().HasHitWall)
-            {
-                
-                //collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(_pushSpeed * _direction, _rb.velocity.y);
-                _isPushing = true;
-            }
-            else
-            {
-                _isPushing = false;
-                StopRunning();
-            }   
-            return;
-        }
-        
-    }
-       */
     private void WallCheck()
     {
         foreach (var point in _wallCheckPoints)
         {
-            //_wallCheckCollider = Physics2D.Raycast(point.position, IsFacingRight ? Vector2.right : Vector2.left, 0.1f, _interactableLayers).collider;
-            //_wallCheckCollider = Physics2D.OverlapCircle(point.position, 0.1f, _interactableLayers);
-
             _wallCheckColliders = new Collider2D[5];
             if (Physics2D.OverlapCircle(point.position, 0.1f, _wallCheckCF, _wallCheckColliders) == 0) continue;
 
@@ -228,6 +207,7 @@ public class Rammer : Golem
                         StopRunning();
                     }
                 }
+
                 else if ((_destructibleLayer.value & (1 << col.gameObject.layer)) > 0)
                 {
                     if (_isAtMaxSpeed)
@@ -239,6 +219,18 @@ public class Rammer : Golem
 
                 return;
             }
+        }
+    }
+
+
+    protected override void NewState()
+    {
+        base.NewState();
+
+        if (State == GolemState.Enabled)
+        {
+            IsFacingRight = transform.localScale.x > 0f;
+            _direction = transform.localScale.x > 0f ? 1 : -1;
         }
     }
 

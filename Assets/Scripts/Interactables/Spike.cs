@@ -5,17 +5,17 @@ using UnityEngine;
 public class Spike : MonoBehaviour
 {
     [SerializeField] private float _respawnDelay;
-    [SerializeField] private Transform _respawnPoint;
+    [SerializeField] private Respawn _respawn;
     [SerializeField] private ParticleSystem _deathParticles;
 
     private int _golemLayer;
-    private GameObject _spirit;
+    private SpiritUnion _spiritUnion;
     private ParticleSystem _deathParticlesInstance;
 
     void Awake()
     {
         _golemLayer = LayerMask.NameToLayer("Golem");
-        _spirit = FindAnyObjectByType<SpiritMovement>().gameObject;
+        _spiritUnion = FindAnyObjectByType<SpiritUnion>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -28,11 +28,14 @@ public class Spike : MonoBehaviour
     private IEnumerator DieAndRespawn(GameObject golemGO)
     {
         Golem golem = golemGO.GetComponent<Golem>();
-        _deathParticlesInstance = Instantiate(_deathParticles, golem.transform.position, _deathParticles.transform.rotation);     
+        _deathParticlesInstance = Instantiate(_deathParticles, golem.transform.position, _deathParticles.transform.rotation);
+        golem.transform.position = _respawn.GetRespawnPoint();
+        //_spirit.transform.position = _respawnPoint.position;
+        _spiritUnion.ExitGolem();
         golemGO.SetActive(false);
-        _spirit.SetActive(false);
+        //_spirit.SetActive(false);
         yield return new WaitForSeconds(_respawnDelay);
-        _spirit.SetActive(true);
+        //_spirit.SetActive(true);
         golemGO.SetActive(true);
         golem.transform.position = _respawnPoint.position;
         _spirit.transform.position = _respawnPoint.position;
