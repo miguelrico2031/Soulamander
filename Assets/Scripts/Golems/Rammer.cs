@@ -89,7 +89,7 @@ public class Rammer : Golem
 
         if (!_isRunning)
         {
-            _horizontalInput = Input.GetAxisRaw("Horizontal");
+            _horizontalInput = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
             if (_horizontalInput != 0) _direction = _horizontalInput;
         }
 

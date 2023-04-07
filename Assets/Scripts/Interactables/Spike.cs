@@ -9,13 +9,13 @@ public class Spike : MonoBehaviour
     [SerializeField] private ParticleSystem _deathParticles;
 
     private int _golemLayer;
-    private GameObject _spirit;
+    private SpiritUnion _spiritUnion;
     private ParticleSystem _deathParticlesInstance;
 
     void Awake()
     {
         _golemLayer = LayerMask.NameToLayer("Golem");
-        _spirit = FindAnyObjectByType<SpiritMovement>().gameObject;
+        _spiritUnion = FindAnyObjectByType<SpiritUnion>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -30,11 +30,12 @@ public class Spike : MonoBehaviour
         Golem golem = golemGO.GetComponent<Golem>();
         _deathParticlesInstance = Instantiate(_deathParticles, golem.transform.position, _deathParticles.transform.rotation);
         golem.transform.position = _respawnPoint.position;
-        _spirit.transform.position = _respawnPoint.position;
+        //_spirit.transform.position = _respawnPoint.position;
+        _spiritUnion.ExitGolem();
         golemGO.SetActive(false);
-        _spirit.SetActive(false);
+        //_spirit.SetActive(false);
         yield return new WaitForSeconds(_respawnDelay);
-        _spirit.SetActive(true);
+        //_spirit.SetActive(true);
         golemGO.SetActive(true);
         if(golem.State == GolemState.Enabled) golem.State = GolemState.Enabled;
         else if (golem.State == GolemState.Available) golem.State = GolemState.Available;

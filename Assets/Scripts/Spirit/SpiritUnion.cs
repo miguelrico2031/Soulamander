@@ -310,7 +310,7 @@ public class SpiritUnion : MonoBehaviour
         _golemInPossession.GetComponent<SpriteRenderer>().material = _default;
     }
 
-    private void ExitGolem()
+    public void ExitGolem()
     {
         if (State != SpiritState.Possessing) return;
 

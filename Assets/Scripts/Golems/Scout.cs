@@ -90,7 +90,7 @@ public class Scout : Golem
 
         if (State != GolemState.Enabled || IsTalking) return;
 
-        _horizontal = Input.GetAxisRaw("Horizontal");    
+        _horizontal = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));    
 
         if (_grounded)
         {

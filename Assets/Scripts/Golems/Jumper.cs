@@ -73,7 +73,7 @@ public class Jumper : Golem
             if (!_isDelayingHorizontalInput)
             {
                 _horizontalInput = _nextHorizontalInput;
-                _nextHorizontalInput = Input.GetAxisRaw("Horizontal");
+                _nextHorizontalInput = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
             }
 
             if (_nextHorizontalInput == 0 && _horizontalInput != 0) _isDelayingHorizontalInput = true;
