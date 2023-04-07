@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spike : MonoBehaviour
 {
     [SerializeField] private float _respawnDelay;
-    [SerializeField] private Transform _respawnPoint;
+    [SerializeField] private Respawn _respawn;
     [SerializeField] private ParticleSystem _deathParticles;
 
     private int _golemLayer;
@@ -29,7 +29,7 @@ public class Spike : MonoBehaviour
     {
         Golem golem = golemGO.GetComponent<Golem>();
         _deathParticlesInstance = Instantiate(_deathParticles, golem.transform.position, _deathParticles.transform.rotation);
-        golem.transform.position = _respawnPoint.position;
+        golem.transform.position = _respawn.GetRespawnPoint();
         //_spirit.transform.position = _respawnPoint.position;
         _spiritUnion.ExitGolem();
         golemGO.SetActive(false);
