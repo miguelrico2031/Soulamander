@@ -9,6 +9,7 @@ public class Scout : Golem
     private float _horizontal;
     private float _flightTime;
     private bool _isGroundedForJump, _grounded; //el ultimo es nuevo y sirve para ahorrar llamar varias veces a RaycastHitGround
+    private bool _lastGrounded, _isFalling;
 
     private Queue<ButtonToQueue> _buttonQueue;
 
@@ -43,7 +44,33 @@ public class Scout : Golem
     }
     private void Update()
     {
+        if (State == GolemState.Disabled) return;
+
         _grounded = RayCastHitGround();
+
+        if(_grounded)
+        {
+            if(!_lastGrounded)
+            {
+                _animator.SetBool("Landed", true);
+                _animator.SetBool("Falling", false);
+                _isFalling = false;
+            }
+            _lastGrounded = true;
+        }
+        else
+        {
+            if(!_isFalling && _rb.velocity.y < 0f)
+            {
+                _isFalling = true;
+                _animator.SetBool("Falling", true);
+                _animator.SetBool("Jump", false);
+                _animator.SetBool("Landed", false);
+            }
+
+            _lastGrounded = false;
+        }
+
         if (State == GolemState.BeingLaunched && _grounded) State = GolemState.Enabled;
         if (State == GolemState.Available)
         {
@@ -86,6 +113,9 @@ public class Scout : Golem
                     _rb.velocity = new Vector2(_rb.velocity.x, _jumpingForce);
                     _isGroundedForJump = false;
                     _buttonQueue.Dequeue();
+                    _animator.SetBool("Jump", true);
+                    _animator.SetBool("Landed", false);
+                    _animator.SetBool("Falling", false);
                 }
             }         
         }
@@ -152,6 +182,16 @@ public class Scout : Golem
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+
+    protected override void NewState()
+    {
+        base.NewState();
+
+        if(State == GolemState.Enabled)
+        {
+            IsFacingRight = transform.localScale.x > 0f;
         }
     }
 }
