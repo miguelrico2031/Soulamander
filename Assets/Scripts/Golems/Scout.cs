@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Scout : Golem
 {
@@ -18,6 +19,7 @@ public class Scout : Golem
     [SerializeField] private float _groundCheckOffset;
     [SerializeField] private float _inputBufferTime;
     [SerializeField] private float _coyoteTime;
+    [SerializeField] private float _onPlatformSpeedMultiplier;
 
     [SerializeField] private LayerMask _groundLayer;
 
@@ -31,7 +33,7 @@ public class Scout : Golem
     protected override void Awake()
     {
         base.Awake();
-
+        IsOnMovingPlatform = false;
         _buttonQueue = new Queue<ButtonToQueue>();
 
         _groundCheckPoints = new Vector3[]
@@ -91,14 +93,14 @@ public class Scout : Golem
         }
         if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0f)
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _holdDiff);
-        
+       
 
         Flip();
     }
 
+
     private void FixedUpdate()
     {
-        
 
         if (State != GolemState.Disabled &&_lerpingToGolem)
         {
@@ -113,9 +115,13 @@ public class Scout : Golem
 
         if (State != GolemState.Enabled || IsTalking) return;
 
-        _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
-
-        _animator.SetFloat("Speed", Mathf.Abs(_rb.velocity.x));
+        if (!IsOnMovingPlatform) _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
+        if (IsOnMovingPlatform)
+        {
+            _rb.velocity = new Vector2(_horizontal * _speed * _onPlatformSpeedMultiplier, _rb.velocity.y);
+            Debug.Log("haiii");
+        }
+        _animator.SetFloat("Speed", Mathf.Abs(_horizontal * _speed));
     }
 
     private void ClearKeyInQueue()

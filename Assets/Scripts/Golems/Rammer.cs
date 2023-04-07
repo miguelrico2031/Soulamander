@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Rammer : Golem
 {
@@ -21,6 +22,7 @@ public class Rammer : Golem
     [SerializeField] private float _wallCheckOffsetY;
     [SerializeField] private float _wallCheckOffsetX;
     [SerializeField] private float _groundCheckOffset;
+    [SerializeField] private float _onPlatformSpeedMultiplier;
 
     [SerializeField] private LayerMask _interactableLayers;
     [SerializeField] private LayerMask _groundLayer;
@@ -109,12 +111,15 @@ public class Rammer : Golem
             _speed = _maxSpeed;
             _animator.SetBool("MaxSpeed", true);
         }
-
         WallCheck();
 
-        _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
 
-        _animator.SetFloat("Speed", Mathf.Abs(_rb.velocity.x));
+        if (!IsOnMovingPlatform) _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
+        if (IsOnMovingPlatform)
+        {
+            _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction * _onPlatformSpeedMultiplier, _rb.velocity.y);
+        }
+        _animator.SetFloat("Speed", Mathf.Abs((_isPushing ? _pushSpeed : _speed) * _direction));
     } 
         
     
@@ -122,6 +127,7 @@ public class Rammer : Golem
     public void StopRunning()
     {
         _speed = 0;
+        _rb.velocity = new Vector2(0f, _rb.velocity.y);
         _isAtMaxSpeed = false;
         _animator.SetBool("MaxSpeed", false);
         _isRunning = false;
@@ -130,6 +136,7 @@ public class Rammer : Golem
             _rb.isKinematic = true;
             _rb.velocity = Vector2.zero;
         }
+
         _animator.SetBool("Running", false);
     }
 

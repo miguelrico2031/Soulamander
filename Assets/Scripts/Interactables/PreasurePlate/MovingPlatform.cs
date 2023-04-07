@@ -42,6 +42,7 @@ public class MovingPlatform : PreassureListener
         if (_pressurePlatesActive != _numberOfPressurePlates) return;
 
         _isActive = true;
+        _platform.GetComponent<MovingPlatformChild>().OnMove();
     }
 
     public override void OnPlateUnpressed()
@@ -49,6 +50,7 @@ public class MovingPlatform : PreassureListener
         if (_pressurePlatesActive == _numberOfPressurePlates)
         {
             _isActive = false;
+            _platform.GetComponent<MovingPlatformChild>().OnStop();
         }
         _pressurePlatesActive--;
     }

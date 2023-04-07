@@ -436,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbd92b2638755d4c8120c26d098e6cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsOnMovingPlatform: 0
   CanBeLaunched: 0
   StartsScenePossed: 0
   IsTalking: 0
@@ -450,7 +451,7 @@ MonoBehaviour:
   _maxJumpForce: 25
   _minJumpTime: 0.1
   _maxJumpTime: 1
-  _gravityForce: 4
+  _gravityForce: 5
 --- !u!50 &7537533552205766744
 Rigidbody2D:
   serializedVersion: 4

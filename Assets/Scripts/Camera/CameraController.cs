@@ -47,11 +47,6 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        LateStart();
-    }
-
-    private void LateStart()
-    {
         _sceneIsEnding = false;
 
         GameObject.FindObjectOfType<Goal>().gameObject.GetComponent<Goal>().OnGoalReached += OnRoomEnd;
@@ -66,23 +61,28 @@ public class CameraController : MonoBehaviour
         }
         if (_followPlayerX)
         {
-            if (_enabledGolems.Count == 0) transform.position = new Vector3(GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.x, transform.position.y, _zOffset);
-            else transform.position = new Vector3(_enabledGolems[0].gameObject.transform.position.x, transform.position.y, _zOffset);           
+            if (_enabledGolems.Count == 0)
+            {
+                transform.position = new Vector3(GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.x, transform.position.y, _zOffset);
+            }
+            else transform.position = new Vector3(_enabledGolems[0].gameObject.transform.position.x, transform.position.y, _zOffset);
         }
         if (_followPlayerY)
         {
-            if (_enabledGolems.Count == 0) transform.position = new Vector3(transform.position.x, GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.y, _zOffset);
+            if (_enabledGolems.Count == 0)
+            {
+                transform.position = new Vector3(transform.position.x, GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.y, _zOffset);
+            }
             else transform.position = new Vector3(transform.position.x, _enabledGolems[0].gameObject.transform.position.y, _zOffset);
         }
-        transform.position = new Vector3(transform.position.x, transform.position.y, _zOffset);
         if (!_zoomOutStart)
         {
             if (!_followPlayerX && !_followPlayerY) transform.position = _staticCamPos;
             else
-            {               
+            {
                 if (!_followPlayerX) transform.position = new Vector3(_staticCamPos.x, transform.position.y, transform.position.z);
                 if (!_followPlayerY) transform.position = new Vector3(transform.position.x, _staticCamPos.x, transform.position.z);
-            }         
+            }
         }
         ReloadBounds();
     }
@@ -113,9 +113,9 @@ public class CameraController : MonoBehaviour
         }        
     }
 
-    SpiritMovement s = null;
     void LateUpdate()
     {
+        
         if (_sceneIsEnding) return;
         if (!_followPlayerY && !_followPlayerX) return;
 
@@ -130,12 +130,8 @@ public class CameraController : MonoBehaviour
 
         if (_enabledGolems.Count == 0)
         {
-            s = FindObjectOfType<SpiritMovement>();
-            if (s != null)
-            {
-                if (_followPlayerX) _targetPlayer.x = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.x;
-                if (_followPlayerY) _targetPlayer.y = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.y;
-            }
+            if (_followPlayerX) _targetPlayer.x = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.x;
+            if (_followPlayerY) _targetPlayer.y = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.y;
         }
 
         if (_enabledGolems.Count == 1) 
@@ -159,6 +155,7 @@ public class CameraController : MonoBehaviour
         }
         if (_followPlayerX) MoveCameraX(_targetPlayer.x, _cameraFollowSmoothSpeed, false, true);
         if (_followPlayerY) MoveCameraY(_targetPlayer.y, _cameraFollowSmoothSpeed, false, true);
+        
     }
 
     private void OnRoomEnd(object sender, EventArgs e)

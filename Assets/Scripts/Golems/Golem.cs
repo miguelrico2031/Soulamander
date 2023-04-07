@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Golem : MonoBehaviour
 {
+    [HideInInspector] public bool IsOnMovingPlatform;
     public bool CanBeLaunched; //este bool es para idicar si este tipo de golem se pueda lanzar, por ejemplo el jumper no se podra lanazar
     public bool StartsScenePossed;
     public bool IsTalking = false;

@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d85654b71734d848a6385b974301855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsOnMovingPlatform: 0
   CanBeLaunched: 1
   StartsScenePossed: 0
   IsTalking: 0
@@ -119,6 +120,7 @@ MonoBehaviour:
   _groundCheckOffset: 0.05
   _inputBufferTime: 0.1
   _coyoteTime: 0.15
+  _onPlatformSpeedMultiplier: 1.6
   _groundLayer:
     serializedVersion: 2
     m_Bits: 328

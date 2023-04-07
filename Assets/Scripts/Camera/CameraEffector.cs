@@ -9,7 +9,6 @@ public class CameraEffector : MonoBehaviour
     private bool _isActive;
 
     [Header("Instance Settings")]
-    [SerializeField] private bool _useOnStay;
     [SerializeField] private bool _onlyActivateOnce;
     [SerializeField] private bool _changeToFollowPlayerX;
     [SerializeField] private bool _changeToFollowPlayerY;
@@ -29,25 +28,9 @@ public class CameraEffector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_useOnStay) return;
         if ((_golemLayer.value & (1 << collision.gameObject.layer)) <= 0) return;
         if (collision.gameObject.GetComponent<Golem>().State != GolemState.Enabled) return;
         ActivateEffector(0);
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (!_useOnStay) return;
-        if ((_golemLayer.value & (1 << collision.gameObject.layer)) <= 0) return;
-        if (collision.gameObject.GetComponent<Golem>().State != GolemState.Enabled) return;
-        ActivateEffector(0);
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!_useOnStay) return;
-        if ((_golemLayer.value & (1 << collision.gameObject.layer)) <= 0) return;
-        if (collision.gameObject.GetComponent<Golem>().State != GolemState.Enabled) return;
-        if (_onlyActivateOnce) _isActive = false;
-        ActivateEffector(0.01f);
     }
 
     public void ActivateEffector(float returnValues)
