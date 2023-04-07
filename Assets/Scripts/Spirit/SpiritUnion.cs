@@ -14,7 +14,7 @@ public class SpiritUnion : MonoBehaviour
     public bool CanSwap = true;
 
     [SerializeField] private float _travelingSpeed, _vacuumSpeed;
-    [SerializeField] private LayerMask _golemLayers;
+    [SerializeField] private LayerMask _golemUnionLayer, _golemLayer;
     [SerializeField] private Collider2D _golemTrigger, _npcTrigger;
 
     [SerializeField] private Material _default, _outline;
@@ -113,7 +113,7 @@ public class SpiritUnion : MonoBehaviour
     {
         if (State == SpiritState.Roaming)
         {
-            if ((_golemLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
+            if ((_golemUnionLayer.value & (1 << collision.gameObject.layer)) <= 0) return;
 
             Golem golem = collision.GetComponentInParent<Golem>();
 
@@ -131,7 +131,7 @@ public class SpiritUnion : MonoBehaviour
     {
         if (State == SpiritState.Roaming)
         {
-            if ((_golemLayers.value & (1 << collision.gameObject.layer)) <= 0) return;
+            if ((_golemUnionLayer.value & (1 << collision.gameObject.layer)) <= 0) return;
 
             Golem golem = collision.GetComponentInParent<Golem>();
             RemoveGolem(golem);
@@ -249,6 +249,7 @@ public class SpiritUnion : MonoBehaviour
     private void PossessGolem(Golem golem)
     {
         if (!golem || State != SpiritState.Roaming) return;
+        if (CheckIfOverlapping(golem)) return;
 
         _golemInPossession = golem;
 
@@ -343,6 +344,14 @@ public class SpiritUnion : MonoBehaviour
         CanSwap = true;
         _golemInPossession.IsTalking = false;
         _justEndedDialogue = true;
+    }
+
+    private bool CheckIfOverlapping(Golem golem)
+    {
+        if (golem.State != GolemState.Disabled) return false;
+
+        CircleCollider2D golemUnionCol = golem.GetComponentInChildren<CircleCollider2D>();
+        return Physics2D.OverlapCircle(golemUnionCol.bounds.center, golemUnionCol.radius, _golemLayer);
     }
 }
 
