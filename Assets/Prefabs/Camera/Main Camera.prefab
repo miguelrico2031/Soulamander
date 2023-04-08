@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d76acb1f415703488d824487721291d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _followPlayerX: 0
-  _followPlayerY: 0
+  _followPlayerX: 1
+  _followPlayerY: 1
   _zoomOutStart: 0
   _cameraSize: 8
   _startingSize: 2
@@ -68,7 +68,7 @@ Camera:
   m_GameObject: {fileID: 8235022735797843286}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -173,9 +173,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8235022735797843286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c78cb098b5aa0a41843fcca97e7745e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pixelPerfectCamera: {fileID: 0}
+  _initialPPU: 0
+  _targetPPU: 0
+  _zoomSpeed: 0

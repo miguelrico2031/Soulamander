@@ -16624,6 +16624,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[576].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 4136461766638930579, guid: ab14e0a49289e4a49bbe32c52238184b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5665219249304289451, guid: ab14e0a49289e4a49bbe32c52238184b, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -28127,14 +28131,6 @@ PrefabInstance:
       propertyPath: _cameraBounds
       value: 
       objectReference: {fileID: 2074306557}
-    - target: {fileID: 8235022735797843283, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
-      propertyPath: _followPlayerX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8235022735797843283, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
-      propertyPath: _followPlayerY
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8235022735797843285, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
       propertyPath: m_RootOrder
       value: 3

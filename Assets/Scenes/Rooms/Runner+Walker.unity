@@ -7123,6 +7123,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4626445157034996354, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626445157034996354, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
       propertyPath: _targetPPU
       value: 64
       objectReference: {fileID: 0}

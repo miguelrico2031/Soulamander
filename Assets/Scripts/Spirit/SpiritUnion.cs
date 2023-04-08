@@ -18,6 +18,7 @@ public class SpiritUnion : MonoBehaviour
     [SerializeField] private Collider2D _golemTrigger, _npcTrigger;
 
     [SerializeField] private Material _default, _outline;
+    [SerializeField] private ParticleSystem _fireTrail;
 
 
     private SpiritState _state;
@@ -32,9 +33,9 @@ public class SpiritUnion : MonoBehaviour
     private int _golemIndex = 0;
     private Vector2 _directionToTarget;
     private int _npcLayer;
-
     private NPC _npcInArea;
     private bool _justEndedDialogue = false;
+    
 
 
     private void Awake()
@@ -157,6 +158,7 @@ public class SpiritUnion : MonoBehaviour
                 _npcTrigger.enabled = false;
                 _rb.velocity = Vector2.zero;
                 _spriteRenderer.enabled = true;
+                _fireTrail.Play();
                 break;
 
             case SpiritState.Traveling:
@@ -166,6 +168,7 @@ public class SpiritUnion : MonoBehaviour
                 _collider.enabled = false;
                 _golemTrigger.enabled = false;
                 _npcTrigger.enabled = false;
+                _fireTrail.Play();
                 break;
 
             case SpiritState.Possessing:
@@ -176,6 +179,7 @@ public class SpiritUnion : MonoBehaviour
                 _npcTrigger.enabled = true;
                 _rb.velocity = Vector2.zero;
                 _spriteRenderer.enabled = false;
+                _fireTrail.Stop();
                 break;
         }
 
