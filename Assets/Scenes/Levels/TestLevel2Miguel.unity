@@ -27983,10 +27983,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7537533552205766751, guid: 41a05b0fbdb767a4d8a0a2d65aaa5b78, type: 3}
-      propertyPath: _maxJumpTime
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 7537533552205766756, guid: 41a05b0fbdb767a4d8a0a2d65aaa5b78, type: 3}
       propertyPath: m_Name
       value: Jumper
@@ -28047,14 +28043,6 @@ PrefabInstance:
     - target: {fileID: 681519905581774414, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
       propertyPath: m_Name
       value: Spirit
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267327804029432699, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267327804029432699, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
@@ -28153,7 +28141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8235022735797843285, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.29
       objectReference: {fileID: 0}
     - target: {fileID: 8235022735797843285, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
       propertyPath: m_LocalPosition.y
