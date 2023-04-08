@@ -49,7 +49,7 @@ public class CameraController : MonoBehaviour
     {
         _sceneIsEnding = false;
 
-        GameObject.FindObjectOfType<Goal>().gameObject.GetComponent<Goal>().OnGoalReached += OnRoomEnd;
+        FindAnyObjectByType<Goal>().OnGoalReached += OnRoomEnd;
         _staticCamPos = transform.position;
         _enabledGolems = new List<GameObject>();
         foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())

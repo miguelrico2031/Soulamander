@@ -57,10 +57,12 @@ public class PushableObject : MonoBehaviour
         }
         */
 
-        if (HasHitWall && RayCastHitGround())
-        {
-            _rb.isKinematic = true;
-        }
+        //if (HasHitWall && RayCastHitGround())
+        //{
+        //    _rb.isKinematic = true;
+        //}
+
+        _rb.isKinematic = HasHitWall && RayCastHitGround();
     }
 
     private bool RayCastHitGround()
@@ -104,6 +106,7 @@ public class PushableObject : MonoBehaviour
 
     private void WallAndRammerCheck()
     {
+        HasHitWall = false;
         _wallHitColliders = new Collider2D[6];
         _wallHitsSize =
             Physics2D.OverlapBox(_collider.bounds.center, _collider.size * 1.8f + Vector2.right * 0.22f, 0f, _wallCheckCF, _wallHitColliders);
