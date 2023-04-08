@@ -37,8 +37,8 @@ public class Spike : MonoBehaviour
         yield return new WaitForSeconds(_respawnDelay);
         //_spirit.SetActive(true);
         golemGO.SetActive(true);
-        golem.transform.position = _respawnPoint.position;
-        _spirit.transform.position = _respawnPoint.position;
+        //golem.transform.position = _respawnPoint.position;
+        //_spirit.transform.position = _respawnPoint.position;
         if (golem.State == GolemState.Enabled) golem.State = GolemState.Enabled;
         else if (golem.State == GolemState.Available) golem.State = GolemState.Available;
 
