@@ -15,10 +15,10 @@ Material:
   - _OUTLINEMODE_SOLID
   - _OUTLINEPOSITION_INSIDE_UNDER_SPRITE
   - _OUTLINESHAPE_CONTOUR
-  - _TILEMODE_STRETCH
+  - _TILEMODE_TILE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -43,7 +43,7 @@ Material:
     - _OutlinePosition: 0
     - _OutlineShape: 0
     - _Thickness: 1
-    - _TileMode: 0
+    - _TileMode: 1
     - _Weight: 0.5
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

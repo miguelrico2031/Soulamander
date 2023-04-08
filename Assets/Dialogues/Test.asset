@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _phrases:
   - Text: Hola1 que tal gola qwasdasd asdasdasd dfdf que tal ombreee fin
-    Emote: {fileID: 21300000, guid: 4317f1bf9a9c36f4bab29ff591d65b61, type: 3}
+    Emote: {fileID: 21300000, guid: 64abaa94974867e4195430717ffce990, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: Hola2  como vas chavalin chavalon fin2
-    Emote: {fileID: 21300000, guid: 04a33e2f7edb6cf44ba9e4d2b72300bf, type: 3}
-    IsLast: 1
+    Emote: {fileID: 21300000, guid: 64abaa94974867e4195430717ffce990, type: 3}
+    IsLast: 0
     IsOver: 0
   - Text: 3 3 3 hola que tal eeee chao ahora si un abrazote
-    Emote: {fileID: 21300000, guid: d7c04393bb7e0304ebac8064429e9ff5, type: 3}
-    IsLast: 1
+    Emote: {fileID: 21300000, guid: 64abaa94974867e4195430717ffce990, type: 3}
+    IsLast: 0
     IsOver: 0

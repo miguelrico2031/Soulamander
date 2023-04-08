@@ -30,17 +30,27 @@ public class Spike : MonoBehaviour
         Golem golem = golemGO.GetComponent<Golem>();
         _deathParticlesInstance = Instantiate(_deathParticles, golem.transform.position, _deathParticles.transform.rotation);
         golem.transform.position = _respawn.GetRespawnPoint();
-        //_spirit.transform.position = _respawnPoint.position;
-        _spiritUnion.ExitGolem();
+
+        if(golem.State == GolemState.Enabled)
+        {
+            _spiritUnion.transform.parent.position = golem.transform.position;
+            _spiritUnion.transform.parent.gameObject.SetActive(false);
+        }
+
         golemGO.SetActive(false);
-        //_spirit.SetActive(false);
+
         yield return new WaitForSeconds(_respawnDelay);
-        //_spirit.SetActive(true);
+
         golemGO.SetActive(true);
-        //golem.transform.position = _respawnPoint.position;
-        //_spirit.transform.position = _respawnPoint.position;
-        if (golem.State == GolemState.Enabled) golem.State = GolemState.Enabled;
+        _spiritUnion.transform.parent.gameObject.SetActive(true);
+
+        if (golem.State == GolemState.Enabled)
+        {
+            golem.State = GolemState.Enabled;
+            _spiritUnion.State = SpiritState.Possessing;
+        }
         else if (golem.State == GolemState.Available) golem.State = GolemState.Available;
+
 
     }
 }

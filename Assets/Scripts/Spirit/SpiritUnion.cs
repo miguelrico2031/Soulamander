@@ -8,7 +8,7 @@ public class SpiritUnion : MonoBehaviour
     public SpiritState State
     {
         get { return _state; }
-        private set { ChangeState(value); }
+        set { ChangeState(value); }
     }
 
     public bool CanSwap = true;
