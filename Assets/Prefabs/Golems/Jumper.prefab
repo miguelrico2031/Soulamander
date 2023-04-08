@@ -450,7 +450,7 @@ MonoBehaviour:
   _minJumpForce: 12.5
   _maxJumpForce: 25
   _minJumpTime: 0.1
-  _maxJumpTime: 1
+  _maxJumpTime: 0.75
   _gravityForce: 5
 --- !u!50 &7537533552205766744
 Rigidbody2D:
