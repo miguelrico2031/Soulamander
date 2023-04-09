@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8235022735797843287}
   - component: {fileID: 8235022735797843282}
   - component: {fileID: 4062576529478399085}
-  - component: {fileID: 4626445157034996354}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -49,12 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d76acb1f415703488d824487721291d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _followPlayerX: 0
-  _followPlayerY: 0
-  _zoomOutStart: 0
-  _cameraSize: 8
-  _startingSize: 2
-  _zoomSpeed: 2.5
+  _followPlayerX: 1
+  _followPlayerY: 1
+  _zoomOutStart: 1
+  _cameraSizePPU: 32
+  _startingSizePPU: 100
+  _initialZoomSpeed: 10
   _cameraFollowSmoothSpeed: 3
   _cameraToStaticPosSpeed: 5
   _zOffset: -10
@@ -166,16 +165,3 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
---- !u!114 &4626445157034996354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8235022735797843286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c78cb098b5aa0a41843fcca97e7745e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pixelPerfectCamera: {fileID: 0}

@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Experimental.Rendering.Universal;
 using static UnityEngine.GraphicsBuffer;
 
 public class CameraController : MonoBehaviour
@@ -12,6 +13,7 @@ public class CameraController : MonoBehaviour
     //multiplicador segun la distancia
 
     private Camera _camera;
+    private PixelPerfectCamera _ppCamera;
     private Vector3 _targetPlayer;
     private List<GameObject> _enabledGolems;
     private Vector3 _staticCamPos;
@@ -23,11 +25,11 @@ public class CameraController : MonoBehaviour
     [SerializeField] private bool _followPlayerX;
     [SerializeField] private bool _followPlayerY;
     [SerializeField] private bool _zoomOutStart;
-    [SerializeField] private float _cameraSize;
+    [SerializeField] private int _cameraSizePPU;
 
     [Header("General Settings")]
-    [SerializeField] private float _startingSize;
-    [SerializeField] private float _zoomSpeed;
+    [SerializeField] private int _startingSizePPU;
+    [SerializeField] private float _initialZoomSpeed;
     [SerializeField] private float _cameraFollowSmoothSpeed;
     [SerializeField] private float _cameraToStaticPosSpeed;
     [SerializeField] private float _zOffset;
@@ -37,7 +39,10 @@ public class CameraController : MonoBehaviour
     {
         _cameraBounds.GetComponent<SpriteRenderer>().enabled = false;
         _camera = GetComponent<Camera>();
-        if (_zoomOutStart) _camera.orthographicSize = _startingSize;
+        _ppCamera = GetComponent<PixelPerfectCamera>();
+
+        if (_zoomOutStart) _ppCamera.assetsPPU = _startingSizePPU;
+        else _ppCamera.assetsPPU = _cameraSizePPU;
 
         foreach (CameraController camera in GameObject.FindObjectsOfType<CameraController>())
         {
@@ -48,7 +53,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         _sceneIsEnding = false;
-
+       
         FindAnyObjectByType<Goal>().OnGoalReached += OnRoomEnd;
         _staticCamPos = transform.position;
         _enabledGolems = new List<GameObject>();
@@ -85,12 +90,51 @@ public class CameraController : MonoBehaviour
             }
         }
         ReloadBounds();
+        if (_zoomOutStart) StartCoroutine(Zoom(_cameraSizePPU, _initialZoomSpeed));
+    }
+
+    private IEnumerator Zoom(int targetPPU, float zoomSpeed)
+    {
+        if (!_ppCamera.enabled) Debug.LogError("Zoom en curso");
+        int i = 0;
+        while (i < 5) // goofy bugfix
+        {
+            yield return new WaitForSeconds(Time.deltaTime);
+            i++;
+        }                  
+        bool add = false;
+        int orthograficToPPUConversionConstant = Mathf.RoundToInt(_ppCamera.assetsPPU * _camera.orthographicSize);
+        //Debug.Log(_ppCamera.assetsPPU + " * " + _camera.orthographicSize + " = " + orthograficToPPUConversionConstant);
+        if (targetPPU < _ppCamera.assetsPPU) add = true;        
+        _ppCamera.enabled = false;
+        while (!add)
+        {
+            
+            _camera.orthographicSize -= zoomSpeed * Time.deltaTime;
+
+            if (orthograficToPPUConversionConstant / _camera.orthographicSize >= targetPPU) break;
+
+            yield return null;
+        }
+        while (add)
+        {
+            
+            _camera.orthographicSize += zoomSpeed * Time.deltaTime;
+            
+            if (orthograficToPPUConversionConstant / _camera.orthographicSize <= targetPPU) break;
+           
+            yield return null;
+        }
+        _ppCamera.enabled = true;
+        _ppCamera.assetsPPU = targetPPU;
     }
 
     private void Update()
     {
+        Debug.Log(_camera.orthographicSize);
         if (!_sceneIsEnding)
         {
+            /*
             if (_camera.orthographicSize < _cameraSize)
             {
                 _camera.orthographicSize = Mathf.Clamp((_camera.orthographicSize + _zoomSpeed * Time.deltaTime), 0, _cameraSize);
@@ -99,15 +143,18 @@ public class CameraController : MonoBehaviour
             {
                 _camera.orthographicSize = Mathf.Clamp((_camera.orthographicSize - _zoomSpeed * Time.deltaTime), _cameraSize, 1000);
             }
+            */
             if (!_followPlayerX) MoveCameraX(_staticCamPos.x, _cameraToStaticPosSpeed, true, false);
             if (!_followPlayerY) MoveCameraY(_staticCamPos.y, _cameraToStaticPosSpeed, true, false);
         }
         else
         {
+            /*
             if (_camera.orthographicSize > _startingSize)
             {
                 _camera.orthographicSize = Mathf.Clamp((_camera.orthographicSize - _zoomSpeed * Time.deltaTime), 0, _cameraSize);
             }
+            */
             MoveCameraX(_goalPos.x, _cameraToStaticPosSpeed, true, false);
             MoveCameraY(_goalPos.y, _cameraToStaticPosSpeed, true, false);
         }        
@@ -164,15 +211,15 @@ public class CameraController : MonoBehaviour
         _goalPos = GameObject.FindObjectOfType<Goal>().gameObject.transform.position;
     }
 
-    public void OnEffector(bool changeToFollowPlayerX, bool changeToFollowPlayerY, Vector3 newCamStaticPos, float newCameraSize, Transform newCameraBounds, float timer)
+    public void OnEffector(bool changeToFollowPlayerX, bool changeToFollowPlayerY, Vector3 newCamStaticPos, int newCameraSize, Transform newCameraBounds, float timer)
     {
         bool previousBoolFollowPlayerX = _followPlayerX;
         bool previousBoolFollowPlayerY = _followPlayerY;
         Vector3 previousCamStaticPos = _staticCamPos;
-        float previousCameraSize = _cameraSize;
+        int previousCameraSize = _cameraSizePPU;
         Transform previuousCameraBounds = _cameraBounds;
 
-        _cameraSize = newCameraSize;
+        _cameraSizePPU = newCameraSize;
         _staticCamPos = newCamStaticPos;
         if (newCameraBounds != null) _cameraBounds = newCameraBounds;
         ReloadBounds();
@@ -190,13 +237,13 @@ public class CameraController : MonoBehaviour
         StartCoroutine(RestorePreviousValues(timer, previousBoolFollowPlayerX, previousBoolFollowPlayerY, previousCamStaticPos, previuousCameraBounds, previousCameraSize));
     }
 
-    IEnumerator RestorePreviousValues(float timer, bool previousBoolFollowPlayerX, bool previousBoolFollowPlayerY, Vector3 previousCamStaticPos, Transform previousCameraBounds, float previousCameraSize)
+    IEnumerator RestorePreviousValues(float timer, bool previousBoolFollowPlayerX, bool previousBoolFollowPlayerY, Vector3 previousCamStaticPos, Transform previousCameraBounds, int previousCameraSize)
     {
         yield return new WaitForSeconds(timer);
 
         _cameraBounds = previousCameraBounds;
         ReloadBounds();
-        _cameraSize = previousCameraSize;
+        _cameraSizePPU = previousCameraSize;
         if (previousBoolFollowPlayerX) _followPlayerX = true;
         else
         {
