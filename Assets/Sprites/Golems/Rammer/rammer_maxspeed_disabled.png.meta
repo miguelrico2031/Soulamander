@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52fd7a33f245c534fa49eaeccad7d5dc
+guid: 9594e8fa6f5431a47bbeacd1456b01e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,12 +117,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rammer_idle_0
+      name: rammer_maxspeed_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 50
+        width: 60
         height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -131,19 +131,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ea37be58ed06df409bac3917685f39d
-      internalID: 1048987786
+      spriteID: e3c9e264e18308d42bd75d959a541884
+      internalID: 585300683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_1
+      name: rammer_maxspeed_1
       rect:
         serializedVersion: 2
-        x: 50
+        x: 61
         y: 0
-        width: 50
+        width: 60
         height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -152,19 +152,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f5b3fcab37007b4fa4122a616a52fe9
-      internalID: 1186776458
+      spriteID: 68be687f96ce43544b5c1480b10f3b01
+      internalID: 393789336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_2
+      name: rammer_maxspeed_2
       rect:
         serializedVersion: 2
-        x: 100
+        x: 121
         y: 0
-        width: 50
+        width: 60
         height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -173,19 +173,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4acd3b63f1c5fce468de0f0ed2bc2b8e
-      internalID: 648090666
+      spriteID: b4f982f9dfd5f294880abe343dd33ead
+      internalID: 234236489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_3
+      name: rammer_maxspeed_3
       rect:
         serializedVersion: 2
-        x: 150
+        x: 181
         y: 0
-        width: 50
+        width: 60
         height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c3bcfb8e8ae5b749bcf52f6681ac43d
-      internalID: 1289002113
+      spriteID: 5e3dc63e580492a469f48c91d6eadede
+      internalID: -361377353
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rammer_idle_2: 648090666
-      rammer_idle_0: 1048987786
-      rammer_idle_3: 1289002113
-      rammer_idle_1: 1186776458
+      rammer_maxspeed_1: 393789336
+      rammer_maxspeed_0: 585300683
+      rammer_maxspeed_3: -361377353
+      rammer_maxspeed_2: 234236489
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

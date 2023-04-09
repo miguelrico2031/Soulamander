@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52fd7a33f245c534fa49eaeccad7d5dc
+guid: 4229ee573391c67408713ccad27db4d4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,85 +117,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rammer_idle_0
+      name: rammer_running_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 50
-        height: 47
+        width: 55
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ea37be58ed06df409bac3917685f39d
-      internalID: 1048987786
+      spriteID: c52b8ee886b07c042994a3b1a83f241c
+      internalID: -1194315100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_1
+      name: rammer_running_1
       rect:
         serializedVersion: 2
-        x: 50
+        x: 62
         y: 0
-        width: 50
-        height: 47
+        width: 55
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f5b3fcab37007b4fa4122a616a52fe9
-      internalID: 1186776458
+      spriteID: 21420cea9c47c7d42a0add4e890c9a0c
+      internalID: -1994107719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_2
+      name: rammer_running_2
       rect:
         serializedVersion: 2
-        x: 100
+        x: 121
         y: 0
-        width: 50
-        height: 47
+        width: 55
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4acd3b63f1c5fce468de0f0ed2bc2b8e
-      internalID: 648090666
+      spriteID: cc56420a0f8e6b24997e7e38ddde38b8
+      internalID: 1539934396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_3
+      name: rammer_running_3
       rect:
         serializedVersion: 2
-        x: 150
+        x: 180
         y: 0
-        width: 50
-        height: 47
+        width: 55
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c3bcfb8e8ae5b749bcf52f6681ac43d
-      internalID: 1289002113
+      spriteID: 259a191d82b3b9c4aa1b85446a867803
+      internalID: -473558186
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rammer_idle_2: 648090666
-      rammer_idle_0: 1048987786
-      rammer_idle_3: 1289002113
-      rammer_idle_1: 1186776458
+      rammer_running_1: -1994107719
+      rammer_running_3: -473558186
+      rammer_running_0: -1194315100
+      rammer_running_2: 1539934396
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

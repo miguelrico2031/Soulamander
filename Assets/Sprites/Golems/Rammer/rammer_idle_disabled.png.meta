@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52fd7a33f245c534fa49eaeccad7d5dc
+guid: 32985c5ef32249d42bc51e481fb334ad
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rammer_idle_0
+      name: rammer_idle_disabled_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ea37be58ed06df409bac3917685f39d
-      internalID: 1048987786
+      spriteID: 5cf12cd487eba90438e7dd5175753554
+      internalID: 1022727225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_1
+      name: rammer_idle_disabled_1
       rect:
         serializedVersion: 2
         x: 50
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f5b3fcab37007b4fa4122a616a52fe9
-      internalID: 1186776458
+      spriteID: 5d3fb146b484dc8429e52659318f4db7
+      internalID: -2052781869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_2
+      name: rammer_idle_disabled_2
       rect:
         serializedVersion: 2
         x: 100
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4acd3b63f1c5fce468de0f0ed2bc2b8e
-      internalID: 648090666
+      spriteID: 67eaec13563cfcf479fdf3df957a21ca
+      internalID: 1341019505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_3
+      name: rammer_idle_disabled_3
       rect:
         serializedVersion: 2
         x: 150
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c3bcfb8e8ae5b749bcf52f6681ac43d
-      internalID: 1289002113
+      spriteID: 388b7825e886e614b9a0bd9c315a8d83
+      internalID: -787772891
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rammer_idle_2: 648090666
-      rammer_idle_0: 1048987786
-      rammer_idle_3: 1289002113
-      rammer_idle_1: 1186776458
+      rammer_idle_disabled_3: -787772891
+      rammer_idle_disabled_0: 1022727225
+      rammer_idle_disabled_1: -2052781869
+      rammer_idle_disabled_2: 1341019505
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

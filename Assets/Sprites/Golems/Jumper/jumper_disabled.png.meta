@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52fd7a33f245c534fa49eaeccad7d5dc
+guid: 8d097763faafe674aaaa71fc33cbff63
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rammer_idle_0
+      name: jumper_jump_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 50
-        height: 47
+        x: 1
+        y: 1
+        width: 44
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ea37be58ed06df409bac3917685f39d
-      internalID: 1048987786
+      spriteID: a8ab0d2df457bf1448550f6f524f58a9
+      internalID: 1393329324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_1
+      name: jumper_jump_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 50
-        height: 47
+        x: 46
+        y: 1
+        width: 44
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f5b3fcab37007b4fa4122a616a52fe9
-      internalID: 1186776458
+      spriteID: 2d404b328c0406847877448c74f65707
+      internalID: -2102771810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_2
+      name: jumper_jump_2
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 50
-        height: 47
+        x: 91
+        y: 1
+        width: 44
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4acd3b63f1c5fce468de0f0ed2bc2b8e
-      internalID: 648090666
+      spriteID: c35f20179a8a02e4ab5e1ff6f1ef0738
+      internalID: -1389824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rammer_idle_3
+      name: jumper_jump_3
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 50
-        height: 47
+        x: 136
+        y: 1
+        width: 44
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c3bcfb8e8ae5b749bcf52f6681ac43d
-      internalID: 1289002113
+      spriteID: d6a128cdeb75c9e469b7cbc1c762d48f
+      internalID: -1420203451
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rammer_idle_2: 648090666
-      rammer_idle_0: 1048987786
-      rammer_idle_3: 1289002113
-      rammer_idle_1: 1186776458
+      jumper_jump_1: -2102771810
+      jumper_jump_3: -1420203451
+      jumper_jump_2: -1389824
+      jumper_jump_0: 1393329324
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
