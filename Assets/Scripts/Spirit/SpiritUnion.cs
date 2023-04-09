@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
 
 public class SpiritUnion : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class SpiritUnion : MonoBehaviour
     private int _npcLayer;
     private NPC _npcInArea;
     private bool _justEndedDialogue = false;
+    private Light2D _light;
     
 
 
@@ -48,6 +50,7 @@ public class SpiritUnion : MonoBehaviour
         _collider = transform.parent.GetComponent<Collider2D>();
         _golemTrigger = GetComponent<Collider2D>();
         _rb = transform.parent.GetComponent<Rigidbody2D>();
+        _light = transform.parent.GetComponentInChildren<Light2D>();
         _npcLayer = LayerMask.NameToLayer("NPC");
         State = SpiritState.Roaming;
     }
@@ -159,6 +162,7 @@ public class SpiritUnion : MonoBehaviour
                 _rb.velocity = Vector2.zero;
                 _spriteRenderer.enabled = true;
                 _fireTrail.Play();
+                _light.enabled = true;
                 break;
 
             case SpiritState.Traveling:
@@ -169,6 +173,7 @@ public class SpiritUnion : MonoBehaviour
                 _golemTrigger.enabled = false;
                 _npcTrigger.enabled = false;
                 _fireTrail.Play();
+                _light.enabled = true;
                 break;
 
             case SpiritState.Possessing:
@@ -180,6 +185,7 @@ public class SpiritUnion : MonoBehaviour
                 _rb.velocity = Vector2.zero;
                 _spriteRenderer.enabled = false;
                 _fireTrail.Stop();
+                _light.enabled = false;
                 break;
         }
 
