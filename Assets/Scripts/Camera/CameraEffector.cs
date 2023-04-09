@@ -12,7 +12,7 @@ public class CameraEffector : MonoBehaviour
     [SerializeField] private bool _onlyActivateOnce;
     [SerializeField] private bool _changeToFollowPlayerX;
     [SerializeField] private bool _changeToFollowPlayerY;
-    [SerializeField] private float _newCameraSize;
+    [SerializeField] private int _newCameraSize;
     [SerializeField] private Transform _newCameraBounds;
     [SerializeField] private float _timerBeforeReturnPreviousValues; // si timer == 0 se considera que no hay timer (el cambio se mantiene para siempre)
     [SerializeField] private Transform _newCamStaticPos;
