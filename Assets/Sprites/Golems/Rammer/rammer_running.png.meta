@@ -120,12 +120,12 @@ TextureImporter:
       name: rammer_running_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 59
-        height: 44
+        x: 3
+        y: 0
+        width: 55
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: rammer_running_1
       rect:
         serializedVersion: 2
-        x: 61
-        y: 1
-        width: 59
-        height: 44
+        x: 62
+        y: 0
+        width: 55
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,11 +163,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 121
-        y: 1
-        width: 59
-        height: 44
+        y: 0
+        width: 55
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: rammer_running_3
       rect:
         serializedVersion: 2
-        x: 181
-        y: 1
-        width: 59
-        height: 44
+        x: 180
+        y: 0
+        width: 55
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
