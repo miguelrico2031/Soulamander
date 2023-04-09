@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Vacuum : MonoBehaviour
 {
-    [SerializeField] private float _spiritSuckDuration;
+    [SerializeField] private float _spiritSuckDuration, _rotationSpeed;
     private int _spiritLayer, _golemLayer;
     private Golem _golemBeingSucked;
     private SpiritUnion _spiritUnion;
@@ -23,6 +23,7 @@ public class Vacuum : MonoBehaviour
 
     private void Update()
     {
+        transform.Rotate(Vector3.forward, _rotationSpeed * Time.deltaTime);
         if (!_golemBeingSucked) return;
 
         _suckTime += Time.deltaTime;
@@ -32,6 +33,8 @@ public class Vacuum : MonoBehaviour
             if(_golemBeingSucked.State == GolemState.Enabled) _spiritUnion.VacuumSpirit(transform);
             _golemBeingSucked = null;
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
