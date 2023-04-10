@@ -15,61 +15,61 @@ MonoBehaviour:
   _phrases:
   - Text: "\xBFQu\xE9 es eso? No puede ser... \xBFUn golem \u2026 ? \xBFse est\xE1
       moviendo? "
-    Emote: {fileID: 119673879, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: 1864398730, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "No puede ser\u2026 seguro que es solo que me est\xE1n gastando una broma."
-    Emote: {fileID: -503021160, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -1101275521, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Siempre aprovech\xE1ndose de que soy nueva para asustarme."
-    Emote: {fileID: -466627203, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: 1679744451, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Espera\u2026 no puede ser\u2026 la luz\u2026 tienes la luz encendida\u2026
       como se cuenta en los relatos\u2026"
-    Emote: {fileID: 119673879, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: 1864398730, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 1
+    IsOver: 0
   - Text: "Eres un golem de verdad\u2026"
     Emote: {fileID: -1599704111, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 1
+    IsOver: 0
   - Text: "Se pensaba que todos hab\xEDais muerto en la guerra de los golems."
-    Emote: {fileID: 119673879, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: 1864398730, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 0
   - Text: "No me lo puedo creer, por fin encuentro algo interesante, ya no ser\xE9
       la inutil del grupo."
-    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 0
   - Text: Tengo muchas preguntas que hacerte...
-    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 0
   - Text: "Aunque supongo que va a ser dif\xEDcil si no puedes hablar."
-    Emote: {fileID: -1668986495, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -942866254, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 0
   - Text: "Bueno no te preocupes, ser\xE9 yo la que hable."
-    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 0
   - Text: "Soy parte de un grupo de arque\xF3logos y exploradores que estamos trabajando
       en estas ruinas."
-    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 0
   - Text: "Poco se sabe de lo que les ocurri\xF3 a los golems o a la civilizaci\xF3n
       que erigi\xF3 estas ruinas, as\xED queremos ser los primeros en desvelar estos
       misterios."
-    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 0
   - Text: "No se cual ser\xE1 tu prop\xF3sito pero si continuas hacia delante te
       encontrar\xE1s con m\xE1s de mis compa\xF1eros , seguro que ellos estar\xE1n
       encantados de ayudarte."
-    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 0

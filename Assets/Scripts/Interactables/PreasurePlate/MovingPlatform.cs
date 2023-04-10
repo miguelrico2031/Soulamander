@@ -9,7 +9,7 @@ public class MovingPlatform : PreassureListener
     [SerializeField] private int _initialWaypoint;
     [SerializeField] private bool _cyclePath;
     [SerializeField] private bool _initialDirectionPositive;
-    [SerializeField] private int _numberOfPressurePlates;
+    [SerializeField] private int _numberOfPressurePlatesNeeded;
     [SerializeField] private float _speed;
 
     [Header("General Settings")]
@@ -34,12 +34,17 @@ public class MovingPlatform : PreassureListener
         {
             t.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
+        if (_pressurePlatesActive == _numberOfPressurePlatesNeeded)
+        {
+            _isActive = true;
+            _platform.GetComponent<MovingPlatformChild>().OnMove();
+        }
     }
 
     public override void OnPlatePressed()
     {
         _pressurePlatesActive++;
-        if (_pressurePlatesActive != _numberOfPressurePlates) return;
+        if (_pressurePlatesActive != _numberOfPressurePlatesNeeded) return;
 
         _isActive = true;
         _platform.GetComponent<MovingPlatformChild>().OnMove();
@@ -47,7 +52,7 @@ public class MovingPlatform : PreassureListener
 
     public override void OnPlateUnpressed()
     {
-        if (_pressurePlatesActive == _numberOfPressurePlates)
+        if (_pressurePlatesActive == _numberOfPressurePlatesNeeded)
         {
             _isActive = false;
             _platform.GetComponent<MovingPlatformChild>().OnStop();

@@ -143,6 +143,7 @@ public class Rammer : Golem
 
     public void StopRunning()
     {
+        _isPushing = false;
         _speed = 0;
         _rb.velocity = new Vector2(0f, _rb.velocity.y);
         _isAtMaxSpeed = false;

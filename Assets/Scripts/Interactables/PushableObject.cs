@@ -15,7 +15,7 @@ public class PushableObject : MonoBehaviour
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private float _groundCheckOffset;
 
-
+    private bool _touchingScout;
     private bool _isGrounded;
     private Collider2D[] _wallHitColliders;
     private ContactFilter2D _wallCheckCF;
@@ -62,7 +62,7 @@ public class PushableObject : MonoBehaviour
         //    _rb.isKinematic = true;
         //}
 
-        _rb.isKinematic = HasHitWall && RayCastHitGround();
+        if (!_touchingScout) _rb.isKinematic = HasHitWall && RayCastHitGround();
     }
 
     private bool RayCastHitGround()
@@ -107,6 +107,7 @@ public class PushableObject : MonoBehaviour
     private void WallAndRammerCheck()
     {
         HasHitWall = false;
+        _touchingScout = false;
         _wallHitColliders = new Collider2D[6];
         _wallHitsSize =
             Physics2D.OverlapBox(_collider.bounds.center, _collider.size * 1.8f + Vector2.right * 0.22f, 0f, _wallCheckCF, _wallHitColliders);
@@ -126,7 +127,12 @@ public class PushableObject : MonoBehaviour
 
             else if ((_golemLayer.value & (1 << col.gameObject.layer)) > 0)
             {
-                _rb.isKinematic = !col.TryGetComponent<Rammer>(out Rammer doNotUse);
+                if (col.TryGetComponent<Rammer>(out Rammer doNotUse)) _rb.isKinematic = false;
+                else
+                {
+                    _rb.isKinematic = true;
+                    _touchingScout = true;
+                }
             }
         }
     }
