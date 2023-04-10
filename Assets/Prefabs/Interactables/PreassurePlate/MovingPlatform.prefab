@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1436511589
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: -10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -223,7 +223,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1436511589
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: -10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -257,7 +257,7 @@ MonoBehaviour:
   _initialWaypoint: 0
   _cyclePath: 1
   _initialDirectionPositive: 1
-  _numberOfPressurePlates: 1
+  _numberOfPressurePlatesNeeded: 0
   _speed: 2
   _platform: {fileID: 522789350588810348}
   _changeWaypointDistance: 0.05

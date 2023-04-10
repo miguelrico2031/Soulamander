@@ -29,8 +29,7 @@ public class Scout : Golem
 
     private bool _lerpingToGolem = false;
     private float _lerpTime = 0f;
-    private Vector2 _lerpTarget;
-    private float _xVelocity;
+    Vector2 _lerpTarget;
 
     protected override void Awake()
     {
@@ -151,12 +150,12 @@ public class Scout : Golem
 
         if (State != GolemState.Enabled) return;
 
-        _xVelocity = _horizontal * _speed;
-        if (IsOnMovingPlatform) _xVelocity *= _onPlatformSpeedMultiplier;
-
-        _rb.velocity = new Vector2(_xVelocity, _rb.velocity.y);
-
-        _animator.SetFloat("Speed", Mathf.Abs(_xVelocity));
+        if (!IsOnMovingPlatform) _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
+        if (IsOnMovingPlatform)
+        {
+            _rb.velocity = new Vector2(_horizontal * _speed * _onPlatformSpeedMultiplier, _rb.velocity.y);
+        }
+        _animator.SetFloat("Speed", Mathf.Abs(_horizontal * _speed));
     }
 
     private void ClearKeyInQueue()

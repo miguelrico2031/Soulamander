@@ -60,7 +60,7 @@ public class MovingPlatform : PreassureListener
         _pressurePlatesActive--;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!_isActive) return;
 
@@ -95,6 +95,6 @@ public class MovingPlatform : PreassureListener
 
     private void MoveToNextWaypoint(Vector3 target)
     {
-        _platform.transform.position = Vector3.MoveTowards(_platform.transform.position, target, _speed * Time.deltaTime);
+        _platform.transform.position = Vector3.MoveTowards(_platform.transform.position, target, _speed * Time.fixedDeltaTime);
     }
 }

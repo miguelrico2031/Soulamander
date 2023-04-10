@@ -7,7 +7,7 @@ public class PressurePlate : MonoBehaviour
     [SerializeField] List<GameObject> _listeners;
 
     [SerializeField] private LayerMask _golemLayer;
-    [SerializeField] private BoxCollider2D _collider;   
+    //[SerializeField] private BoxCollider2D _collider;   
 
     private bool _isBeingPressed;
     private bool _listenersActive;
