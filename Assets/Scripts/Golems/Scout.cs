@@ -148,11 +148,10 @@ public class Scout : Golem
 
         if (State != GolemState.Enabled) return;
 
-        _xVelocity = _horizontal * _speed;
 
-        _rb.velocity = new Vector2(_xVelocity, _rb.velocity.y);
+        _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
         
-        _animator.SetFloat("Speed", Mathf.Abs(_xVelocity));
+        _animator.SetFloat("Speed", Mathf.Abs(_horizontal * _speed));
     }
 
     private void ClearKeyInQueue()
