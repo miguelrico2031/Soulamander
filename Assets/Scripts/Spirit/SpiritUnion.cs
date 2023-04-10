@@ -54,15 +54,16 @@ public class SpiritUnion : MonoBehaviour
         _npcLayer = LayerMask.NameToLayer("NPC");
         State = SpiritState.Roaming;
     }
-    private void Start()
+    private IEnumerator Start()
     {
         
         foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
         {           
             if (golem.StartsScenePossed)
             {
+                yield return new WaitForSeconds(0.1f);
                 PossessGolem(golem);
-                return;
+                yield break;
             }
         }
     }
@@ -262,6 +263,7 @@ public class SpiritUnion : MonoBehaviour
         if (!golem || State != SpiritState.Roaming) return;
         if (CheckIfOverlapping(golem)) return;
 
+
         _golemInPossession = golem;
 
         if(!_avaliableGolems.Contains(_golemInPossession)) _avaliableGolems.Add(_golemInPossession);
@@ -360,9 +362,10 @@ public class SpiritUnion : MonoBehaviour
     private bool CheckIfOverlapping(Golem golem)
     {
         if (golem.State != GolemState.Disabled) return false;
-
         CircleCollider2D golemUnionCol = golem.GetComponentInChildren<CircleCollider2D>();
-        return Physics2D.OverlapCircle(golemUnionCol.bounds.center, golemUnionCol.radius, _golemLayer);
+        var c = Physics2D.OverlapCircle(golemUnionCol.bounds.center, golemUnionCol.radius, _golemLayer);
+        if(c) Debug.Log(c.gameObject);
+        return c;
     }
 }
 

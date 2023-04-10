@@ -46,7 +46,7 @@ public class CameraController : MonoBehaviour
 
         foreach (CameraController camera in GameObject.FindObjectsOfType<CameraController>())
         {
-            if (camera.gameObject != transform.gameObject) Debug.LogError("Hay más de una camara con el componente CameraController en la escena");
+            if (camera.gameObject != transform.gameObject) Debug.LogError("Hay mï¿½s de una camara con el componente CameraController en la escena");
         }
     }
 
@@ -131,6 +131,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        //Debug.Log(_camera.orthographicSize);
         if (!_sceneIsEnding)
         {
             /*
