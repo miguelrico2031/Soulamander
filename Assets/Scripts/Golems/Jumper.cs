@@ -57,7 +57,7 @@ public class Jumper : Golem
             }
             else if(/*transform.parent == null*/ !IsBeingCarried) _rb.isKinematic = false;
         }
-        if (State != GolemState.Enabled) return;
+        if (State != GolemState.Enabled || IsTalking) return;
 
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
@@ -107,7 +107,6 @@ public class Jumper : Golem
             _lerpTime += Time.fixedDeltaTime * 10f;
 
             if (Vector2.Distance(transform.position, _lerpTarget) > 0.05f) return;
-            //if (Mathf.Abs(transform.position.x - _lerpTarget.x) > 0.05f) return;
 
             _lerpTime = 0f;
             _lerpingToGolem = false;
@@ -116,7 +115,7 @@ public class Jumper : Golem
             _eastCollider.gameObject.SetActive(false);
         }
 
-        if (!_isGrounded && /*transform.parent == null*/ !IsBeingCarried) _rb.velocity += _gravity * Time.fixedDeltaTime;
+        if (!_isGrounded && !IsBeingCarried) _rb.velocity += _gravity * Time.fixedDeltaTime;
 
     }
 
