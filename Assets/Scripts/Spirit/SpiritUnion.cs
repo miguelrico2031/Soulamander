@@ -56,8 +56,9 @@ public class SpiritUnion : MonoBehaviour
     }
     private void Start()
     {
+        
         foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
-        {
+        {           
             if (golem.StartsScenePossed)
             {
                 PossessGolem(golem);
@@ -68,7 +69,7 @@ public class SpiritUnion : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch(State)
+        switch (State)
         {
             case SpiritState.Roaming:
                 if (_golemsInArea.Count >= 2) RecalcNearestGolem();

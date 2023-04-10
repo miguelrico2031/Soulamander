@@ -48,6 +48,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: abaf95fdd2cf26540977150eda55570b, type: 3}
     - {fileID: 2800000, guid: d9af0eee5345d70498933d4291ff4e24, type: 3}
     - {fileID: 2800000, guid: 7fe27a9eea78e12478e8ca472102f095, type: 3}
+    - {fileID: 2800000, guid: e450d0cf44d934344a321396a057a667, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -310,6 +311,25 @@ SpriteAtlas:
   - {fileID: -189248260, guid: d9af0eee5345d70498933d4291ff4e24, type: 3}
   - {fileID: -788669728, guid: d9af0eee5345d70498933d4291ff4e24, type: 3}
   - {fileID: 1048001927, guid: d9af0eee5345d70498933d4291ff4e24, type: 3}
+  - {fileID: 1798263140, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: 421126579, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: -1887610461, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: 1735495291, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: -1848901934, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: 1276551451, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: -1357315525, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: -349624285, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: 1499105170, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: -605737803, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: 1726880035, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: -1284971036, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: 1637776755, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: -264013340, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: 1915842439, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: 630929010, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: 1097826902, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: 57288384, guid: e450d0cf44d934344a321396a057a667, type: 3}
+  - {fileID: -1000695698, guid: e450d0cf44d934344a321396a057a667, type: 3}
   m_PackedSpriteNamesToIndex:
   - musgo-Sheet (2)_0
   - musgo-SheetDEFINITIVO_80
@@ -568,6 +588,25 @@ SpriteAtlas:
   - musgo-SheetDEFINITIVO 1_1
   - musgo-SheetDEFINITIVO 1_0
   - musgo-SheetDEFINITIVO 1_2
+  - pinchos-Sheet_8
+  - pinchos-Sheet_9
+  - pinchos-Sheet_0
+  - pinchos-Sheet_1
+  - pinchos-Sheet_2
+  - pinchos-Sheet_3
+  - pinchos-Sheet_4
+  - pinchos-Sheet_5
+  - pinchos-Sheet_6
+  - pinchos-Sheet_7
+  - pinchos-Sheet_18
+  - pinchos-Sheet_13
+  - pinchos-Sheet_12
+  - pinchos-Sheet_11
+  - pinchos-Sheet_10
+  - pinchos-Sheet_17
+  - pinchos-Sheet_16
+  - pinchos-Sheet_15
+  - pinchos-Sheet_14
   m_RenderDataMap: {}
   m_Tag: SpriteAtlas
   m_IsVariant: 0

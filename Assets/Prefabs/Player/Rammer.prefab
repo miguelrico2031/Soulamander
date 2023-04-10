@@ -211,10 +211,10 @@ MonoBehaviour:
   _collider: {fileID: 5470204669822148246}
   _extendedCollider: {fileID: 549722369420772108}
   IsFacingRight: 1
-  _maxSpeed: 10
-  _initialSpeed: 2
-  _pushSpeed: 2
-  _acceleration: 10
+  _maxSpeed: 12
+  _initialSpeed: 2.5
+  _pushSpeed: 2.5
+  _acceleration: 12
   _wallCheckOffsetY: 0.15
   _wallCheckOffsetX: 0.01
   _groundCheckOffset: 0.05

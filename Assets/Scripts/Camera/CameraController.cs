@@ -131,7 +131,6 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_camera.orthographicSize);
         if (!_sceneIsEnding)
         {
             /*
@@ -177,8 +176,12 @@ public class CameraController : MonoBehaviour
 
         if (_enabledGolems.Count == 0)
         {
-            if (_followPlayerX) _targetPlayer.x = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.x;
-            if (_followPlayerY) _targetPlayer.y = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.y;
+            if (GameObject.FindObjectOfType<SpiritMovement>().gameObject != null)
+            {
+                if (_followPlayerX) _targetPlayer.x = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.x;
+                if (_followPlayerY) _targetPlayer.y = GameObject.FindObjectOfType<SpiritMovement>().gameObject.transform.position.y;
+            }
+            
         }
 
         if (_enabledGolems.Count == 1) 

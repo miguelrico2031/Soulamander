@@ -139,7 +139,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752224337622380402}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff157186b2975f242a0f248ab72ec67d, type: 3}
   m_Name: 
@@ -1987,7 +1987,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6572545193586010810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff157186b2975f242a0f248ab72ec67d, type: 3}
   m_Name: 
@@ -2231,7 +2231,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6849090624251416357}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff157186b2975f242a0f248ab72ec67d, type: 3}
   m_Name: 
@@ -3390,7 +3390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a05ad9906bd414cb123d7dde722cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _atmosColor: {r: 0.88235295, g: 0.7058824, b: 0.19215687, a: 0.078431375}
+  _atmosColor: {r: 0.88235295, g: 0.7058824, b: 0.19215687, a: 0.09803922}
   _atmosImages:
   - {fileID: 8778810666859829559}
   - {fileID: 3113695151082523644}
