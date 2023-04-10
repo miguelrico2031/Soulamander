@@ -131,7 +131,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_camera.orthographicSize);
+        //Debug.Log(_camera.orthographicSize);
         if (!_sceneIsEnding)
         {
             /*

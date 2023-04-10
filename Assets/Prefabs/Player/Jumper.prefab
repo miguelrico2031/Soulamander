@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032078851}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -525,7 +525,7 @@ SpriteRenderer:
   m_SortingLayerID: -1754242433
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1393329324, guid: 454052485ca148d47ad3058537b998f1, type: 3}
+  m_Sprite: {fileID: 1393329324, guid: 8d097763faafe674aaaa71fc33cbff63, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
