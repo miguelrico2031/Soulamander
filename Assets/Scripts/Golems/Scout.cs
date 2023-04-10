@@ -20,7 +20,6 @@ public class Scout : Golem
     [SerializeField] private float _groundCheckOffset;
     [SerializeField] private float _inputBufferTime;
     [SerializeField] private float _coyoteTime;
-    [SerializeField] private float _onPlatformSpeedMultiplier;
 
     [SerializeField] private LayerMask _groundLayer;
 
@@ -35,7 +34,6 @@ public class Scout : Golem
     protected override void Awake()
     {
         base.Awake();
-        IsOnMovingPlatform = false;
         _buttonQueue = new Queue<ButtonToQueue>();
 
         _groundCheckPoints = new Vector3[]
@@ -152,10 +150,9 @@ public class Scout : Golem
         if (State != GolemState.Enabled) return;
 
         _xVelocity = _horizontal * _speed;
-        if (IsOnMovingPlatform) _xVelocity *= _onPlatformSpeedMultiplier;
 
         _rb.velocity = new Vector2(_xVelocity, _rb.velocity.y);
-
+        
         _animator.SetFloat("Speed", Mathf.Abs(_xVelocity));
     }
 

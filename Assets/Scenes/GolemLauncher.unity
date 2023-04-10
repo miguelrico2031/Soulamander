@@ -423,6 +423,10 @@ PrefabInstance:
       propertyPath: _followPlayerY
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8235022735797843284, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
+      propertyPath: orthographic size
+      value: 9.53125
+      objectReference: {fileID: 0}
     - target: {fileID: 8235022735797843285, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -487,6 +491,10 @@ PrefabInstance:
     - target: {fileID: 2504964951886904784, guid: 1d255d726637a12408fb813350bf2ecd, type: 3}
       propertyPath: _waypoints.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504964951886904784, guid: 1d255d726637a12408fb813350bf2ecd, type: 3}
+      propertyPath: _numberOfPressurePlatesNeeded
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2504964951886904787, guid: 1d255d726637a12408fb813350bf2ecd, type: 3}
       propertyPath: m_Name
@@ -583,11 +591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376631464686957810, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.63
+      value: -12.1
       objectReference: {fileID: 0}
     - target: {fileID: 2376631464686957810, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.52
+      value: -3.36
       objectReference: {fileID: 0}
     - target: {fileID: 2376631464686957810, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
       propertyPath: m_LocalPosition.z
@@ -631,7 +639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376631464686957812, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
       propertyPath: _onPlatformSpeedMultiplier
-      value: 1.5
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 2376631464686957815, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
       propertyPath: m_Name
@@ -2541,6 +2549,10 @@ PrefabInstance:
       propertyPath: StartsScenePossed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2376631464686957812, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
+      propertyPath: _onPlatformSpeedMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2376631464686957815, guid: baf4463533bfad74e8d145a735c36eda, type: 3}
       propertyPath: m_Name
       value: Scout (1)
@@ -2560,11 +2572,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 681519905581774403, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9346652
+      value: -12.11
       objectReference: {fileID: 0}
     - target: {fileID: 681519905581774403, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.4939818
+      value: -3.35
       objectReference: {fileID: 0}
     - target: {fileID: 681519905581774403, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
       propertyPath: m_LocalPosition.z

@@ -22,7 +22,6 @@ public class Rammer : Golem
     [SerializeField] private float _wallCheckOffsetY;
     [SerializeField] private float _wallCheckOffsetX;
     [SerializeField] private float _groundCheckOffset;
-    [SerializeField] private float _onPlatformSpeedMultiplier;
 
     [SerializeField] private LayerMask _interactableLayers;
     [SerializeField] private LayerMask _groundLayer;
@@ -131,11 +130,8 @@ public class Rammer : Golem
         WallCheck();
 
 
-        if (!IsOnMovingPlatform) _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
-        if (IsOnMovingPlatform)
-        {
-            _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction * _onPlatformSpeedMultiplier, _rb.velocity.y);
-        }
+        _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
+
         _animator.SetFloat("Speed", Mathf.Abs((_isPushing ? _pushSpeed : _speed) * _direction));
     } 
         

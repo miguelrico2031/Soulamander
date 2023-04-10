@@ -37,7 +37,6 @@ public class MovingPlatform : PreassureListener
         if (_pressurePlatesActive == _numberOfPressurePlatesNeeded)
         {
             _isActive = true;
-            _platform.GetComponent<MovingPlatformChild>().OnMove();
         }
     }
 
@@ -47,7 +46,6 @@ public class MovingPlatform : PreassureListener
         if (_pressurePlatesActive != _numberOfPressurePlatesNeeded) return;
 
         _isActive = true;
-        _platform.GetComponent<MovingPlatformChild>().OnMove();
     }
 
     public override void OnPlateUnpressed()
@@ -55,12 +53,11 @@ public class MovingPlatform : PreassureListener
         if (_pressurePlatesActive == _numberOfPressurePlatesNeeded)
         {
             _isActive = false;
-            _platform.GetComponent<MovingPlatformChild>().OnStop();
         }
         _pressurePlatesActive--;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!_isActive) return;
 
@@ -95,6 +92,6 @@ public class MovingPlatform : PreassureListener
 
     private void MoveToNextWaypoint(Vector3 target)
     {
-        _platform.transform.position = Vector3.MoveTowards(_platform.transform.position, target, _speed * Time.deltaTime);
+        _platform.transform.position = Vector3.MoveTowards(_platform.transform.position, target, _speed * Time.fixedDeltaTime);
     }
 }
