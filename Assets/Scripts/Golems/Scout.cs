@@ -28,8 +28,7 @@ public class Scout : Golem
 
     private bool _lerpingToGolem = false;
     private float _lerpTime = 0f;
-    private Vector2 _lerpTarget;
-    private float _xVelocity;
+    Vector2 _lerpTarget;
 
     protected override void Awake()
     {
