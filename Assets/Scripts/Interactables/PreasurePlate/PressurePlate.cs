@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    [SerializeField] List<GameObject> _listeners;
-
+    [SerializeField] private List<GameObject> _listeners;
+    [SerializeField] private float _animationSpeed;
     [SerializeField] private LayerMask _golemLayer;
+    [SerializeField] private Transform _ramps;
     //[SerializeField] private BoxCollider2D _collider;   
 
+    [SerializeField] private Transform _animationTargetPos;
+    private bool revertingAnimation;
+    private float _startingPositionY;
     private bool _isBeingPressed;
     private bool _listenersActive;
+
+    private void Start()
+    {
+        _startingPositionY = transform.position.y;
+    }
 
     private void Update()
     {
@@ -42,14 +51,42 @@ public class PressurePlate : MonoBehaviour
     {
         if ((_golemLayer.value & (1 << collision.gameObject.layer)) <= 0) return;
         
-        if (collision.contacts[0].normal.y < 0f)
-        {
-            _isBeingPressed = true;
-        }
+        if (collision.contacts[0].normal.y >= 0f) return;
+        collision.transform.SetParent(transform);
+        _isBeingPressed = true;
+        StartCoroutine(PlateAnimation());
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if ((_golemLayer.value & (1 << collision.gameObject.layer)) <= 0) return;
+        collision.transform.SetParent(null);
         _isBeingPressed = false;
+        StartCoroutine(RevertAnimation());
+    }
+
+    IEnumerator PlateAnimation()
+    {
+        revertingAnimation = false;
+        while (!revertingAnimation)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - _animationSpeed * Time.fixedDeltaTime, transform.position.z);
+            _ramps.position  = new Vector3(_ramps.position.x, _ramps.position.y - _animationSpeed * Time.fixedDeltaTime, _ramps.position.z);
+            if (transform.position.y <= _animationTargetPos.position.y) break;
+            yield return null;        
+        }
+    }
+    IEnumerator RevertAnimation()
+    {
+        
+        revertingAnimation = true;
+        while (revertingAnimation)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + _animationSpeed / 4 * Time.fixedDeltaTime, transform.position.z);
+            _ramps.position  = new Vector3(_ramps.position.x, _ramps.position.y + _animationSpeed / 4 * Time.fixedDeltaTime, _ramps.position.z);
+            if (transform.position.y >= _startingPositionY) break;
+            yield return null;            
+        }
+        revertingAnimation = false;
     }
 }

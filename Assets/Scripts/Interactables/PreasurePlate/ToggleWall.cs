@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class ToggleWall : PreassureListener
 {
-
-    [SerializeField] private GameObject _wall;
+    [Header("Instance Settings")]
     [SerializeField] private bool _initialStateClosed;
     [SerializeField] private int _numberOfPressurePlates;
+
+    [Header("Unity Setup")]
+    [SerializeField] private GameObject _collider;
+    [SerializeField] private Animator _spriteDoorAnimator;
+    [SerializeField] private float _colliderDelayAnim;
+    
 
     private int _pressurePlatesActive;
 
     private void Start()
     {
         _pressurePlatesActive = 0;
-        if (!_initialStateClosed) _wall.SetActive(false);
+        if (!_initialStateClosed) _collider.SetActive(false);
     }
 
     public override void OnPlatePressed()
@@ -24,11 +29,11 @@ public class ToggleWall : PreassureListener
 
         if (_initialStateClosed)
         {
-            OpenWall();
+            StartCoroutine(OpenWall());
         }
         else
         {
-            CloseWall();
+            StartCoroutine(CloseWall());
         }
     }
     public override void OnPlateUnpressed()
@@ -38,23 +43,29 @@ public class ToggleWall : PreassureListener
             
             if (_initialStateClosed)
             {
-                CloseWall();
+                StartCoroutine(CloseWall());
             }
             else
             {
-                OpenWall();
+                StartCoroutine(OpenWall());
             }            
         }
         _pressurePlatesActive--;
     }
 
-    private void CloseWall()
+    private IEnumerator CloseWall()
     {
-        _wall.SetActive(true);
+        _spriteDoorAnimator.SetBool("OnOpen", false);
+        _spriteDoorAnimator.SetBool("OnClose", true);
+        yield return new WaitForSeconds(_colliderDelayAnim);
+        _collider.SetActive(true);
     }
-    private void OpenWall()
+    private IEnumerator OpenWall()
     {
-        _wall.SetActive(false);
+        _spriteDoorAnimator.SetBool("OnClose", false);
+        _spriteDoorAnimator.SetBool("OnOpen", true);
+        yield return new WaitForSeconds(_colliderDelayAnim);
+        _collider.SetActive(false);
     }
 
 
