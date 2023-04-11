@@ -19,7 +19,7 @@ public class SpiritUnion : MonoBehaviour
     [SerializeField] private Collider2D _golemTrigger, _npcTrigger;
 
     [SerializeField] private Material _defaultMaterial, _outlineMaterial;
-    [SerializeField] private ParticleSystem _fireTrail, _soulSucked;
+    [SerializeField] private ParticleSystem _fireTrail, _fireTrailPossess,_soulSucked;
     [SerializeField] private Color _travelingColor;
 
     private SpiritState _state;
@@ -171,6 +171,7 @@ public class SpiritUnion : MonoBehaviour
                 _rb.velocity = Vector2.zero;
                 _spriteRenderer.enabled = true;
                 _fireTrail.Play();
+                _fireTrailPossess.Stop();
                 _light.enabled = true;
                 _light.color = _defaultColor;
                 break;
@@ -183,6 +184,7 @@ public class SpiritUnion : MonoBehaviour
                 _golemTrigger.enabled = false;
                 _npcTrigger.enabled = false;
                 _fireTrail.Play();
+                _fireTrailPossess.Stop();
                 _light.enabled = true;
                 _light.color = _travelingColor;
                 break;
@@ -196,6 +198,7 @@ public class SpiritUnion : MonoBehaviour
                 _rb.velocity = Vector2.zero;
                 _spriteRenderer.enabled = false;
                 _fireTrail.Stop();
+                _fireTrailPossess.Play();
                 _light.color = _defaultColor;
                 _light.enabled = false;
                 break;
