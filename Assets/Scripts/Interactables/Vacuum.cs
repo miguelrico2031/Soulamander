@@ -50,6 +50,7 @@ public class Vacuum : MonoBehaviour
             _golemBeingSucked = golem;
             _suckTime = 0f;
             _spiritUnion.CanSwap = false;
+            _spiritUnion.SuckSpirit(true);
         }
     }
 
@@ -63,6 +64,7 @@ public class Vacuum : MonoBehaviour
         {
             _golemBeingSucked = null;
             _spiritUnion.CanSwap = true;
+            _spiritUnion.SuckSpirit(false);
         }
     }
 }

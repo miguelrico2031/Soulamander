@@ -18,9 +18,9 @@ public class SpiritUnion : MonoBehaviour
     [SerializeField] private LayerMask _golemUnionLayer, _golemLayer;
     [SerializeField] private Collider2D _golemTrigger, _npcTrigger;
 
-    [SerializeField] private Material _default, _outline;
-    [SerializeField] private ParticleSystem _fireTrail;
-
+    [SerializeField] private Material _defaultMaterial, _outlineMaterial;
+    [SerializeField] private ParticleSystem _fireTrail, _soulSucked;
+    [SerializeField] private Color _travelingColor;
 
     private SpiritState _state;
     private List<Golem> _golemsInArea, _avaliableGolems;
@@ -37,6 +37,7 @@ public class SpiritUnion : MonoBehaviour
     private NPC _npcInArea;
     private bool _justEndedDialogue = false;
     private Light2D _light;
+    private Color _defaultColor;
     
 
 
@@ -51,11 +52,17 @@ public class SpiritUnion : MonoBehaviour
         _golemTrigger = GetComponent<Collider2D>();
         _rb = transform.parent.GetComponent<Rigidbody2D>();
         _light = transform.parent.GetComponentInChildren<Light2D>();
+        _defaultColor = _light.color;
         _npcLayer = LayerMask.NameToLayer("NPC");
         State = SpiritState.Roaming;
+        
     }
     private IEnumerator Start()
     {
+        foreach(var field in FindObjectsByType<ParticleSystemForceField>(FindObjectsSortMode.None))
+        {
+            _soulSucked.externalForces.AddInfluence(field);
+        }
         
         foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
         {           
@@ -165,6 +172,7 @@ public class SpiritUnion : MonoBehaviour
                 _spriteRenderer.enabled = true;
                 _fireTrail.Play();
                 _light.enabled = true;
+                _light.color = _defaultColor;
                 break;
 
             case SpiritState.Traveling:
@@ -176,6 +184,7 @@ public class SpiritUnion : MonoBehaviour
                 _npcTrigger.enabled = false;
                 _fireTrail.Play();
                 _light.enabled = true;
+                _light.color = _travelingColor;
                 break;
 
             case SpiritState.Possessing:
@@ -187,6 +196,7 @@ public class SpiritUnion : MonoBehaviour
                 _rb.velocity = Vector2.zero;
                 _spriteRenderer.enabled = false;
                 _fireTrail.Stop();
+                _light.color = _defaultColor;
                 _light.enabled = false;
                 break;
         }
@@ -210,8 +220,7 @@ public class SpiritUnion : MonoBehaviour
 
         if(golem == _nearestGolem)
         {
-            //_nearestGolem.GetComponent<SpriteRenderer>().color = Color.green;
-            _nearestGolem.GetComponent<SpriteRenderer>().material = _default;
+            _nearestGolem.GetComponent<SpriteRenderer>().material = _defaultMaterial;
             _nearestGolem = null;
         }
 
@@ -226,8 +235,7 @@ public class SpiritUnion : MonoBehaviour
         if (_golemsInArea.Count == 1)
         {
             _nearestGolem = _golemsInArea[0];
-            //_nearestGolem.GetComponent<SpriteRenderer>().color = Color.yellow;
-            _nearestGolem.GetComponent<SpriteRenderer>().material = _outline;
+            _nearestGolem.GetComponent<SpriteRenderer>().material = _outlineMaterial;
             return;
         }
 
@@ -246,13 +254,13 @@ public class SpiritUnion : MonoBehaviour
             if (distance < currentDistance)
             {
                 //_nearestGolem.GetComponent<SpriteRenderer>().color = Color.green;
-                _nearestGolem.GetComponent<SpriteRenderer>().material = _default;
+                _nearestGolem.GetComponent<SpriteRenderer>().material = _defaultMaterial;
                 _nearestGolem = golem;
                 currentDistance = distance;
             }
         }
         //_nearestGolem.GetComponent<SpriteRenderer>().color = Color.yellow;
-        _nearestGolem.GetComponent<SpriteRenderer>().material = _outline;
+        _nearestGolem.GetComponent<SpriteRenderer>().material = _outlineMaterial;
     }
 
     private void PossessNearestGolem() => PossessGolem(_nearestGolem);
@@ -281,9 +289,17 @@ public class SpiritUnion : MonoBehaviour
         if (State == SpiritState.Possessing) ExitGolem();
         else if (State != SpiritState.Roaming) State = SpiritState.Roaming;
 
+        _soulSucked.Play();
+
         _target = vacuum;
         _rb.velocity = (_target.position - transform.position).normalized * _travelingSpeed;
         State = SpiritState.Vacuum;
+    }
+
+    public void SuckSpirit(bool enter)
+    {
+        if (enter) _soulSucked.Play();
+        else _soulSucked.Stop();
     }
 
     // Añadido por borja:
@@ -320,8 +336,7 @@ public class SpiritUnion : MonoBehaviour
     {
         State = SpiritState.Possessing;
         _golemInPossession.State = GolemState.Enabled;
-        //_golemInPossession.GetComponent<SpriteRenderer>().color = new Color(.2f, .5f, .9f);
-        _golemInPossession.GetComponent<SpriteRenderer>().material = _default;
+        _golemInPossession.GetComponent<SpriteRenderer>().material = _defaultMaterial;
     }
 
     public void ExitGolem()
@@ -330,7 +345,6 @@ public class SpiritUnion : MonoBehaviour
 
         State = SpiritState.Roaming;
         _golemInPossession.State = GolemState.Available;
-        //_golemInPossession.GetComponent<SpriteRenderer>().color = Color.yellow;
         
         _golemInPossession = null;
     }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2376631464686957809}
   - component: {fileID: 1317024529255818221}
   - component: {fileID: 2060819314485796307}
+  - component: {fileID: 4797071843896827809}
   m_Layer: 9
   m_Name: Scout
   m_TagString: Untagged
@@ -104,7 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d85654b71734d848a6385b974301855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsOnMovingPlatform: 0
   CanBeLaunched: 1
   StartsScenePossed: 0
   IsTalking: 0
@@ -119,7 +119,6 @@ MonoBehaviour:
   _groundCheckOffset: 0.05
   _inputBufferTime: 0.1
   _coyoteTime: 0.15
-  _onPlatformSpeedMultiplier: 1.6
   _groundLayer:
     serializedVersion: 2
     m_Bits: 328
@@ -216,6 +215,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &4797071843896827809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376631464686957815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000d535e9dd7f62709761b3691c9b9260aacd7ba620a98d012f87f47e8f
+  m_ShapePath:
+  - {x: -0.4, y: -0.6747278, z: 0}
+  - {x: -0.3, y: 0.5, z: 0}
+  - {x: 0.3, y: 0.5, z: 0}
+  - {x: 0.4, y: -0.6747278, z: 0}
+  m_ShapePathHash: 768432919
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -28806
 --- !u!1 &8632636431480622515
 GameObject:
   m_ObjectHideFlags: 0

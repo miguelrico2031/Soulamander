@@ -9179,6 +9179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spirit
       objectReference: {fileID: 0}
+    - target: {fileID: 3131688553094581170, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
+      propertyPath: _travelingColor.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 054ac59a5b0f7544ea8ec9397781cd1a, type: 3}
 --- !u!1001 &1898731578
