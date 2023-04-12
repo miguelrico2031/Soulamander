@@ -110,7 +110,7 @@ public class PushableObject : MonoBehaviour
         _touchingScout = false;
         _wallHitColliders = new Collider2D[6];
         _wallHitsSize =
-            Physics2D.OverlapBox(_collider.bounds.center, _collider.size * 1.8f + Vector2.right * 0.22f, 0f, _wallCheckCF, _wallHitColliders);
+            Physics2D.OverlapBox(_collider.bounds.center, _collider.size * 0.9f + Vector2.right * 0.5f, 0f, _wallCheckCF, _wallHitColliders);
 
         if (_wallHitsSize == 0) return;
 
@@ -119,8 +119,11 @@ public class PushableObject : MonoBehaviour
             if (!col) continue;
             if (col.gameObject == gameObject || col.transform.parent == transform) continue;
 
+            Debug.Log(col.gameObject);
+
             if ((_groundLayer.value & (1 << col.gameObject.layer)) > 0)
             {
+                
                 HasHitWall = true;
                 _rb.velocity = new Vector2(0f, _rb.velocity.y);
             }
