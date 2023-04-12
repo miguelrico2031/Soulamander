@@ -274,7 +274,7 @@ MonoBehaviour:
   _fireTrail: {fileID: 9146957712326386479}
   _fireTrailPossess: {fileID: 1227591522651235813}
   _soulSucked: {fileID: 5997265198326727901}
-  _travelingColor: {r: 0.7924528, g: 0.73209745, b: 0.16073336, a: 0}
+  _travelingColor: {r: 0.7924528, g: 0.73209745, b: 0.16073336, a: 1}
 --- !u!50 &5011001031633314911
 Rigidbody2D:
   serializedVersion: 4
