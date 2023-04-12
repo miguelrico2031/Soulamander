@@ -30,6 +30,8 @@ public class Rammer : Golem
 
     [SerializeField] private Transform[] _wallCheckPoints;
 
+    [SerializeField] private ParticleSystem _dustEffect;
+
     private Vector3[] _groundCheckPoints;
 
     private Collider2D[] _wallCheckColliders;
@@ -66,6 +68,7 @@ public class Rammer : Golem
             {
                 _rb.isKinematic = true;
                 _rb.velocity = Vector2.zero;
+                if(_dustEffect.isPlaying) _dustEffect.Stop();
             }
         }
 
@@ -76,6 +79,7 @@ public class Rammer : Golem
             {
                 State = GolemState.Enabled;
                 _rb.velocity = Vector3.zero;
+                if (_dustEffect.isPlaying) _dustEffect.Stop();
             }
         }
 
@@ -101,6 +105,7 @@ public class Rammer : Golem
             _isRunning = true;
             _speed = _initialSpeed;
             _animator.SetBool("Running", true);
+            _dustEffect.Play();
         }
 
         //if (_isAtMaxSpeed) Debug.Log("vel max");
@@ -147,11 +152,14 @@ public class Rammer : Golem
         _isRunning = false;
         _animator.SetBool("Running", false);
 
+        if (_dustEffect.isPlaying) _dustEffect.Stop();
+
         if (State == GolemState.Available && RayCastHitGround())
         { 
             _rb.isKinematic = true;
             _rb.velocity = Vector2.zero;
-            
+            if (_dustEffect.isPlaying) _dustEffect.Stop();
+
         }
     }
 

@@ -6,7 +6,7 @@ public class Jumper : Golem
 {
     [SerializeField] private LayerMask _groundLayers;
     [SerializeField] private float _minJumpForce, _maxJumpForce, _minJumpTime, _maxJumpTime, _gravityForce;
-
+    [SerializeField] private ParticleSystem _dustEffect;
 
     private Vector2 _gravity;
 
@@ -44,6 +44,7 @@ public class Jumper : Golem
         _westCollider.gameObject.SetActive(false);
         _eastCollider.gameObject.SetActive(false);
 
+        _dustEffect.transform.parent = null;
     }
 
     private void Update()
@@ -122,6 +123,7 @@ public class Jumper : Golem
     private void Jump()
     {
         _isHoldingJumpButton = false;
+        
 
         if ((_horizontalInput == -1 && _westCollider.gameObject.activeSelf) 
             || (_horizontalInput == 1 && _eastCollider.gameObject.activeSelf) || IsTalking)
@@ -131,6 +133,8 @@ public class Jumper : Golem
             return;
         }
 
+        _dustEffect.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        _dustEffect.Play();
 
         _isGrounded = false;
         _rb.SetRotation(0f);
@@ -154,7 +158,7 @@ public class Jumper : Golem
         _animator.SetBool("Jump", true);
         _animator.SetBool("Land", false);
         _animator.SetBool("Charge", false);
-
+        
     }
         
     private void OnCollisionEnter2D(Collision2D collision)

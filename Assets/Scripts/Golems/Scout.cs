@@ -22,6 +22,7 @@ public class Scout : Golem
     [SerializeField] private float _coyoteTime;
 
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private ParticleSystem _dustEffect;
 
     private Vector3[] _groundCheckPoints;
     private RaycastHit2D _hit;
@@ -152,6 +153,11 @@ public class Scout : Golem
         _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
         
         _animator.SetFloat("Speed", Mathf.Abs(_horizontal * _speed));
+
+        if (!_grounded || (!_dustEffect.isStopped && _horizontal == 0)) _dustEffect.Stop();
+
+        else if (_grounded && _dustEffect.isStopped && _horizontal != 0) _dustEffect.Play();
+
     }
 
     private void ClearKeyInQueue()
@@ -188,6 +194,8 @@ public class Scout : Golem
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+
+            if(_grounded) _dustEffect.Play();
         }
     }
 
