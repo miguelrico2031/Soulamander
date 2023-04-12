@@ -4387,49 +4387,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 121298479210188859, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_Parameters.m_GravityFocus
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 121298479210188859, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_Parameters.m_DragCurve.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 121298479210188859, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_Parameters.m_GravityCurve.scalar
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 121298479210188859, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_Parameters.m_RotationSpeedCurve.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 121298479210188859, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_Parameters.m_RotationAttractionCurve.scalar
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4435982142685819274, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
       propertyPath: m_Name
       value: Vacuum
       objectReference: {fileID: 0}
-    - target: {fileID: 4435982142685819274, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4435982142685819281, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435982142685819281, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435982142685819281, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435982142685819281, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4435982142685819281, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4470,26 +4434,6 @@ PrefabInstance:
     - target: {fileID: 4435982142685819281, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435982142685819285, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: _rotationSpeed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435982142685819286, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6395248202244651497, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: m_Radius
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8664702654834536466, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8664702654834536466, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07efd4c97ea1c1b4286cae9ec8fd8564, type: 3}
