@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -3017,9 +3029,9 @@ TextureImporter:
       musgo-SheetDEFINITIVO_27: 1141994046
       musgo-SheetDEFINITIVO_46: -558696729
       musgo-SheetDEFINITIVO_10: -1812218849
-      musgo-SheetDEFINITIVO_2: -99333290
       musgo-SheetDEFINITIVO_51: -1990876696
       musgo-SheetDEFINITIVO_31: 1153645043
+      musgo-SheetDEFINITIVO_2: -99333290
       musgo-SheetDEFINITIVO_121: 109874558
       musgo-SheetDEFINITIVO_20: -942189687
       musgo-SheetDEFINITIVO_65: 2059126537
@@ -3057,9 +3069,9 @@ TextureImporter:
       musgo-SheetDEFINITIVO_83: 1365291227
       musgo-SheetDEFINITIVO_118: 2032936426
       musgo-SheetDEFINITIVO_24: -2113311146
-      musgo-SheetDEFINITIVO_60: 1531347459
       musgo-SheetDEFINITIVO_61: -1665870534
       musgo-SheetDEFINITIVO_72: -1646864157
+      musgo-SheetDEFINITIVO_60: 1531347459
       musgo-SheetDEFINITIVO_120: -2040566573
       musgo-SheetDEFINITIVO_58: 908261152
       musgo-SheetDEFINITIVO_16: 1353305386

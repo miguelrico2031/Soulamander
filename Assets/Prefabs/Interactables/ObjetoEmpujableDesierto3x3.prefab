@@ -252,6 +252,7 @@ MonoBehaviour:
   _rb: {fileID: 1968426916971132991}
   _collider: {fileID: 1968426916971132988}
   _groundCheckOffset: 0.05
+  _wallCheckOffset: 0.14
 --- !u!61 &1968426916971132988
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -11125,10 +11125,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjetoEmpujableDesierto3x3
       objectReference: {fileID: 0}
-    - target: {fileID: 6068234426801895747, guid: 6feb0dc33c028074a8655f17263a1fd7, type: 3}
-      propertyPath: m_Size.x
-      value: 2.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6feb0dc33c028074a8655f17263a1fd7, type: 3}
 --- !u!1 &1352644943

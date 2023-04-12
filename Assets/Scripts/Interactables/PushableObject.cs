@@ -13,7 +13,7 @@ public class PushableObject : MonoBehaviour
     //[SerializeField] private float _gravityForce;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private BoxCollider2D _collider;
-    [SerializeField] private float _groundCheckOffset;
+    [SerializeField] private float _groundCheckOffset, _wallCheckOffset;
 
     private bool _touchingScout;
     private bool _isGrounded;
@@ -104,13 +104,18 @@ public class PushableObject : MonoBehaviour
         return null;
     }
 
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawCube(_collider.bounds.center, _collider.size * 0.9f + Vector2.right * _collider.size.x * _wallCheckOffset);
+    //}
+
     private void WallAndRammerCheck()
     {
         HasHitWall = false;
         _touchingScout = false;
         _wallHitColliders = new Collider2D[6];
         _wallHitsSize =
-            Physics2D.OverlapBox(_collider.bounds.center, _collider.size * 0.9f + Vector2.right * 0.5f, 0f, _wallCheckCF, _wallHitColliders);
+            Physics2D.OverlapBox(_collider.bounds.center, _collider.size * 0.9f + Vector2.right * _collider.size.x * _wallCheckOffset, 0f, _wallCheckCF, _wallHitColliders);
 
         if (_wallHitsSize == 0) return;
 
