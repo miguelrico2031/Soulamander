@@ -4923,6 +4923,7 @@ GameObject:
   - component: {fileID: 5470204669822148246}
   - component: {fileID: 549722369420772108}
   - component: {fileID: 4654693575180769953}
+  - component: {fileID: 5844982211405193466}
   m_Layer: 9
   m_Name: Rammer
   m_TagString: Untagged
@@ -5020,7 +5021,7 @@ MonoBehaviour:
   IsTalking: 0
   TopCollider: {fileID: 5841691247596105075}
   _feet: {fileID: 302366354606760339}
-  _collider: {fileID: 5470204669822148246}
+  _collider: {fileID: 5844982211405193466}
   _extendedCollider: {fileID: 549722369420772108}
   IsFacingRight: 1
   _maxSpeed: 12
@@ -5075,7 +5076,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5470204669822148247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: e01a81dcdc46562469e0a9acfb1f608a, type: 2}
   m_IsTrigger: 0
@@ -5140,6 +5141,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!70 &5844982211405193466
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470204669822148247}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.19}
+  m_Size: {x: 1.4, y: 0.97}
+  m_Direction: 1
 --- !u!1 &5841691247596105075
 GameObject:
   m_ObjectHideFlags: 0

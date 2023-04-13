@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Jumper : Golem
 {
     [SerializeField] private LayerMask _groundLayers;
     [SerializeField] private float _minJumpForce, _maxJumpForce, _minJumpTime, _maxJumpTime, _gravityForce;
-    [SerializeField] private ParticleSystem _dustEffect;
+    [SerializeField] private ParticleSystem _dustEffect, _maxChargeEffect;
 
     private Vector2 _gravity;
 
@@ -94,7 +95,14 @@ public class Jumper : Golem
             }   
         }
 
-        if (_isHoldingJumpButton && _holdingJumpButtonTime < _maxJumpTime) _holdingJumpButtonTime += Time.deltaTime;
+        if (_isHoldingJumpButton)
+        {
+
+            if(_holdingJumpButtonTime < _maxJumpTime) _holdingJumpButtonTime += Time.deltaTime;
+
+            else if(_maxChargeEffect.isStopped) _maxChargeEffect.Play();
+            
+        }
 
     }
 
@@ -123,7 +131,7 @@ public class Jumper : Golem
     private void Jump()
     {
         _isHoldingJumpButton = false;
-        
+        _maxChargeEffect.Stop();
 
         if ((_horizontalInput == -1 && _westCollider.gameObject.activeSelf) 
             || (_horizontalInput == 1 && _eastCollider.gameObject.activeSelf) || IsTalking)
@@ -261,6 +269,7 @@ public class Jumper : Golem
             _animator.SetBool("CancelJump", false);
             _animator.SetBool("Jump", false);
             _animator.SetBool("Land", true);
+            _maxChargeEffect.Stop();
         }
     }
 
