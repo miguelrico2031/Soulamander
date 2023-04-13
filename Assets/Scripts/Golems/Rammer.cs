@@ -140,7 +140,10 @@ public class Rammer : Golem
         _animator.SetFloat("Speed", Mathf.Abs((_isPushing ? _pushSpeed : _speed) * _direction));
     } 
         
-    
+    public void ResetSpeed()
+    {
+        _speed = _initialSpeed;
+    }
 
     public void StopRunning()
     {

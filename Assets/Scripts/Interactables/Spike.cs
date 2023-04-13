@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spike : MonoBehaviour
 {
@@ -29,9 +30,9 @@ public class Spike : MonoBehaviour
     {
         Golem golem = golemGO.GetComponent<Golem>();
         _deathParticlesInstance = Instantiate(_deathParticles, golem.transform.position, _deathParticles.transform.rotation);
-        golem.transform.position = _respawn.GetRespawnPoint();
+        if (_respawn != null) golem.transform.position = _respawn.GetRespawnPoint();
 
-        if(golem.State == GolemState.Enabled)
+        if (golem.State == GolemState.Enabled)
         {
             _spiritUnion.transform.parent.position = golem.transform.position;
             _spiritUnion.transform.parent.gameObject.SetActive(false);
@@ -41,16 +42,24 @@ public class Spike : MonoBehaviour
 
         yield return new WaitForSeconds(_respawnDelay);
 
-        golemGO.SetActive(true);
-        _spiritUnion.transform.parent.gameObject.SetActive(true);
-
-        if (golem.State == GolemState.Enabled)
+        if (_respawn == null) StartCoroutine(ReloadScene());
+        else
         {
-            golem.State = GolemState.Enabled;
-            _spiritUnion.State = SpiritState.Possessing;
+            golemGO.SetActive(true);
+            _spiritUnion.transform.parent.gameObject.SetActive(true);
+
+            if (golem.State == GolemState.Enabled)
+            {
+                golem.State = GolemState.Enabled;
+                _spiritUnion.State = SpiritState.Possessing;
+            }
+            else if (golem.State == GolemState.Available) golem.State = GolemState.Available;
         }
-        else if (golem.State == GolemState.Available) golem.State = GolemState.Available;
+    }
 
-
+    private IEnumerator ReloadScene()
+    {      
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        yield return null;
     }
 }

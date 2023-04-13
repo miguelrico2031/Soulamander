@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DestructibleObject : MonoBehaviour
 {
-    [SerializeField] private bool _stopsGolem;
     public void DestroyObstacle(Rammer rammer)
     {
         //if (_stopsGolem)
@@ -19,7 +18,7 @@ public class DestructibleObject : MonoBehaviour
         //    Destroy(gameObject);
         //}
 
-        if (_stopsGolem) rammer.StopRunning();
+        rammer.ResetSpeed();
 
         Destroy(gameObject);
     }
