@@ -270,6 +270,9 @@ public class Jumper : Golem
             _animator.SetBool("Jump", false);
             _animator.SetBool("Land", true);
             _maxChargeEffect.Stop();
+
+            _isHoldingJumpButton = false;
+            _holdingJumpButtonTime = 0f;
         }
     }
 

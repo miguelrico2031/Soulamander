@@ -53,6 +53,7 @@ public class Scout : Golem
         {
             if(!_lastGrounded)
             {
+                _animator.SetBool("Jump", false);
                 _animator.SetBool("Landed", true);
                 _animator.SetBool("Falling", false);
                 _isFalling = false;
@@ -206,6 +207,11 @@ public class Scout : Golem
         if(State == GolemState.Enabled)
         {
             IsFacingRight = transform.localScale.x > 0f;
+        }
+
+        else if(State == GolemState.Available)
+        {
+            _dustEffect.Stop();
         }
     }
 }
