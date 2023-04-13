@@ -8,7 +8,7 @@ public class ToggleWall : PreassureListener
     [SerializeField] private bool _initialStateClosed;
     [SerializeField] private int _numberOfPressurePlates;
 
-    [Header("Unity Setup")]
+    [Header("Unity Setup")]  
     [SerializeField] private GameObject _collider;
     [SerializeField] private Animator _spriteDoorAnimator;
     [SerializeField] private float _colliderDelayAnim;
@@ -68,5 +68,5 @@ public class ToggleWall : PreassureListener
         _collider.SetActive(false);
     }
 
-
+    
 }

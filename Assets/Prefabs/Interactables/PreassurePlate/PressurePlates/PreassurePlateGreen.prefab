@@ -155,9 +155,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4518380389969097957}
+  - component: {fileID: 8403303791981664798}
   - component: {fileID: 6187242432472035425}
   - component: {fileID: 4204544494188071889}
-  - component: {fileID: 8403303791981664798}
   - component: {fileID: 7185768056847595019}
   m_Layer: 6
   m_Name: Plate
@@ -181,6 +181,25 @@ Transform:
   m_Father: {fileID: 2477710557717178124}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8403303791981664798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234578366127751911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd8153bce78be845956d8a00048dea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gemColor: 3
+  _animationSpeed: 1
+  _golemLayer:
+    serializedVersion: 2
+    m_Bits: 768
+  _ramps: {fileID: 6456841161658895388}
+  _animationTargetPos: {fileID: 1488091189622918506}
 --- !u!50 &6187242432472035425
 Rigidbody2D:
   serializedVersion: 4
@@ -228,25 +247,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1521019, y: 0.09189827}
   m_EdgeRadius: 0
---- !u!114 &8403303791981664798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8234578366127751911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd8153bce78be845956d8a00048dea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _listeners: []
-  _animationSpeed: 1
-  _golemLayer:
-    serializedVersion: 2
-    m_Bits: 768
-  _ramps: {fileID: 6456841161658895388}
-  _animationTargetPos: {fileID: 1488091189622918506}
 --- !u!212 &7185768056847595019
 SpriteRenderer:
   m_ObjectHideFlags: 0

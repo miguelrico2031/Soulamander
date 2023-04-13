@@ -62,7 +62,7 @@ public abstract class Golem : MonoBehaviour
                 if(_extendedCollider) _extendedCollider.enabled = false;
                 if (TopCollider) TopCollider.SetActive(false);
                 if (_animator) _animator.SetBool("Enabled", false);
-                if (_renderer) _renderer.sortingLayerName = "DisabledGolem";
+                if (_renderer) _renderer.sortingLayerName = "Background";
                 break;
 
             case GolemState.Enabled:

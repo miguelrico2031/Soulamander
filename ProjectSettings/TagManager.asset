@@ -44,9 +44,6 @@ TagManager:
   - name: Background
     uniqueID: 3723048405
     locked: 0
-  - name: DisabledGolem
-    uniqueID: 2540724863
-    locked: 0
   - name: AvailableGolem
     uniqueID: 476689249
     locked: 0

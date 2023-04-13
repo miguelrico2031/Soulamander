@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _listeners;
+    [Header("Instance Settings")]
+    
+
+    [Header("Unity Setup")]
+    public GemColor _gemColor;
     [SerializeField] private float _animationSpeed;
     [SerializeField] private LayerMask _golemLayer;
     [SerializeField] private Transform _ramps;
     //[SerializeField] private BoxCollider2D _collider;   
-
     [SerializeField] private Transform _animationTargetPos;
+
+    private List<GameObject> _listeners;
     private bool revertingAnimation;
     private float _startingPositionY;
     private bool _isBeingPressed;
     private bool _listenersActive;
 
-    private void Start()
+    private void Awake()
     {
         _startingPositionY = transform.position.y;
+        _listeners = new List<GameObject>();
+        foreach (PreassureListener door in GameObject.FindObjectsOfType<PreassureListener>()) if (door._gemColor == _gemColor) _listeners.Add(door.gameObject);
     }
 
     private void Update()
@@ -89,4 +96,13 @@ public class PressurePlate : MonoBehaviour
         }
         revertingAnimation = false;
     }
+}
+
+public enum GemColor
+{
+    Pink,
+    Purple,
+    Yellow,
+    Green,
+    Blue
 }

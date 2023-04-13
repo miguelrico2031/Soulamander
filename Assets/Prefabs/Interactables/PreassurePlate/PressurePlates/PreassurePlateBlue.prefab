@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd8153bce78be845956d8a00048dea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listeners: []
+  _gemColor: 4
   _animationSpeed: 1
   _golemLayer:
     serializedVersion: 2
