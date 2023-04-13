@@ -240,9 +240,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listeners:
   - {fileID: 0}
+  _animationSpeed: 0
   _golemLayer:
     serializedVersion: 2
     m_Bits: 768
+  _ramps: {fileID: 6456841161658895388}
+  _animationTargetPos: {fileID: 0}
 --- !u!212 &7185768056847595019
 SpriteRenderer:
   m_ObjectHideFlags: 0

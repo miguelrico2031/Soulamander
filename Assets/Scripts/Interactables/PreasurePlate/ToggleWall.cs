@@ -55,15 +55,23 @@ public class ToggleWall : PreassureListener
 
     private IEnumerator CloseWall()
     {
-        _spriteDoorAnimator.SetBool("OnOpen", false);
-        _spriteDoorAnimator.SetBool("OnClose", true);
+        if (_spriteDoorAnimator)
+        {
+            _spriteDoorAnimator.SetBool("OnOpen", false);
+            _spriteDoorAnimator.SetBool("OnClose", true);
+        }
+
         yield return new WaitForSeconds(_colliderDelayAnim);
         _collider.SetActive(true);
     }
     private IEnumerator OpenWall()
     {
-        _spriteDoorAnimator.SetBool("OnClose", false);
-        _spriteDoorAnimator.SetBool("OnOpen", true);
+        if(_spriteDoorAnimator)
+        {
+            _spriteDoorAnimator.SetBool("OnClose", false);
+            _spriteDoorAnimator.SetBool("OnOpen", true);
+        }
+       
         yield return new WaitForSeconds(_colliderDelayAnim);
         _collider.SetActive(false);
     }
