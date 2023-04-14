@@ -19,7 +19,7 @@ public class ToggleWall : PreassureListener
     private void Start()
     {
         _pressurePlatesActive = 0;
-        if (!_initialStateClosed) _collider.SetActive(false);
+        if (!_initialStateClosed) StartCoroutine(OpenWall());
     }
 
     public override void OnPlatePressed()
