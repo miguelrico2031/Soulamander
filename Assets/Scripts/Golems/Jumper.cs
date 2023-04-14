@@ -182,6 +182,7 @@ public class Jumper : Golem
         {
             //if(contact.normal.y < 0f) continue;
             if (((Vector2)transform.position - contact.point).y < 0f) continue;
+
             _isGrounded = true;
             
 
@@ -191,7 +192,7 @@ public class Jumper : Golem
             _collisionAngle = newAngle;
 
             _grapplingCollider = collision.collider;
-            _lastGrapplingCollider = _grapplingCollider;
+            _lastGrapplingCollider = _grapplingCollider;    
 
             if (((_groundGolemLayer.value & (1 << _grapplingCollider.gameObject.layer)) > 0)
                 && !_grapplingCollider.transform.parent.TryGetComponent<Jumper>(out var c))
