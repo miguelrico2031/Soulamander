@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Vacuum : MonoBehaviour
 {
-    [SerializeField] private float _spiritSuckDuration, _rotationSpeed;
+    [SerializeField] private float _spiritSuckDuration, _rotationSpeed, _vortexRotationMultiplier;
+
+    [SerializeField] private Transform _vortex;
+
     private int _spiritLayer, _golemLayer;
     private Golem _golemBeingSucked;
     private SpiritUnion _spiritUnion;
@@ -24,6 +27,8 @@ public class Vacuum : MonoBehaviour
     private void Update()
     {
         transform.Rotate(Vector3.forward, _rotationSpeed * Time.deltaTime);
+        if (_vortex) _vortex.Rotate(Vector3.forward, _rotationSpeed * Time.deltaTime* _vortexRotationMultiplier);
+
         if (!_golemBeingSucked) return;
 
         _suckTime += Time.deltaTime;
@@ -53,6 +58,7 @@ public class Vacuum : MonoBehaviour
             _spiritUnion.SuckSpirit(true);
         }
     }
+
 
     private void OnTriggerExit2D(Collider2D collider)
     {

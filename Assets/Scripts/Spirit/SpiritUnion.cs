@@ -301,7 +301,10 @@ public class SpiritUnion : MonoBehaviour
 
     public void SuckSpirit(bool enter)
     {
-        if (enter) _soulSucked.Play();
+        if (enter)
+        {
+            _soulSucked.Play();
+        }
         else _soulSucked.Stop();
     }
 
