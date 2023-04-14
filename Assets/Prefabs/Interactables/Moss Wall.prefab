@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 229327575576785423}
   - component: {fileID: 4346991263564280079}
   - component: {fileID: 3188655685110221374}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Moss Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

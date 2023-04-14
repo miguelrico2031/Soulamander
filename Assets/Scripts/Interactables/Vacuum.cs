@@ -59,6 +59,7 @@ public class Vacuum : MonoBehaviour
         }
     }
 
+
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.layer != _golemLayer) return;

@@ -260,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanSwap: 1
   _travelingSpeed: 750
-  _vacuumSpeed: 600
+  _vacuumSpeed: 400
   _golemUnionLayer:
     serializedVersion: 2
     m_Bits: 2048
@@ -613,7 +613,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.16
+      scalar: 0.18
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1320,8 +1320,8 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 1
-          value: 0
+          time: 0.9797058
+          value: 0.19166565
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1633,8 +1633,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
-        key1: {r: 0, g: 0, b: 0, a: 0.19607843}
+        key0: {r: 0.99607843, g: 0.5006256, b: 0.027450968, a: 1}
+        key1: {r: 0.9960785, g: 0.8862746, b: 0.3372549, a: 0.19607843}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5108,9 +5108,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 788630953
-  m_SortingLayer: 5
-  m_SortingOrder: -1
+  m_SortingLayerID: -1887505273
+  m_SortingLayer: 6
+  m_SortingOrder: 800
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0

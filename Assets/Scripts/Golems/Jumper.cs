@@ -31,6 +31,7 @@ public class Jumper : Golem
     private float _collisionAngle;
 
 
+
     protected override void Awake()
     {
         base.Awake();
@@ -182,6 +183,7 @@ public class Jumper : Golem
             if (((Vector2)transform.position - contact.point).y < 0f) continue;
             _isGrounded = true;
             
+
             float newAngle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
 
             _rb.velocity = Vector2.zero;
