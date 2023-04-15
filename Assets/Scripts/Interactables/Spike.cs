@@ -29,7 +29,8 @@ public class Spike : MonoBehaviour
     private IEnumerator DieAndRespawn(GameObject golemGO)
     {
         Golem golem = golemGO.GetComponent<Golem>();
-        _deathParticlesInstance = Instantiate(_deathParticles, golem.transform.position, _deathParticles.transform.rotation);
+        Vector2 _deathParticlesPos = golem.transform.position;
+        _deathParticlesInstance = Instantiate(_deathParticles, _deathParticlesPos, _deathParticles.transform.rotation);
         if (_respawn != null) golem.transform.position = _respawn.GetRespawnPoint();
 
         if (golem.State == GolemState.Enabled)
