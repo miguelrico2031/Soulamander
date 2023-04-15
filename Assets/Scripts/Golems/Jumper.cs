@@ -62,7 +62,7 @@ public class Jumper : Golem
         }
         if (State != GolemState.Enabled || IsTalking) return;
 
-        if (Input.GetButtonDown("Jump") && _isGrounded)
+        if (Input.GetButtonDown("Jump") && _isGrounded && !PauseGame.Instance.Paused)
         {
             if (!_isHoldingJumpButton)
             {
@@ -74,13 +74,13 @@ public class Jumper : Golem
         }
         
 
-        if (Input.GetButtonUp("Jump") && _isGrounded) Jump();
+        if (Input.GetButtonUp("Jump") && _isGrounded && !PauseGame.Instance.Paused) Jump();
         else
         {
             if (!_isDelayingHorizontalInput)
             {
                 _horizontalInput = _nextHorizontalInput;
-                _nextHorizontalInput = Input.GetAxisRaw("Horizontal");
+                if(!PauseGame.Instance.Paused) _nextHorizontalInput = Input.GetAxisRaw("Horizontal");
                 _nextHorizontalInput = _nextHorizontalInput > 0f ? 1f : (_nextHorizontalInput < 0f ? -1f : 0f);
             }
 

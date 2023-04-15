@@ -104,7 +104,7 @@ public class SpiritUnion : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Interact"))
+        if (Input.GetButtonDown("Interact") && !PauseGame.Instance.Paused)
         {
             if (!_npcInArea)
             {
@@ -116,7 +116,7 @@ public class SpiritUnion : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Swap") &&
-            State != SpiritState.Traveling && State != SpiritState.Vacuum && CanSwap)
+            State != SpiritState.Traveling && State != SpiritState.Vacuum && CanSwap && !PauseGame.Instance.Paused)
             SwapGolem();
 
 
