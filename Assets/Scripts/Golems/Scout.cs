@@ -96,7 +96,7 @@ public class Scout : Golem
             return;
         }
 
-        _horizontal = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));    
+        if(!PauseGame.Instance.Paused) _horizontal = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));    
 
         if (_grounded)
         {
@@ -105,7 +105,7 @@ public class Scout : Golem
         }
         else _flightTime += Time.deltaTime;
 
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && !PauseGame.Instance.Paused)
         {
             _buttonQueue.Enqueue(ButtonToQueue.Jump);
             Invoke(nameof(ClearKeyInQueue), _inputBufferTime);         
@@ -125,7 +125,7 @@ public class Scout : Golem
                 }
             }         
         }
-        if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0f)
+        if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0f && !PauseGame.Instance.Paused)
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _holdDiff);
        
 

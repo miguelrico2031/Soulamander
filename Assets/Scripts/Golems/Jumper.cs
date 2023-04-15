@@ -62,7 +62,7 @@ public class Jumper : Golem
         }
         if (State != GolemState.Enabled || IsTalking) return;
 
-        if (Input.GetButtonDown("Jump") && _isGrounded)
+        if (Input.GetButtonDown("Jump") && _isGrounded && !PauseGame.Instance.Paused)
         {
             if (!_isHoldingJumpButton)
             {
@@ -74,13 +74,13 @@ public class Jumper : Golem
         }
         
 
-        if (Input.GetButtonUp("Jump") && _isGrounded) Jump();
+        if (Input.GetButtonUp("Jump") && _isGrounded && !PauseGame.Instance.Paused) Jump();
         else
         {
             if (!_isDelayingHorizontalInput)
             {
                 _horizontalInput = _nextHorizontalInput;
-                _nextHorizontalInput = Input.GetAxisRaw("Horizontal");
+                if(!PauseGame.Instance.Paused) _nextHorizontalInput = Input.GetAxisRaw("Horizontal");
                 _nextHorizontalInput = _nextHorizontalInput > 0f ? 1f : (_nextHorizontalInput < 0f ? -1f : 0f);
             }
 
@@ -182,6 +182,7 @@ public class Jumper : Golem
         {
             //if(contact.normal.y < 0f) continue;
             if (((Vector2)transform.position - contact.point).y < 0f) continue;
+
             _isGrounded = true;
             
 
@@ -191,7 +192,7 @@ public class Jumper : Golem
             _collisionAngle = newAngle;
 
             _grapplingCollider = collision.collider;
-            _lastGrapplingCollider = _grapplingCollider;
+            _lastGrapplingCollider = _grapplingCollider;    
 
             if (((_groundGolemLayer.value & (1 << _grapplingCollider.gameObject.layer)) > 0)
                 && !_grapplingCollider.transform.parent.TryGetComponent<Jumper>(out var c))

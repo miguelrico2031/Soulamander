@@ -94,12 +94,12 @@ public class Rammer : Golem
         if (!_isRunning)
         {
             _horizontalInput = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
-            if (_horizontalInput != 0) _direction = _horizontalInput;
+            if (_horizontalInput != 0 && !PauseGame.Instance.Paused) _direction = _horizontalInput;
         }
 
         if (IsTalking) _isRunning = false;
 
-        if (Input.GetButtonDown("Jump") && !_isRunning && !IsTalking)
+        if (Input.GetButtonDown("Jump") && !_isRunning && !IsTalking && !PauseGame.Instance.Paused)
         {
             _isRunning = true;
             _speed = _initialSpeed;
