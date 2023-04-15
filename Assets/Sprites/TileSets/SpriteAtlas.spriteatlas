@@ -54,6 +54,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 62bc8c0057afdd44e8a4684c7fe6d5dd, type: 3}
     - {fileID: 2800000, guid: 38a1c85244888c745922e592747e440a, type: 3}
     - {fileID: 2800000, guid: d2a041285789ae34d8acbc4dba3c01cd, type: 3}
+    - {fileID: 2800000, guid: 00374286228f7a24baf31171e46ad795, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -81,6 +82,12 @@ SpriteAtlas:
   - {fileID: -957981049, guid: 38a1c85244888c745922e592747e440a, type: 3}
   - {fileID: -1027639385, guid: 38a1c85244888c745922e592747e440a, type: 3}
   - {fileID: 412831109, guid: 38a1c85244888c745922e592747e440a, type: 3}
+  - {fileID: 1129354027, guid: 00374286228f7a24baf31171e46ad795, type: 3}
+  - {fileID: -1799668313, guid: 00374286228f7a24baf31171e46ad795, type: 3}
+  - {fileID: 333601807, guid: 00374286228f7a24baf31171e46ad795, type: 3}
+  - {fileID: -371976622, guid: 00374286228f7a24baf31171e46ad795, type: 3}
+  - {fileID: 1722447364, guid: 00374286228f7a24baf31171e46ad795, type: 3}
+  - {fileID: 1745797490, guid: 00374286228f7a24baf31171e46ad795, type: 3}
   - {fileID: -1134894266, guid: bd4a81d6c4ae1c24e87fac14a55546ca, type: 3}
   - {fileID: 969397941, guid: d2a041285789ae34d8acbc4dba3c01cd, type: 3}
   - {fileID: -1947654550, guid: d2a041285789ae34d8acbc4dba3c01cd, type: 3}
@@ -491,6 +498,12 @@ SpriteAtlas:
   - image (39)_3
   - image (39)_0
   - image (39)_1
+  - image (50)_5
+  - image (50)_4
+  - image (50)_3
+  - image (50)_2
+  - image (50)_1
+  - image (50)_0
   - musgo-Sheet (2)_0
   - CityImage_62
   - CityImage_13

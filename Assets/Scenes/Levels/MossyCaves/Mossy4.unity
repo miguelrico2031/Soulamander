@@ -34025,12 +34025,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5470204669822148244, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
+      propertyPath: _collider
+      value: 
+      objectReference: {fileID: 1968258642}
+    - target: {fileID: 5470204669822148246, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5470204669822148247, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
       propertyPath: m_Name
       value: Rammer (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5844982211405193466, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
+--- !u!70 &1968258642 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5844982211405193466, guid: eb8c43585f6312441bb01321f1e646b5, type: 3}
+  m_PrefabInstance: {fileID: 1968258641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1999321770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7555591582555217489, guid: ab887da8fa2b7b2468306137fdab6889, type: 3}

@@ -144,20 +144,9 @@ public class CameraController : MonoBehaviour
                 _camera.orthographicSize = Mathf.Clamp((_camera.orthographicSize - _zoomSpeed * Time.deltaTime), _cameraSize, 1000);
             }
             */
-            if (!_followPlayerX) MoveCameraX(_staticCamPos.x, _cameraToStaticPosSpeed, true, false);
-            if (!_followPlayerY) MoveCameraY(_staticCamPos.y, _cameraToStaticPosSpeed, true, false);
-        }
-        else
-        {
-            /*
-            if (_camera.orthographicSize > _startingSize)
-            {
-                _camera.orthographicSize = Mathf.Clamp((_camera.orthographicSize - _zoomSpeed * Time.deltaTime), 0, _cameraSize);
-            }
-            */
-            MoveCameraX(_goalPos.x, _cameraToStaticPosSpeed, true, false);
-            MoveCameraY(_goalPos.y, _cameraToStaticPosSpeed, true, false);
-        }        
+            if (!_followPlayerX) MoveCameraX(_staticCamPos.x, _cameraToStaticPosSpeed, false, false);
+            if (!_followPlayerY) MoveCameraY(_staticCamPos.y, _cameraToStaticPosSpeed, false, false);
+        }       
     }
 
     void LateUpdate()
@@ -274,7 +263,6 @@ public class CameraController : MonoBehaviour
     float disX = 0;
     private void MoveCameraX(float desiredPositionX, float speed, bool snapPosition, bool smoothSpeed)
     {
-
         movePositionX = 0;
         if (smoothSpeed) movePositionX = Mathf.Lerp(transform.position.x, desiredPositionX, speed * Time.deltaTime);
         else movePositionX = Mathf.MoveTowards(transform.position.x, desiredPositionX, speed * Time.deltaTime); 

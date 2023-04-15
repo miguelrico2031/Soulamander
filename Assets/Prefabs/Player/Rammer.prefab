@@ -5021,7 +5021,7 @@ MonoBehaviour:
   IsTalking: 0
   TopCollider: {fileID: 5841691247596105075}
   _feet: {fileID: 302366354606760339}
-  _collider: {fileID: 5844982211405193466}
+  _collider: {fileID: 5470204669822148246}
   _extendedCollider: {fileID: 549722369420772108}
   IsFacingRight: 1
   _maxSpeed: 12
@@ -5076,7 +5076,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5470204669822148247}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: e01a81dcdc46562469e0a9acfb1f608a, type: 2}
   m_IsTrigger: 0
@@ -5148,7 +5148,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5470204669822148247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

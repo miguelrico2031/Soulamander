@@ -73,7 +73,7 @@ public abstract class Golem : MonoBehaviour
                 else if(TopCollider) TopCollider.SetActive(false);
                 if (/*transform.parent != null*/ IsBeingCarried) EndStickToGolem();
                 if (_animator) _animator.SetBool("Enabled", true);
-                if (_renderer) _renderer.sortingLayerName = "EnabledGolem";
+                if (_renderer) _renderer.sortingLayerName = "Foreground";
                 break;
 
             case GolemState.Available:
@@ -87,7 +87,7 @@ public abstract class Golem : MonoBehaviour
                 }
                 TryToStickToGolem();
                 if (_animator) _animator.SetBool("Enabled", false);
-                if (_renderer) _renderer.sortingLayerName = "AvailableGolem";
+                if (_renderer) _renderer.sortingLayerName = "Foreground";
 
                 break;
 

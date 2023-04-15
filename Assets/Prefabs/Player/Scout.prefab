@@ -119,7 +119,7 @@ MonoBehaviour:
   _holdDiff: 0.5
   _groundCheckOffset: 0.05
   _inputBufferTime: 0.1
-  _coyoteTime: 0.15
+  _coyoteTime: 0.2
   _groundLayer:
     serializedVersion: 2
     m_Bits: 328

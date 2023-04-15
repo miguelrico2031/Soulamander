@@ -84,6 +84,7 @@ public class PushableObject : MonoBehaviour
         }
         return false;
     }
+    /*
     private GameObject RayCastHitWall(LayerMask layer)
     {
         RaycastHit2D[] raycastHit = new RaycastHit2D[3];
@@ -103,7 +104,7 @@ public class PushableObject : MonoBehaviour
         }
         return null;
     }
-
+    */
     //private void OnDrawGizmos()
     //{
     //    Gizmos.DrawCube(_collider.bounds.center, _collider.size * 0.9f + Vector2.right * _collider.size.x * _wallCheckOffset);
@@ -136,6 +137,7 @@ public class PushableObject : MonoBehaviour
                 if (col.TryGetComponent<Rammer>(out Rammer doNotUse)) _rb.isKinematic = false;
                 else
                 {
+                    Debug.Log("scout");
                     _rb.isKinematic = true;
                     _touchingScout = true;
                 }
