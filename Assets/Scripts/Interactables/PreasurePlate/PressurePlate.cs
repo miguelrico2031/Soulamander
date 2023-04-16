@@ -15,6 +15,8 @@ public class PressurePlate : MonoBehaviour
     //[SerializeField] private BoxCollider2D _collider;   
     [SerializeField] private Transform _animationTargetPos;
 
+    private AudioSource _audioSource;
+
     private List<GameObject> _listeners;
     private bool revertingAnimation;
     private float _startingPositionY;
@@ -26,6 +28,8 @@ public class PressurePlate : MonoBehaviour
         _startingPositionY = transform.position.y;
         _listeners = new List<GameObject>();
         foreach (PreassureListener door in GameObject.FindObjectsOfType<PreassureListener>()) if (door._gemColor == _gemColor) _listeners.Add(door.gameObject);
+        
+        _audioSource = GetComponentInParent<AudioSource>();
     }
 
     private void Update()
@@ -61,6 +65,9 @@ public class PressurePlate : MonoBehaviour
         if (collision.contacts[0].normal.y >= 0f) return;
         collision.transform.SetParent(transform);
         _isBeingPressed = true;
+
+        _audioSource.Play();
+
         StartCoroutine(PlateAnimation());
 
     }

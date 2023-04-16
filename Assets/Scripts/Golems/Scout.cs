@@ -228,6 +228,7 @@ public class Scout : Golem
 
         if(State == GolemState.Enabled)
         {
+            _animator.SetBool("Disabled", false);
             IsFacingRight = transform.localScale.x > 0f;
         }
 
