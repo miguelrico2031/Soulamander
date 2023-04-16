@@ -11,6 +11,8 @@ public class GameStartCam : MonoBehaviour
     [SerializeField] private ParticleSystem _dirtEffect;
     [SerializeField] private Light2D _sunLight, _globalLight;
     [SerializeField] private Animator _initialAnimator;
+    [SerializeField] private GameObject _spirit;
+    [SerializeField] private float _zoomOutSpeed = 0.4f;
 
     private PixelPerfectCamera _ppCamera;
 
@@ -31,7 +33,7 @@ public class GameStartCam : MonoBehaviour
         endPos.x = _centerGolemTarget.position.x;
         float t = 0f;
 
-        StartCoroutine(Zoom(64, 0.55f));
+        StartCoroutine(Zoom(64, _zoomOutSpeed));
 
         while (Vector2.Distance(transform.position, endPos) > 0.02f)
         {
@@ -60,21 +62,26 @@ public class GameStartCam : MonoBehaviour
         t = 0f;
         while (_sunLight.intensity < 1f)
         {
-            _sunLight.intensity = Mathf.Lerp(startI, 1f, t / _dirtEffect.main.duration);
+            _sunLight.intensity = Mathf.Lerp(startI, 1.1f, t / _dirtEffect.main.duration);
             _globalLight.intensity = Mathf .Lerp(0f, 0.8f, t / _dirtEffect.main.duration);
             t += Time.deltaTime;
             yield return null;
         }
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3.5f);
 
         _initialAnimator.SetTrigger("Light");
 
-    }
+        yield return new WaitForSeconds(6f);
 
-    public void OnLighted()
-    {
+        _initialAnimator.SetTrigger("Off");
+        _spirit.SetActive(true);
+        _spirit.GetComponent<SpiritDim>().IsFading = false;
+        
+        
+        yield return StartCoroutine(Zoom(32, 0.7f));
 
+        _camController.enabled = true;
     }
 
     private IEnumerator Zoom(int targetPPU, float zoomSpeed)
