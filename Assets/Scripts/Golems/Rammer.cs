@@ -30,12 +30,15 @@ public class Rammer : Golem
     [SerializeField] private Transform[] _wallCheckPoints;
 
     [SerializeField] private ParticleSystem _dustEffect;
+    [SerializeField] private AudioClip[] _footsteps;
+    [SerializeField] private AudioClip _hitSound;
+    [SerializeField] private float _footstepsSpeed;
 
     private Vector3[] _groundCheckPoints;
 
     private Collider2D[] _wallCheckColliders;
     private ContactFilter2D _wallCheckCF;
-
+    private float _footstepsTimer = 0f, _footstepsMaxSpeed;
 
     protected override void Awake()
     {
@@ -51,6 +54,8 @@ public class Rammer : Golem
         };
 
         _wallCheckCF = new ContactFilter2D() { layerMask = _interactableLayers };
+
+        _footstepsMaxSpeed = _footstepsSpeed * 1.5f;
     }
 
     private void OnEnable()
@@ -137,6 +142,13 @@ public class Rammer : Golem
         _rb.velocity = new Vector2((_isPushing ? _pushSpeed : _speed) * _direction, _rb.velocity.y);
 
         _animator.SetFloat("Speed", Mathf.Abs((_isPushing ? _pushSpeed : _speed) * _direction));
+
+        _footstepsTimer += Time.fixedDeltaTime;
+        if (_footstepsTimer >= 1f / (_isAtMaxSpeed ? _footstepsMaxSpeed : _footstepsSpeed))
+        {
+            _footstepsTimer = 0f;
+            _audioSource.PlayOneShot(_footsteps[Random.Range(0, _footsteps.Length)]);
+        }
     } 
         
     public void ResetSpeed()
@@ -200,6 +212,7 @@ public class Rammer : Golem
                 if ((_groundLayer.value & (1 << col.gameObject.layer)) > 0 || col.gameObject.layer == gameObject.layer)
                 {
                     StopRunning();
+                    _audioSource.PlayOneShot(_hitSound);
                 }
 
                 else if ((_pushableLayer.value & (1 << col.gameObject.layer)) > 0)
@@ -219,6 +232,7 @@ public class Rammer : Golem
                 {
                     if (_isAtMaxSpeed)
                     {
+                        _audioSource.PlayOneShot(_hitSound);
                         col.GetComponent<DestructibleObject>().DestroyObstacle(this);
                     }
                     else StopRunning();

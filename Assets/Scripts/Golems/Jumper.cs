@@ -9,6 +9,9 @@ public class Jumper : Golem
     [SerializeField] private float _minJumpForce, _maxJumpForce, _minJumpTime, _maxJumpTime, _gravityForce;
     [SerializeField] private ParticleSystem _dustEffect, _maxChargeEffect;
 
+    [SerializeField] private AudioClip[] _jumpSounds;
+    [SerializeField] private AudioClip _jumpChargedSound, _landSound;
+
     private Vector2 _gravity;
 
     private float _horizontalInput, _nextHorizontalInput;
@@ -100,9 +103,13 @@ public class Jumper : Golem
         if (_isHoldingJumpButton)
         {
 
-            if(_holdingJumpButtonTime < _maxJumpTime) _holdingJumpButtonTime += Time.deltaTime;
+            if (_holdingJumpButtonTime < _maxJumpTime) _holdingJumpButtonTime += Time.deltaTime;
 
-            else if(_maxChargeEffect.isStopped) _maxChargeEffect.Play();
+            else if (_maxChargeEffect.isStopped)
+            {
+                _maxChargeEffect.Play();
+                _audioSource.PlayOneShot(_jumpChargedSound);
+            }
             
         }
 
@@ -145,6 +152,7 @@ public class Jumper : Golem
 
         _dustEffect.transform.SetPositionAndRotation(transform.position, transform.rotation);
         _dustEffect.Play();
+        _audioSource.PlayOneShot(_jumpSounds[Random.Range(0, _jumpSounds.Length)]);
 
         _isGrounded = false;
         _rb.SetRotation(0f);
@@ -184,6 +192,7 @@ public class Jumper : Golem
             if (((Vector2)transform.position - contact.point).y < 0f) continue;
 
             _isGrounded = true;
+            _audioSource.PlayOneShot(_landSound);
             
 
             float newAngle = Vector2.SignedAngle(transform.up, collision.contacts[0].normal);
@@ -264,7 +273,7 @@ public class Jumper : Golem
             if(col)
             {
                 _isGrounded = true;
-
+                _audioSource.PlayOneShot(_landSound);
             }
         }
 
