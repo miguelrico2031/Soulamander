@@ -34,6 +34,8 @@ public class Vacuum : MonoBehaviour
 
         if (!_golemBeingSucked) return;
 
+        if(_golemBeingSucked.State != GolemState.Enabled && _audioSource.volume == 1f) StartCoroutine(SoundFade(false));
+
         _suckTime += Time.deltaTime;
 
         if(_suckTime >= _spiritSuckDuration)
@@ -83,7 +85,7 @@ public class Vacuum : MonoBehaviour
     {
          _audioSource.volume = fadeIn ? 0f : 1f;
         float timer = 0f;
-        while(timer < _soundFadeDuration)
+        while(timer <= _soundFadeDuration)
         {
             timer += Time.deltaTime;
 
@@ -92,6 +94,7 @@ public class Vacuum : MonoBehaviour
 
             yield return null;
         }
-        
+        _audioSource.volume = fadeIn ? 1f : 0f;
+
     }
 }
