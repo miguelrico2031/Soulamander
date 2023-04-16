@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: S2.1
   m_EditorClassIdentifier: 
   _phrases:
-  - Text: "Ahhh, por fin est\xE1s aqu\xED \u201Csalamandra uno (s1)\u201D me habl\xF3
-      de t\xED, llevo esperando para poder conocerte"
+  - Text: "Ahhh, ya est\xE1s aqu\xED \u201Csalamandra uno (s1)\u201D me habl\xF3
+      de t\xED, no esperaba encontrarte tan pronto."
     Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
@@ -23,8 +23,8 @@ MonoBehaviour:
     Emote: {fileID: 1665278285, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "\xBFC\xF3mo es que volviste a encenderte? \xBFllevabas encendido todo
-      este tiempo? \xBFRecuerdas algo de tu pasado? \xBFpor qu\xE9 eres el \xFAnico
+  - Text: "\xBFC\xF3mo es que volviste a encenderte? \xBFLlevabas encendido todo
+      este tiempo? \xBFRecuerdas algo de tu pasado? \xBFPor qu\xE9 eres el \xFAnico
       encendido?"
     Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
@@ -40,25 +40,25 @@ MonoBehaviour:
     IsLast: 0
     IsOver: 1
   - Text: ...
-    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "A veces no puedo creerme que est\xE9 realmente aqu\xED, la ciudadela que
       est\xE1 m\xE1s adelante es el coraz\xF3n del pueblo de Emet, y nosotros somos
       los primeros en llegar aqu\xED para descubrir m\xE1s sobre ellos."
-    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "A \u201Cs1\u201D y a mi nos han asignado esta zona des\xE9rtica en la
       periferia norte de la ciudad, y seg\xFAn por lo que hemos descubierto por aqu\xED
       es donde se libr\xF3 la \xFAltima batalla de la Guerra de Piedra."
-    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Se me hace dif\xEDcil de imaginar que existiera un ej\xE9rcito de golems
       como el que se cuenta en los relatos, pero por lo que hemos descubierto en
       esta zona, era cierto.\n"
-    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Pero como una civilizaci\xF3n de hace 700 a\xF1os de salamandras como
@@ -69,7 +69,7 @@ MonoBehaviour:
     IsLast: 0
     IsOver: 1
   - Text: Pero a parte de eso, estas ruinas esconden muchos otros secretos.
-    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Por ejemplo; hemos desenterrado muchos golems, pero muchos no est\xE1n

@@ -19,3 +19,6 @@ MonoBehaviour:
     ClueText: deseirto 2 pista assda asd asdas dasd sadasd as
   - SceneName: Desert3
     ClueText: desiertooo tres pista hola
+  - SceneName: City3
+    ClueText: "El extractor de almas no funciona en golems que no est\xE9s controlando,
+      as\xED que puedes ir cambiando de golems para evadirlos."
