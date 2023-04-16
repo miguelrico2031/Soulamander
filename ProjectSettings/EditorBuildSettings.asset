@@ -5,25 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Desert/Desert1.unity
     guid: 542eaaa3d22244d4185d34da5e1a94ff
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Desert/Desert2.unity
     guid: 90f28cd027b47dd42bd69c6500f6d112
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Desert/Desert3.unity
     guid: 3c681a77115d71f4ead37d5e55a7a628
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Desert/Desert4.unity
     guid: 91dda090facc7604c87c0814d84d5d31
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Desert/Desert5.unity
     guid: f8baafe744e9820429073fa435a222d7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/MossyCaves/Mossy1.unity
     guid: 520d5dfd388749d438e40dcdd51e68c0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/MossyCaves/Mossy2.unity
     guid: a0558f5eaf01b824da606aa41e8c9ca1
   - enabled: 1
