@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
@@ -14,6 +15,7 @@ public class PauseGame : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _clueText;
     [SerializeField] private Clues _clues;
 
+    private EventSystem _eventSystem;
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ public class PauseGame : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(transform.parent.gameObject);
+            _eventSystem = transform.parent.GetComponentInChildren<EventSystem>();
         }
         
         Resume();
@@ -42,6 +45,11 @@ public class PauseGame : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        foreach(var eS in FindObjectsOfType<EventSystem>())
+        {
+            if (eS != _eventSystem) Destroy(eS.gameObject);
+        }
+
         _clueText.text = _clues.GetClue(scene.name);
         Resume();
     }
