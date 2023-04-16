@@ -5366,6 +5366,7 @@ MonoBehaviour:
   CanBeLaunched: 0
   StartsScenePossed: 0
   IsTalking: 0
+  IsRespawning: 0
   TopCollider: {fileID: 0}
   _feet: {fileID: 8677876019946579692}
   _collider: {fileID: 4615633495886492091}
@@ -5469,7 +5470,7 @@ AudioSource:
   m_GameObject: {fileID: 7537533552205766756}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7701567897706314299, guid: 7e83573283439e5469e68119b92687a9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.558

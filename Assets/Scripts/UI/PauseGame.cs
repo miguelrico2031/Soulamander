@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
@@ -16,6 +18,7 @@ public class PauseGame : MonoBehaviour
     [SerializeField] private GameObject _pausePanel, _bgPanel, _levelSelectPanel, _cluePanel;
     [SerializeField] private TextMeshProUGUI _clueText;
     [SerializeField] private Clues _clues;
+    [SerializeField] private AudioMixer _audioMixer;
 
     private EventSystem _eventSystem;
 
@@ -56,7 +59,9 @@ public class PauseGame : MonoBehaviour
         Resume();
 
         _eventSystem.firstSelectedGameObject = _pausePanel.transform.Find("Resume").gameObject;
-        
+
+        _audioMixer.SetFloat("Music", -20f);
+        _audioMixer.SetFloat("SFX", -20f);
     }
 
     private void Update()
@@ -125,4 +130,14 @@ public class PauseGame : MonoBehaviour
 
     public void OnClue(bool onClue) => _isOnClue = onClue;
     public void OnLevelSelect(bool onLevelSelect) => _isOnLevelSelect = onLevelSelect;
+
+    public void ChangeMusicVolume(float volume)
+    {
+        _audioMixer.SetFloat("Music", volume <= -50f ? -80f : volume);
+    }
+
+    public void ChangeSFXVolume(float volume)
+    {
+        _audioMixer.SetFloat("SFX", volume <= -50f ? -80f : volume);
+    }
 }
