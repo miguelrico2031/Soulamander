@@ -11,6 +11,8 @@ public class PauseGame : MonoBehaviour
 
     public bool Paused { get; private set; }
 
+    private bool _isOnClue, _isOnLevelSelect;
+
     [SerializeField] private GameObject _pausePanel, _bgPanel, _levelSelectPanel, _cluePanel;
     [SerializeField] private TextMeshProUGUI _clueText;
     [SerializeField] private Clues _clues;
@@ -52,11 +54,34 @@ public class PauseGame : MonoBehaviour
 
         _clueText.text = _clues.GetClue(scene.name);
         Resume();
+
+        _eventSystem.firstSelectedGameObject = _pausePanel.transform.Find("Resume").gameObject;
+        
     }
 
     private void Update()
     {
         if (Input.GetButtonDown("Pause")) Pause(!Paused);
+
+        if(Input.GetButtonDown("Cancel"))
+        {
+            if(_isOnClue)
+            {
+                _cluePanel.SetActive(false);
+                _pausePanel.SetActive(true);
+                _eventSystem.SetSelectedGameObject(_pausePanel.transform.Find("Resume").gameObject);
+                _isOnClue = false;
+            }
+            else if(_isOnLevelSelect)
+            {
+                _levelSelectPanel.SetActive(false);
+                _pausePanel.SetActive(true);
+                _eventSystem.SetSelectedGameObject(_pausePanel.transform.Find("Resume").gameObject);
+                _isOnLevelSelect = false;
+            }
+
+            else Resume();
+        }
     }
 
     public void Pause(bool pause)
@@ -74,6 +99,8 @@ public class PauseGame : MonoBehaviour
         _levelSelectPanel.SetActive(false);
         _cluePanel.SetActive(false);
         Time.timeScale = 0f;
+
+        _eventSystem.SetSelectedGameObject(_pausePanel.transform.Find("Resume").gameObject);
     }
 
     private void Resume()
@@ -95,4 +122,7 @@ public class PauseGame : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void OnClue(bool onClue) => _isOnClue = onClue;
+    public void OnLevelSelect(bool onLevelSelect) => _isOnLevelSelect = onLevelSelect;
 }

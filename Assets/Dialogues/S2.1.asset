@@ -71,21 +71,22 @@ MonoBehaviour:
   - Text: Pero a parte de eso, estas ruinas esconden muchos otros secretos.
     Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
-    IsOver: 1
+    IsOver: 0
   - Text: "Por ejemplo; hemos desenterrado muchos golems, pero muchos no est\xE1n
       destruidos ni tienen ning\xFAn tipo de indicios de haber sido atacados, simplemente
       est\xE1n\u2026 apagados"
     Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 1
+    IsOver: 0
   - Text: "Y esto es a\xFAn m\xE1s notorio en la ciudadela, all\xED casi ning\xFAn
       golem presenta indicios de haber sido destruidos en batalla, parece como si
       simplemente les hubieran arrebatado lo que les daba la vida."
     Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 1
+    IsOver: 0
   - Text: Bueno, tendremos que ponernos las pilas a estudiar este lugar si queremos
       desvelar estos misterios jeje
     Emote: {fileID: 663000818, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
-    IsLast: 1
-    IsOver: 1
+    IsLast: 0
+    IsOver: 0
+  GameZone: 0

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Dialogue : ScriptableObject
 {
     [SerializeField] private Phrase[] _phrases;
+    public GameZone GameZone;
     private int _index = 0;
 
     public Phrase NextPhrase()
@@ -55,5 +56,11 @@ public class Phrase
         IsOver = false;
         _index = 0;
     }
+}
+
+[System.Serializable]
+public enum GameZone
+{
+    Desert, Moss, City
 }
 
