@@ -33,6 +33,7 @@ public abstract class Golem : MonoBehaviour
 
     protected Animator _animator;
     protected SpriteRenderer _renderer;
+    protected AudioSource _audioSource;
 
     protected virtual void Awake()
     {
@@ -44,6 +45,7 @@ public abstract class Golem : MonoBehaviour
 
         _animator = GetComponent<Animator>();
         _renderer = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     protected virtual void Start()

@@ -5122,7 +5122,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 547781581
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: -10
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -5268,6 +5268,7 @@ GameObject:
   - component: {fileID: 7537533552205766744}
   - component: {fileID: 1293787408055710853}
   - component: {fileID: 4615633495886492091}
+  - component: {fileID: 6168129434798011844}
   m_Layer: 9
   m_Name: Jumper
   m_TagString: Untagged
@@ -5379,6 +5380,12 @@ MonoBehaviour:
   _gravityForce: 5
   _dustEffect: {fileID: 5746740676597233810}
   _maxChargeEffect: {fileID: 7563198363994595959}
+  _jumpSounds:
+  - {fileID: 8300000, guid: 70a15eb8b66af114cbf002fa665b14c9, type: 3}
+  - {fileID: 8300000, guid: 55c02dd5d46ab5f40a571bf2a03b6fcc, type: 3}
+  - {fileID: 8300000, guid: fb0b48190a700c3418e0fc336aa4c15d, type: 3}
+  _jumpChargedSound: {fileID: 8300000, guid: 0abad13c1bc75ab47b2572367dadd995, type: 3}
+  _landSound: {fileID: 8300000, guid: 55e3a66b931574f45ab74368f69612df, type: 3}
 --- !u!50 &7537533552205766744
 Rigidbody2D:
   serializedVersion: 4
@@ -5453,6 +5460,102 @@ PolygonCollider2D:
       - {x: 0.53, y: -0.68}
       - {x: 0.53, y: -0.17}
       - {x: 0.26, y: -0.17}
+--- !u!82 &6168129434798011844
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537533552205766756}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.558
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9020352712834537313
 GameObject:
   m_ObjectHideFlags: 0
@@ -10233,7 +10336,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 547781581
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 300
   m_RenderMode: 0
   m_MeshDistribution: 0

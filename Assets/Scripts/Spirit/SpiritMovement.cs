@@ -24,7 +24,7 @@ public class SpiritMovement : MonoBehaviour
         _moveInput.x = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
         _moveInput.y = Mathf.RoundToInt(Input.GetAxisRaw("Vertical"));
 
-        _isPressingMove = _moveInput.x != 0f || _moveInput.y != 0f;
+        _isPressingMove = !PauseGame.Instance.Paused && (_moveInput.x != 0f || _moveInput.y != 0f);
     }
 
     private void FixedUpdate()

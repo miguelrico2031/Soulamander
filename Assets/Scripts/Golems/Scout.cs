@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Scout : Golem
 {
@@ -22,13 +23,19 @@ public class Scout : Golem
 
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private ParticleSystem _dustEffect;
+    [SerializeField] private AudioClip[] _footsteps;
+    [SerializeField] private AudioClip _jumpSound;
+    [SerializeField] private float _footstepsSpeed;
 
+    
     private Vector3[] _groundCheckPoints;
     private RaycastHit2D _hit;
 
     private bool _lerpingToGolem = false;
     private float _lerpTime = 0f;
     Vector2 _lerpTarget;
+
+    private float _footstepsTimer = 0f; 
 
     protected override void Awake()
     {
@@ -56,6 +63,7 @@ public class Scout : Golem
                 _animator.SetBool("Landed", true);
                 _animator.SetBool("Falling", false);
                 _isFalling = false;
+                _audioSource.PlayOneShot(_footsteps[0]);
             }
             _lastGrounded = true;
         }
@@ -122,6 +130,8 @@ public class Scout : Golem
                     _animator.SetBool("Jump", true);
                     _animator.SetBool("Landed", false);
                     _animator.SetBool("Falling", false);
+
+                    _audioSource.PlayOneShot(_jumpSound);
                 }
             }         
         }
@@ -155,8 +165,21 @@ public class Scout : Golem
         _animator.SetFloat("Speed", Mathf.Abs(_horizontal * _speed));
 
         if (!_grounded || (!_dustEffect.isStopped && _horizontal == 0)) _dustEffect.Stop();
+        
+        //else if (_grounded && _dustEffect.isStopped && _horizontal != 0) _dustEffect.Play();
+        
+        if(_grounded && _horizontal != 0)
+        {
+            if(_dustEffect.isStopped) _dustEffect.Play();
 
-        else if (_grounded && _dustEffect.isStopped && _horizontal != 0) _dustEffect.Play();
+            _footstepsTimer += Time.fixedDeltaTime;
+            if(_footstepsTimer >= 1f / _footstepsSpeed)
+            {
+                _footstepsTimer = 0f;
+                _audioSource.PlayOneShot(_footsteps[Random.Range(0, _footsteps.Length)]);
+            }
+        }
+        
 
     }
 

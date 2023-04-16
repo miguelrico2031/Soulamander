@@ -8,6 +8,7 @@ public class Spike : MonoBehaviour
     [SerializeField] private float _respawnDelay;
     [SerializeField] private Respawn _respawn;
     [SerializeField] private ParticleSystem _deathParticles;
+    [SerializeField] private AudioClip _deathSound;
 
     private int _golemLayer;
     private SpiritUnion _spiritUnion;
@@ -31,6 +32,8 @@ public class Spike : MonoBehaviour
         Golem golem = golemGO.GetComponent<Golem>();
         Vector2 _deathParticlesPos = golem.transform.position;
         _deathParticlesInstance = Instantiate(_deathParticles, _deathParticlesPos, _deathParticles.transform.rotation);
+        GetComponent<AudioSource>().PlayOneShot(_deathSound);
+
         if (_respawn != null) golem.transform.position = _respawn.GetRespawnPoint();
 
         if (golem.State == GolemState.Enabled)

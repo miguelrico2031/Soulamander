@@ -13,6 +13,7 @@ public class SpiritUnion : MonoBehaviour
     }
 
     public bool CanSwap = true;
+    public bool CanInteract = true;
 
     [SerializeField] private float _travelingSpeed, _vacuumSpeed;
     [SerializeField] private LayerMask _golemUnionLayer, _golemLayer;
@@ -21,6 +22,8 @@ public class SpiritUnion : MonoBehaviour
     [SerializeField] private Material _defaultMaterial, _outlineMaterial;
     [SerializeField] private ParticleSystem _fireTrail, _fireTrailPossess,_soulSucked;
     [SerializeField] private Color _travelingColor;
+
+    [SerializeField] private AudioClip _possessSound;
 
     private SpiritState _state;
     private List<Golem> _golemsInArea, _avaliableGolems;
@@ -37,6 +40,7 @@ public class SpiritUnion : MonoBehaviour
     private NPC _npcInArea;
     private bool _justEndedDialogue = false;
     private Light2D _light;
+    private AudioSource _audioSource;
     private Color _defaultColor;
     
 
@@ -52,6 +56,7 @@ public class SpiritUnion : MonoBehaviour
         _golemTrigger = GetComponent<Collider2D>();
         _rb = transform.parent.GetComponent<Rigidbody2D>();
         _light = transform.parent.GetComponentInChildren<Light2D>();
+        _audioSource = GetComponent<AudioSource>();
         _defaultColor = _light.color;
         _npcLayer = LayerMask.NameToLayer("NPC");
         State = SpiritState.Roaming;
@@ -104,7 +109,7 @@ public class SpiritUnion : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Interact") && !PauseGame.Instance.Paused)
+        if (Input.GetButtonDown("Interact") && !PauseGame.Instance.Paused && CanInteract)
         {
             if (!_npcInArea)
             {
@@ -274,7 +279,7 @@ public class SpiritUnion : MonoBehaviour
         if (!golem || State != SpiritState.Roaming) return;
         if (CheckIfOverlapping(golem)) return;
 
-
+       
         _golemInPossession = golem;
 
         if(!_avaliableGolems.Contains(_golemInPossession)) _avaliableGolems.Add(_golemInPossession);
@@ -285,6 +290,10 @@ public class SpiritUnion : MonoBehaviour
         _target = golem.transform;
         _rb.velocity = (_target.position - transform.position).normalized * _travelingSpeed;
         State = SpiritState.Traveling;
+
+        if (golem.State == GolemState.Disabled && golem.StartsScenePossed) return;
+        
+        _audioSource.PlayOneShot(_possessSound);
     }
 
     public void VacuumSpirit(Transform vacuum)

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Vacuum : MonoBehaviour
 {
-    [SerializeField] private float _spiritSuckDuration, _rotationSpeed, _vortexRotationMultiplier;
+    [SerializeField] private float _spiritSuckDuration, _rotationSpeed, _vortexRotationMultiplier, _soundFadeDuration;
 
     [SerializeField] private Transform _vortex;
 
+    private AudioSource _audioSource;
     private int _spiritLayer, _golemLayer;
     private Golem _golemBeingSucked;
     private SpiritUnion _spiritUnion;
@@ -17,11 +18,13 @@ public class Vacuum : MonoBehaviour
     {
         _spiritLayer = LayerMask.NameToLayer("Spirit");
         _golemLayer = LayerMask.NameToLayer("Golem");
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         _spiritUnion = GameObject.FindAnyObjectByType<SpiritUnion>();
+        _audioSource.volume = 0f;
     }
 
     private void Update()
@@ -56,6 +59,7 @@ public class Vacuum : MonoBehaviour
             _suckTime = 0f;
             _spiritUnion.CanSwap = false;
             _spiritUnion.SuckSpirit(true);
+            StartCoroutine(SoundFade(true));
         }
     }
 
@@ -71,6 +75,23 @@ public class Vacuum : MonoBehaviour
             _golemBeingSucked = null;
             _spiritUnion.CanSwap = true;
             _spiritUnion.SuckSpirit(false);
+            StartCoroutine(SoundFade(false));
         }
+    }
+
+    private IEnumerator SoundFade(bool fadeIn)
+    {
+         _audioSource.volume = fadeIn ? 0f : 1f;
+        float timer = 0f;
+        while(timer < _soundFadeDuration)
+        {
+            timer += Time.deltaTime;
+
+            if(fadeIn) _audioSource.volume += Time.deltaTime / _soundFadeDuration;
+            else _audioSource.volume -= Time.deltaTime / _soundFadeDuration;
+
+            yield return null;
+        }
+        
     }
 }
