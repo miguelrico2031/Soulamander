@@ -6,11 +6,10 @@ public class RoomChanger : MonoBehaviour
 {
     [SerializeField] private GameObject _progressWall;
     [SerializeField] private LayerMask _golemLayer;
-    [SerializeField] private List<Golem> _golemsToDeactivate;
+    [SerializeField] private List<GameObject> _golemsToDeactivate;
 
     private void Start()
     {
-        _golemsToDeactivate = new List<Golem>();
         _progressWall.SetActive(false);
     }
 
@@ -25,6 +24,7 @@ public class RoomChanger : MonoBehaviour
     private void ChangeRoom()
     {
         if(_golemsToDeactivate.Count == 0) {
+            Debug.Log(_golemsToDeactivate.Count);
             foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
             {
                 if (golem.State == GolemState.Available)
@@ -35,17 +35,15 @@ public class RoomChanger : MonoBehaviour
         }
         else
         {
-            foreach (Golem golem in _golemsToDeactivate)
+            foreach (GameObject golem in _golemsToDeactivate)
             {
-                if (golem.State == GolemState.Available)
+                if (golem.GetComponent<Golem>().State == GolemState.Available)
                 {
-                    golem.State = GolemState.Disabled;
+                    golem.GetComponent<Golem>().State = GolemState.Disabled;
                 }
             }
         }
-
-        _progressWall.SetActive(true);
-
         GameObject.FindObjectOfType<SpiritUnion>().RefreshAvailableGolems();
+        _progressWall.SetActive(true);
     }
 }

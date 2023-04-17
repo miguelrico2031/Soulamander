@@ -323,12 +323,12 @@ public class SpiritUnion : MonoBehaviour
 
     // Añadido por borja:
     public void RefreshAvailableGolems() 
-    {
+    { 
         _avaliableGolems.Clear();
         _golemIndex = 0;
         foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
         {
-            if (golem.State == GolemState.Enabled)
+            if (golem.State == GolemState.Enabled || golem.State == GolemState.Available)
             {
                 _avaliableGolems.Add(golem);
             }
