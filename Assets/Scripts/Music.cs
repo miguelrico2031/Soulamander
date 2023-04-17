@@ -7,7 +7,7 @@ public class Music : MonoBehaviour
 {
     public static Music Instance;
 
-    [SerializeField] private AudioClip _desertMusic, _mossMusic, _cityMusic;
+    [SerializeField] private AudioClip _desertMusic, _mossMusic, _cityMusic, _menuMusic;
 
     private AudioSource _audioSource;
 
@@ -41,6 +41,14 @@ public class Music : MonoBehaviour
         
     }
 
+    public void PlayMenuMusic()
+    {
+        if (_audioSource.clip == _menuMusic && _audioSource.isPlaying) return;
+
+        _audioSource.clip = _menuMusic;
+        _audioSource.Play();
+    }
+
     public void PlayDesertMusic()
     {
         if (_audioSource.clip == _desertMusic && _audioSource.isPlaying) return;
@@ -72,6 +80,11 @@ public class Music : MonoBehaviour
     public void FadeOutMusic()
     {
         StartCoroutine(MusicFade(2f, false));
+    }
+
+    public void FadeOutMusic(float duration)
+    {
+        StartCoroutine(MusicFade(duration, false));
     }
     
 

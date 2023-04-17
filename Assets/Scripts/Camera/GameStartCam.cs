@@ -28,6 +28,7 @@ public class GameStartCam : MonoBehaviour
 
     private IEnumerator StartCinematic()
     {
+        Music.Instance.FadeOutMusic(2f);
         yield return new WaitForSeconds(2.5f);
 
         Vector3 startPos = transform.position;

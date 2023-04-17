@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour
     {
         PauseGame.Instance.enabled = false;
         EventSystem.current.SetSelectedGameObject(_mainMenu.transform.Find("Play").gameObject);
+
+        Music.Instance.PlayMenuMusic();
     }
 
     public void PlayGame()
