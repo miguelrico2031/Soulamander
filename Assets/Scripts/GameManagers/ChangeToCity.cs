@@ -43,7 +43,7 @@ public class ChangeToCity : MonoBehaviour
 
         _audioSource.Play(); //sonido de pasos + ostia al cristal
 
-        yield return new WaitForSeconds(_audioSource.clip.length + 2.5f);
+        yield return new WaitForSeconds(_audioSource.clip.length + 1f);
 
         _salamander.SetActive(true);
         _brokenOrb.SetActive(true);
