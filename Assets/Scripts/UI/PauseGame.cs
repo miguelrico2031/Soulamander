@@ -12,6 +12,7 @@ public class PauseGame : MonoBehaviour
     public static PauseGame Instance;
 
     public bool Paused { get; private set; }
+    public bool IsAtLevel1 = false;
 
     private bool _isOnClue, _isOnLevelSelect;
 
@@ -120,7 +121,8 @@ public class PauseGame : MonoBehaviour
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if(!IsAtLevel1) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        else SceneManager.LoadScene("Desert1_NC");
     }
 
     public void LoadLevel(string sceneName)

@@ -79,7 +79,17 @@ public class GameStartCam : MonoBehaviour
         _spirit.GetComponent<SpiritDim>().IsFading = false;
         
         
-        yield return StartCoroutine(Zoom(32, 0.7f));
+        StartCoroutine(Zoom(32, 0.7f));
+
+        startPos = transform.position;
+        endPos = _spirit.transform.position;
+        endPos.z = startPos.z;
+        while (Vector2.Distance(transform.position, endPos) > 0.0f)
+        {
+            transform.position = Vector3.Lerp(startPos, endPos, t);
+            t += Time.deltaTime;
+            yield return null;
+        }
 
         _camController.enabled = true;
     }
