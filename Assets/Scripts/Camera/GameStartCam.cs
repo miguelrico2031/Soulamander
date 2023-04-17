@@ -21,13 +21,15 @@ public class GameStartCam : MonoBehaviour
         _ppCamera = GetComponent<PixelPerfectCamera>();
     }
 
-    private void Start()
+    public void GameStart()
     {
         StartCoroutine(StartCinematic());
     }
 
     private IEnumerator StartCinematic()
     {
+        yield return new WaitForSeconds(2.5f);
+
         Vector3 startPos = transform.position;
         Vector3 endPos = startPos;
         endPos.x = _centerGolemTarget.position.x;
@@ -77,7 +79,7 @@ public class GameStartCam : MonoBehaviour
         _initialAnimator.SetTrigger("Off");
         _spirit.SetActive(true);
         _spirit.GetComponent<SpiritDim>().IsFading = false;
-        
+        PauseGame.Instance.enabled = true;
         
         StartCoroutine(Zoom(32, 0.7f));
 
