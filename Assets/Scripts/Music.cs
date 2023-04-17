@@ -53,7 +53,8 @@ public class Music : MonoBehaviour
     {
         if (_audioSource.clip == _mossMusic && _audioSource.isPlaying) return;
         _audioSource.clip = _mossMusic;
-        _audioSource.Play();
+        //_audioSource.Play();
+        StartCoroutine(MusicFadeIn(2f));
     }
 
     public void PlayCityMusic()
@@ -61,5 +62,27 @@ public class Music : MonoBehaviour
         if (_audioSource.clip == _cityMusic && _audioSource.isPlaying) return;
         _audioSource.clip = _cityMusic;
         _audioSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        _audioSource.Stop();
+    }
+
+    private IEnumerator MusicFadeIn(float duration)
+    {
+        _audioSource.Stop();
+        _audioSource.volume = 0f;
+        _audioSource.Play();
+        float t = 0f;
+        while (t < 1f)
+        {
+            _audioSource.volume = Mathf.Lerp(0f, 1f, t);
+
+            t += Time.deltaTime / duration;
+
+            yield return null;
+        }
+        _audioSource.volume = 1f;
     }
 }

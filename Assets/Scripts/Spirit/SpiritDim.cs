@@ -22,6 +22,7 @@ public class SpiritDim : MonoBehaviour
             _isFading = value;
         }
     }
+    public bool IsAtLevel1 = false;
 
     [SerializeField] private Transform _sprite;
     [SerializeField] private float _attenuationDuration, _deathDuration;
@@ -87,8 +88,11 @@ public class SpiritDim : MonoBehaviour
         _light.enabled = false;
         _fireTrail.Stop();
 
+        PauseGame.Instance.FadeOut();
+
         yield return new WaitForSeconds(_deathDuration);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (!IsAtLevel1) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        else SceneManager.LoadScene("Desert1_NC");
     }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9079382022520734755}
   - component: {fileID: 4950699924649488259}
   - component: {fileID: 268543773463398635}
-  - component: {fileID: 8999037966136020800}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -43,7 +42,7 @@ AudioSource:
   m_GameObject: {fileID: 2969188011953693655}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 0dbda5804b4e75d4390bd6f92a227353, type: 2}
+  OutputAudioMixerGroup: {fileID: -8567879331319661623, guid: 7e83573283439e5469e68119b92687a9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -145,15 +144,3 @@ MonoBehaviour:
   _desertMusic: {fileID: 8300000, guid: 5c5cd506497f2a145ac07f851ac8e28c, type: 3}
   _mossMusic: {fileID: 8300000, guid: 1b508de0aed068e42bd91de4ae105a92, type: 3}
   _cityMusic: {fileID: 8300000, guid: 5d3c797ba31acd6418da695756d06552, type: 3}
---- !u!114 &8999037966136020800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2969188011953693655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8599e591c2e745f4b834c89c77e17003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

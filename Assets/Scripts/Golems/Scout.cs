@@ -237,6 +237,8 @@ public class Scout : Golem
             _dustEffect.Stop();
         }
     }
+
+    public float GetSpeed() => _speed;
 }
 
 public enum ButtonToQueue

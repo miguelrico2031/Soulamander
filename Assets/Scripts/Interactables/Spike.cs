@@ -30,6 +30,11 @@ public class Spike : MonoBehaviour
     private IEnumerator DieAndRespawn(GameObject golemGO)
     {
         Golem golem = golemGO.GetComponent<Golem>();
+
+        if (golem.IsRespawning) yield break;
+
+        golem.IsRespawning = true;
+
         Vector2 _deathParticlesPos = golem.transform.position;
         _deathParticlesInstance = Instantiate(_deathParticles, _deathParticlesPos, _deathParticles.transform.rotation);
         GetComponent<AudioSource>().PlayOneShot(_deathSound);
@@ -45,6 +50,8 @@ public class Spike : MonoBehaviour
         golemGO.SetActive(false);
 
         yield return new WaitForSeconds(_respawnDelay);
+
+        golem.IsRespawning = false;
 
         if (_respawn == null) StartCoroutine(ReloadScene());
         else
