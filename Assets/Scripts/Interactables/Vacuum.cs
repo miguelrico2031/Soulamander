@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Vacuum : MonoBehaviour
 {
+    public bool IsFirst = false;
+
     [SerializeField] private float _spiritSuckDuration, _rotationSpeed, _vortexRotationMultiplier, _soundFadeDuration;
 
     [SerializeField] private Transform _vortex;
@@ -13,6 +16,7 @@ public class Vacuum : MonoBehaviour
     private Golem _golemBeingSucked;
     private SpiritUnion _spiritUnion;
     private float _suckTime = 0f;
+
 
     private void Awake()
     {
@@ -40,7 +44,8 @@ public class Vacuum : MonoBehaviour
 
         if(_suckTime >= _spiritSuckDuration)
         {
-            if(_golemBeingSucked.State == GolemState.Enabled) _spiritUnion.VacuumSpirit(transform);
+            if(IsFirst) 
+            if(_golemBeingSucked.State == GolemState.Enabled) _spiritUnion.VacuumSpirit(transform, IsFirst);
             _golemBeingSucked = null;
         }
 
@@ -49,7 +54,7 @@ public class Vacuum : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.layer == _spiritLayer) _spiritUnion.VacuumSpirit(transform);
+        if(collider.gameObject.layer == _spiritLayer) _spiritUnion.VacuumSpirit(transform, IsFirst);
         
         else if(collider.gameObject.layer == _golemLayer)
         {

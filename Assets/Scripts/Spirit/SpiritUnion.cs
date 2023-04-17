@@ -42,8 +42,8 @@ public class SpiritUnion : MonoBehaviour
     private Light2D _light;
     private AudioSource _audioSource;
     private Color _defaultColor;
-    
 
+    private bool _isOnFirstVacuum = false;
 
     private void Awake()
     {
@@ -101,8 +101,7 @@ public class SpiritUnion : MonoBehaviour
             case SpiritState.Vacuum:
                 _directionToTarget = (_target.position - transform.position).normalized;
                 _rb.velocity = _directionToTarget * _vacuumSpeed * Time.fixedDeltaTime;
-                if (Vector2.Distance(transform.position, _target.position) < 0.2f)
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                if (Vector2.Distance(transform.position, _target.position) < 0.2f) VacuumDie();
                 break;
         }
     }
@@ -175,8 +174,11 @@ public class SpiritUnion : MonoBehaviour
                 _spiritMovement.CanMove = true;
                 _spiritDim.IsFading = true;
                 _collider.enabled = true;
-                _golemTrigger.enabled = true;
-                _npcTrigger.enabled = false;
+                if(!_isOnFirstVacuum)
+                {
+                    _golemTrigger.enabled = true;
+                    _npcTrigger.enabled = false;
+                } 
                 _rb.velocity = Vector2.zero;
                 _spriteRenderer.enabled = true;
                 _fireTrail.Play();
@@ -265,13 +267,11 @@ public class SpiritUnion : MonoBehaviour
             distance = Vector2.Distance(golem.transform.position, transform.position);
             if (distance < currentDistance)
             {
-                //_nearestGolem.GetComponent<SpriteRenderer>().color = Color.green;
                 _nearestGolem.GetComponent<SpriteRenderer>().material = _defaultMaterial;
                 _nearestGolem = golem;
                 currentDistance = distance;
             }
         }
-        //_nearestGolem.GetComponent<SpriteRenderer>().color = Color.yellow;
         _nearestGolem.GetComponent<SpriteRenderer>().material = _outlineMaterial;
     }
 
@@ -300,17 +300,21 @@ public class SpiritUnion : MonoBehaviour
         _audioSource.PlayOneShot(_possessSound);
     }
 
-    public void VacuumSpirit(Transform vacuum)
+    public void VacuumSpirit(Transform vacuum, bool isFirst = false)
     {
+        _isOnFirstVacuum = isFirst;
+
         if (State == SpiritState.Possessing) ExitGolem();
         else if (State != SpiritState.Roaming) State = SpiritState.Roaming;
 
         _soulSucked.Play();
+        PauseGame.Instance.FadeOut();
 
         _target = vacuum;
         _rb.velocity = (_target.position - transform.position).normalized * _travelingSpeed;
         State = SpiritState.Vacuum;
     }
+
 
     public void SuckSpirit(bool enter)
     {
@@ -403,6 +407,25 @@ public class SpiritUnion : MonoBehaviour
         var c = Physics2D.OverlapCircle(golemUnionCol.bounds.center, golemUnionCol.radius, _golemLayer);
         if(c) Debug.Log(c.gameObject);
         return c;
+    }
+
+    private void VacuumDie()
+    {
+        if (!_isOnFirstVacuum)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            return;
+        }
+
+        State = SpiritState.Roaming;
+        _soulSucked.Stop();
+        ChangeToCity.Instance.StartCinematic(this);
+    }
+
+    public void EnableTriggers()
+    {
+        _golemTrigger.enabled = true;
+        _npcTrigger.enabled = false;
     }
 }
 
