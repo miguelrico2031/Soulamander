@@ -66,10 +66,17 @@ public class PauseGame : MonoBehaviour
         _audioMixer.SetFloat("Music", -20f);
         _audioMixer.SetFloat("SFX", -20f);
 
-        if (scene.name == "Desert1") return;
+        if (scene.name == "Desert1") return;    
 
         _animator.SetBool("FadeOut", false);
         _animator.SetBool("FadeIn", true);
+        Invoke(nameof(FadeIdle), 2f);
+    }
+
+    private void FadeIdle()
+    {
+        _animator.SetBool("FadeOut", false);
+        _animator.SetBool("FadeIn", false);
     }
 
     private void Update()

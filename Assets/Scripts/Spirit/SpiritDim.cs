@@ -88,6 +88,8 @@ public class SpiritDim : MonoBehaviour
         _light.enabled = false;
         _fireTrail.Stop();
 
+        PauseGame.Instance.FadeOut();
+
         yield return new WaitForSeconds(_deathDuration);
 
         if (!IsAtLevel1) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
