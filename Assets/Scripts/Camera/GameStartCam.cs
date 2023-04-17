@@ -31,8 +31,8 @@ public class GameStartCam : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
 
         Vector3 startPos = transform.position;
-        Vector3 endPos = startPos;
-        endPos.x = _centerGolemTarget.position.x;
+        Vector3 endPos = _centerGolemTarget.position;
+        endPos.z = startPos.z;
         float t = 0f;
 
         StartCoroutine(Zoom(64, _zoomOutSpeed));

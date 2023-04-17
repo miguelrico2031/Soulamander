@@ -102,6 +102,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _secondsBeforeSceneChange: 2
+  _dummyScoutPrefab: {fileID: 9213071420768484964, guid: e2ac0ee17ae1d9846bcbb4a503749365, type: 3}
+  _customSceneChange: 0
+  _customSceneName: 
 --- !u!61 &8420831476531355712
 BoxCollider2D:
   m_ObjectHideFlags: 0

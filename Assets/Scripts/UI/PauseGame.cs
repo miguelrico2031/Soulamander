@@ -22,6 +22,7 @@ public class PauseGame : MonoBehaviour
     [SerializeField] private AudioMixer _audioMixer;
 
     private EventSystem _eventSystem;
+    private Animator _animator;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class PauseGame : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(transform.parent.gameObject);
             _eventSystem = transform.parent.GetComponentInChildren<EventSystem>();
+            _animator = transform.parent.GetComponent<Animator>();
         }
         
         Resume();
@@ -63,6 +65,11 @@ public class PauseGame : MonoBehaviour
 
         _audioMixer.SetFloat("Music", -20f);
         _audioMixer.SetFloat("SFX", -20f);
+
+        if (scene.name == "Desert1") return;
+
+        _animator.SetBool("FadeOut", false);
+        _animator.SetBool("FadeIn", true);
     }
 
     private void Update()
@@ -141,5 +148,11 @@ public class PauseGame : MonoBehaviour
     public void ChangeSFXVolume(float volume)
     {
         _audioMixer.SetFloat("SFX", volume <= -50f ? -80f : volume);
+    }
+
+    public void FadeOut()
+    {
+        _animator.SetBool("FadeOut", true);
+        _animator.SetBool("FadeIn", false);
     }
 }
