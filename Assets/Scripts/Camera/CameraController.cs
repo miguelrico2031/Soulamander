@@ -95,7 +95,6 @@ public class CameraController : MonoBehaviour
 
     private IEnumerator Zoom(int targetPPU, float zoomSpeed)
     {
-        Debug.Log("hei");
         if (!_ppCamera.enabled) Debug.LogError("Zoom en curso");
         int i = 0;
         while (i < 5) // goofy bugfix
