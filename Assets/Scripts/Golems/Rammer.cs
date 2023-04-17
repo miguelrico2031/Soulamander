@@ -124,17 +124,21 @@ public class Rammer : Golem
         if (State != GolemState.Enabled && State != GolemState.Available) return;
         if (!_isRunning) return;
 
-        if (_speed < _maxSpeed)
+        if (_speed < _maxSpeed && !_isPushing)
         {
             _isAtMaxSpeed = false;
             _speed += _acceleration * Time.fixedDeltaTime;
             _animator.SetBool("MaxSpeed", false);
         }
-        else
+        else if (!_isPushing)
         {
             _isAtMaxSpeed = true;
             _speed = _maxSpeed;
             _animator.SetBool("MaxSpeed", true);
+        }
+        else if (_isPushing)
+        {
+            _speed = _pushSpeed;
         }
         WallCheck();
 
@@ -154,6 +158,7 @@ public class Rammer : Golem
     public void ResetSpeed()
     {
         _speed = _initialSpeed;
+        _isAtMaxSpeed = false;
     }
 
     public void StopRunning()
