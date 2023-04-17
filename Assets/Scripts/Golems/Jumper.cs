@@ -77,7 +77,7 @@ public class Jumper : Golem
         }
         
 
-        if (Input.GetButtonUp("Jump") && _isGrounded && !PauseGame.Instance.Paused) Jump();
+        if (Input.GetButtonUp("Jump") && _isGrounded && !PauseGame.Instance.Paused && _isHoldingJumpButton) Jump();
         else
         {
             if (!_isDelayingHorizontalInput)

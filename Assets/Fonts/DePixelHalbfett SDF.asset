@@ -255,6 +255,51 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+  - m_Index: 20
+    m_Metrics:
+      m_Width: 61.296875
+      m_Height: 91.890625
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 91.890625
+      m_HorizontalAdvance: 71.546875
+    m_GlyphRect:
+      m_X: 10
+      m_Y: 424
+      m_Width: 62
+      m_Height: 92
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 21
+    m_Metrics:
+      m_Width: 71.453125
+      m_Height: 91.984375
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 91.984375
+      m_HorizontalAdvance: 81.71875
+    m_GlyphRect:
+      m_X: 10
+      m_Y: 839
+      m_Width: 72
+      m_Height: 92
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 22
+    m_Metrics:
+      m_Width: 61.296875
+      m_Height: 91.984375
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 91.984375
+      m_HorizontalAdvance: 81.71875
+    m_GlyphRect:
+      m_X: 91
+      m_Y: 707
+      m_Width: 62
+      m_Height: 92
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
   - m_Index: 24
     m_Metrics:
       m_Width: 61.296875
@@ -1170,51 +1215,6 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
-  - m_Index: 20
-    m_Metrics:
-      m_Width: 61.296875
-      m_Height: 91.890625
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 91.890625
-      m_HorizontalAdvance: 71.546875
-    m_GlyphRect:
-      m_X: 10
-      m_Y: 424
-      m_Width: 62
-      m_Height: 92
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
-  - m_Index: 21
-    m_Metrics:
-      m_Width: 71.453125
-      m_Height: 91.984375
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 91.984375
-      m_HorizontalAdvance: 81.71875
-    m_GlyphRect:
-      m_X: 10
-      m_Y: 839
-      m_Width: 72
-      m_Height: 92
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
-  - m_Index: 22
-    m_Metrics:
-      m_Width: 61.296875
-      m_Height: 91.984375
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 91.984375
-      m_HorizontalAdvance: 81.71875
-    m_GlyphRect:
-      m_X: 91
-      m_Y: 707
-      m_Width: 62
-      m_Height: 92
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 13
@@ -1259,6 +1259,18 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 50
     m_GlyphIndex: 19
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 51
+    m_GlyphIndex: 20
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 52
+    m_GlyphIndex: 21
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 53
+    m_GlyphIndex: 22
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 55
@@ -1503,18 +1515,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 8230
     m_GlyphIndex: 119
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 51
-    m_GlyphIndex: 20
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 52
-    m_GlyphIndex: 21
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 53
-    m_GlyphIndex: 22
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: -2993604059829092214}
@@ -2162,7 +2162,7 @@ Material:
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 0.73125
-    - _ScaleRatioC: 0.73125
+    - _ScaleRatioC: 0.44479924
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -2175,10 +2175,10 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 1024
     - _TextureWidth: 1024
-    - _UnderlayDilate: 0
+    - _UnderlayDilate: 1
     - _UnderlayOffsetX: 0
     - _UnderlayOffsetY: 0
-    - _UnderlaySoftness: 0
+    - _UnderlaySoftness: 0.644
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
     - _WeightBold: 0.75
@@ -2193,5 +2193,5 @@ Material:
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
