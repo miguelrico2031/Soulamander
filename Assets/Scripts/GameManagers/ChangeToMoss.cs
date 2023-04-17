@@ -8,12 +8,13 @@ public class ChangeToMoss : MonoBehaviour
 
     private void Awake()
     {
-        Music.Instance.PlayDesertMusic();
+        //Music.Instance.PlayDesertMusic();
     }
 
     public void OnEffector()
     {
         _breakEffect.Play();
+        _breakEffect.GetComponent<AudioSource>().Play();
 
         if(Music.Instance) Music.Instance.StopMusic();
     }

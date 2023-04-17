@@ -16,6 +16,8 @@ public class ChangeToCity : MonoBehaviour
         Instance = this;
 
         _audioSource = GetComponent<AudioSource>();
+
+        Music.Instance.PlayMossMusic();
     }
 
     public void StartCinematic(SpiritUnion spiritUnion)

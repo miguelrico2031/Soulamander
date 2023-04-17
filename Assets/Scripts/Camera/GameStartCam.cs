@@ -46,12 +46,14 @@ public class GameStartCam : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-
+        var dirtSound = _dirtEffect.GetComponent<AudioSource>();
         _dirtEffect.Play();
+        dirtSound.Play();
         yield return new WaitUntil(() => !_dirtEffect.isPlaying);
         yield return new WaitForSeconds(1f);
 
         _dirtEffect.Play();
+        dirtSound.Play();
         while (_dirtEffect.isPlaying)
         {
             _sunLight.intensity += 0.008f;
@@ -60,6 +62,7 @@ public class GameStartCam : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         _dirtEffect.Play();
+        dirtSound.Play();
         float startI = _sunLight.intensity;
         t = 0f;
         while (_sunLight.intensity < 1f)
