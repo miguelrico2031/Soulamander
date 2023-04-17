@@ -3390,7 +3390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a05ad9906bd414cb123d7dde722cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _atmosColor: {r: 0.24313727, g: 0.17254902, b: 0.30588236, a: 0.09803922}
+  _atmosColor: {r: 0.24313727, g: 0.17254902, b: 0.30588236, a: 0.11764706}
   _atmosImages:
   - {fileID: 8778810666859829559}
   - {fileID: 3113695151082523644}
