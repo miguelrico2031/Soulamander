@@ -137,7 +137,6 @@ public class PushableObject : MonoBehaviour
                 if (col.TryGetComponent<Rammer>(out Rammer doNotUse)) _rb.isKinematic = false;
                 else
                 {
-                    Debug.Log("scout");
                     _rb.isKinematic = true;
                     _touchingScout = true;
                 }

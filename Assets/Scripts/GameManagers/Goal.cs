@@ -12,7 +12,7 @@ public class Goal : MonoBehaviour
 
     public event EventHandler OnGoalReached;
 
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((_golemLayer.value & (1 << collision.gameObject.layer)) <= 0) return;
         if (collision.gameObject.GetComponent<Golem>().State != GolemState.Enabled) return;
@@ -20,7 +20,7 @@ public class Goal : MonoBehaviour
         OnGoalReached(this, EventArgs.Empty);
         StartCoroutine(WaitBeforeSceneChange());
     }
-
+    
     IEnumerator WaitBeforeSceneChange()
     {
         yield return new WaitForSeconds(_secondsBeforeSceneChange);
