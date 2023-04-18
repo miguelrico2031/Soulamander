@@ -16,49 +16,49 @@ MonoBehaviour:
   - Text: "\xA1\xBFMe escuchas?! \xA1\xBFEstas bien?!"
     Emote: {fileID: 119673879, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Esa cosa te hab\xEDa absorbido algo, como el alma..."
     Emote: {fileID: -503021160, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
-  - Text: "Menos mal que llegu\xE9 a tiempo para salvarte de ese\u2026 orbe?"
+    IsOver: 1
+  - Text: "Menos mal que llegu\xE9 a tiempo para salvarte de ese\u2026 \xBForbe?"
     Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Pens\xE9 que no te ibas a despertar"
     Emote: {fileID: -1668986495, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Esa cosa es un artefacto que encontramos hace poco y a\xFAn no ten\xEDamos
       idea de lo que hac\xEDa o para qu\xE9 serv\xEDa. Aunque viendo lo que te hab\xEDa
       hecho a t\xED parece que fuera alg\xFAn tipo de arma contra los golems"
-    Emote: {fileID: 992409680, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Pero qu\xE9 es exactamente lo que te ha absorbido, \xBFes tu alma?, \xBFsiquiera
       tienes alma?"
     Emote: {fileID: -503021160, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: Bueno, eso ahora no importa, lo que importa es que estas bien, pero de
       ahora en adelante ten cuidado con esos artefactos.
     Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Estas apunto de entrar en el distrito alto de la ciudadela, hace nada
       que conseguimos abrir las puertas, all\xED es donde s5 est\xE1 trabajando y
       es el lugar gracias al cual hemos descubierto la mayor\xEDa de secretos."
-    Emote: {fileID: 992409680, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Est\xE1 muy bien conservado y est\xE1 repleto de inscripciones e historia
       y tenemos muchas esperanzas de descubrir algo que pueda cambiar nuestra comprensi\xF3n
       de la historia y acercarnos a la verdad detr\xE1s de este lugar."
-    Emote: {fileID: 992409680, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "\xA1Sea lo que sea que buscas seguro que all\xED lo encontrar\xE1s!"
     Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
-    IsLast: 0
-    IsOver: 0
+    IsLast: 1
+    IsOver: 1
   GameZone: 2

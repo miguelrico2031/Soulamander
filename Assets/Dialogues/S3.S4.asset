@@ -81,18 +81,18 @@ MonoBehaviour:
   - Text: "Despu\xE9s de traducir decenas de textos de la ciudadela hemos descubierto
       la existencia de una figura que parece ser muy importante para la civilizaci\xF3n
       que existi\xF3 aqu\xED."
-    Emote: {fileID: 992409680, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Se refieren a ella como \u201CCreador\u201D"
-    Emote: {fileID: 992409680, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Creemos que puede ser alg\xFAn tipo de deidad para ellos, pero con la
       poca informaci\xF3n que hemos encontrado no podemos estar seguros, aunque viendo
       la importancia que le dan a este \u201CCreador\u201D en los textos seguro que
       encontramos m\xE1s informaci\xF3n sobre \xE9l."
-    Emote: {fileID: 992409680, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: Puede que le llamen creador porque fuera el creador de los golems.
@@ -115,19 +115,19 @@ MonoBehaviour:
     IsOver: 1
   - Text: "A parte de la figura del \u201CCreador\u201D hemos descubierto tambi\xE9n
       muchas m\xE1s cosas sobre esta civilizaci\xF3n."
-    Emote: {fileID: 992409680, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "En algunas tablillas que hemos encontrado se relata parte de su historia,
       en estas se cuenta como eran un pueblo c\xE9lebre por sus construcciones y
       creaciones, pero no eran muy diestros en la guerra, esto les hizo ser v\xEDctimas
       de ataques y saqueos constantes de otros reinos."
-    Emote: {fileID: 992409680, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Eran tambi\xE9n una gente muy marginalizada por el resto del mundo all\xE1
       donde iban."
-    Emote: {fileID: 992409680, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Seguramente de todo eso naciera la necesidad de crear el ej\xE9rcito de
@@ -147,7 +147,7 @@ MonoBehaviour:
     IsOver: 1
   - Text: "Bueno, si s3 se va a ir supongo que tu tambi\xE9n deber\xEDas ir marchando,
       no quiero entretenerte m\xE1s."
-    Emote: {fileID: 992409680, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "No te queda mucho m\xE1s para llegar a la ciudadela, si lo haces saluda
