@@ -144,3 +144,4 @@ MonoBehaviour:
   _desertMusic: {fileID: 8300000, guid: 5c5cd506497f2a145ac07f851ac8e28c, type: 3}
   _mossMusic: {fileID: 8300000, guid: 1b508de0aed068e42bd91de4ae105a92, type: 3}
   _cityMusic: {fileID: 8300000, guid: 5d3c797ba31acd6418da695756d06552, type: 3}
+  _menuMusic: {fileID: 8300000, guid: 144ef5856d8f8cb448691c01fcf75f48, type: 3}

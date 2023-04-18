@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class MainMenu : MonoBehaviour
     {
         PauseGame.Instance.enabled = false;
         EventSystem.current.SetSelectedGameObject(_mainMenu.transform.Find("Play").gameObject);
+
+        Music.Instance.PlayMenuMusic();
     }
 
     public void PlayGame()
@@ -37,5 +41,23 @@ public class MainMenu : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(_mainMenu.transform.Find("Play").gameObject);
             }
         }
+    }
+
+    public void SetLanguage(bool spanish)
+    {
+        if (spanish) SetSpanish();
+        else SetEnglish();
+    }
+
+    private void SetSpanish()
+    {
+        Debug.Log("español");
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
+    }
+
+    private void SetEnglish()
+    {
+        Debug.Log("ingles");
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
     }
 }

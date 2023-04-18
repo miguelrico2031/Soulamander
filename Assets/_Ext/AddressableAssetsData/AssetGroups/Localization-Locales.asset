@@ -16,12 +16,20 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 01842833afb40d846b48805da49d36fc
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 9905b36595f52334a847cf466fa640b6
+    m_Address: English (en)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+  - m_GUID: 3e1ab6881c9909c44b7812d27b72d54d
+    m_Address: Spanish (es)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 53e8f56a528c8564aa032aced57c8978, type: 2}
   m_SchemaSet:
     m_Schemas:
     - {fileID: 11400000, guid: 02a551870ac557542b0cac6d553911dd, type: 2}
     - {fileID: 11400000, guid: f193419161eb569409ad052d71af3a5b, type: 2}
-  m_FolderEntryCache: []
-  m_AssetCollectionEntryCache: []

@@ -7,7 +7,7 @@ public class Music : MonoBehaviour
 {
     public static Music Instance;
 
-    [SerializeField] private AudioClip _desertMusic, _mossMusic, _cityMusic;
+    [SerializeField] private AudioClip _desertMusic, _mossMusic, _cityMusic, _menuMusic;
 
     private AudioSource _audioSource;
 
@@ -41,6 +41,14 @@ public class Music : MonoBehaviour
         
     }
 
+    public void PlayMenuMusic()
+    {
+        if (_audioSource.clip == _menuMusic && _audioSource.isPlaying) return;
+
+        _audioSource.clip = _menuMusic;
+        _audioSource.Play();
+    }
+
     public void PlayDesertMusic()
     {
         if (_audioSource.clip == _desertMusic && _audioSource.isPlaying) return;
@@ -54,7 +62,7 @@ public class Music : MonoBehaviour
         if (_audioSource.clip == _mossMusic && _audioSource.isPlaying) return;
         _audioSource.clip = _mossMusic;
         //_audioSource.Play();
-        StartCoroutine(MusicFadeIn(2f));
+        StartCoroutine(MusicFade(2f, true));
     }
 
     public void PlayCityMusic()
@@ -69,20 +77,40 @@ public class Music : MonoBehaviour
         _audioSource.Stop();
     }
 
-    private IEnumerator MusicFadeIn(float duration)
+    public void FadeOutMusic()
     {
-        _audioSource.Stop();
-        _audioSource.volume = 0f;
-        _audioSource.Play();
+        StartCoroutine(MusicFade(2f, false));
+    }
+
+    public void FadeOutMusic(float duration)
+    {
+        StartCoroutine(MusicFade(duration, false));
+    }
+    
+
+    private IEnumerator MusicFade(float duration, bool fadeIn)
+    {
         float t = 0f;
+
+        if (fadeIn)
+        {
+            _audioSource.Stop();
+            _audioSource.volume = 0f;
+            _audioSource.Play();
+        }
+
         while (t < 1f)
         {
-            _audioSource.volume = Mathf.Lerp(0f, 1f, t);
+            if(fadeIn) _audioSource.volume = Mathf.Lerp(0f, 1f, t);
+            else _audioSource.volume = Mathf.Lerp(1f, 0f, t);
 
             t += Time.deltaTime / duration;
 
             yield return null;
         }
+
+        if (!fadeIn) _audioSource.Stop();
+
         _audioSource.volume = 1f;
     }
 }

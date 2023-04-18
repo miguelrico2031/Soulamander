@@ -44,7 +44,6 @@ public class Vacuum : MonoBehaviour
 
         if(_suckTime >= _spiritSuckDuration)
         {
-            if(IsFirst) 
             if(_golemBeingSucked.State == GolemState.Enabled) _spiritUnion.VacuumSpirit(transform, IsFirst);
             _golemBeingSucked = null;
         }

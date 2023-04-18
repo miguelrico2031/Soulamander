@@ -308,7 +308,8 @@ public class SpiritUnion : MonoBehaviour
         else if (State != SpiritState.Roaming) State = SpiritState.Roaming;
 
         _soulSucked.Play();
-        PauseGame.Instance.FadeOut();
+       
+        if(isFirst) PauseGame.Instance.FadeOut();
 
         _target = vacuum;
         _rb.velocity = (_target.position - transform.position).normalized * _travelingSpeed;

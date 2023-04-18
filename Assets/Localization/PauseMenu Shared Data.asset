@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: PauseMenu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: PauseMenu
+  m_TableCollectionNameGuidString: 15aaf3e8dabe67a4ca09e63e7ea031f5
+  m_Entries:
+  - m_Id: 49367171072
+    m_Key: Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 159966773248
+    m_Key: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 232968634368
+    m_Key: SoundFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4330065444864
+    m_Key: LevelSelect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449968013312
+    m_Key: Clue
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8559432346572685384
+  references:
+    version: 2
+    RefIds:
+    - rid: 8559432346572685384
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1681771755197

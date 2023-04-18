@@ -12,26 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  <DenyEntryCollectionPermission>k__BackingField: 0
   m_DefaultGroup: 60e8080e7140b3444ab72ee1ce178235
   m_CachedHash:
-    bytes[0]: 0
-    bytes[1]: 0
-    bytes[2]: 0
-    bytes[3]: 0
-    bytes[4]: 0
-    bytes[5]: 0
-    bytes[6]: 0
-    bytes[7]: 0
-    bytes[8]: 0
-    bytes[9]: 0
-    bytes[10]: 0
-    bytes[11]: 0
-    bytes[12]: 0
-    bytes[13]: 0
-    bytes[14]: 0
-    bytes[15]: 0
-  m_IsTemporary: 0
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -60,6 +44,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3bbee596dead54246a9a97d827d29687, type: 2}
   - {fileID: 11400000, guid: 5a6a919fa978a4149a40eaf4bbd55827, type: 2}
   - {fileID: 11400000, guid: 70da04b94c239c846b29642df42e322e, type: 2}
+  - {fileID: 11400000, guid: 455045c5354c922428633ef76f111e7a, type: 2}
+  - {fileID: 11400000, guid: 5d73cbd727149a84d9d2f026f4222443, type: 2}
+  - {fileID: 11400000, guid: de743254ecc8e4f49b115925a8c03d0c, type: 2}
+  - {fileID: 11400000, guid: 73133a7e61622594192642383fa9fee4, type: 2}
+  - {fileID: 11400000, guid: cf2658ce4fc65954195de0acd6ffa85f, type: 2}
+  - {fileID: 11400000, guid: 83ebbe6b8b446094abbc7068f0d41e6d, type: 2}
+  - {fileID: 11400000, guid: 60b4cc2b3e3eb2543802c65f71cc93be, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -102,6 +93,9 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - Locale
+    - Locale-en
+    - Preload
+    - Locale-es
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: cf39a6ba20efa884b89d2d00c1d7ae62, type: 2}
@@ -109,7 +103,6 @@ MonoBehaviour:
   m_CertificateHandlerType:
     m_AssemblyName: 
     m_ClassName: 
-    <ValueChanged>k__BackingField: 0
   m_ActivePlayerDataBuilderIndex: 3
   m_DataBuilders:
   - {fileID: 11400000, guid: c4f91ca6741d2004e80f1fc07361968b, type: 2}
@@ -122,5 +115,3 @@ MonoBehaviour:
     m_Settings: {fileID: 11400000}
     m_NextInstanceId: 0
     m_RegisteredServiceTypeRefs: []
-    exitingEditMode: 0
-  m_DefaultGroupTemplateName: Packed Assets
