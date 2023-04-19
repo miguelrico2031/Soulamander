@@ -146,7 +146,11 @@ public class PauseGame : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void OnClue(bool onClue) => _isOnClue = onClue;
+    public void OnClue(bool onClue)
+    {
+        _clueText.text = _clues.GetClue(SceneManager.GetActiveScene().name);
+        _isOnClue = onClue;
+    }
     public void OnLevelSelect(bool onLevelSelect) => _isOnLevelSelect = onLevelSelect;
 
     public void ChangeMusicVolume(float volume)

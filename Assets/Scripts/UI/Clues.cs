@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class Clues : ScriptableObject
 {
     public List<Clue> CluesList;
+    [SerializeField] private UnityEngine.Localization.Locale _spanish;
 
     public string GetClue(string sceneName)
     {
@@ -12,7 +14,8 @@ public class Clues : ScriptableObject
         {
             if(clue.SceneName == sceneName)
             {
-                return clue.ClueText;
+                if (LocalizationSettings.SelectedLocale == _spanish) return clue.ClueText;
+                else return clue.ClueTextEnglish;
             }
         }
         return null;
@@ -23,6 +26,6 @@ public class Clues : ScriptableObject
 public class Clue
 {
     public string SceneName;
-    [TextArea(5, 10)]public string ClueText;
+    [TextArea(5, 10)]public string ClueText, ClueTextEnglish;
 }
 
