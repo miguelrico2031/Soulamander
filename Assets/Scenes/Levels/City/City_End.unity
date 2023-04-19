@@ -34474,7 +34474,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -571918891
   m_SortingLayer: 1
-  m_SortingOrder: -40
+  m_SortingOrder: -41
   m_Sprite: {fileID: 21300000, guid: 75acf28dbc3002e4f99a797cee77e52b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -35407,6 +35407,10 @@ PrefabInstance:
       propertyPath: m_CropFrame
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8235022735797843282, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
+      propertyPath: m_Dithering
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8235022735797843283, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
       propertyPath: _cameraBounds
       value: 
@@ -35428,8 +35432,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8235022735797843284, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235022735797843284, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
       propertyPath: orthographic size
       value: 5.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235022735797843284, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 262135
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235022735797843284, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8235022735797843284, guid: 86da657e95a20b24eb5c9ddd5ac3ca6a, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
