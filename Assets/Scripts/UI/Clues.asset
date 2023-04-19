@@ -14,11 +14,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CluesList:
   - SceneName: Desert1
-    ClueText: pista desierto 1 tal
+    ClueText: Lee los tutoriales.
+    ClueTextEnglish: Read the tutorials.
+  - SceneName: Desert1_NC
+    ClueText: Lee los tutoriales.
+    ClueTextEnglish: Read the tutorials.
   - SceneName: Desert2
-    ClueText: deseirto 2 pista assda asd asdas dasd sadasd as
+    ClueText: Usa la habilidad del nuevo golem para romper bloques.
+    ClueTextEnglish: Use the new golem's ability to break blocks.
   - SceneName: Desert3
-    ClueText: desiertooo tres pista hola
+    ClueText: El golem que embiste puede empujar el bloque hasta tirarlo por el precipicio.
+      Al caer, actua como una plataforma para evitar caer en los pinchos.
+    ClueTextEnglish: The rammer golem can push the block over the cliff. When falling,
+      it acts as a platform to avoid falling on the spikes.
+  - SceneName: Desert4
+    ClueText: "El golem que embiste s\xF3lo puede romper bloques cuando est\xE1 a
+      m\xE1xima velocidad. Para eso, necesita espacio para correr."
+    ClueTextEnglish: The rammer golem can only break blocks when it is at maximum
+      speed. For that, it needs space to run.
+  - SceneName: Desert5
+    ClueText: Ve alternando entre los 2 golems para descender hasta el final.
+    ClueTextEnglish: Alternate between the 2 golems to descend to the end.
+  - SceneName: Mossy1
+    ClueText: "Cuanto m\xE1s pulses el bot\xF3n de salto, m\xE1s lejos saltar\xE1
+      el golem. Tambi\xE9n puede agarrarse a las paredes, para ir escalando."
+    ClueTextEnglish: The more you press the jump button, the farther the jumper golem
+      will jump. It can also cling to the walls, to go climbing.
+  - SceneName: Mossy2
+    ClueText: Usa el bloque destructible grande como plataforma para llegar al final,
+      antes de que el golem que embiste lo destruya.
+    ClueTextEnglish: Use the large destructible block as a platform to reach the
+      end, before the rammer golem destroys it.
+  - SceneName: Mossy3
+    ClueText: "Usa al golem que embiste para ir abriendo y cerrando las puertas del
+      nivel, pulsando las placas de presi\xF3n que correspondan."
+    ClueTextEnglish: Use the rammer golem to open and close the doors of the level
+      by pressing the corresponding pressure plates.
+  - SceneName: Mossy4
+    ClueText: Mueve el bloque, y ve abriendo las puertas hasta llevar al bloque al
+      hueco. Luego llega hasta el golem de arriba del todo, y hazlo caer sobre el
+      bloque, para que llegue al final.
+    ClueTextEnglish: Move the block, and open the doors to take the block to the
+      hole. Then get to the golem at the top, and make it fall on the block, so that
+      it reaches the end.
+  - SceneName: Mossy5
+    ClueText: Esquiva los pinchos hasta llegar al final.
+    ClueTextEnglish: Dodge the spikes until you reach the end.
+  - SceneName: City1
+    ClueText: "Si sales del golem que embiste mientras est\xE1 corriendo, seguir\xE1
+      corriendo hasta llegar a un muro. A un golem sin alma no le afecta el orbe
+      extractor de almas. Llega al final con el golem de abajo antes de que llegue
+      el de arriba."
+    ClueTextEnglish: If you exit the rammer golem while it is running, it will keep
+      running until it reaches a wall. A soulless golem is not affected by the soul
+      extracting orb. Reach the end with the bottom golem before the rammer golem
+      arrives.
+  - SceneName: City2
+    ClueText: Puedes usar a un golem como muro para detener al golem que embiste
+      en el punto que necesites.
+    ClueTextEnglish: You can use a golem as a wall to stop the rammer golem at any
+      point you need.
   - SceneName: City3
+    ClueText: "Salta lo m\xE1s r\xE1pido que puedas, antes de que el orbe extraiga
+      el alma del golem que salta. Despu\xE9s, forma una escalera con bloques para
+      poder llegar al final."
+    ClueTextEnglish: Jump as fast as you can, before the orb extracts the soul of
+      the jumper golem. Then, form a staircase with blocks to be able to reach the
+      end.
+  - SceneName: City4
     ClueText: "El extractor de almas no funciona en golems que no est\xE9s controlando,
-      as\xED que puedes ir cambiando de golems para evadirlos."
+      as\xED que puedes salir del golem temporalmente para evitar ser succionado
+      por el orbe."
+    ClueTextEnglish: The soul extractor does not work on golems you are not controlling,
+      so you can exit the golem temporarily to avoid being sucked into the orb.
+  - SceneName: City_End
+    ClueText: 
+    ClueTextEnglish: 
+  _spanish: {fileID: 11400000, guid: 3e1ab6881c9909c44b7812d27b72d54d, type: 2}
