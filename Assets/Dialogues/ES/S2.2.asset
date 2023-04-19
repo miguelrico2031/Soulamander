@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: S2.2
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: "\xA1Vaya, vaya! \xA1T\xFA otra vez! No pensaba volver a encontrarte."
+    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "No se si te interesan nuestros descubrimientos pero aqu\xED como puedes
+      ver he encontrado unos cuantos golems en bastante mal estado, estos s\xED parece
+      que fueron destruidos en batalla."
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "No se si te interesan nuestros descubrimientos pero aqu\xED como puedes
+      ver he encontrado unos cuantos golems en bastante mal estado, estos s\xED parece
+      que fueron destruidos en batalla."
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Es curioso como hab\xEDa diferentes tipos de golem, supongo que cada tipo
+      serv\xEDa para algo diferente, aunque todos parecen estar equipados para la
+      guerra. El ej\xE9rcito de golems era el m\xE1s temido de su \xE9poca."
+    Emote: {fileID: 663000818, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Me pregunto si la civilizaci\xF3n que controlaba a los golems les encomendaban
+      otros tipos de tareas a parte de luchar."
+    Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Supongo que s\xED, dado que para cuando esta civilizaci\xF3n desapareci\xF3
+      era una de las m\xE1s avanzadas de su tiempo. Seguro los golems tuvieron que
+      ver algo con eso."
+    Emote: {fileID: 663000818, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Es una pena que se sepa tan poco de la historia de esa \xE9poca, las guerras
+      y la destrucci\xF3n redujeron a cenizas grandes civilizaciones, y la falta
+      de registros escritos ha hecho que sea extremadamente dif\xEDcil descubrir
+      la verdadera historia detr\xE1s de los escombros."
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: Pero no hay que entristecerse, con el gran equipo que tengo seremos capaces
+      de desenterrar los misterios escondidos en estas ruinas y desvelar el pasado.
+    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Mis compa\xF1eros en la ciudadela han empezado a descubrir inscripciones
+      en roca y tablillas de la \xE9poca con escritos detallando desde cosas tan
+      cotidianas como recetas hasta c\xF3mo operar ciertos artilugios m\xE1gicos.
+      Pero lo que m\xE1s me apasiona a mi es que esta civilizaci\xF3n parec\xEDa
+      tener la costumbre de escribir en estas inscripciones su historia."
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: Gracias a esto puede que consigamos desvelar muchos de los misterios que
+      nos intrigan.
+    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 1
+    IsOver: 1

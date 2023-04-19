@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: S1
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: "\xBFQu\xE9 es eso? No puede ser... \xBFUn golem \u2026 ? \xBFse est\xE1
+      moviendo? "
+    Emote: {fileID: 1864398730, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "No, eso es imposible\u2026 seguro que es solo que me est\xE1n gastando
+      una broma."
+    Emote: {fileID: -1101275521, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Siempre aprovech\xE1ndose de que soy nueva para asustarme."
+    Emote: {fileID: 1679744451, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Espera\u2026 la luz\u2026 tienes la luz encendida\u2026 como se cuenta
+      en los relatos\u2026"
+    Emote: {fileID: 1864398730, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Eres un golem vivo de verdad\u2026"
+    Emote: {fileID: -1599704111, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Se pensaba que todos hab\xEDais muerto en la batalla por Emet."
+    Emote: {fileID: 1864398730, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "No me lo puedo creer, por fin encuentro algo interesante, ya no ser\xE9
+      la inutil del grupo."
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: Tengo muchas preguntas que hacerte...
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Aunque supongo que va a ser dif\xEDcil si no puedes hablar."
+    Emote: {fileID: -942866254, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Bueno no te preocupes, ser\xE9 yo la que hable."
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Soy parte de un grupo de arque\xF3logos y exploradores que estamos trabajando
+      aqu\xED, en las ruinas de Emet."
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Poco se sabe de lo que les ocurri\xF3 a los golems o a la civilizaci\xF3n
+      que erigi\xF3 estas ruinas, as\xED que queremos ser los primeros en desvelar
+      estos misterios."
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "No s\xE9 cual ser\xE1 tu prop\xF3sito pero si continuas hacia delante
+      te encontrar\xE1s con m\xE1s de mis compa\xF1eros, seguro que ellos estar\xE1n
+      encantados de ayudarte."
+    Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 1
+    IsOver: 1
