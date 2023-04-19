@@ -147,6 +147,6 @@ public class EndGame : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         _moveCreator = true;
-
+        _creator.GetComponent<Animator>().SetTrigger("Move");
     }
 }
