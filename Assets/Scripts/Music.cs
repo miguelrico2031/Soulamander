@@ -38,7 +38,26 @@ public class Music : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
+        if (scene.name == "Desert1" || scene.name == "Mossy1") return;
+
+        if(scene.name.Contains("Desert"))
+        {
+            Debug.Log("desert");
+            PlayDesertMusic();
+        }
+
+        else if (scene.name.Contains("Moss"))
+        {
+            Debug.Log("moss");
+            PlayMossMusic();
+
+        }
+
+        else if (scene.name.Contains("City"))
+        {
+            Debug.Log("city");
+            PlayCityMusic();
+        }
     }
 
     public void PlayMenuMusic()
@@ -47,6 +66,13 @@ public class Music : MonoBehaviour
 
         _audioSource.clip = _menuMusic;
         _audioSource.Play();
+    }
+
+    public void PlayMenuMusic(float fadeDuration)
+    {
+        _audioSource.clip = _menuMusic;
+        StartCoroutine(MusicFade(fadeDuration, true));
+        
     }
 
     public void PlayDesertMusic()
