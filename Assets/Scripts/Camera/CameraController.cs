@@ -35,6 +35,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float _zOffset;
     [SerializeField] private Transform _cameraBounds;
 
+    public void FollowPlayerY() => _followPlayerY = true;
+    public void FollowPlayerX() => _followPlayerX = true;
+
     private void Awake()
     {
         _cameraBounds.GetComponent<SpriteRenderer>().enabled = false;

@@ -5610,6 +5610,8 @@ MonoBehaviour:
   _clueText: {fileID: 3238836873606381295}
   _clues: {fileID: 11400000, guid: 3903bd49372c2aa49832c06d594907f5, type: 2}
   _audioMixer: {fileID: 24100000, guid: 7e83573283439e5469e68119b92687a9, type: 2}
+  _musicSlider: {fileID: 7594300422075163451}
+  _sfxSlider: {fileID: 7594300420521263871}
 --- !u!1 &7594300421344467470
 GameObject:
   m_ObjectHideFlags: 0

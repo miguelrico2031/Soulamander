@@ -68,6 +68,13 @@ public class Music : MonoBehaviour
         _audioSource.Play();
     }
 
+    public void PlayMenuMusic(float fadeDuration)
+    {
+        _audioSource.clip = _menuMusic;
+        StartCoroutine(MusicFade(fadeDuration, true));
+        
+    }
+
     public void PlayDesertMusic()
     {
         if (_audioSource.clip == _desertMusic && _audioSource.isPlaying) return;

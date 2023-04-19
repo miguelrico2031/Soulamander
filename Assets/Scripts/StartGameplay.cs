@@ -9,10 +9,19 @@ public class StartGameplay : MonoBehaviour
         if (other.gameObject.layer != LayerMask.NameToLayer("Spirit")) return;
 
         var spiritDim = other.GetComponent<SpiritDim>();
-        spiritDim.IsFading = true;
         spiritDim.IsAtLevel1 = true;
 
+        StartCoroutine(StartFading(spiritDim));
+
         Music.Instance.PlayDesertMusic();
+        
+        GetComponent<Collider2D>().enabled = false;
+    }
+
+    private IEnumerator StartFading(SpiritDim sd)
+    {
+        yield return new WaitForSeconds(4f);
+        sd.IsFading = true;
         Destroy(gameObject);
     }
 }

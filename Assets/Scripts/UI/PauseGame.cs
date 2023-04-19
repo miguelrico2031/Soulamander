@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseGame : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PauseGame : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _clueText;
     [SerializeField] private Clues _clues;
     [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private Slider _musicSlider, _sfxSlider;
 
     private EventSystem _eventSystem;
     private Animator _animator;
@@ -63,8 +65,14 @@ public class PauseGame : MonoBehaviour
 
         _eventSystem.firstSelectedGameObject = _pausePanel.transform.Find("Resume").gameObject;
 
-        _audioMixer.SetFloat("Music", -20f);
-        _audioMixer.SetFloat("SFX", -20f);
+        float volume = PlayerPrefs.GetFloat("MusicVolume", -20f);
+        _musicSlider.value = volume;
+        _audioMixer.SetFloat("Music", volume <= -50f ? -80f : volume);
+
+        volume = PlayerPrefs.GetFloat("SFXVolume", -20f);
+        _sfxSlider.value = volume;
+        _audioMixer.SetFloat("SFX", volume <= -50f ? -80f : volume);
+
 
         if (scene.name == "Desert1") return;
 
@@ -144,11 +152,13 @@ public class PauseGame : MonoBehaviour
     public void ChangeMusicVolume(float volume)
     {
         _audioMixer.SetFloat("Music", volume <= -50f ? -80f : volume);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
     public void ChangeSFXVolume(float volume)
     {
         _audioMixer.SetFloat("SFX", volume <= -50f ? -80f : volume);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
     public void FadeOut()

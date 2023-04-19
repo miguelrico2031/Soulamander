@@ -8,14 +8,17 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameStartCam _gsc;
-    [SerializeField] private GameObject _credits, _mainMenu;
+    [SerializeField] private GameObject _credits, _mainMenu, _settings;
+
 
     private void Start()
     {
         PauseGame.Instance.enabled = false;
+
         EventSystem.current.SetSelectedGameObject(_mainMenu.transform.Find("Play").gameObject);
 
         Music.Instance.PlayMenuMusic();
+
     }
 
     public void PlayGame()
@@ -37,6 +40,12 @@ public class MainMenu : MonoBehaviour
             if(_credits.activeSelf)
             {
                 _credits.SetActive(false);
+                _mainMenu.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(_mainMenu.transform.Find("Play").gameObject);
+            }
+            if(_settings.activeSelf)
+            {
+                _settings.SetActive(false);
                 _mainMenu.SetActive(true);
                 EventSystem.current.SetSelectedGameObject(_mainMenu.transform.Find("Play").gameObject);
             }
