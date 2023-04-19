@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: End3
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: "Al principio, fr\xE1giles y d\xE9biles, poco pod\xEDan hacer por s\xED
+      mismos, pero su creador no se rindi\xF3 y continu\xF3 experimentando."
+    Emote: {fileID: 21300000, guid: f2d2f2560a17672459c3bd2b31f445a1, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: "As\xED logr\xF3 encontrar la manera de crear cientos de golems aut\xF3nomos,
+      dise\xF1ados para protegernos y defendernos."
+    Emote: {fileID: 21300000, guid: f2d2f2560a17672459c3bd2b31f445a1, type: 3}
+    IsLast: 0
+    IsOver: 0
+  GameZone: 2

@@ -22,6 +22,71 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es
+  - m_GUID: c97ebe28d7c80c64f89bb24f4059c858
+    m_Address: S2.1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 22429aa5ada9b5d4c83db04bb7a59cc5
+    m_Address: S2.2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: a3a644d932fde974087fb6b5dbbbe357
+    m_Address: S3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 45e565cd5b3f9f04188f3e70b7d703aa
+    m_Address: S3.S4
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 81385f3bf9bf9ca41adf14a5b065d711
+    m_Address: S4
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: f2fc41b919ebe2c4e9ac590f5e65d05c
+    m_Address: S5.1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: d8ea432b327dee44faca856dd3f51e2e
+    m_Address: S5.2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 0b04e7c65d7df1745b1fee236ed4c46d
+    m_Address: End1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 3cc704d4858de6a4cac726178d47557b
+    m_Address: End2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 17c3cadc0abeabd46b698abbaf9941ae
+    m_Address: End3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 0e0d6b2249a1d2e4dba831d5292aab60
+    m_Address: End4
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 80ea72d6353759c4485b3a3f68fdb0a3
+    m_Address: End5
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 10209f4b4e162d9438fac9cb8c43483d
+    m_Address: Receta
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 53e8f56a528c8564aa032aced57c8978, type: 2}
   m_SchemaSet:
