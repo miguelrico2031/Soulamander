@@ -40,15 +40,15 @@ MonoBehaviour:
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: 'I suppose Victor has already told you something, but we are making great
+  - Text: 'I suppose Victor has already told you somethings, but we are making great
       progress in our research thanks to what we have found in this area.
 
 '
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: 'One of them is about something that I suppose you have already encountered,
-      but we still don''t have a name for them.
+  - Text: 'One of them is about something that you have already encountered, but
+      we still don''t have a name for them.
 
 '
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
@@ -61,12 +61,11 @@ MonoBehaviour:
     Emote: {fileID: -2051905409, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: 'But, as the name suggests, what we have been able to discover thanks to
-      you and certain writings is that these orbs were magical weapons, created by
-      the enemies of the city of Emet, in order to defeat their strongest weapon:
-      the golem army.
+  - Text: 'We have been able to discover thanks to you and certain writings is that
+      these orbs were magical weapons, created by the enemies of the people of Emet,
+      in order to defeat their strongest weapon: the golem army.
 
-      
+
 
 '
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
