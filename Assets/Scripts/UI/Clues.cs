@@ -14,7 +14,8 @@ public class Clues : ScriptableObject
         {
             if(clue.SceneName == sceneName)
             {
-                if (LocalizationSettings.SelectedLocale == _spanish) return clue.ClueText;
+                
+                if (LocalizationSettings.SelectedLocale.Identifier.ToString() == "Spanish(es)") return clue.ClueText;
                 else return clue.ClueTextEnglish;
             }
         }

@@ -9,11 +9,11 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameStartCam _gsc;
     [SerializeField] private GameObject _credits, _mainMenu, _settings, _playButton;
+    [SerializeField] private Toggle _spanishToggle, _englishToggle;
 
 
-    private void Start()
+    private IEnumerator Start()
     {
-        Cursor.visible = true;
 
         PauseGame.Instance.enabled = false;
 
@@ -21,6 +21,9 @@ public class MainMenu : MonoBehaviour
 
         Music.Instance.PlayMenuMusic();
 
+        yield return null;
+
+        Cursor.visible = true;
     }
 
     public void PlayGame()
@@ -53,6 +56,33 @@ public class MainMenu : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(_playButton);
             }
         }
+
+        if(EventSystem.current.currentSelectedGameObject) return;
+
+        if (_credits.activeSelf) EventSystem.current.SetSelectedGameObject(_credits.GetComponentInChildren<Button>().gameObject);
+        else if (_settings.activeSelf) EventSystem.current.SetSelectedGameObject(_settings.transform.Find("Cancel").gameObject);
+        else EventSystem.current.SetSelectedGameObject(_playButton);
+    }
+
+    public void EnterSecondaryMenu(GameObject cancelButton)
+    {
+        EventSystem.current.SetSelectedGameObject(cancelButton);
+
+        if (LocalizationSettings.SelectedLocale.Identifier.ToString() == "Spanish(es)")
+        {
+            _spanishToggle.isOn = true;
+            Debug.Log("togle español");
+        }
+        else
+        {
+            _englishToggle.isOn = true;
+            Debug.Log("togle ingles");
+        }
+    }
+
+    public void ExitSecondaryMenu()
+    {
+        EventSystem.current.SetSelectedGameObject(_playButton);
     }
 
     public void SetLanguage(bool spanish)
@@ -72,4 +102,5 @@ public class MainMenu : MonoBehaviour
         Debug.Log("ingles");
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
     }
+
 }

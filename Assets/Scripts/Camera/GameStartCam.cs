@@ -32,7 +32,11 @@ public class GameStartCam : MonoBehaviour
         if (Input.GetButton("Pause")) _pressTime += Time.deltaTime;
         else _pressTime = 0f;
 
-        if (_pressTime > 1.5f) SceneManager.LoadScene("Desert1_NC");
+        if (_pressTime > 1.5f)
+        {
+            PauseGame.Instance.enabled = true;
+            SceneManager.LoadScene("Desert1_NC");
+        }
     }
 
     public void GameStart()

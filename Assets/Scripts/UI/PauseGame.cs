@@ -104,6 +104,12 @@ public class PauseGame : MonoBehaviour
 
             else Resume();
         }
+
+        if (_eventSystem.currentSelectedGameObject) return;
+
+        if (_isOnClue) _eventSystem.SetSelectedGameObject(_cluePanel.transform.Find("Cancel").gameObject);
+        else if (_isOnLevelSelect) _eventSystem.SetSelectedGameObject(_levelSelectPanel.transform.Find("Cancel").gameObject);
+        else _eventSystem.SetSelectedGameObject(_pausePanel.transform.Find("Resume").gameObject);
     }
 
     public void Pause(bool pause)
@@ -128,6 +134,13 @@ public class PauseGame : MonoBehaviour
 
     private void Resume()
     {
+        StartCoroutine(ResumeAtNextFrame());
+
+    }
+
+    private IEnumerator ResumeAtNextFrame()
+    {
+        yield return null;
         Paused = false;
         _pausePanel.SetActive(false);
         _bgPanel.SetActive(false);
