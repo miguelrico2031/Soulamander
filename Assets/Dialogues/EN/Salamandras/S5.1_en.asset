@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: S5.1_en
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: 'Finally we meet, Golem...
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Let me introduce myself: I''m s5, the leader of this group of archaeologists.
+      They have all told me about you, and I have to say that it is quite a privilege
+      to be talking to what is probably the last golem in the world.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Although it is also a privilege for you to meet the great Chief Archaeologist...
+
+'
+    Emote: {fileID: -493232242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Well, we are in the heart of Emet, the great citadel. At one point, one
+      of the tallest buildings in the world.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'I suppose Victor has already told you something, but we are making great
+      progress in our research thanks to what we have found in this area.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'One of them is about something that I suppose you have already encountered,
+      but we still don''t have a name for them.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Florinda has suggested calling them "soul-devouring orbs," but it seems
+      a bit... too much.
+
+'
+    Emote: {fileID: -2051905409, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'But, as the name suggests, what we have been able to discover thanks to
+      you and certain writings is that these orbs were magical weapons, created by
+      the enemies of the city of Emet, in order to defeat their strongest weapon:
+      the golem army.
+
+      
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'It seems they work by absorbing the soul of the golems and storing it
+      inside.
+
+'
+    Emote: {fileID: 1760661674, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'This place is full of these orbs. I suppose they left them here after
+      defeating the golems and looting the citadel.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: However... Something we still don't fully understand is that, apparently,
+      after extracting the souls of all the golems, instead of destroying them, they
+      started storing them. We don't know where or for what purpose.
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'But it seems that the souls of the golems were sources of very powerful
+      magic, which these invaders wanted to take advantage of.
+
+'
+    Emote: {fileID: 1760661674, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'We will continue investigating to see what else we can discover, but for
+      now, be very careful, the path only gets more complicated from here on.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: Or don't be careful, it's not like I care...
+    Emote: {fileID: 905327365, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Well, but still be careful...
+
+'
+    Emote: {fileID: -2051905409, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 1
+    IsOver: 1
+  GameZone: 2

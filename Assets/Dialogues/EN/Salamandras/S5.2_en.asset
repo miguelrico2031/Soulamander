@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: S5.2_en
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: 'Golem! How good to see you again!
+
+'
+    Emote: {fileID: -493232242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: 'Ahem... I mean... Greetings Golem, I see that you have arrived here safe
+      and sound. Recently, we gathered the whole group to combine our discoveries
+      and make plans to organize the remaining investigation.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: 'We have discovered very important things behind the invasion. These findings
+      will not only change our understanding of the history of this region, but also
+      change our understanding of the history of the world.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: 'I feel that we are about to make history, but there are still very important
+      things left to discover, as if we were missing one final discovery that would
+      put all the pieces of the puzzle together... we are so close, I can feel it.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: 'This is being, and probably will be, the most important investigation
+      of my life, for which I will be remembered. And it has been an incredible experience.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: Being the first to explore and walk through what was one of the most important
+      places in our history is something irreplaceable.
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: 'But anyway, I''m getting off track, that''s not interesting to you, what
+      may interest you are the latest discoveries we have made.
+
+'
+    Emote: {fileID: -493232242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: 'You see, we have discovered that the invaders were storing souls in some
+      place in the citadel after the siege.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: 'It seems that their intention was to use them to create their own army
+      of golems with which they could create the most powerful empire ever seen,
+      but it seems that this did not work out.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: "They were carrying out many experiments with the souls but could not subdue
+      them. \n"
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: "The golems' souls seemed to have a strong will and did not allow themselves
+      to be subdued, so the invaders decided to loot the rest of the things they
+      could and left, leaving the souls somewhere in the citadel.\r"
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: 'We are about to find that place, I can feel it...
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  GameZone: 2

@@ -22,7 +22,7 @@ public class CameraEffector : MonoBehaviour
 
     private void Start()
     {
-        _newCameraBounds.GetComponent<SpriteRenderer>().enabled = false;
+        if (_newCameraBounds != null) _newCameraBounds.GetComponent<SpriteRenderer>().enabled = false;
         _isActive = true;
         _camera = GameObject.FindObjectOfType<CameraController>();
     }

@@ -1,0 +1,215 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: S3.S4_en
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: 'There you are, buddy! We were just talking about you.
+
+'
+    Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Hi little one, I''m Victor, in charge of exploring the lower neighborhoods
+      of the citadel. It''s a pleasure to finally meet you.
+
+'
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: Stop pretending to be interesting, grandpa, you're just as surprised as
+      the rest to see a live golem.
+    Emote: {fileID: 7749985, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: ' I never denied that Joel, I was just introducing myself!
+
+'
+    Emote: {fileID: -466627203, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'And I''m only 5 years older than you, stop calling me grandpa...
+
+'
+    Emote: {fileID: -466627203, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Victor is not only the oldest and wisest in the group but he also cooks
+      great. Too bad golems can''t eat, otherwise I''d give you some of the stew
+      he made for me this afternoon, it was awesome.
+
+'
+    Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'I''m glad you liked it so much.
+
+'
+    Emote: {fileID: -1843199287, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: But it would be nice if you put the same enthusiasm you put into my food
+      into exploring and investigating your area.
+    Emote: {fileID: -466627203, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'How annoying you are, grandpa, I''ve told you many times: there''s nothing
+      to explore in my area, it''s all caves and vegetation.
+
+'
+    Emote: {fileID: 7749985, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'That''s because you haven''t done any excavation, you spend the day walking
+      around.
+
+'
+    Emote: {fileID: -466627203, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'I promised I wouldn''t tell s5, but you have to take it more seriously.
+
+'
+    Emote: {fileID: -1668986495, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: Yeah yeah... Let's stop arguing, we're boring the buddy with our fight.
+    Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Alright, if you prefer we can tell him about the discoveries we''ve made...
+      well, that I''ve made in this area.
+
+'
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Zzzzzzzzz\u2026\r\n"
+    Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Ignore Joel, we just discovered something exciting...
+
+'
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'After translating dozens of texts from the citadel, we have discovered
+      the existence of a figure that seems to be very important to the civilization
+      that existed here.
+
+'
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'They refer to him as "The Creator"...
+
+'
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'We believe he may be some kind of deity to them, as we understand very
+      little about the culture of this civilization, but with the information we
+      have found, we cannot be sure. '
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: However, given the importance they give to this "Creator" in the texts,
+      we are sure we will find more information about him.
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Maybe they call that dude "Creator" because he created the golems...
+
+'
+    Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Good idea, Joel! I see you are gradually becoming more involved in the
+      research, huh!
+
+'
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Don''t flatter yourself, old man, it just seemed obvious to me...
+
+'
+    Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Ha ha ha, I''m sure at some point I''ll get you interested in these things
+      as much as the rest.
+
+'
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: ' Apart from the figure of "The Creator", we have also discovered many
+      other things about this civilization.
+
+'
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "In some inscriptions we have found, part of their history is told. It
+      tells how they were a people celebrated for their constructions and creations,
+      but they were not very skilled in war. \n"
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "This made them victims of constant attacks and looting by other kingdoms.\r"
+    Emote: {fileID: -1668986495, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'They were also a very marginalized people by the rest of the world, wherever
+      they went.
+
+'
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Probably all that gave rise to the need to create the army of golems...
+
+'
+    Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Most likely, it''s a good theory.
+
+'
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Well, it''s getting late and I have to go back to my camp to write the
+      daily report to S5. It''s been a cool chat, I hope we see each other again,
+      buddy.
+
+'
+    Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Well, if Joel is going to leave, I guess you should go too, I don''t want
+      to keep you any longer.
+
+'
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'You don''t have much further to go to get to the citadel, if you make
+      it, say hello to S5 for me.
+
+'
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 1
+    IsOver: 1
+  GameZone: 1

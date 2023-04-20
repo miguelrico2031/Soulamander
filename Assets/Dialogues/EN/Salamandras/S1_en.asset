@@ -13,62 +13,92 @@ MonoBehaviour:
   m_Name: S1_en
   m_EditorClassIdentifier: 
   _phrases:
-  - Text: Hello hello
+  - Text: 'What''s that? It can''t be... A golem...? Is it moving?
+
+'
     Emote: {fileID: 1864398730, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: how are you
+  - Text: 'Impossible... It must be a prank.
+
+'
     Emote: {fileID: -1101275521, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: omg hi
+  - Text: 'Always taking advantage of the new guy to play pranks and scare me.
+
+'
     Emote: {fileID: 1679744451, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "nose lo q sigue en spa\xF1ol es una prueba igual chao"
+  - Text: 'Wait... I can''t believe it... The light... you have the light on... As
+      it''s told in the stories...
+
+'
     Emote: {fileID: 1864398730, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Eres un golem vivo de verdad\u2026"
+  - Text: 'You''re a real golem!
+
+'
     Emote: {fileID: -1599704111, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Se pensaba que todos hab\xEDais muerto en la batalla por Emet."
+  - Text: 'It was thought that all of you had died in the golem war. I''m sorry,
+      I don''t know how to react to something like this.
+
+'
     Emote: {fileID: 1864398730, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "No me lo puedo creer, por fin encuentro algo interesante, ya no ser\xE9
-      la inutil del grupo."
+  - Text: 'A living golem... I can''t believe it, finally something interesting.
+      I won''t be the useless one in the group anymore!
+
+'
     Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: Tengo muchas preguntas que hacerte...
+  - Text: 'I have many questions to ask you...
+
+'
     Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Aunque supongo que va a ser dif\xEDcil si no puedes hablar."
+  - Text: 'Although I suppose it will be difficult if you can''t speak...
+
+'
     Emote: {fileID: -942866254, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Bueno no te preocupes, ser\xE9 yo la que hable."
+  - Text: 'Well, no need to worry, I''ll be the one doing the talking.
+
+'
     Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Soy parte de un grupo de arque\xF3logos y exploradores que estamos trabajando
-      aqu\xED, en las ruinas de Emet."
+  - Text: 'My name Is Anton. I''m part of a group of archaeologists and explorers
+      who are working on these ruins.
+
+'
     Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Poco se sabe de lo que les ocurri\xF3 a los golems o a la civilizaci\xF3n
-      que erigi\xF3 estas ruinas, as\xED que queremos ser los primeros en desvelar
-      estos misterios."
+  - Text: 'Little is known about what happened to the golems or the civilization
+      that built these ruins, so we want to be the first to uncover these mysteries.
+
+'
     Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "No s\xE9 cual ser\xE1 tu prop\xF3sito pero si continuas hacia delante
-      te encontrar\xE1s con m\xE1s de mis compa\xF1eros, seguro que ellos estar\xE1n
-      encantados de ayudarte."
+  - Text: 'I don''t know what your purpose is, but if you continue forward, you''ll
+      encounter more of my colleagues. I''m sure they''ll be happy to help you.
+
+'
     Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "They're gonna totally trip when they see a living golem... \r\n"
+    Emote: {fileID: 951679359, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 1
     IsOver: 1
   GameZone: 0

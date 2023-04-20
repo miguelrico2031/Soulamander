@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: S3
   m_EditorClassIdentifier: 
   _phrases:
-  - Text: "\xA1Eres t\xFA! Eres el golem del que s2 y s1 nos han hablado tanto. "
+  - Text: "\xA1Eres t\xFA! Eres el golem del que s2 y Ant\xF3n nos han hablado tanto.\r\n"
     Emote: {fileID: -723800454, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Como es que te has metido por estas cuevas, si tu intenci\xF3n era ir
-      a la ciudadela te has desviado un poco..."
+  - Text: "\xBFC\xF3mo es que te has metido por estas cuevas? Si tu intenci\xF3n
+      era ir a la ciudadela, te has desviado un poco, t\xEDo.\r\n"
     Emote: {fileID: -1089507445, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Pero bueno, no pasa nada, as\xED me haces compa\xF1ia."
+  - Text: "Pero bueno, da igual, as\xED me haces compa\xF1\xEDa. \xA1Ja ja ja ja!"
     Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Y no te preocupes que si todav\xEDa sigues queriendo ir a la ciudadela
-      lo puede hacer siguiendo hacia delante y subiendo por el entramado de cavernas
-      hasta el barrio bajo de la ciudadela"
+  - Text: "Pero no te rayes, si todav\xEDa sigues queriendo ir a la ciudadela, puedes
+      continuar hacia delante y subir por el entramado de cavernas. Al final encontrar\xE1s
+      una entrada a la ciudad.\r\n"
     Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
@@ -36,42 +36,44 @@ MonoBehaviour:
     Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Se me hace tan raro estar hablando con un golem, aunque supongo que desde
+  - Text: "Es una locura estar hablando con un golem\u2026 Aunque, supongo que desde
       tu perspectiva todo tiene que ser muy confuso tambi\xE9n, viendo tu antigua
-      civilizaci\xF3n en ruinas."
+      civilizaci\xF3n en ruinas.\r\n"
     Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Ha pasado mucho tiempo y muchas cosas desde la \xFAltima vez que los golems
-      habitaban este lugar, la \xE9poca de las grandes guerras y la magia se acab\xF3
-      hace tiempo."
+  - Text: "Ha pasado un huevo de tiempo desde que los golems habitaban este lugar.
+      La \xE9poca de las grandes guerras y la magia ha quedado en el pasado.\r\n"
     Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Y aunque ahora se vive mucho mejor que en anta\xF1o muchos de nosotros
-      seguimos fantaseando con el pasado e imagin\xE1ndonos c\xF3mo era la vida en
-      aquel entonces y sobretodo, c\xF3mo era vivir rodeados de magia."
+  - Text: "Y aunque ahora se vive de locos, muchos de nosotros seguimos fantaseando
+      con el pasado e imagin\xE1ndonos c\xF3mo era la vida en aquel entonces, c\xF3mo
+      era vivir rodeados de magia.\r\n"
     Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: Es por eso que me apunte a este viaje.
+  - Text: "Es por eso que me apunt\xE9 a este viaje\u2026\r\n"
     Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Aunque he de decir que no soy muy fan de tener que estar desenterrando
-      baratijas y traduciendo textos todo el d\xEDa, yo me apunt\xE9 m\xE1s por la
-      aventura."
+  - Text: "Aunque, la verdad, me da toda la pereza tener que estar desenterrando
+      baratijas y traduciendo textos todo el d\xEDa. Yo me apunt\xE9 m\xE1s bien
+      por la aventura.\r\n"
     Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "As\xED que tuve bastante suerte cuando me asignaron este lugar, aqu\xED
-      no hay casi trabajo que hacer ya que no hay casi ruinas, as\xED que puedo pasarme
-      el d\xEDa explorando estas frondosas cuevas y viendo a ver que peque\xF1os
-      animalitos puedo encontrar."
+  - Text: "As\xED que tuve bastante suerte cuando me asignaron este sitio. Aqu\xED
+      no hay que currar casi nada, ya que no hay muchas ruinas. "
     Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: Aunque tengo que andar con cuidado de que s4 no me pille holgazaneando...
+  - Text: "As\xED que puedo pasarme el d\xEDa explorando estas cuevas, que est\xE1n
+      chul\xEDsimas y viendo qu\xE9 peque\xF1os animalitos puedo encontrar.\r\n"
+    Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 1
+    IsOver: 1
+  - Text: Aunque tengo que andar con cuidado de que Vicotr no me pille holgazaneando...
     Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
@@ -79,8 +81,8 @@ MonoBehaviour:
     Emote: {fileID: -1089507445, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Bueno peque\xF1o, ya hablaremos en otro momento, sigue hacia adelante
-      y puede que nos volvamos a encontrar."
+  - Text: "Bueno t\xEDo, ya hablaremos en otro momento, sigue hacia adelante y puede
+      que nos volvamos a encontrar."
     Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 1
     IsOver: 1

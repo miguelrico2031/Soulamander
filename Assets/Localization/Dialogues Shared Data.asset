@@ -94,41 +94,54 @@ MonoBehaviour:
         - m_KeyId: 638615036571648
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639075378212864
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639125227515904
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639439146004480
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639489779642368
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639513313882112
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639529537449984
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639749151207424
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639802058158080
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639826938769408
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639838116589568
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639850473009152
           m_TableCodes:
           - es
+          - en
         - m_KeyId: 639554170597376
           m_TableCodes:
           - es
+          - en
         m_TypeString: Dialogue, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null

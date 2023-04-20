@@ -64,11 +64,16 @@ MonoBehaviour:
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 0
-  - Text: "Estuvieron llevando a cabo muchos experimentos con las almas pero no consiguieron
-      doblegarlas. Las almas de los golems parec\xEDan tener una gran voluntad y
-      no se dejaron someter, as\xED que los invasores decidieron saquear el resto
-      de cosas que pudieron y se marcharon, dejando a las almas en alg\xFAn lugar
-      de la ciudadela.\r\n"
+  - Text: 'Estuvieron llevando a cabo muchos experimentos con las almas pero no consiguieron
+      doblegarlas.
+
+'
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: "Las almas de los golems parec\xEDan tener una gran voluntad y no se dejaron
+      someter, as\xED que los invasores decidieron saquear el resto de cosas que
+      pudieron y se marcharon, dejando a las almas en alg\xFAn lugar de la ciudadela.\r"
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 0

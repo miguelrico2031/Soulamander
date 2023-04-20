@@ -13,98 +13,107 @@ MonoBehaviour:
   m_Name: S3.S4
   m_EditorClassIdentifier: 
   _phrases:
-  - Text: "\xA1Ah\xED est\xE1s! Justo est\xE1bamos hablando de t\xED."
+  - Text: "\xA1Ah\xED est\xE1s, colega! Justo est\xE1bamos hablando de t\xED.\r\n"
     Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Hola peque\xF1o, soy s4, el encargado de explorar los barrios bajos de
-      la ciudadela, es un placer conocerte por fin."
+  - Text: "Hola peque\xF1o, soy Victor, el encargado de explorar los barrios bajos
+      de la ciudadela. Es un placer conocerte por fin.\r\n"
     Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Deja de hacerte el interesante abuelo, est\xE1s tan sorprendido como el
-      resto de ver a un golem vivo."
+      resto de ver a un golem vivo.\r\n"
     Emote: {fileID: 7749985, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Solo te llevo 5 a\xF1os, deja de llamarme abuelo\u2026"
+  - Text: "\xA1Yo nunca he negado eso, simplemente me estaba presentando!\r\n"
     Emote: {fileID: -466627203, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "S4 no solo es \xE9l m\xE1s mayor y sabio del grupo sino que tambi\xE9n
+  - Text: "Y solo te llevo 5 a\xF1os, deja de llamarme abuelo\u2026"
+    Emote: {fileID: -466627203, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Victor no solo es \xE9l m\xE1s mayor y sabio del grupo sino que tambi\xE9n
       cocina genial. Una pena que los golems no pod\xE1is comer, sino te daria algo
-      del cocido que me hizo esta tarde, estaba espectacular"
+      del cocido que me hizo esta tarde, estaba  cojonudo.\r\n"
     Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: Me alegro de que te gustara tanto...
+  - Text: Me alegro de que te gustara tanto.
     Emote: {fileID: -1843199287, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Pero estar\xEDa bien si le pusieras el mismo entusiasmo que le pones a
-      mi comida a la exploraci\xF3n e investigaci\xF3n de tu zona."
+      mi comida, a explorar e investigar tu zona.\n"
     Emote: {fileID: -466627203, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Ya te lo he dicho muchas veces, en mi zona no hay nada que explorar, son
-      todo cuevas y vegetaci\xF3n."
+  - Text: "Qu\xE9 pesado eres abuelo, ya te lo he dicho muchas veces, en mi zona
+      no hay nada que explorar, son todo cuevas y vegetaci\xF3n.\r\n"
     Emote: {fileID: 7749985, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Eso es porque no has hecho ninguna excavaci\xF3n, te pasas el d\xEDa de
-      paseo."
+      paseo.\r\n"
     Emote: {fileID: -466627203, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Te promet\xED que no se lo dir\xEDa a s5 pero tienes que tom\xE1rtelo
-      m\xE1s en serio..."
+  - Text: "Te promet\xED que no se lo dir\xEDa a s5, pero tienes que tom\xE1rtelo
+      m\xE1s en serio.\r\n"
     Emote: {fileID: -1668986495, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: Dejemos ya el tema abuelo, estamos aburriendo al golem con nuestra pelea.
+  - Text: "Que siiii\u2026 Dejemos ya el tema abuelo, estamos aburriendo al coleg\xF3n
+      con nuestra pelea.\r\n"
     Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Bueno, si lo prefieres podemos contarle acerca de los descubrimientos
-      que hemos hecho\u2026, bueno, que he hecho en esta zona."
+  - Text: "Est\xE1 bien, si lo prefieres podemos contarle acerca de los descubrimientos
+      que hemos hecho\u2026, bueno, que HE hecho en esta zona.\r\n"
     Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: No se si eso es menos aburrio...
+  - Text: "Zzzzzzzzz\u2026\r\n"
     Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: Ignora a s3, hace nada descubrimos algo apasionante...
+  - Text: "Ignora a Joel, hace nada descubrimos algo apasionante\u2026\r\n"
     Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Despu\xE9s de traducir decenas de textos de la ciudadela hemos descubierto
       la existencia de una figura que parece ser muy importante para la civilizaci\xF3n
-      que existi\xF3 aqu\xED."
+      que existi\xF3 aqu\xED.\r\n"
     Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Se refieren a ella como \u201CCreador\u201D"
+  - Text: " Se refieren a ella como \u201CCreador\u201D...\r\n"
     Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Creemos que puede ser alg\xFAn tipo de deidad para ellos, pero con la
-      poca informaci\xF3n que hemos encontrado no podemos estar seguros, aunque viendo
-      la importancia que le dan a este \u201CCreador\u201D en los textos seguro que
-      encontramos m\xE1s informaci\xF3n sobre \xE9l."
+  - Text: "Creemos que puede ser alg\xFAn tipo de deidad para ellos, ya que entendemos
+      muy poco de la cultura de esta civilizaci\xF3n, pero solo con la informaci\xF3n
+      que hemos encontrado no podemos estar seguros."
     Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: Puede que le llamen creador porque fuera el creador de los golems.
+  - Text: "Aunque viendo la importancia que le dan a este \u201CCreador\u201D en
+      los textos seguro que encontramos m\xE1s informaci\xF3n sobre \xE9l.\r\n"
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "A lo mejor al pavo ese le llaman Creador porque cre\xF3 a los golems\u2026"
     Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Buena idea s3, veo que poco a poco te vas involucrando m\xE1s en las investigaciones
-      eh"
+  - Text: "!Buena idea, Joel! Veo que poco a poco te vas involucrando m\xE1s en las
+      investigaciones, \xA1eh!\r\n"
     Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Tampoco te creas, simplemente me parec\xEDa algo obvio\u2026"
+  - Text: "No te creas, simplemente me parec\xEDa algo obvio\u2026\r\n"
     Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
@@ -113,35 +122,39 @@ MonoBehaviour:
     Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "A parte de la figura del \u201CCreador\u201D hemos descubierto tambi\xE9n
+  - Text: "A parte de la figura del \u201CCreador\u201D, hemos descubierto tambi\xE9n
       muchas m\xE1s cosas sobre esta civilizaci\xF3n."
     Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "En algunas tablillas que hemos encontrado se relata parte de su historia,
-      en estas se cuenta como eran un pueblo c\xE9lebre por sus construcciones y
-      creaciones, pero no eran muy diestros en la guerra, esto les hizo ser v\xEDctimas
-      de ataques y saqueos constantes de otros reinos."
+  - Text: "En algunas inscripciones que hemos encontrado, se relata parte de su historia.
+      Se cuenta c\xF3mo eran un pueblo c\xE9lebre por sus construcciones y creaciones,
+      pero no eran muy diestros en la guerra. \n"
     Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Eran tambi\xE9n una gente muy marginalizada por el resto del mundo all\xE1
-      donde iban."
+  - Text: "Esto les hizo ser v\xEDctimas de ataques y saqueos constantes de otros
+      reinos.\r"
+    Emote: {fileID: -1668986495, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Eran tambi\xE9n una gente muy marginalizada por el resto del mundo, all\xE1
+      donde iban.\r\n"
     Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Seguramente de todo eso naciera la necesidad de crear el ej\xE9rcito de
-      golems."
+      golems\u2026\r\n\r\n"
     Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Seguramente, es una buena teor\xEDa."
+  - Text: "Seguramente, es una buena teor\xEDa.\r\n"
     Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Bueno, se est\xE1 haciendo tarde y tengo que volver a mi campamento para
-      escribir el reporte diario a S5, ha estado bien la charla, espero que nos veamos
-      alguna otra vez golem. "
+      escribir el reporte diario a S5. Ha estado guay la charla, espero que nos veamos
+      alguna otra vez, colega.\r\n"
     Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1

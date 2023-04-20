@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: End3_en
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: At first, fragile and weak, they could do little on their own, but their
+      creator did not give up and continued to experiment.
+    Emote: {fileID: 21300000, guid: f2d2f2560a17672459c3bd2b31f445a1, type: 3}
+    IsLast: 0
+    IsOver: 0
+  - Text: 'Thus, he managed to find a way to create hundreds of autonomous golems,
+      designed to protect and defend us.
+
+'
+    Emote: {fileID: 21300000, guid: f2d2f2560a17672459c3bd2b31f445a1, type: 3}
+    IsLast: 0
+    IsOver: 0
+  GameZone: 2

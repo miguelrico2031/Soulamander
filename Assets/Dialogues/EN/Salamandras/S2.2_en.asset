@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: S2.2_en
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: 'Wow, wow! You again! I didn''t think I''d run into you again.
+
+'
+    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'I don''t know if you''re interested in our discoveries, but as you can
+      see, I''ve found a few golems in pretty bad shape. These ones seem to have
+      been destroyed in battle.
+
+'
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'It''s curious how there were different types of golems. I suppose each
+      type served a different purpose, although they all seem to be equipped for
+      war. The golem army was the most feared of its time...
+
+'
+    Emote: {fileID: 663000818, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'I wonder if the civilization that controlled the golems assigned them
+      other tasks besides fighting.
+
+'
+    Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'I suppose so, because when this civilization disappeared, it was one of
+      the most advanced of its time. The golems must have had something to do with
+      that.
+
+'
+    Emote: {fileID: 663000818, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: It's a shame that so little is known about the history of that time.
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Wars, destruction, and the lack of written records have made it very difficult
+      to uncover the true story behind the rubble.
+
+'
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: But don't be sad! With the great team I have, we will be able to uncover
+      the mysteries hidden in these ruins and uncover the past!
+    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'My colleagues at the citadel are trying to decipher several inscriptions
+      on the walls...
+
+'
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Apparently, some talk about trivial things, like recipes, but others describe
+      the workings of magical devices or relate important moments in the civilization''s
+      history...
+
+'
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Thanks to this, we may be able to unravel many of the mysteries that intrigue
+      us.
+
+'
+    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 1
+    IsOver: 1
+  GameZone: 0

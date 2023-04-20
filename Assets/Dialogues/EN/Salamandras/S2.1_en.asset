@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: S2.1_en
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: "Oh my gosh, you're here already. Ant\xF3n told me about you, I didn't
+      expect to meet you so soon."
+    Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "At first, I thought Ant\xF3n was joking... but you really are a golem!\r\n"
+    Emote: {fileID: 1665278285, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'How did you turn back on? Were you on this whole time? Do you remember
+      anything from your past? Why are you the only one turned on?
+
+'
+    Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'I have so many questions... It''s a shame you can''t answer any of them.
+
+'
+    Emote: {fileID: 2082303845, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Actually, one of the few things we know about golems is that they were
+      unable to communicate, only listen and receive orders from their masters.
+
+'
+    Emote: {fileID: 663000818, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: ...
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Sometimes I can''t believe I''m really here. The citadel ahead is the
+      heart of the ancient golem civilization, and we are the first ones to arrive
+      here to learn more about you.
+
+'
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: " Ant\xF3n and I, Florinda, were assigned this desert area on the northern
+      periphery of the city, and so far we've discovered that this is where the last
+      battle of the Golem War was fought...\r\n"
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Se me hace dif\xEDcil de imaginar que existiera un ej\xE9rcito de golems
+      como el que se cuenta en los relatos, pero por lo que hemos descubierto en
+      esta zona, era cierto.\n"
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'But... how a salamander civilization like ours, 700 years ago, managed
+      to create and control an army of such proportions is still something that eludes
+      us. No one has been able to recreate such a feat since then.
+
+'
+    Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'But besides that, these ruins hide many other secrets.
+
+'
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: ' For example, we''ve unearthed many golems, but most of them aren''t destroyed
+      or damaged from the battle they fought. They''re just... turned off.
+
+'
+    Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'And this is even more noticeable in the citadel, where almost no golem
+      shows signs of having been destroyed in battle, as if they had simply been
+      robbed of what gave them life.
+
+'
+    Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Well, we''ll have to step up and study this place if we want to unravel
+      these mysteries... hehehe.
+
+'
+    Emote: {fileID: 663000818, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 1
+    IsOver: 1
+  GameZone: 0

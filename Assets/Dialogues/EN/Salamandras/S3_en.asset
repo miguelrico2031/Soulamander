@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: S3_en
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: "It's you! You're the golem that Florinda and Ant\xF3n have talked so much
+      about.\r\n"
+    Emote: {fileID: -723800454, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'How did you get into these caves? If your intention was to go to the citadel,
+      you''ve veered off course a bit, man.
+
+'
+    Emote: {fileID: -1089507445, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'But hey, it doesn''t matter, you''re keeping me company. Ha ha ha ha!
+
+'
+    Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'But don''t worry, if you still want to go to the citadel, you can keep
+      going forward and climb through the network of caverns. Eventually, you''ll
+      find an entrance to the city.
+
+'
+    Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: ...
+    Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'It''s crazy to be talking to a golem... Although, I suppose from your
+      perspective everything must be very confusing too, seeing your ancient civilization
+      in ruins.
+
+'
+    Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'It''s been a long time since the golems inhabited this place. The era
+      of the great wars and magic is in the past.
+
+'
+    Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'And even though life is much better now, many of us still fantasize about
+      the past and imagine what life was like back then, what it was like to live
+      surrounded by magic.
+
+'
+    Emote: {fileID: 1232805405, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'That''s why I signed up for this trip...
+
+'
+    Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Although, to be honest, I really don''t feel like digging up trinkets
+      and translating texts all day. I signed up more for the adventure.
+
+'
+    Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "So I got pretty lucky when they assigned me this site. There's not much
+      work to do here since there aren't many ruins. \n"
+    Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "So I can spend the day exploring these cool caves and seeing what little
+      animals I can find.\r"
+    Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 1
+    IsOver: 1
+  - Text: 'Although, I have to be careful not to get caught slacking off by Victor...
+
+'
+    Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Speaking of which, I had plans to have lunch with him...
+
+'
+    Emote: {fileID: -1089507445, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Anyway, dude, we''ll talk later. Keep going forward and maybe we''ll run
+      into each other again.
+
+'
+    Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 1
+    IsOver: 1
+  GameZone: 1

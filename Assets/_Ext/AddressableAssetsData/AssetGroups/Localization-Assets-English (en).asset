@@ -17,8 +17,73 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: e2930fdbcce8721408931ede9a62bcd2
   m_SerializeEntries:
-  - m_GUID: ba67e2a0649c9584f9c8c63c9e0812f1
-    m_Address: TestS1_en
+  - m_GUID: 455e9af4f4e20ab4a9f58ef8d1b2a0d5
+    m_Address: End1_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 820e6c490d9871f4e87b4ea2180cfea3
+    m_Address: End2_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 8af035d8792d14845becf471e29fe83d
+    m_Address: End3_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: a73353240c927784f91b0da411e52412
+    m_Address: End4_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: bb4e3fe924a5da945b015eecc72215f5
+    m_Address: End5_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: d47b2daf24f747042a52d6379d9a9cfb
+    m_Address: S1_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: e8e92f459889cf74298edd1164e5c6f6
+    m_Address: S2.1_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 3f207aedcd77f7844812caab9e456d96
+    m_Address: S2.2_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 77e18e86e82d5154b96fc138f2ae887d
+    m_Address: S3.S4_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 87fa74b487f5ef74398b74d8015eca14
+    m_Address: S3_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 6bcb3ba21aa32d54ebd49b83826807fc
+    m_Address: S4_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: a14716c364afb7c41983568176177cbb
+    m_Address: S5.1_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: cfdc6d251ba990146ab31212b6d49a20
+    m_Address: S5.2_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 1c109cc4bf5195d4981ffa290fa364ad
+    m_Address: Receta_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

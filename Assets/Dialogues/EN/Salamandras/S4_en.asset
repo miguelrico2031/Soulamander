@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb89026eab2a474691de7a190f31ccf, type: 3}
+  m_Name: S4_en
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Text: 'Can you hear me!?... Are you okay!?
+
+'
+    Emote: {fileID: 119673879, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'That thing had absorbed something from you, like your soul...
+
+'
+    Emote: {fileID: -503021160, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Thank goodness I arrived in time to save you from that... orb?!
+
+'
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: I thought you weren't going to wake up.
+    Emote: {fileID: -1668986495, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'It''s an artifact that we found recently and we had no idea what it did
+      or what it was for. Although seeing what it did to you, it seems like some
+      kind of weapon against golems.
+
+'
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'But what exactly did it absorb from you? Is it your soul? Do you even
+      have a soul?
+
+'
+    Emote: {fileID: -503021160, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Well, that doesn''t matter now. What matters is that you''re okay, but
+      from now on, be careful with those artifacts, I won''t always be there to save
+      you.
+
+'
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'You''re about to enter the high district of the citadel. We recently managed
+      to open the gates, and that''s where s5 is working, and it''s where we''ve
+      discovered most things.
+
+'
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'It''s very well-preserved, full of inscriptions and history. We have high
+      hopes of discovering something that can change our understanding of history
+      and bring us closer to the truth behind this place.
+
+'
+    Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: 'Whatever you''re looking for, you''re sure to find it there...
+
+'
+    Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 1
+    IsOver: 1
+  GameZone: 2

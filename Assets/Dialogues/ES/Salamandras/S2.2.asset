@@ -13,56 +13,57 @@ MonoBehaviour:
   m_Name: S2.2
   m_EditorClassIdentifier: 
   _phrases:
-  - Text: "\xA1Vaya, vaya! \xA1T\xFA otra vez! No pensaba volver a encontrarte."
+  - Text: " \xA1Vaya, vaya! \xA1T\xFA otra vez! No pensaba volver a encontrarte.\r\n"
     Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "No se si te interesan nuestros descubrimientos pero aqu\xED como puedes
+  - Text: "No s\xE9 si te interesan nuestros descubrimientos, pero aqu\xED como puedes
       ver he encontrado unos cuantos golems en bastante mal estado, estos s\xED parece
-      que fueron destruidos en batalla."
+      que fueron destruidos en batalla.\r\n"
     Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "No se si te interesan nuestros descubrimientos pero aqu\xED como puedes
-      ver he encontrado unos cuantos golems en bastante mal estado, estos s\xED parece
-      que fueron destruidos en batalla."
-    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
-    IsLast: 0
-    IsOver: 1
-  - Text: "Es curioso como hab\xEDa diferentes tipos de golem, supongo que cada tipo
+  - Text: "Es curioso como hab\xEDa diferentes tipos de golem. Supongo que cada tipo
       serv\xEDa para algo diferente, aunque todos parecen estar equipados para la
-      guerra. El ej\xE9rcito de golems era el m\xE1s temido de su \xE9poca."
+      guerra. El ej\xE9rcito de golems era el m\xE1s temido de su \xE9poca\u2026\r\n\r\n"
     Emote: {fileID: 663000818, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
   - Text: "Me pregunto si la civilizaci\xF3n que controlaba a los golems les encomendaban
-      otros tipos de tareas a parte de luchar."
+      otros tipos de tareas a parte de luchar.\r\n"
     Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Supongo que s\xED, dado que para cuando esta civilizaci\xF3n desapareci\xF3
-      era una de las m\xE1s avanzadas de su tiempo. Seguro los golems tuvieron que
-      ver algo con eso."
+  - Text: "Supongo que s\xED, porque cuando esta civilizaci\xF3n desapareci\xF3,
+      era una de las m\xE1s avanzadas de su tiempo. Seguro los golems tuvieron algo
+      que ver con eso.\r\n"
     Emote: {fileID: 663000818, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Es una pena que se sepa tan poco de la historia de esa \xE9poca, las guerras
-      y la destrucci\xF3n redujeron a cenizas grandes civilizaciones, y la falta
-      de registros escritos ha hecho que sea extremadamente dif\xEDcil descubrir
-      la verdadera historia detr\xE1s de los escombros."
+  - Text: "Es una pena que se sepa tan poco de la historia de esa \xE9poca.\n"
     Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: Pero no hay que entristecerse, con el gran equipo que tengo seremos capaces
-      de desenterrar los misterios escondidos en estas ruinas y desvelar el pasado.
+  - Text: "Las guerras y la destrucci\xF3n redujeron a cenizas grandes civilizaciones,
+      y la falta de registros escritos ha hecho que sea extremadamente dif\xEDcil
+      descubrir la verdadera historia detr\xE1s de los escombros.\r"
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: " \xA1Pero no hay que entristecerse! Con el gran equipo que tengo, \xA1seremos
+      capaces de desvelar los misterios escondidos en estas ruinas y desvelar el
+      pasado!\r\n"
     Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Mis compa\xF1eros en la ciudadela han empezado a descubrir inscripciones
-      en roca y tablillas de la \xE9poca con escritos detallando desde cosas tan
-      cotidianas como recetas hasta c\xF3mo operar ciertos artilugios m\xE1gicos.
-      Pero lo que m\xE1s me apasiona a mi es que esta civilizaci\xF3n parec\xEDa
-      tener la costumbre de escribir en estas inscripciones su historia."
+  - Text: "Mis compa\xF1eros en la ciudadela est\xE1n intentando descifrar varias
+      inscripciones en las paredes. \n"
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 0
+    IsOver: 1
+  - Text: "Al parecer, algunas hablan de cosas banales, como recetas de cocina, pero
+      otras parecen describir el funcionamiento de artilugios m\xE1gicos, o relatar
+      momentos importantes de la historia de la civilizaci\xF3n\u2026\r"
     Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1
@@ -71,3 +72,4 @@ MonoBehaviour:
     Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 1
     IsOver: 1
+  GameZone: 0
