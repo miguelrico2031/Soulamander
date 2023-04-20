@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameStartCam _gsc;
     [SerializeField] private GameObject _credits, _mainMenu, _settings, _playButton;
     [SerializeField] private Toggle _spanishToggle, _englishToggle;
+    [SerializeField] private Slider _musicSlider, _sfxSlider;
+    [SerializeField] private AudioMixer _audioMixer;
 
 
     private IEnumerator Start()
@@ -18,6 +21,14 @@ public class MainMenu : MonoBehaviour
         PauseGame.Instance.enabled = false;
 
         EventSystem.current.SetSelectedGameObject(_playButton);
+
+        float volume = PlayerPrefs.GetFloat("MusicVolume", -20f);
+        _musicSlider.value = volume;
+        _audioMixer.SetFloat("Music", volume <= -50f ? -80f : volume);
+
+        volume = PlayerPrefs.GetFloat("SFXVolume", -20f);
+        _sfxSlider.value = volume;
+        _audioMixer.SetFloat("SFX", volume <= -50f ? -80f : volume);
 
         Music.Instance.PlayMenuMusic();
 
@@ -101,6 +112,18 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("ingles");
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
+    }
+
+    public void ChangeMusicVolume(float volume)
+    {
+        _audioMixer.SetFloat("Music", volume <= -50f ? -80f : volume);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+    }
+
+    public void ChangeSFXVolume(float volume)
+    {
+        _audioMixer.SetFloat("SFX", volume <= -50f ? -80f : volume);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 
 }

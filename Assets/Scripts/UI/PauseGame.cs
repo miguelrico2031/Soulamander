@@ -177,7 +177,7 @@ public class PauseGame : MonoBehaviour
     public void ChangeSFXVolume(float volume)
     {
         _audioMixer.SetFloat("SFX", volume <= -50f ? -80f : volume);
-        PlayerPrefs.SetFloat("MusicVolume", volume);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 
     public void FadeOut()

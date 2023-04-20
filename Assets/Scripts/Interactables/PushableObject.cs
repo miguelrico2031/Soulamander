@@ -33,34 +33,6 @@ public class PushableObject : MonoBehaviour
     private void FixedUpdate()
     {
         WallAndRammerCheck();
-        /*
-        GameObject rayHit = RayCastHitWall(_interactableLayers);
-        if (rayHit != null)
-        {
-            if ((_groundLayer.value & (1 << rayHit.layer)) > 0)
-            {
-                HasHitWall = true;
-                _rb.velocity = new Vector2(0f, 0f);
-            }
-
-            if ((_golemLayer.value & (1 << rayHit.layer)) > 0)
-            {
-                if (rayHit.TryGetComponent<Rammer>(out Rammer doNotUse))
-                {
-                    _rb.isKinematic = false;
-                }
-                else
-                {
-                    _rb.isKinematic = true;
-                }
-            }
-        }
-        */
-
-        //if (HasHitWall && RayCastHitGround())
-        //{
-        //    _rb.isKinematic = true;
-        //}
 
         if (!_touchingScout && !_touchingSpirit) _rb.isKinematic = HasHitWall && RayCastHitGround();
     }
@@ -133,8 +105,31 @@ public class PushableObject : MonoBehaviour
             }
 
             else if ((_golemLayer.value & (1 << col.gameObject.layer)) > 0)
-            {    
-                if (col.TryGetComponent<Rammer>(out Rammer doNotUse)) _rb.isKinematic = false;
+            {
+                if (col.TryGetComponent<Rammer>(out Rammer doNotUse))
+                {
+                    bool others = false;
+                    foreach(var col2 in _wallHitColliders)
+                    {
+                        if (!col2) continue;
+                        if (col2.gameObject == gameObject || col2.transform.parent == transform) continue;
+                        if ((_golemLayer.value & (1 << col2.gameObject.layer)) > 0 && !col2.TryGetComponent<Rammer>(out Rammer doNotUse2))
+                        {
+                            _rb.isKinematic = true;
+                            _touchingScout = true;
+                            others = true;
+                            break;
+                        }
+                        else if((_spiritLayer.value & (1 << col2.gameObject.layer)) > 0)
+                        {
+                            _rb.isKinematic = true;
+                            _touchingSpirit = true;
+                            others = true;
+                            break;
+                        }
+                    }
+                    if(!others) _rb.isKinematic = false;
+                }
                 else
                 {
                     _rb.isKinematic = true;
