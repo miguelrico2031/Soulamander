@@ -121,6 +121,7 @@ public class PauseGame : MonoBehaviour
         _levelSelectPanel.SetActive(false);
         _cluePanel.SetActive(false);
         Time.timeScale = 0f;
+        Cursor.visible = true;
 
         _eventSystem.SetSelectedGameObject(_pausePanel.transform.Find("Resume").gameObject);
     }
@@ -133,6 +134,7 @@ public class PauseGame : MonoBehaviour
         _levelSelectPanel.SetActive(false);
         _cluePanel.SetActive(false);
         Time.timeScale = 1f;
+        Cursor.visible = false;
     }
 
     public void RestartLevel()
