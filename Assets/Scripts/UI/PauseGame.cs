@@ -104,6 +104,12 @@ public class PauseGame : MonoBehaviour
 
             else Resume();
         }
+
+        if (_eventSystem.currentSelectedGameObject) return;
+
+        if (_isOnClue) _eventSystem.SetSelectedGameObject(_cluePanel.transform.Find("Cancel").gameObject);
+        else if (_isOnLevelSelect) _eventSystem.SetSelectedGameObject(_levelSelectPanel.transform.Find("Cancel").gameObject);
+        else _eventSystem.SetSelectedGameObject(_pausePanel.transform.Find("Resume").gameObject);
     }
 
     public void Pause(bool pause)
@@ -121,18 +127,27 @@ public class PauseGame : MonoBehaviour
         _levelSelectPanel.SetActive(false);
         _cluePanel.SetActive(false);
         Time.timeScale = 0f;
+        Cursor.visible = true;
 
         _eventSystem.SetSelectedGameObject(_pausePanel.transform.Find("Resume").gameObject);
     }
 
     private void Resume()
     {
+        StartCoroutine(ResumeAtNextFrame());
+
+    }
+
+    private IEnumerator ResumeAtNextFrame()
+    {
+        yield return null;
         Paused = false;
         _pausePanel.SetActive(false);
         _bgPanel.SetActive(false);
         _levelSelectPanel.SetActive(false);
         _cluePanel.SetActive(false);
         Time.timeScale = 1f;
+        Cursor.visible = false;
     }
 
     public void RestartLevel()
@@ -146,7 +161,11 @@ public class PauseGame : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void OnClue(bool onClue) => _isOnClue = onClue;
+    public void OnClue(bool onClue)
+    {
+        _clueText.text = _clues.GetClue(SceneManager.GetActiveScene().name);
+        _isOnClue = onClue;
+    }
     public void OnLevelSelect(bool onLevelSelect) => _isOnLevelSelect = onLevelSelect;
 
     public void ChangeMusicVolume(float volume)
@@ -158,7 +177,7 @@ public class PauseGame : MonoBehaviour
     public void ChangeSFXVolume(float volume)
     {
         _audioMixer.SetFloat("SFX", volume <= -50f ? -80f : volume);
-        PlayerPrefs.SetFloat("MusicVolume", volume);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 
     public void FadeOut()

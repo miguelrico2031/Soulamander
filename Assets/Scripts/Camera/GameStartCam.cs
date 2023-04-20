@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class GameStartCam : MonoBehaviour
 {
@@ -16,9 +17,26 @@ public class GameStartCam : MonoBehaviour
 
     private PixelPerfectCamera _ppCamera;
 
+    private bool _canSkip = false;
+    private float _pressTime = 0f;
+
     private void Awake()
     {
         _ppCamera = GetComponent<PixelPerfectCamera>();
+    }
+
+    private void Update()
+    {
+        if (!_canSkip) return;
+
+        if (Input.GetButton("Pause")) _pressTime += Time.deltaTime;
+        else _pressTime = 0f;
+
+        if (_pressTime > 1.5f)
+        {
+            PauseGame.Instance.enabled = true;
+            SceneManager.LoadScene("Desert1_NC");
+        }
     }
 
     public void GameStart()
@@ -28,6 +46,7 @@ public class GameStartCam : MonoBehaviour
 
     private IEnumerator StartCinematic()
     {
+        _canSkip = true;
         Music.Instance.FadeOutMusic(2f);
         yield return new WaitForSeconds(2.5f);
 
@@ -81,6 +100,9 @@ public class GameStartCam : MonoBehaviour
         yield return new WaitForSeconds(6f);
 
         _initialAnimator.SetTrigger("Off");
+
+        _canSkip = false;
+
         _spirit.SetActive(true);
         _spirit.GetComponent<SpiritDim>().IsFading = false;
         PauseGame.Instance.enabled = true;
