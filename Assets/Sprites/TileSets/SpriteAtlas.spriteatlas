@@ -87,6 +87,8 @@ SpriteAtlas:
   - {fileID: -957981049, guid: 38a1c85244888c745922e592747e440a, type: 3}
   - {fileID: -1027639385, guid: 38a1c85244888c745922e592747e440a, type: 3}
   - {fileID: 412831109, guid: 38a1c85244888c745922e592747e440a, type: 3}
+  - {fileID: 21300000, guid: a1b03372a930b2b44a602b6dc0aaf94d, type: 3}
+  - {fileID: 21300000, guid: 7897de134b7b42345b923a5971027d61, type: 3}
   - {fileID: 1129354027, guid: 00374286228f7a24baf31171e46ad795, type: 3}
   - {fileID: -1799668313, guid: 00374286228f7a24baf31171e46ad795, type: 3}
   - {fileID: 333601807, guid: 00374286228f7a24baf31171e46ad795, type: 3}
@@ -180,6 +182,7 @@ SpriteAtlas:
   - {fileID: -1658364818, guid: 4f2e54ac8427109408595c805eb3dfc8, type: 3}
   - {fileID: -1272542617, guid: 4f2e54ac8427109408595c805eb3dfc8, type: 3}
   - {fileID: -559493726, guid: 4f2e54ac8427109408595c805eb3dfc8, type: 3}
+  - {fileID: 21300000, guid: 73d686cc7bfa5834481d46c6c0ceea5d, type: 3}
   - {fileID: 445010482, guid: abaf95fdd2cf26540977150eda55570b, type: 3}
   - {fileID: -1956006455, guid: abaf95fdd2cf26540977150eda55570b, type: 3}
   - {fileID: 1153645043, guid: abaf95fdd2cf26540977150eda55570b, type: 3}
@@ -508,6 +511,8 @@ SpriteAtlas:
   - image (39)_3
   - image (39)_0
   - image (39)_1
+  - TileColumnaRocaMusgo2
+  - TileColumnaRocaMusgo
   - image (50)_5
   - image (50)_4
   - image (50)_3
@@ -601,6 +606,7 @@ SpriteAtlas:
   - image (33)_1
   - image (33)_2
   - image (33)_3
+  - TileColumnaRocaMusgoTop
   - musgo-SheetDEFINITIVO_80
   - musgo-SheetDEFINITIVO_81
   - musgo-SheetDEFINITIVO_31

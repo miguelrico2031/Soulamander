@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3809151693757452589}
   - component: {fileID: 3809151693757452588}
   - component: {fileID: 3809151693757452590}
-  - component: {fileID: 4804054843309983579}
   m_Layer: 15
   m_Name: S3
   m_TagString: Untagged
@@ -138,47 +137,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogue: {fileID: 11400000, guid: a3a644d932fde974087fb6b5dbbbe357, type: 2}
---- !u!114 &4804054843309983579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3809151693757452585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackedObjects:
-  - rid: 8559432346572685421
-  references:
-    version: 2
-    RefIds:
-    - rid: 8559432346572685421
-      type: {class: TrackedMonoBehaviourObject, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
-      data:
-        m_Target: {fileID: 1563082655686546732, guid: c062a8186067bc34eb9065da76763909, type: 3}
-        m_TrackedProperties:
-          items:
-          - rid: 8559432346572685422
-        m_UpdateType: 0
-        m_Changed:
-          m_PersistentCalls:
-            m_Calls: []
-    - rid: 8559432346572685422
-      type: {class: LocalizedAssetProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
-      data:
-        m_Localized:
-          rid: 8559432346572685423
-        m_PropertyPath: _dialogue
-    - rid: 8559432346572685423
-      type: {class: LocalizedObject, ns: UnityEngine.Localization, asm: Unity.Localization}
-      data:
-        m_TableReference:
-          m_TableCollectionName: GUID:66c4ddfcdc12a534ea02156a26073a1f
-        m_TableEntryReference:
-          m_KeyId: 639125227515904
-          m_Key: 
-        m_FallbackState: 0
-        m_WaitForCompletion: 0
