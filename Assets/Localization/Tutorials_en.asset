@@ -84,6 +84,12 @@ MonoBehaviour:
       to jump strongly'
     m_Metadata:
       m_Items: []
+  - m_Id: 1026319102197760
+    m_Localized: 'Mossy walls
+
+      will make you slip'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

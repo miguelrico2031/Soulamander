@@ -71,6 +71,10 @@ MonoBehaviour:
     m_Localized: "Mant\xE9n pulsado\npara saltar con fuerza"
     m_Metadata:
       m_Items: []
+  - m_Id: 1026319102197760
+    m_Localized: "Las paredes con musgo\nte har\xE1n resbalar"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
