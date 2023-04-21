@@ -6,7 +6,7 @@ public class DummyScout : MonoBehaviour
 {
     private Animator _animator;
     private bool _move = false;
-    private float t = 0f, _speed = 0f;
+    private float _speed = 0f;
     private bool _right = true;
     private Rigidbody2D _rb;
     void Awake()

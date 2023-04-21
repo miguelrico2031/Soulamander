@@ -140,7 +140,7 @@ public class SpiritUnion : MonoBehaviour
         {
             if (collision.gameObject.layer != _npcLayer) return;
             _npcInArea = collision.GetComponent<NPC>();
-            _npcInArea.GetComponent<SpriteRenderer>().material = _outlineMaterial;
+            _npcInArea.SetMaterial(_outlineMaterial);
         }
         
     }
@@ -159,7 +159,7 @@ public class SpiritUnion : MonoBehaviour
             if (!_npcInArea) return;
             if (collision.gameObject != _npcInArea.gameObject) return;
 
-            _npcInArea.GetComponent<SpriteRenderer>().material = _defaultMaterial;
+            _npcInArea.SetMaterial(_defaultMaterial);
             _npcInArea = null;
 
         }
@@ -382,7 +382,7 @@ public class SpiritUnion : MonoBehaviour
             return;
         }
 
-        _npcInArea.GetComponent<SpriteRenderer>().material = _defaultMaterial;
+        _npcInArea.SetMaterial(_defaultMaterial);
 
         CanSwap = false;
         _golemInPossession.IsTalking = true;
@@ -398,7 +398,7 @@ public class SpiritUnion : MonoBehaviour
         _golemInPossession.IsTalking = false;
         _justEndedDialogue = true;
 
-        _npcInArea.GetComponent<SpriteRenderer>().material = _outlineMaterial;
+        _npcInArea.SetMaterial(_outlineMaterial);
     }
 
     private bool CheckIfOverlapping(Golem golem)

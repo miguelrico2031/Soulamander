@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3809151693757452588}
   - component: {fileID: 3809151693757452590}
   - component: {fileID: 4550980095794667853}
+  - component: {fileID: 35669301164168247}
   m_Layer: 15
   m_Name: S5
   m_TagString: Untagged
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogue: {fileID: 11400000, guid: f30fee0940f88ae4fb8f880ad70b8b37, type: 2}
+  _otherRenderers: []
 --- !u!114 &4550980095794667853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,3 +184,23 @@ MonoBehaviour:
           m_Key: 
         m_FallbackState: 0
         m_WaitForCompletion: 0
+--- !u!95 &35669301164168247
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809151693757452585}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d313fb4d0d0bc6478a48bd49d4d76c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
