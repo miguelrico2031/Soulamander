@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 96b1f5e61c26b2b44a9fc605c00ce937
+guid: b295f959b9ba0c14fb9091f9934efaf6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chonk_idle_0
+      name: silly_idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 94
-        height: 99
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b90cbe87831070244a04c0d06dafcb81
-      internalID: 363013829
+      spriteID: 49912c31a4f02f147873938d405f673c
+      internalID: 1952765369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chonk_idle_1
+      name: silly_idle_1
       rect:
         serializedVersion: 2
         x: 94
         y: 0
         width: 94
-        height: 99
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12f8c2dc3f7468f49a6418be345a451e
-      internalID: -516633376
+      spriteID: 34eaa9db6193bb54782fb30d1c7b71c9
+      internalID: -2020487373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chonk_idle_2
+      name: silly_idle_2
       rect:
         serializedVersion: 2
         x: 188
         y: 0
         width: 94
-        height: 99
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6e4df268273ef946ac38bc4c2601fd3
-      internalID: 1389170476
+      spriteID: b4c6dc4804db256489125f6bce4a6874
+      internalID: 2110366835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chonk_idle_3
+      name: silly_idle_3
       rect:
         serializedVersion: 2
         x: 282
         y: 0
         width: 94
-        height: 99
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 924f685364e592a4fae1e6b46d2522ba
-      internalID: 2080228206
+      spriteID: c3a4475010c3ef64eb49c72cc74a81cb
+      internalID: -1785444009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chonk_idle_4
+      name: silly_idle_4
       rect:
         serializedVersion: 2
         x: 376
         y: 0
         width: 94
-        height: 99
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa2febe9a987ae64f949f39062519567
-      internalID: -1209502659
+      spriteID: 2c7edfb76827bc540b89e430cc41ff53
+      internalID: 482906784
       vertices: []
       indices: 
       edges: []
@@ -232,11 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      chonk_idle_1: -516633376
-      chonk_idle_2: 1389170476
-      chonk_idle_4: -1209502659
-      chonk_idle_0: 363013829
-      chonk_idle_3: 2080228206
+      silly_idle_1: -2020487373
+      silly_idle_2: 2110366835
+      silly_idle_4: 482906784
+      silly_idle_0: 1952765369
+      silly_idle_3: -1785444009
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
