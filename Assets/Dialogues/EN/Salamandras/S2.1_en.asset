@@ -60,12 +60,6 @@ MonoBehaviour:
     Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Se me hace dif\xEDcil de imaginar que existiera un ej\xE9rcito de golems
-      como el que se cuenta en los relatos, pero por lo que hemos descubierto en
-      esta zona, era cierto.\n"
-    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
-    IsLast: 0
-    IsOver: 1
   - Text: 'But... how a salamander civilization like ours, 700 years ago, managed
       to create and control an army of such proportions is still something that eludes
       us. No one has been able to recreate such a feat since then.
