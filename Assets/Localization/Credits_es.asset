@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Credits_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 851d95881ca777a41a02202d7bacc5ee, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 7692566528
+    m_Localized: "Programaci\xF3n:\n\nMiguel Rico\nBorja Fierro"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1838573371392
+    m_Localized: 'Arte:
+
+
+      Candela Jimenez
+
+      Claudia Fernandez'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3778946482176
+    m_Localized: "Ant\xF3n Rodr\xEDguez\nM\xFAsica y Sonidos\nde uso libre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7627165876224
+    m_Localized: "<size=130%>Programaci\xF3n:</size>\nBorja Fierro - Miguel Rico\n\n<size=130%>Arte:</size>\nCandela
+      Jim\xE9nez - Claudia Fern\xE1ndez\n\nM\xFAsica y Sonidos externos de uso libre:\nAnt\xF3n
+      Rodr\xEDguez\n\n<size=70%>https://www.monodo.es/musica-y-sonidos</size>"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
