@@ -16,67 +16,74 @@ MonoBehaviour:
   - Text: "\xA1Golem! \xA1Qu\xE9 bien volver a verte!\r\n"
     Emote: {fileID: -493232242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Ejem\u2026 Quiero decir\u2026 Saludos Golem, veo que has llegado hasta
-      aqu\xED sano y salvo. Hace poco nos reunimos todo el grupo para juntar nuestros
-      descubrimientos y hacer planes para organizar lo que queda de la investigaci\xF3n.\r\n"
+      aqu\xED sano y salvo. \n"
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
-  - Text: "Hemos descubierto cosas muy importantes detr\xE1s de la invasi\xF3n. Estos
-      hallazgos no solo cambiar\xE1n nuestra comprensi\xF3n de la historia de esta
-      regi\xF3n, sino que tambi\xE9n cambiar\xE1n nuestra comprensi\xF3n de la historia
-      del mundo.\r\n"
+    IsOver: 1
+  - Text: "Hace poco nos reunimos todo el grupo para juntar nuestros descubrimientos
+      y hacer planes para organizar lo que queda de la investigaci\xF3n.\r \nHemos
+      descubierto cosas muy importantes detr\xE1s de la invasi\xF3n."
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
+  - Text: " Estos hallazgos no solo cambiar\xE1n nuestra comprensi\xF3n de la historia
+      de esta regi\xF3n, sino que tambi\xE9n cambiar\xE1n nuestra comprensi\xF3n
+      de la historia del mundo.\r\n"
+    Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
   - Text: "Siento que estamos a punto de hacer historia, pero todav\xEDa nos quedan
       cosas muy importantes por descubrir, es como si nos faltar\xE1 un \xFAltimo
-      hallazgo que terminara de juntar todas las piezas del puzzle\u2026, estamos
-      tan cerca, lo presiento.\r\n"
+      hallazgo que terminara de juntar todas las piezas del puzzle\u2026\n"
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
+  - Text: "Estamos tan cerca..., lo presiento.\r"
+    Emote: {fileID: -493232242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
+    IsLast: 0
+    IsOver: 1
   - Text: "Esta est\xE1 siendo, y probablemente ser\xE1 la investigaci\xF3n m\xE1s
       importante de mi vida, por la que ser\xE9 recordada. Y ha sido una incre\xEDble
       experiencia."
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Ser la primera en poder explorar y caminar por lo que fue uno de los lugares
       m\xE1s importantes de nuestra historia es algo irremplazable."
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Pero bueno, me estoy yendo por las ramas, eso a t\xED no te interesa,
       lo que s\xED puede que te interese son los \xFAltimos hallazgos que hemos hecho.\r\n"
     Emote: {fileID: -493232242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Ver\xE1s, hemos descubierto que los invasores estuvieron almacenando las
       almas en alg\xFAn lugar de la ciudadela tr\xE1s el asedio.\r\n"
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Parece ser que su intenci\xF3n era usarlas para crear su propio ej\xE9rcito
       de golems con los que podr\xEDan crear el imperio m\xE1s poderoso jam\xE1s
       visto, pero parece ser que eso no acab\xF3 funcionando.\r\n"
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: 'Estuvieron llevando a cabo muchos experimentos con las almas pero no consiguieron
       doblegarlas.
 
 '
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Las almas de los golems parec\xEDan tener una gran voluntad y no se dejaron
       someter, as\xED que los invasores decidieron saquear el resto de cosas que
       pudieron y se marcharon, dejando a las almas en alg\xFAn lugar de la ciudadela.\r"
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
-    IsOver: 0
+    IsOver: 1
   - Text: "Estamos a punto de encontrar ese lugar, lo presiento\u2026"
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0

@@ -62,10 +62,13 @@ MonoBehaviour:
     IsOver: 1
   - Text: "Pero\u2026 C\xF3mo una civilizaci\xF3n de hace 700 a\xF1os de salamandras
       como la nuestra lleg\xF3 a crear un ej\xE9rcito de golems de tales dimensiones
-      es algo que todav\xEDa se nos escapa. Nadie ha conseguido recrear tal haza\xF1a
-      desde entonces.\r\n"
+      es algo que todav\xEDa se nos escapa. \n"
     Emote: {fileID: -1630007343, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
+    IsOver: 1
+  - Text: "Nadie ha conseguido recrear tal haza\xF1a desde entonces.\r"
+    Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
+    IsLast: 1
     IsOver: 1
   - Text: 'Pero, a parte de eso, estas ruinas esconden muchos otros secretos.
 

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.7, y: 0}
+  _startDelay: 0
 --- !u!212 &768098010561305287
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -145,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.04, y: 0.04}
+  _startDelay: 0
 --- !u!1839735485 &676866756942991835
 Tilemap:
   m_ObjectHideFlags: 0
@@ -423,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0
 --- !u!212 &4733328616386982957
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -521,6 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0
 --- !u!212 &2617811511043769239
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -619,6 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0
 --- !u!212 &2460997218261050639
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -717,6 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.4, y: 0}
+  _startDelay: 0
 --- !u!212 &1223820602732438624
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -815,6 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0
 --- !u!212 &8778810666859829559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1307,6 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 0.8}
+  _startDelay: 0
 --- !u!212 &1987808719056395452
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1405,6 +1413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0
 --- !u!212 &8531679836812635329
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1503,6 +1512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0
 --- !u!212 &3450399370106333544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1601,6 +1611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.85, y: 0}
+  _startDelay: 0
 --- !u!212 &2252947212621207991
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1993,6 +2004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.2, y: 0.2}
+  _startDelay: 0
 --- !u!1839735485 &3464457300843980237
 Tilemap:
   m_ObjectHideFlags: 0
@@ -2237,6 +2249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.12, y: 0.12}
+  _startDelay: 0
 --- !u!1839735485 &3031377974136206260
 Tilemap:
   m_ObjectHideFlags: 0
@@ -2813,6 +2826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0
 --- !u!212 &2922155167613797041
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2911,6 +2925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.55, y: 0}
+  _startDelay: 0
 --- !u!212 &1105492111437315211
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3009,6 +3024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0
 --- !u!212 &3113695151082523644
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3390,7 +3406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a05ad9906bd414cb123d7dde722cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _atmosColor: {r: 0.24313727, g: 0.17254902, b: 0.30588236, a: 0.11764706}
+  _atmosColor: {r: 0.24313727, g: 0.17254902, b: 0.30588236, a: 0.13725491}
   _atmosImages:
   - {fileID: 8778810666859829559}
   - {fileID: 3113695151082523644}

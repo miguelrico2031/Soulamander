@@ -49,10 +49,9 @@ MonoBehaviour:
     Emote: {fileID: -2051905409, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Pero, como su nombre provisional indica, lo que hemos podido descubrir
-      gracias a t\xED y a ciertos escritos es que estos orbes eran unas armas m\xE1gicas,
-      creados por los enemigos del pueblo de Emet, con el fin de acabar con su arma
-      m\xE1s fuerte: el ej\xE9rcito de golems.\r\n"
+  - Text: "Hemos podido descubrir gracias a t\xED y a ciertos escritos es que estos
+      orbes eran unas armas m\xE1gicas, creados por los enemigos del pueblo de Emet,
+      con el fin de acabar con su arma m\xE1s fuerte: el ej\xE9rcito de golems.\r\n"
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
