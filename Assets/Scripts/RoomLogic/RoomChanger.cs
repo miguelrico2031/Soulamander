@@ -24,7 +24,6 @@ public class RoomChanger : MonoBehaviour
     private void ChangeRoom()
     {
         if(_golemsToDeactivate.Count == 0) {
-            Debug.Log(_golemsToDeactivate.Count);
             foreach (Golem golem in GameObject.FindObjectsOfType<Golem>())
             {
                 if (golem.State == GolemState.Available)

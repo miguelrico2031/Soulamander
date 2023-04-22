@@ -76,7 +76,7 @@ MonoBehaviour:
     Emote: {fileID: -466627203, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: 'I promised I wouldn''t tell s5, but you have to take it more seriously.
+  - Text: 'I promised I wouldn''t tell Sandra, but you have to take it more seriously.
 
 '
     Emote: {fileID: -1668986495, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
@@ -191,7 +191,7 @@ MonoBehaviour:
     IsLast: 0
     IsOver: 1
   - Text: 'Well, it''s getting late and I have to go back to my camp to write the
-      daily report to S5. It''s been a cool chat, I hope we see each other again,
+      daily report to Sandra. It''s been a cool chat, I hope we see each other again,
       buddy.
 
 '
@@ -206,7 +206,7 @@ MonoBehaviour:
     IsLast: 0
     IsOver: 1
   - Text: 'You don''t have much further to go to get to the citadel, if you make
-      it, say hello to S5 for me.
+      it, say hello to Sandra for me.
 
 '
     Emote: {fileID: 924411519, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}

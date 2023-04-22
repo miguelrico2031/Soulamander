@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S3
   m_EditorClassIdentifier: 
   _phrases:
-  - Text: "\xA1Eres t\xFA! Eres el golem del que s2 y Ant\xF3n nos han hablado tanto.\r\n"
+  - Text: "\xA1Eres t\xFA! Eres el golem del que Florinda y Ant\xF3n nos han hablado
+      tanto.\r\n"
     Emote: {fileID: -723800454, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
@@ -73,7 +74,7 @@ MonoBehaviour:
     Emote: {fileID: -988643245, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 1
     IsOver: 1
-  - Text: Aunque tengo que andar con cuidado de que Vicotr no me pille holgazaneando...
+  - Text: Aunque tengo que andar con cuidado de que Victor no me pille holgazaneando...
     Emote: {fileID: -2020201382, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.7, y: 0.75}
+  _startDelay: 0.1
 --- !u!212 &768098010561305287
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -145,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.04, y: 0.04}
+  _startDelay: 0
 --- !u!1839735485 &676866756942991835
 Tilemap:
   m_ObjectHideFlags: 0
@@ -388,6 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.55, y: 0.75}
+  _startDelay: 0.1
 --- !u!212 &2535546906496518956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -502,7 +505,7 @@ Transform:
   m_GameObject: {fileID: 1672099550808648048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13895.162, y: 8579.951, z: 1110.09}
+  m_LocalScale: {x: 34408.59, y: 23894.305, z: 1110.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7892902572145207115}
@@ -521,6 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0.1
 --- !u!212 &4733328616386982957
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -600,7 +604,7 @@ Transform:
   m_GameObject: {fileID: 2061144793483941764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 13895.162, y: 8579.951, z: 1110.09}
+  m_LocalScale: {x: 34408.59, y: 23894.305, z: 1110.09}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7892902572145207115}
@@ -619,6 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0.1
 --- !u!212 &2617811511043769239
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -698,7 +703,7 @@ Transform:
   m_GameObject: {fileID: 2136161881822859964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 13895.162, y: 8579.951, z: 1110.09}
+  m_LocalScale: {x: 34408.59, y: 23894.305, z: 1110.09}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7892902572145207115}
@@ -717,6 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0.1
 --- !u!212 &2460997218261050639
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -815,6 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.4, y: 0.55}
+  _startDelay: 0.1
 --- !u!212 &1223820602732438624
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -912,7 +919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff157186b2975f242a0f248ab72ec67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parallaxMultiplier: {x: 0.85, y: 1}
+  _parallaxMultiplier: {x: 0.85, y: 0.9}
+  _startDelay: 0.1
 --- !u!212 &344244114386214517
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -992,7 +1000,7 @@ Transform:
   m_GameObject: {fileID: 3941862912581295607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13895.162, y: 8579.951, z: 1110.09}
+  m_LocalScale: {x: 34408.59, y: 23894.305, z: 1110.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7892902572145207115}
@@ -1011,6 +1019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0.1
 --- !u!212 &8778810666859829559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1395,6 +1404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.7, y: 0.9}
+  _startDelay: 0.1
 --- !u!212 &4524160118455308089
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1585,7 +1595,7 @@ Transform:
   m_GameObject: {fileID: 5159640787721918221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 9.489581, y: 3, z: 1}
+  m_LocalScale: {x: 9.489581, y: 7.2263994, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5163981551558029337}
@@ -1604,6 +1614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0.1
 --- !u!212 &1987808719056395452
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1683,7 +1694,7 @@ Transform:
   m_GameObject: {fileID: 5369315524575614635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13895.162, y: 8579.951, z: 1110.09}
+  m_LocalScale: {x: 34408.59, y: 23894.305, z: 1110.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7892902572145207115}
@@ -1702,6 +1713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0.1
 --- !u!212 &8531679836812635329
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1781,7 +1793,7 @@ Transform:
   m_GameObject: {fileID: 5532473767337798441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 13895.162, y: 8579.951, z: 1110.09}
+  m_LocalScale: {x: 34408.59, y: 23894.305, z: 1110.09}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7892902572145207115}
@@ -1800,6 +1812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0.1
 --- !u!212 &3450399370106333544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1898,6 +1911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.85, y: 0.9}
+  _startDelay: 0.1
 --- !u!212 &2252947212621207991
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2290,6 +2304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.2, y: 0.2}
+  _startDelay: 0
 --- !u!1839735485 &3464457300843980237
 Tilemap:
   m_ObjectHideFlags: 0
@@ -2534,6 +2549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.12, y: 0.12}
+  _startDelay: 0
 --- !u!1839735485 &3031377974136206260
 Tilemap:
   m_ObjectHideFlags: 0
@@ -3091,7 +3107,7 @@ Transform:
   m_GameObject: {fileID: 7477260049319654790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 13895.162, y: 8579.951, z: 1110.09}
+  m_LocalScale: {x: 34408.59, y: 23894.305, z: 1110.09}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7892902572145207115}
@@ -3110,6 +3126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0.1
 --- !u!212 &2922155167613797041
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3208,6 +3225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 0.55, y: 0.65}
+  _startDelay: 0.1
 --- !u!212 &1105492111437315211
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3287,7 +3305,7 @@ Transform:
   m_GameObject: {fileID: 7652805128003765162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13895.162, y: 8579.951, z: 1110.09}
+  m_LocalScale: {x: 34408.59, y: 23894.305, z: 1110.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7892902572145207115}
@@ -3306,6 +3324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxMultiplier: {x: 1, y: 1}
+  _startDelay: 0.1
 --- !u!212 &3113695151082523644
 SpriteRenderer:
   m_ObjectHideFlags: 0

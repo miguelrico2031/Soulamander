@@ -76,10 +76,8 @@ MonoBehaviour:
     Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: 'My name Is Anton. I''m part of a group of archaeologists and explorers
-      who are working on these ruins.
-
-'
+  - Text: "My name Is Ant\xF3n. I'm part of a group of archaeologists and explorers
+      who are working on these ruins.\n"
     Emote: {fileID: -714119076, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1

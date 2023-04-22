@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: S2.1
   m_EditorClassIdentifier: 
   _phrases:
-  - Text: "Ahhh, ya est\xE1s aqu\xED Ant\xF3n me habl\xF3 de t\xED, no esperaba encontrarte
-      tan pronto."
+  - Text: "Ahhh, ya est\xE1s aqu\xED, Ant\xF3n me habl\xF3 de t\xED, no esperaba
+      encontrarte tan pronto."
     Emote: {fileID: -57156824, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
@@ -48,9 +48,9 @@ MonoBehaviour:
     Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "A \xC1nt\xF3n y a mi, Florinda, nos han asignado esta zona des\xE9rtica
-      en la periferia norte de la ciudad, y seg\xFAn por lo que hemos descubierto
-      por aqu\xED es donde se libr\xF3 la \xFAltima batalla de la Guerra de Piedra."
+  - Text: "A Ant\xF3n y a mi, Florinda, nos han asignado esta zona des\xE9rtica en
+      la periferia norte de la ciudad, y seg\xFAn por lo que hemos descubierto por
+      aqu\xED es donde se libr\xF3 la \xFAltima batalla de la Guerra de Piedra."
     Emote: {fileID: -213718860, guid: cfb9fd97018379e4aada1aa156aeaa4f, type: 3}
     IsLast: 0
     IsOver: 1

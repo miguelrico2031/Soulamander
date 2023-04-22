@@ -71,6 +71,10 @@ MonoBehaviour:
     m_Localized: "Mant\xE9n pulsado\npara saltar con fuerza"
     m_Metadata:
       m_Items: []
+  - m_Id: 1062934355062784
+    m_Localized: "\xA1Cuidado con el musgo\nque resbala!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

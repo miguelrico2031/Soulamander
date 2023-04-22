@@ -47,8 +47,8 @@ MonoBehaviour:
     IsLast: 0
     IsOver: 1
   - Text: "Est\xE1s a punto de entrar en el distrito alto de la ciudadela. Hace poco
-      conseguimos abrir las puertas, all\xED es donde s5 est\xE1 trabajando y es
-      el lugar donde hemos descubierto la mayor\xEDa de cosas.\r\n"
+      conseguimos abrir las puertas, all\xED es donde Sandra est\xE1 trabajando y
+      es el lugar donde hemos descubierto la mayor\xEDa de cosas.\r\n"
     Emote: {fileID: 21300000, guid: a6d7850b960f3fc4f93b50cea5f6103a, type: 3}
     IsLast: 0
     IsOver: 1

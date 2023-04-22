@@ -17,10 +17,9 @@ MonoBehaviour:
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "Me presento; soy s5, la l\xEDder del grupo de arque\xF3logos cuyos integrantes
-      ya has conocido en tu aventura. Todos ellos me han hablado de t\xED, y he de
-      decir que es todo un privilegio estar hablando con quien probablemente sea
-      el \xFAltimo golem del mundo."
+  - Text: "Me presento; soy Sandra, la l\xEDder del grupo de arque\xF3logos. Todos
+      ellos me han hablado de t\xED, y he de decir que es todo un privilegio estar
+      hablando con quien probablemente sea el \xFAltimo golem del mundo."
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
@@ -45,7 +44,7 @@ MonoBehaviour:
     Emote: {fileID: -1069827242, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0
     IsOver: 1
-  - Text: "S2 ha propuesto que los llamemos \u201Corbes devoradores de almas\u201D
+  - Text: "Florinda ha propuesto que los llamemos \u201Corbes devoradores de almas\u201D
       pero me parece un poco\u2026 demasiado."
     Emote: {fileID: -2051905409, guid: 7b9ea0e3f1c896a4cabcbe7328955b07, type: 3}
     IsLast: 0

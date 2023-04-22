@@ -204,6 +204,7 @@ public class Rammer : Golem
     }
     private void WallCheck()
     {
+
         foreach (var point in _wallCheckPoints)
         {
             _wallCheckColliders = new Collider2D[5];
@@ -213,6 +214,7 @@ public class Rammer : Golem
             {
                 if (!col) continue;
                 if (col.gameObject == gameObject) continue;
+                if (col.transform.parent) if (col.transform.parent.gameObject == gameObject) continue;
 
                 if ((_groundLayer.value & (1 << col.gameObject.layer)) > 0 || col.gameObject.layer == gameObject.layer)
                 {
