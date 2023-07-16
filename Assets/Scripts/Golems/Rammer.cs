@@ -224,12 +224,15 @@ public class Rammer : Golem
 
                 else if ((_pushableLayer.value & (1 << col.gameObject.layer)) > 0)
                 {
+                    Debug.Log("pushable layer");
                     if (!col.GetComponent<PushableObject>().HasHitWall)
                     {
+                        Debug.Log("pushable hasnt hit wall");
                         _isPushing = true;
                     }
                     else
                     {
+                        Debug.Log("pushable has hit wall");
                         _isPushing = false;
                         StopRunning();
                     }

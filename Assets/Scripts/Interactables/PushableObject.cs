@@ -9,13 +9,12 @@ public class PushableObject : MonoBehaviour
 
     [SerializeField] private LayerMask _interactableLayers;
     [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private LayerMask _golemLayer, _spiritLayer;
+    [SerializeField] private LayerMask _golemLayer;
     //[SerializeField] private float _gravityForce;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private float _groundCheckOffset, _wallCheckOffset;
 
-    private bool _touchingScout, _touchingSpirit;
     private bool _isGrounded;
     private Collider2D[] _wallHitColliders;
     private ContactFilter2D _wallCheckCF;
@@ -34,7 +33,7 @@ public class PushableObject : MonoBehaviour
     {
         WallAndRammerCheck();
 
-        if (!_touchingScout && !_touchingSpirit) _rb.isKinematic = HasHitWall && RayCastHitGround();
+        _rb.isKinematic = HasHitWall && RayCastHitGround();
     }
 
     private bool RayCastHitGround()
@@ -82,11 +81,11 @@ public class PushableObject : MonoBehaviour
     //    Gizmos.DrawCube(_collider.bounds.center, _collider.size * 0.9f + Vector2.right * _collider.size.x * _wallCheckOffset);
     //}
 
+
     private void WallAndRammerCheck()
     {
         HasHitWall = false;
-        _touchingScout = false;
-        _touchingSpirit = false;
+
         _wallHitColliders = new Collider2D[6];
         _wallHitsSize =
             Physics2D.OverlapBox(_collider.bounds.center, _collider.size * 0.9f + Vector2.right * _collider.size.x * _wallCheckOffset, 0f, _wallCheckCF, _wallHitColliders);
@@ -104,44 +103,6 @@ public class PushableObject : MonoBehaviour
                 _rb.velocity = new Vector2(0f, _rb.velocity.y);
             }
 
-            else if ((_golemLayer.value & (1 << col.gameObject.layer)) > 0)
-            {
-                if (col.TryGetComponent<Rammer>(out Rammer doNotUse))
-                {
-                    bool others = false;
-                    foreach(var col2 in _wallHitColliders)
-                    {
-                        if (!col2) continue;
-                        if (col2.gameObject == gameObject || col2.transform.parent == transform) continue;
-                        if ((_golemLayer.value & (1 << col2.gameObject.layer)) > 0 && !col2.TryGetComponent<Rammer>(out Rammer doNotUse2))
-                        {
-                            _rb.isKinematic = true;
-                            _touchingScout = true;
-                            others = true;
-                            break;
-                        }
-                        else if((_spiritLayer.value & (1 << col2.gameObject.layer)) > 0)
-                        {
-                            _rb.isKinematic = true;
-                            _touchingSpirit = true;
-                            others = true;
-                            break;
-                        }
-                    }
-                    if(!others) _rb.isKinematic = false;
-                }
-                else
-                {
-                    _rb.isKinematic = true;
-                    _touchingScout = true;
-                }
-            }
-
-            else if ((_spiritLayer.value & (1 << col.gameObject.layer)) > 0)
-            { 
-                _rb.isKinematic = true;
-                _touchingSpirit = true;
-            }
         }
     }
 }
