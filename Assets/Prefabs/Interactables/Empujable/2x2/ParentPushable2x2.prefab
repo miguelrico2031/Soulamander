@@ -112,7 +112,6 @@ MonoBehaviour:
     m_Bits: 262144
   _rb: {fileID: 1643759381302983671}
   _collider: {fileID: 4655744225333957934}
-  _groundCheckOffset: 0.05
   _wallCheckOffset: 0.15
 --- !u!61 &4655744225333957934
 BoxCollider2D:
@@ -138,7 +137,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9875406, y: 1.8882892}
+  m_Size: {x: 1.914734, y: 1.8882892}
   m_EdgeRadius: 0
 --- !u!50 &1643759381302983671
 Rigidbody2D:
@@ -219,7 +218,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4432702, y: 0.03}
+  m_Size: {x: 1.3598244, y: 0.03}
   m_EdgeRadius: 0
 --- !u!251 &7252024187423535968
 PlatformEffector2D:
@@ -319,7 +318,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9, y: 1.8908911}
+  m_Size: {x: 1.8317201, y: 1.8908911}
   m_EdgeRadius: 0
 --- !u!50 &2288658035146309878
 Rigidbody2D:
